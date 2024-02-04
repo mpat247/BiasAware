@@ -1,8 +1,8 @@
 // App.js
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './Home.css';
 
-const App = () => {
+const Home = () => {
   const [rotate, setRotate] = useState(true);
 
   useEffect(() => {
@@ -14,25 +14,20 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className="Home">
       <header className="App-header">
         <img
           className={`App-logo ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-          src="/image32.png" // Update the path to your gear icon
+          src="/gears/gearLeft.png" // Update the path to your gear icon
           alt="Rotating Gear"
         />
         <img
           className={`App-logo ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-          src="/image32.png" // Update the path to your gear icon
-          alt="Rotating Gear"
-        />
-        <img
-          className={`App-logo ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-          src="/image32.png" // Update the path to your gear icon
+          src="/gears/gearRight.png" // Update the path to your gear icon
           alt="Rotating Gear"
         />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/Home.js</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -47,4 +42,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;
