@@ -1,3 +1,12 @@
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .App {
   text-align: center;
 }
@@ -7,6 +16,14 @@
   pointer-events: none;
 }
 
+.rotating-gear {
+  animation: rotate 5s linear infinite; /* 5s rotation, linear timing, infinite loop */
+}
+
+.stopped-rotation {
+  animation: none; /* Remove animation when rotation is stopped */
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -14,7 +31,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #140C46; /* Updated background color */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
