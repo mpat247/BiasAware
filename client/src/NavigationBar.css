@@ -1,0 +1,36 @@
+/* NavigationBar.css */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #140C46;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 1000;
+    border-bottom: 2px solid white; /* Add a border at the bottom of the navigation bar */
+  }
+  
+  .brand {
+    font-size: 1.5em;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-right: 30px; /* Adjust the right margin between links */
+  }
+  
+  .navbar a:hover {
+    color: #61dafb;
+  }
+  

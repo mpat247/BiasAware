@@ -1,6 +1,7 @@
 // App.js
 import React, { useState, useEffect } from 'react';
 import './Home.css';
+import NavigationBar from './NavigationBar'; // Import the NavigationBar component
 
 const Home = () => {
   const [rotate, setRotate] = useState(true);
@@ -15,28 +16,60 @@ const Home = () => {
 
   return (
     <div className="Home">
+      <NavigationBar /> {/* Include the NavigationBar component */}
       <header className="App-header">
-        <img
-          className={`App-logo ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-          src="/gears/gearLeft.png" // Update the path to your gear icon
+      <img
+          style={{
+            width: '400px',
+            height: '400px',
+            position: 'absolute',
+            top: '15%',
+            left: '35%',
+            transform: 'translateX(-50%)'
+          }}
+          className={`App-logo App-logo.middle-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+          src="/gears/gearLeft.png"
           alt="Rotating Gear"
         />
         <img
-          className={`App-logo ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-          src="/gears/gearRight.png" // Update the path to your gear icon
+         style={{
+          width: '250px',
+          height: '250px',
+          position: 'absolute',
+          bottom: '25%',
+          right: '18%',
+          transform: 'translateY(-50%)'
+        }}
+          className={`App-logo App-logo.right-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+          src="/gears/gearLeft.png"
           alt="Rotating Gear"
         />
-        <p>
-          Edit <code>src/Home.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img
+         style={{
+          width: '250px',
+          height: '250px',
+          position: 'absolute',
+          top: '10%',
+          left: '24%',
+          transform: 'translateY(-50%)'
+        }}
+          className={`App-logo App-logo.top-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+          src="/gears/gearRight.png"
+          alt="Rotating Gear"
+        />
+        <img
+         style={{
+          width: '250px',
+          height: '250px',
+          position: 'absolute',
+          bottom: '-3%',
+          left: '%',
+          transform: 'translateY(-50%)'
+        }}
+          className={`App-logo App-logo.bottom-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+          src="/gears/gearRight.png"
+          alt="Rotating Gear"
+        />
       </header>
     </div>
   );

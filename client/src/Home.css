@@ -6,6 +6,34 @@
     transform: rotate(360deg);
   }
 }
+/* Home.css */
+body {
+  margin: 0;
+  padding-top: 60px; /* Adjust the value based on the height of your navbar */
+}
+
+.App-header {
+  background-color: #140C46;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding-top: 20px; /* Add padding to the top to avoid overlapping with the navbar */
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.rotating-gear,
+.stopped-rotation {
+  position: relative;
+  z-index: 1; /* Ensure the gear is above the content */
+}
 
 .App {
   text-align: center;
@@ -14,6 +42,35 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+/* Middle gear */
+.App-logo.middle-gear {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 30%;
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Adjust to center it perfectly */
+}
+
+/* Left gear */
+.App-logo.left-gear {
+  width: 80px; /* Adjust width as needed */
+  height: 80px; /* Adjust height as needed */
+  position: absolute;
+  top: 50%; /* Adjust vertical position */
+  left: 20%; /* Adjust horizontal position */
+  transform: translateY(-50%); /* Center it vertically */
+}
+
+/* Right gear */
+.App-logo.right-gear {
+  width: 80px; /* Adjust width as needed */
+  height: 80px; /* Adjust height as needed */
+  position: absolute;
+  bottom: 20%; /* Adjust vertical position */
+  right: 20%; /* Adjust horizontal position */
+  transform: translateY(50%); /* Center it vertically */
 }
 
 .rotating-gear {
