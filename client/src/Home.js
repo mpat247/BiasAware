@@ -20,8 +20,8 @@ const Home = () => {
       <header className="App-header">
       <img
           style={{
-            width: '400px',
-            height: '400px',
+            width: '33vw',
+            height: '33vw',
             position: 'absolute',
             top: '15%',
             left: '35%',
@@ -33,11 +33,11 @@ const Home = () => {
         />
         <img
          style={{
-          width: '250px',
-          height: '250px',
+          width: '22vw',
+          height: '22vw',
           position: 'absolute',
           bottom: '25%',
-          right: '18%',
+          right: '17.3%',
           transform: 'translateY(-50%)'
         }}
           className={`App-logo App-logo.right-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
@@ -46,11 +46,11 @@ const Home = () => {
         />
         <img
          style={{
-          width: '250px',
-          height: '250px',
+          width: '22vw',
+          height: '22vw',
           position: 'absolute',
-          top: '10%',
-          left: '24%',
+          top: '9%',
+          left: '22.5%',
           transform: 'translateY(-50%)'
         }}
           className={`App-logo App-logo.top-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
@@ -59,11 +59,11 @@ const Home = () => {
         />
         <img
          style={{
-          width: '250px',
-          height: '250px',
+          width: '22vw',
+          height: '22vw',
           position: 'absolute',
-          bottom: '-3%',
-          left: '%',
+          bottom: '-4%',
+          left: '28%',
           transform: 'translateY(-50%)'
         }}
           className={`App-logo App-logo.bottom-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
