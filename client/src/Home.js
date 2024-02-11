@@ -33,11 +33,11 @@ const Home = () => {
         />
         <img
          style={{
-          width: '22vw',
-          height: '22vw',
+          width: '26vw',
+          height: '26vw',
           position: 'absolute',
-          bottom: '25%',
-          right: '17.3%',
+          bottom: '28%',
+          right: '14%',
           transform: 'translateY(-50%)'
         }}
           className={`App-logo App-logo.right-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
