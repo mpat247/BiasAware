@@ -20,11 +20,17 @@ const Addictions = () => {
   };
 
   const getCurrentImages = () => {
-    const currentImage = images[currentImageIndex];
-    const prevImage1 = images[(currentImageIndex - 1 + images.length) % images.length];
-    const prevImage2 = images[(currentImageIndex - 2 + images.length) % images.length];
+    const currentImageIndex1 = currentImageIndex;
+    const currentImageIndex2 = (currentImageIndex + 1) % images.length;
+    const currentImageIndex3 = (currentImageIndex + 2) % images.length;
+    const currentImageIndex4 = (currentImageIndex + 3) % images.length;
 
-    return [prevImage2, prevImage1, currentImage];
+    return [
+      images[currentImageIndex1],
+      images[currentImageIndex2],
+      images[currentImageIndex3],
+      images[currentImageIndex4]
+    ];
   };
 
   return (
@@ -32,68 +38,24 @@ const Addictions = () => {
       <NavigationBar />
       <header className="App-header">
         <div className="addictions-container">
-          <h1 style={{ 
-            color: '#DD9313', 
-            fontFamily: 'Abhaya Libre ExtraBold', 
-            fontSize: '4em', 
-            marginTop: '-10px', 
-            marginRight: '100px',
-            textShadow: '2px 2px 4px rgba(168, 108, 6, 1)' // Updated text shadow with white color
-          }}>
-            A D D I C T I O N S
-          </h1>
-          <div style={{ display: 'flex' }}>
+          <h1>A D D I C T I O N S</h1>
+          <div>
             {getCurrentImages().map((image, index) => (
               <div
                 key={index}
                 style={{
-                  position: 'relative',
-                  width: '300px',
-                  height: '450px',
-                  marginRight: '20px',
-                  overflow: 'hidden',
+                  marginRight: index === 3 ? '-150px' : '20px',
                 }}
+                className={index === 2 ? 'centered-image' : 'regular-image'}
               >
-                {index === 2 ? (
-                  <img
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      borderRadius: '30px',
-                      objectFit: 'cover',
-                      position: 'absolute',
-                      left: '-50%', // Move the next image to the side
-                    }}
-                    src={image}
-                    alt={`Addictions Illustration ${currentImageIndex + index}`}
-                  />
-                ) : (
-                  <img
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      borderRadius: '30px',
-                      objectFit: 'cover',
-                    }}
-                    src={image}
-                    alt={`Addictions Illustration ${currentImageIndex + index}`}
-                  />
-                )}
+                <img
+                  src={image}
+                  alt={`Addictions Illustration ${currentImageIndex + index}`}
+                />
               </div>
             ))}
           </div>
-          <button
-            className="arrow-button"
-            style={{
-              marginTop: '20px',
-              background: 'none',
-              border: 'none',
-              fontSize: '24px',
-              color: '#DD9313',
-              cursor: 'pointer',
-            }}
-            onClick={nextImage}
-          >
+          <button className="arrow-button" onClick={nextImage}>
             ➡ Show Next
           </button>
         </div>
