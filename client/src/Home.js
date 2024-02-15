@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 import NavigationBar from './NavigationBar'; // Import the NavigationBar component
-
+import Addictions from './Addictions';
 const Home = () => {
   const [rotate, setRotate] = useState(true);
 
@@ -70,7 +70,14 @@ const Home = () => {
           src="/gears/gearRight.png"
           alt="Rotating Gear"
         />
+         {/* Add a link to scroll to the Addictions section */}
+         <a href="#addictions" style={{ color: 'white', textDecoration: 'none', fontSize: '14px', marginTop: '-100px', marginLeft: '60px' }}>
+          <h2>Explore Addictions</h2>
+        </a>
       </header>
+
+      {/* Add the Addictions component with an id */}
+      <Addictions />
     </div>
   );
 };
