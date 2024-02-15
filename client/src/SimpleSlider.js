@@ -3,8 +3,12 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './SimpleSlider.css'; // Make sure the path is correct
-import img1 from './1.jpg'; // Adjust the path as necessary
-import square from './square.jpg'; // Adjust the path as necessary
+import basketball from './images/image 7.png'; // Adjust the path as necessary
+import cricket from './images/image 8.png'; // Adjust the path as necessary
+import volleyball from './images/image 9.png'; // Adjust the path as necessary
+import hockey from './images/image 10.png'; // Adjust the path as necessary
+import bingo from './images/image 11.png'; // Adjust the path as necessary
+import tennis from './images/image 12.png'; // Adjust the path as necessary
 
 const SimpleSlider = () => {
     return (
@@ -14,17 +18,17 @@ const SimpleSlider = () => {
                 <div className="box-row">
                     <div className="box yellow">
                         <div className="image-container">
-                            <img src={img1} alt="Pikachu" className="box-image"/>
+                            <img src={basketball} alt="basketball" className="box-image"/>
                         </div>
                     </div>
                     <div className="box orange">
                         <div className="image-container">
-                            <img src={square} alt="Square" className="box-image"/>
+                            <img src={cricket} alt="cricket" className="box-image"/>
                         </div>
                     </div>
                     <div className="box peach">
                         <div className="image-container">
-                            <img src="image3.jpg" alt="Image 3" className="box-image" />
+                            <img src={volleyball} alt="volleyball" className="box-image"/>
                         </div>
                     </div>
                 </div>
@@ -33,17 +37,17 @@ const SimpleSlider = () => {
                 <div className="box-row">
                     <div className="box pink">
                         <div className="image-container">
-                            <img src="image4.jpg" alt="Image 4" className="box-image" />
+                            <img src={hockey} alt="hockey" className="box-image"/>
                         </div>
                     </div>
                     <div className="box magenta">
                         <div className="image-container">
-                            <img src="image5.jpg" alt="Image 5" className="box-image" />
+                            <img src={bingo} alt="bingo" className="box-image"/>  
                         </div>
                     </div>
                     <div className="box purple">
                         <div className="image-container">
-                            <img src="image6.jpg" alt="Image 6" className="box-image" />
+                            <img src={tennis} alt="tennis" className="box-image"/>
                         </div>
                     </div>
                 </div>
@@ -63,6 +67,25 @@ const SimpleSlider = () => {
                     <div className="box peach">
                         <div className="image-container">
                             <img src="image9.jpg" alt="Image 9" className="box-image" />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Slide 4 */}
+                <div className="box-row">
+                    <div className="box pink">
+                        <div className="image-container">
+                            <img src="image10.jpg" alt="Image 10" className="box-image" />
+                        </div>
+                    </div>
+                    <div className="box magenta">
+                        <div className="image-container">
+                            <img src="image11.jpg" alt="Image 11" className="box-image" />
+                        </div>
+                    </div>
+                    <div className="box purple">
+                        <div className="image-container">
+                            <img src="image12.jpg" alt="Image 12" className="box-image" />
                         </div>
                     </div>
                 </div>

@@ -95,7 +95,7 @@
     justify-content: center;
     align-items: center;
     margin: 3vw;
-    border-radius: 7px;
+    border-radius: 5px;
     border: none;
 }
 
@@ -125,6 +125,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 .box .box-image {
