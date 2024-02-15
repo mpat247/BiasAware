@@ -29,7 +29,13 @@ const Activities = () => {
 
   return (
     <div className="activities-container">
-      <h1>A C T I V I T I E S</h1>
+      <h1 style={{ 
+            color: '#DD9313', 
+            fontFamily: 'Abhaya Libre ExtraBold', 
+            fontSize: '4em', 
+            
+            textShadow: '2px 2px 4px rgba(168, 108, 6, 1)' // Updated text shadow with white color
+          }} >A C T I V I T I E S</h1>
       <Slider {...settings}>
         {activities.map((activity, index) => (
             <div key={index} className="activity-card">
