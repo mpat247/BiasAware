@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavigationBar from './NavigationBar';
-import './Addictions.css'; // Import the corresponding CSS file
+import './Addictions.css';
 
 const Addictions = () => {
   const images = [
@@ -33,26 +33,34 @@ const Addictions = () => {
     ];
   };
 
+  const ImageComponent = ({ src, alt }) => {
+    return (
+      <div className="image-component">
+        <img src={src} alt={alt} />
+      </div>
+    );
+  };
+
   return (
     <div id="addictions" className="Addictions">
       <NavigationBar />
       <header className="App-header">
         <div className="addictions-container">
-          <h1>A D D I C T I O N S</h1>
-          <div>
+          <h1 style={{ 
+            color: '#DD9313', 
+            fontFamily: 'Abhaya Libre ExtraBold', 
+            fontSize: '4em', 
+            textShadow: '2px 2px 4px rgba(168, 108, 6, 1)'
+          }}>
+            A D D I C T I O N S
+          </h1>
+          <div style={{ display: 'flex' }}>
             {getCurrentImages().map((image, index) => (
-              <div
+              <ImageComponent
                 key={index}
-                style={{
-                  marginRight: index === 3 ? '-150px' : '20px',
-                }}
-                className={index === 2 ? 'centered-image' : 'regular-image'}
-              >
-                <img
-                  src={image}
-                  alt={`Addictions Illustration ${currentImageIndex + index}`}
-                />
-              </div>
+                src={image}
+                alt={`Addictions Illustration ${currentImageIndex + index}`}
+              />
             ))}
           </div>
           <button className="arrow-button" onClick={nextImage}>

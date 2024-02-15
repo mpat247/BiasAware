@@ -1,36 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 /* NavigationBar.css */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #140C46;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    z-index: 1000;
-    border-bottom: 2px solid white; /* Add a border at the bottom of the navigation bar */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0e0930;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  z-index: 10000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Roboto', sans-serif;
   
-  .brand {
-    font-size: 1.5em;
-  }
-  
-  .nav-links {
-    display: flex;
-    align-items: center;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    margin-right: 30px; /* Adjust the right margin between links */
-  }
-  
-  .navbar a:hover {
-    color: #61dafb;
-  }
-  
+}
+
+.brand {
+  font-size: 1.25em;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.brand:hover {
+  color: #F5A720;
+}
+
+.brand-container {
+  /* For brand alignment */
+}
+
+.nav-links-container {
+  padding-right: 50px; /* Adjust this value to move the links to the right */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 0;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease-out;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #F5A720;
+  transition: width 0.2s ease, left 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #F5A720;
+  transform: translateY(-5px);
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+  left: 0;
+}
