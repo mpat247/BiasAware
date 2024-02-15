@@ -1,6 +1,9 @@
+.statistics-page {
+    background-color: #0B0533;
+}
+
 .activities-container {
     background-color: #0B0533; /* Navy blue background */
-    color: #F5A720; /* Gold text */
     text-align: center;
     padding: 40px;
 }
@@ -24,7 +27,6 @@ h1 {
     margin-bottom: 40px; /* Increase margin to create gap between cards */
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Optional: Add shadow */
 }
 
 .activity-card img {
@@ -45,7 +47,6 @@ h1 {
     color: #fff; /* Set label color */
     padding: 10px; /* Add padding for better visibility */
     width: 100%; /* Make label span entire width */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
 }
 
 .activity-card::before {
@@ -55,6 +56,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(11, 5, 51, 0.7); /* Navy blue background with opacity */
     z-index: 1;
 }
 
@@ -64,7 +66,6 @@ h1 {
         width: calc(50% - 20px); /* Adjust width and margin for smaller screens */
     }
 }
-
 
 .slick-prev,
 .slick-next {
