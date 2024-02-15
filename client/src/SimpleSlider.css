@@ -1,0 +1,153 @@
+.statistics-page {
+    background-color: #0B0533;
+}
+
+/* SimpleSlider.css */
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set the height of the container to full viewport height */
+}
+
+.carousel-root {
+    max-width: 90%; /* Adjust the maximum width of the container */
+    margin: 0 auto;
+}
+
+.carousel.carousel-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel.carousel-slider .slider-wrapper {
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.carousel.carousel-slider .slider-wrapper.axis-horizontal .slider {
+    display: flex;
+    flex-direction: row; /* Ensure slides are displayed side by side */
+}
+
+.carousel.carousel-slider .slider-wrapper.axis-horizontal .slider .slide {
+    flex: 0 0 100%; /* Ensure each slide takes full width */
+}
+
+.carousel .control-arrow {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+
+}
+
+.carousel .control-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel .control-disabled.control-arrow {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.carousel .control-prev.control-arrow {
+    left: 0.75vw; /* Adjust this value to move the arrows left */
+    top: 50%; /* Adjust this value to vertically center the arrows */
+}
+
+.carousel .control-next.control-arrow {
+    right: 0.75vw; /* Adjust this value to move the arrows right */
+    top: 50%; /* Adjust this value to vertically center the arrows */
+}
+
+.carousel .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.box-row {
+    display: flex; /* Display boxes in a row */
+    justify-content: space-around; /* Adjust as needed */
+    align-items: center;
+    width: 100%; /* Ensure full width */
+}
+
+.box {
+    width: 22vw; /* Use viewport width for box width */
+    height: 40vh; /* Use viewport height for box height */
+    background-color: grey;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3vw; /* Use viewport width for box margin */
+    border-radius: 7px;
+    border: none;
+}
+
+.carousel .slide p {
+    font-size: 24px;
+}
+
+/* 
+.carousel-container .box {
+    width: 22vw; 
+    height: 30vh;
+    background-color: grey;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2vw; 
+    border-radius: 10px; 
+} */
+
+/* Add additional classes for different box colors */
+.box.yellow {
+    background-color: #F5A720;
+}
+
+.box.orange {
+    background-color: #D9822A;
+}
+
+.box.peach {
+    background-color: #BE5C43;
+}
+
+/* Add additional classes for different box colors */
+.box.pink {
+    background-color: #b14a73;
+}
+
+.box.magenta {
+    background-color: #A33862;
+}
+
+.box.purple {
+    background-color: #6A2774;
+}
+
+

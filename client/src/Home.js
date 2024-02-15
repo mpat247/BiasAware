@@ -15,10 +15,16 @@ const Home = () => {
   }, []);
 
   return (
+    
     <div className="Home">
-      <NavigationBar /> {/* Include the NavigationBar component */}
       <header className="App-header">
-      <img
+      <NavigationBar /> {/* Include the NavigationBar component */}
+      
+      </header>
+
+    <body>
+      <div>
+    <img
           style={{
             width: '33vw',
             height: '33vw',
@@ -70,7 +76,10 @@ const Home = () => {
           src="/gears/gearRight.png"
           alt="Rotating Gear"
         />
-      </header>
+    </div>
+
+    </body>
+    
     </div>
   );
 };
