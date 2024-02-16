@@ -19,17 +19,25 @@ const Addictions = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
+  const previousImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
   const getCurrentImages = () => {
-    const currentImageIndex1 = currentImageIndex;
-    const currentImageIndex2 = (currentImageIndex + 1) % images.length;
-    const currentImageIndex3 = (currentImageIndex + 2) % images.length;
-    const currentImageIndex4 = (currentImageIndex + 3) % images.length;
+    const currentImageIndex1 = (currentImageIndex + images.length - 1) % images.length;
+    const currentImageIndex2 = currentImageIndex;
+    const currentImageIndex3 = (currentImageIndex + 1) % images.length;
+    const currentImageIndex4 = (currentImageIndex + 2) % images.length;
+    const currentImageIndex5 = (currentImageIndex + 3) % images.length;
 
     return [
       images[currentImageIndex1],
       images[currentImageIndex2],
       images[currentImageIndex3],
-      images[currentImageIndex4]
+      images[currentImageIndex4],
+      images[currentImageIndex5]
     ];
   };
 
@@ -63,6 +71,9 @@ const Addictions = () => {
               />
             ))}
           </div>
+          <button className="arrow-button" onClick={previousImage}>
+            ⬅ Show Previous
+          </button>
           <button className="arrow-button" onClick={nextImage}>
             ➡ Show Next
           </button>

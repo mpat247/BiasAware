@@ -1,4 +1,5 @@
 // App.js
+import { FaArrowUp } from 'react-icons/fa'; // Assuming you are using react-icons for icons
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 import NavigationBar from './NavigationBar'; // Import the NavigationBar component
@@ -6,6 +7,14 @@ import Addictions from './Addictions';
 
 const Home = () => {
   const [rotate, setRotate] = useState(true);
+
+   // Add a function to handle scrolling to the top
+   const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // Smooth scrolling animation
+    });
+  }
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -81,6 +90,11 @@ const Home = () => {
         <a href="#addictions" className="explore-addictions-link">
           <h2>Explore Addictions</h2>
         </a>
+ {/* Add the scroll-to-top button/icon */}
+ <button className="scroll-to-top-button" onClick={scrollToTop}>
+          <FaArrowUp />
+        </button>
+        
       </main>
 
       {/* Add the Addictions component with an id */}
