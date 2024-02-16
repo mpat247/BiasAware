@@ -1,97 +1,252 @@
 .statistics-page {
     background-color: #0B0533;
-}
+    text-align: center; /* Centers text elements */
+    /* Ensure there's no padding or margin causing the extra space */
+    padding: 0;
+    margin: 0;
+  }
 
-.activities-container {
-    background-color: #0B0533; /* Navy blue background */
-    text-align: center;
-    padding: 40px;
-}
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.activity-cards {
+  .carousel-container {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    gap: 20px; /* Add gap between cards */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-start; /* Aligns children to the start of the container */
+    align-items: center; /* Centers children horizontally */
+    height: auto; /* Adjust height to content */
+    background-color: #0B0533; /* Ensure the background color fills the container */
+    /* Remove padding-top or set it to a smaller value */
+    margin-top: 0; /* Adjust or remove to reduce space */
+    /* ... other styles */
+  }
+
+
+
+.carousel-root {
+    max-width: 90%; /* Adjust the maximum width of the container */
+    margin: 0 auto;
 }
 
-.activity-card {
+.carousel.carousel-slider {
     position: relative;
-    width: calc(33.33% - 20px); /* Adjust width and margin as needed */
-    margin-bottom: 40px; /* Increase margin to create gap between cards */
-    border-radius: 10px;
     overflow: hidden;
+    width: 100%;
 }
 
-.activity-card img {
-    width: 100%; /* Ensure the image takes up the entire card */
-    height: auto;
-    display: block;
-    border-radius: 10px; /* Optional: if you want rounded corners */
+.carousel.carousel-slider .slider-wrapper {
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
 }
 
-.activity-label {
+.carousel.carousel-slider .slider-wrapper.axis-horizontal .slider {
+    display: flex;
+    flex-direction: row; /* Ensure slides are displayed side by side */
+}
+
+.carousel.carousel-slider .slider-wrapper.axis-horizontal .slider .slide {
+    flex: 0 0 100%; /* Ensure each slide takes full width */
+}
+
+.carousel .control-arrow {
     position: absolute;
-    top: -10px; /* Adjust label position */
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 1.2rem; /* Adjust label font size */
     z-index: 2;
-    color: #fff; /* Set label color */
-    padding: 10px; /* Add padding for better visibility */
-    width: 100%; /* Make label span entire width */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: #DD9313; /* Themed color */
+    color: white;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    opacity: 0.8; /* Slightly transparent */
+
 }
 
-.activity-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.carousel .control-arrow:hover {
+    background-color: #F5A720; /* Lighter themed color */
+    opacity: 1;    
+}
+
+.carousel .control-disabled.control-arrow {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.carousel .control-prev.control-arrow {
+    left: 0.75vw;
+    top: 50%;
+}
+
+.carousel .control-next.control-arrow {
+    right: 0.75vw;
+    top: 50%;
+}
+
+.carousel .slide {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
     width: 100%;
     height: 100%;
-    background-color: rgba(11, 5, 51, 0.7); /* Navy blue background with opacity */
-    z-index: 1;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .activity-card {
-        width: calc(50% - 20px); /* Adjust width and margin for smaller screens */
+
+
+.box {
+    position: relative;
+    width: 22vw;
+    height: 40vh;
+    /* background-color: grey; */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3vw;
+    border-radius: 5px;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+/* Box Hover Effect */
+.box:hover {
+    transform: scale(1.05);
+  }
+
+/* .image-container {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 85%; 
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: black; 
+} */
+
+.image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* This centers the container in the box */
+    width: 85%; /* Adjust the width as needed */
+    height: 85%; /* Adjust the height as needed */
+    overflow: hidden; /* Hide overflow */
+    background-color: black; /* Black background for the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.box .box-image {
+    width: 100%; /* Fill the width of the .image-container */
+    height: 100%; /* Fill the height of the .image-container */
+    object-fit: fill; /* Stretch the image to fill the container, disregarding its aspect ratio */
+    /*object-fit: contain;*/ /* Will cover the entire container */
+    /*object-position: center center;*/ /* Centers the image in the container */
+}
+
+.box-row {
+    display: flex;
+    justify-content: space-around; /* or 'space-between' if you want the boxes to take up all available space */
+    align-items: center;
+    width: 100%; /* You can increase the width if needed, but it's already set to full width */
+    height: auto; /* Change this to a specific value or percentage if you want a taller row */
+    margin: auto; /* Adjust the margin as needed */
+    padding: 20px; /* Add more padding to increase spacing around the boxes */
+    flex-wrap: wrap; /* Allows boxes to wrap to the next line if there isn't enough horizontal space */
+}
+
+
+
+
+
+.carousel-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.nav-item {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.nav-item.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+.box {
+    position: relative;
+    width: 22vw;
+    height: 40vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3vw;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Specific background colors for each box */
+.box.yellow { background-color: #F5A720; }
+.box.orange { background-color: #D9822A; }
+.box.peach { background-color: #BE5C43; }
+.box.pink { background-color: #b14a73; }
+.box.magenta { background-color: #A33862; }
+.box.purple { background-color: #6A2774; }
+
+/* Apply the same background color to the box-header within each box */
+.box.yellow .box-header,
+.box.orange .box-header,
+.box.peach .box-header,
+.box.pink .box-header,
+.box.magenta .box-header,
+.box.purple .box-header {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5em;
+    z-index: 10;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0;
+    background-color: inherit; /* Inherits the color from the parent box */
+    width: 760px;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: slideInFromTop 0.5s ease-in-out;
+
+}
+
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
     }
-}
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 
-.slick-prev,
-.slick-next {
-    width: 50px; /* Set the width of the arrow buttons */
-    height: 50px; /* Set the height of the arrow buttons */
-    background-size: cover; /* Ensure the entire arrow image is visible */
-    background-repeat: no-repeat; /* Prevent repetition of the arrow image */
-    background-position: center; /* Center the arrow image within the button */
-    z-index: 2; /* Ensure the arrow buttons are above the carousel images */
-    position: absolute; /* Position the arrows relative to their container */
-    top: 50%; /* Align the arrows vertically in the middle */
-    transform: translateY(-50%); /* Center the arrows vertically */
-}
 
-.slick-prev {
-    background-image: url('./arrow_left.png'); /* Set the left arrow image */
-    left: 0; /* Align the left arrow to the left */
-}
-
-.slick-next {
-    background-image: url('./arrow_right.png'); /* Set the right arrow image */
-    right: 0; /* Align the right arrow to the right */
-}
-
-/* Hide the default arrow icons */
-.slick-prev:before,
-.slick-next:before {
-    display: none; /* Hide the default arrow icons */
-}

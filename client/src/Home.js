@@ -4,6 +4,8 @@ import NavigationBar from './NavigationBar'; // Confirm the path
 import Addictions from './Addictions'; // Confirm the path
 import { FaArrowUp } from 'react-icons/fa'; // Confirm you are using react-icons
 
+
+
 const Home = () => {
   const [rotate, setRotate] = useState(true);
 
@@ -29,40 +31,76 @@ const Home = () => {
     <div className="App">
       <NavigationBar /> {/* Render the navigation bar */}
       <header className="App-header">
-        {/* Gears with conditional class for animation */}
-        <img
-          className={`App-logo middle-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-          src="/gears/gearMiddle.png"
-          alt="Middle Gear"
-        />
-        <img
-          className={`App-logo left-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-          src="/gears/gearLeft.png"
-          alt="Left Gear"
-        />
-        <img
-          className={`App-logo right-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-          src="/gears/gearRight.png"
-          alt="Right Gear"
-        />
-        {/* Bottom-right gear, using the same image as the right gear */}
-        <img
-          className={`App-logo bottom-right-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-          src="/gears/gearRight.png"
-          alt="Bottom Right Gear"
-        />
+        <NavigationBar /> {/* Include the NavigationBar component */}
       </header>
+
       <main>
-        {/* Other content goes here */}
-        <a href="#addictions" className="App-link">
-          Explore Addictions
+        <div className="gear-container">
+          <img
+            style={{
+              width: '33vw',
+              height: '33vw',
+              position: 'absolute',
+              top: '15%',
+              left: '35%',
+              transform: 'translateX(-50%)'
+            }}
+            className={`App-logo App-logo.middle-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+            src="/gears/gearLeft.png"
+            alt="Rotating Gear"
+          />
+          <img
+            style={{
+              width: '26vw',
+              height: '26vw',
+              position: 'absolute',
+              bottom: '28%',
+              right: '14%',
+              transform: 'translateY(-50%)'
+            }}
+            className={`App-logo App-logo.right-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+            src="/gears/gearLeft.png"
+            alt="Rotating Gear"
+          />
+          <img
+            style={{
+              width: '22vw',
+              height: '22vw',
+              position: 'absolute',
+              top: '9%',
+              left: '22.5%',
+              transform: 'translateY(-50%)'
+            }}
+            className={`App-logo App-logo.top-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+            src="/gears/gearRight.png"
+            alt="Rotating Gear"
+          />
+          <img
+            style={{
+              width: '22vw',
+              height: '22vw',
+              position: 'absolute',
+              bottom: '-4%',
+              left: '28%',
+              transform: 'translateY(-50%)'
+            }}
+            className={`App-logo App-logo.bottom-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+            src="/gears/gearRight.png"
+            alt="Rotating Gear"
+          />
+        </div>
+
+        {/* Add a link to scroll to the Addictions section */}
+        <a href="#addictions" className="explore-addictions-link">
+          <h2>Explore Addictions</h2>
         </a>
-        {/* Scroll-to-top button */}
-        <button className="scroll-to-top-button" onClick={scrollToTop}>
+ {/* Add the scroll-to-top button/icon */}
+ <button className="scroll-to-top-button" onClick={scrollToTop}>
           <FaArrowUp />
         </button>
       </main>
-      {/* Addictions component with ID for anchor link targeting */}
+
+      {/* Add the Addictions component with an id */}
       <Addictions id="addictions" />
     </div>
   );

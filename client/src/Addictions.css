@@ -15,6 +15,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+
 }
 
 .addictions-container h1 {
@@ -22,11 +24,18 @@
   font-family: 'Abhaya Libre ExtraBold';
   font-size: 4em;
   text-shadow: 2px 2px 4px rgba(168, 108, 6, 1);
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .addictions-container div {
   display: flex;
-  margin-right: -150px; /* Adjust the right margin to overlap the images */
+  margin-right: 20px; /* Add 10px margin between images */
 }
 
 /* Styling for the image divs */
@@ -35,81 +44,100 @@
   width: 300px;
   height: 450px;
   overflow: hidden;
-  margin-right: -10px; /* Add some margin between images */
-
+}
+.addictions-container div > div:nth-child(1) {
+  position: relative;
+  width: 200px;
+  height: 400px;
+  overflow: hidden;
 }
 
 /* Styling for the images */
 .addictions-container div > div img {
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 450px;
   border-radius: 30px;
   object-fit: cover;
 }
 
 /* Styling for the first image (index 1) */
-.addictions-container div > div:first-child img {
-  position: absolute;
-  opacity: 0.5; /* Adjust the opacity as needed (0.5 is just an example) */
+.addictions-container div > div:nth-child(1) img {
+  position: relative;
+  opacity: 0.5;
   border-radius: 30px;
-  width: 200px; /* Set the width to 50% to accommodate the left half of the image */
+  width: 200px;
   height: 350px;
-  margin-left: 0; /* Remove any potential right margin */
-  margin-top: 50px; /* Add margin to move the last image down */
-}
-/* Styling for the third image (index 2) */
-.addictions-container div > div:nth-child(2) img {
-  position: absolute;
-  width: 275px; /* Set the desired width */
-  height: 450px;
+  margin-top: 50px;
 }
 
-/* Styling for the centered image (index 2) */
-.addictions-container div > div img.centered-image {
-  position: absolute;
-  left: 0; /* Move the centered image to the left */
+/* Styling for the second image (index 2) */
+.addictions-container div > div:nth-child(2) img {
+  position: relative;
+  width: 300px;
+  height: 450px;
 }
 
 /* Styling for the third image (index 3) */
 .addictions-container div > div:nth-child(3) img {
-  position: absolute;
-  width: 275px; /* Set the desired width */
+  position: relative;
+  width: 300px;
   height: 450px;
 }
+
 /* Adjust the styling for the last image's div */
 .addictions-container div:last-child {
   overflow: hidden;
   position: relative;
-  width: 200px; /* Set the width to 50% to accommodate the left half of the image */
+  width: 200px;
   height: 350px;
-  border-radius: 0 30px 30px 0;
-  margin-right: 0; /* Remove any potential right margin */
-  margin-top: 50px; /* Add margin to move the last image down */
+  border-radius: 30px;
+  margin-right: 0;
+  margin-top: 50px;
 }
 
 /* Styling for the image inside the last div */
 .addictions-container div:last-child img {
-  width: 100%; /* Double the width to cover the left half */
-  height: 100%; /* Maintain the original height */
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   position: relative;
-  
-  opacity: 0.5; /* Adjust the opacity as needed (0.5 is just an example) */
+  opacity: 0.5;
   border-radius: 30px;
 }
-
-
 
 /* Add a pseudo-element to create the left half of the image with reduced opacity */
 .addictions-container div:last-child::before {
   content: "";
   position: absolute;
-  width: 50%; /* Set the width to 50% for the left half */
+  width: 50%;
   height: 100%;
-  opacity: 0.5; /* Adjust the opacity as needed (0.5 is just an example) */
-  border-radius: 0 0 0 30px;
-  
+  opacity: 0.5;
+  border-radius: 30px;
 }
+
+/* Styling for the image divs */
+.addictions-container .image-component {
+  transition: transform 0.3s ease-in-out;
+  margin: 0 10px; /* Add margin between images */
+}
+
+/* Hover effect */
+.addictions-container .image-component:hover {
+  transform: scale(1.1);
+}
+
+/* Styling for the images */
+.image-component img {
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.image-component img:hover {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
+}
+
 
 
 .arrow-button {
@@ -119,4 +147,17 @@
   font-size: 24px;
   color: #DD9313;
   cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
 }
+
+.arrow-button-left {
+  left: -40px;
+}
+
+.arrow-button-right {
+  right: -40px;
+}
+
