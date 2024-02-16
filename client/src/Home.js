@@ -30,6 +30,10 @@ const Home = () => {
     <div className="Home">
       <header className="App-header">
         <NavigationBar /> {/* Include the NavigationBar component */}
+         {/* Add a link to scroll to the Addictions section */}
+         <a href="#addictions" style={{ color: 'white', textDecoration: 'none' }}>
+          <h2>Addictions</h2>
+        </a>
       </header>
 
       <main>
@@ -43,7 +47,9 @@ const Home = () => {
               left: '35%',
               transform: 'translateX(-50%)'
             }}
+            
             className={`App-logo App-logo.middle-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+            
             src="/gears/gearLeft.png"
             alt="Rotating Gear"
           />
@@ -88,6 +94,7 @@ const Home = () => {
           />
         </div>
 
+       
         {/* Add a link to scroll to the Addictions section */}
         <tr><a href="#addictions" className="explore-addictions-link">
           <h2>Explore Addictions</h2>
