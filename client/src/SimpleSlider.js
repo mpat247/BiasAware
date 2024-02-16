@@ -12,7 +12,23 @@ import tennis from './images/image 12.png'; // Adjust the path as necessary
 
 const SimpleSlider = () => {
     return (
+        
         <div className="carousel-container">
+            <h1 style={{ 
+  color: '#DD9313', 
+  fontFamily: 'Abhaya Libre ExtraBold', 
+  fontSize: '4em', 
+  textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
+  position: 'absolute', // Position it absolutely
+  top: '5%', // Position it halfway down the container
+//   left: '50%', // Position it halfway across the container
+//   transform: 'translate(-50%, -50%)', // Adjust its position to be centered
+  margin: 0, // Remove default margins
+  whiteSpace: 'nowrap', // Prevent the text from wrapping
+  zIndex:100
+}}>A C T I V I T I E S</h1>
+
+
             <Carousel infiniteLoop showStatus={false}>
                 {/* Slide 1 */}
                 <div className="box-row">
