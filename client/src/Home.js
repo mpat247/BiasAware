@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import NavigationBar from './NavigationBar'; // Import the NavigationBar component
 import Addictions from './Addictions';
+import Activities from './Activities';
+
 
 const Home = () => {
   const [rotate, setRotate] = useState(true);
@@ -87,9 +89,13 @@ const Home = () => {
         </div>
 
         {/* Add a link to scroll to the Addictions section */}
-        <a href="#addictions" className="explore-addictions-link">
+        <tr><a href="#addictions" className="explore-addictions-link">
           <h2>Explore Addictions</h2>
-        </a>
+        </a></tr>
+        <tr><a href="#activities" className="explore-activities-link">
+          <h2>Explore Activities</h2>
+        </a></tr>
+
  {/* Add the scroll-to-top button/icon */}
  <button className="scroll-to-top-button" onClick={scrollToTop}>
           <FaArrowUp />
@@ -99,6 +105,7 @@ const Home = () => {
 
       {/* Add the Addictions component with an id */}
       <Addictions id="addictions" />
+      <Activities id="activities" />
     </div>
   );
 };
