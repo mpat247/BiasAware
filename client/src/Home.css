@@ -1,14 +1,16 @@
+/* Home.css */
+
 /* Global body styles */
 body {
   margin: 0;
   padding-top: 60px; /* Adjust based on the height of your navbar */
   font-size: calc(10px + 2vmin);
   color: white;
-  background-color: #140C46; /* Assuming a dark theme */
 }
 
 /* Header styles */
 .App-header {
+  background-color: #140C46;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -29,14 +31,35 @@ body {
   z-index: 1; /* Ensure the gears are above other content */
 }
 
-/* Animation for rotating gears */
+/* Individual gear adjustments */
+.App-logo.middle-gear {
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.App-logo.left-gear {
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.App-logo.right-gear {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  right: 20%;
+  transform: translate(50%, -50%);
+}
+
+/* Gear rotation animation */
 @keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .rotating-gear {
@@ -60,12 +83,8 @@ body {
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Scroll-to-top button styles */
@@ -73,7 +92,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #333; /* Slightly darker than header for contrast */
+  background-color: #140C46; /* Choose your desired background color */
   color: white;
   font-size: 16px;
   padding: 10px;
@@ -84,108 +103,5 @@ body {
 }
 
 .scroll-to-top-button:hover {
-  background-color: #61dafb; /* Light blue, matching the link color */
+  background-color: #140C46; /* Change color on hover */
 }
-
-/* Responsive gear sizes and positions */
-@media (min-width: 1024px) {
-  .App-logo.middle-gear {
-    width: 100px;
-    height: 100px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .App-logo.left-gear {
-    width: 80px;
-    height: 80px;
-    top: 49%;
-    left: calc(50% - 52px); /* This value assumes a very small gap; adjust as needed */
-    transform: translate(-100%, -50%);
-  }
-
-
-  .App-logo.right-gear {
-    width: 80px;
-    height: 80px;
-    bottom:41%;
-    right: calc(50% - 155px); /* This value assumes a very small gap; adjust as needed */
-    transform: translate(150%, 50%);
-  }
-
-  .App-logo.bottom-right-gear {
-    width: 60px;
-    height: 60px;
-    top: 56.75%;
-    left: calc(50% - 20px); /* This value assumes a very small gap; adjust as needed */
-    transform: translate(-50%, -50%);
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .App-logo.middle-gear {
-    width: 75px;
-    height: 75px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .App-logo.left-gear {
-    width: 60px;
-    height: 60px;
-    top: 50%;
-    left: calc(50% - 37.5px); /* Adjust this value as needed for a smaller gap */
-    transform: translate(-100%, -50%);
-  }
-
-  .App-logo.right-gear {
-    width: 60px;
-    height: 60px;
-    bottom: 25%;
-    right: 25%;
-    transform: translate(50%, 50%);
-  }
-
-  .App-logo.bottom-right-gear {
-    width: 45px;
-    height: 45px;
-    bottom: 8%;
-    right: 8%;
-  }
-}
-
-@media (max-width: 767px) {
-  .App-logo.middle-gear {
-    width: 50px;
-    height: 50px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .App-logo.left-gear {
-    width: 40px;
-    height: 40px;
-    top: 50%;
-    left: calc(50% - 25px); /* Adjust this value as needed for a smaller gap */
-    transform: translate(-100%, -50%);
-  }
-
-  .App-logo.right-gear {
-    width: 40px;
-    height: 40px;
-    bottom: 30%;
-    right: 30%;
-    transform: translate(50%, 50%);
-  }
-
-  .App-logo.bottom-right-gear {
-    width: 30px;
-    height: 30px;
-    bottom: 10%;
-    right: 10%;
-  }
-}
-
