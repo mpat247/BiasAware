@@ -52,7 +52,7 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #DD9313; /* Themed color */
     color: white;
     font-size: 24px;
     width: 40px;
@@ -63,10 +63,13 @@
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s ease;
+    opacity: 0.8; /* Slightly transparent */
+
 }
 
 .carousel .control-arrow:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #F5A720; /* Lighter themed color */
+    opacity: 1;    
 }
 
 .carousel .control-disabled.control-arrow {
@@ -110,7 +113,14 @@
     margin: 3vw;
     border-radius: 5px;
     border: none;
+    transition: transform 0.3s ease-in-out;
+
 }
+
+/* Box Hover Effect */
+.box:hover {
+    transform: scale(1.05);
+  }
 
 /* .image-container {
     position: absolute; 
@@ -224,6 +234,19 @@
     width: 760px;
     border-radius: 10px;
     overflow: hidden;
+    animation: slideInFromTop 0.5s ease-in-out;
+
 }
+
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 
 

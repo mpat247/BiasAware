@@ -1,4 +1,4 @@
-// SimpleSlider.js
+// Activities.js
 import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -10,7 +10,7 @@ import hockey from './images/image 10.png'; // Adjust the path as necessary
 import bingo from './images/image 11.png'; // Adjust the path as necessary
 import tennis from './images/image 12.png'; // Adjust the path as necessary
 
-const SimpleSlider = () => {
+const Activities = () => {
     
     const [currentSlide, setCurrentSlide] = useState(0);
     const updateCurrentSlide = (index) => {
@@ -140,4 +140,4 @@ const SimpleSlider = () => {
     );
 };
 
-export default SimpleSlider;
+export default Activities;

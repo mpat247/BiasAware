@@ -52,8 +52,8 @@ const Addictions = () => {
 
   return (
     <div id="addictions" className="Addictions">
-      <NavigationBar />
       <header className="App-header">
+      <NavigationBar />
         <div className="addictions-container">
           <h1 style={{ 
             color: '#DD9313', 

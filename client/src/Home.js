@@ -34,6 +34,9 @@ const Home = () => {
          <a href="#addictions" style={{ color: 'white', textDecoration: 'none' }}>
           <h2>Addictions</h2>
         </a>
+        <a href="#activities" style={{ color: 'white', textDecoration: 'none' }}>
+          <h2>Activities</h2>
+        </a>
       </header>
 
       <main>
@@ -95,13 +98,13 @@ const Home = () => {
         </div>
 
        
-        {/* Add a link to scroll to the Addictions section */}
+        {/* Add a link to scroll to the Addictions section
         <tr><a href="#addictions" className="explore-addictions-link">
           <h2>Explore Addictions</h2>
         </a></tr>
         <tr><a href="#activities" className="explore-activities-link">
           <h2>Explore Activities</h2>
-        </a></tr>
+        </a></tr> */}
 
  {/* Add the scroll-to-top button/icon */}
  <button className="scroll-to-top-button" onClick={scrollToTop}>
@@ -110,9 +113,15 @@ const Home = () => {
         
       </main>
 
-      {/* Add the Addictions component with an id */}
-      <Addictions id="addictions" />
-      <Activities id="activities" />
+      {/* Addictions section */}
+      <div id="addictions">
+        <Addictions />
+      </div>
+
+      {/* Activities section */}
+      <div id="activities">
+        <Activities />
+      </div>
     </div>
   );
 };

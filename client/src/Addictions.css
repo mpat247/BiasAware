@@ -15,6 +15,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+
 }
 
 .addictions-container h1 {
@@ -22,6 +24,13 @@
   font-family: 'Abhaya Libre ExtraBold';
   font-size: 4em;
   text-shadow: 2px 2px 4px rgba(168, 108, 6, 1);
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .addictions-container div {
@@ -106,6 +115,31 @@
   border-radius: 30px;
 }
 
+/* Styling for the image divs */
+.addictions-container .image-component {
+  transition: transform 0.3s ease-in-out;
+  margin: 0 10px; /* Add margin between images */
+}
+
+/* Hover effect */
+.addictions-container .image-component:hover {
+  transform: scale(1.1);
+}
+
+/* Styling for the images */
+.image-component img {
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.image-component img:hover {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+
+
 .arrow-button {
   margin-top: 20px;
   background: none;
@@ -114,15 +148,16 @@
   color: #DD9313;
   cursor: pointer;
   position: absolute;
-  top: 160%;
+  top: 50%;
   transform: translateY(-50%);
+  z-index: 100;
 }
 
 .arrow-button-left {
-  left: 20px; /* Adjust the left position */
+  left: -40px;
 }
 
 .arrow-button-right {
-  right: 30px; /* Adjust the right position */
+  right: -40px;
 }
 
