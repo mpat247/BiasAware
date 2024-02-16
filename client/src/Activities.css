@@ -69,7 +69,7 @@
 
 .carousel .control-arrow:hover {
     background-color: #F5A720; /* Lighter themed color */
-    opacity: 1;    
+    opacity: 1;
 }
 
 .carousel .control-disabled.control-arrow {
@@ -117,23 +117,20 @@
 
 }
 
-/* Box Hover Effect */
-.box:hover {
-    transform: scale(1.05);
-  }
+
 
 /* .image-container {
-    position: absolute; 
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); 
-    width: 85%; 
+    transform: translate(-50%, -50%);
+    width: 85%;
     height: 85%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: black; 
+    background-color: black;
 } */
 
 .image-container {
@@ -150,6 +147,7 @@
     align-items: center;
     border-radius: 5px;
 }
+
 
 .box .box-image {
     width: 100%; /* Fill the width of the .image-container */
@@ -174,10 +172,11 @@
 
 
 
+
 .carousel-navigation {
     display: flex;
     justify-content: center;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 .nav-item {
@@ -192,18 +191,7 @@
 }
 
 
-.box {
-    position: relative;
-    width: 22vw;
-    height: 40vh;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 3vw;
-    border-radius: 5px;
-    border: none;
-}
+
 
 /* Specific background colors for each box */
 .box.yellow { background-color: #F5A720; }
@@ -212,7 +200,9 @@
 .box.pink { background-color: #b14a73; }
 .box.magenta { background-color: #A33862; }
 .box.purple { background-color: #6A2774; }
-
+/*
+change this for label box attributes
+*/
 /* Apply the same background color to the box-header within each box */
 .box.yellow .box-header,
 .box.orange .box-header,
@@ -231,10 +221,18 @@
     padding: 5px 10px;
     margin: 0;
     background-color: inherit; /* Inherits the color from the parent box */
-    width: 760px;
-    border-radius: 10px;
+    width: 100%;
+    border-radius: 20px 20px;
     overflow: hidden;
-    animation: slideInFromTop 0.5s ease-in-out;
+
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    /* margin: auto; */
+    padding: 5px;
+    flex-wrap: wrap;
 
 }
 

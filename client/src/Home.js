@@ -31,11 +31,29 @@ const Home = () => {
       <header className="App-header">
         <NavigationBar /> {/* Include the NavigationBar component */}
          {/* Add a link to scroll to the Addictions section */}
-         <a href="#addictions" style={{ color: 'white', textDecoration: 'none' }}>
-          <h2>Addictions</h2>
+         <a href="#addictions" style={{ color: 'white', textDecoration: 'none',
+        fontFamily: 'Abhaya Libre ExtraBold', 
+        fontSize: '3em',
+        zindex:10}}>
+          <h2>A Shopahpolic</h2>
         </a>
-        <a href="#activities" style={{ color: 'white', textDecoration: 'none' }}>
-          <h2>Activities</h2>
+
+        {/* <h1 style={{ 
+  color: '#DD9313',
+  fontFamily: 'Abhaya Libre ExtraBold', 
+  fontSize: '4em',
+  textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
+  textAlign: 'center', // Centers the text horizontally
+  margin: '0', // Removes any default margin
+  padding: '50px 0' // Adjust this padding to control spacing above and below the text
+}}>
+  A C T I V I T I E S
+</h1> */}
+        <a href="#activities" style={{ color: 'white', textDecoration: 'none',
+        fontFamily: 'Abhaya Libre ExtraBold', 
+        fontSize: '3em',
+        zindex:10}}>
+          <h2>A Basketball Player</h2>
         </a>
       </header>
 
