@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import NavigationBar from './NavigationBar';
 import './Addictions.css';
-
+import ArrowLeftImage from ".//Arrows/Arrow_Left_1.png"; // replace with the actual path
+import ArrowRightImage from ".//Arrows/Arrow_Right_1.png"; // replace with the actual path
 const Addictions = () => {
   const images = [
     "/addictions/Add_P6_V4_S.png",
@@ -71,12 +72,12 @@ const Addictions = () => {
               />
             ))}
           </div>
-          <button className="arrow-button" onClick={previousImage}>
-            ⬅ Show Previous
-          </button>
-          <button className="arrow-button" onClick={nextImage}>
-            ➡ Show Next
-          </button>
+          <button className="arrow-button arrow-button-left" onClick={previousImage}>
+          <img src={ArrowLeftImage} alt="Left Arrow" />
+        </button>
+        <button className="arrow-button arrow-button-right" onClick={nextImage}>
+          <img src={ArrowRightImage} alt="Right Arrow" />
+        </button>
         </div>
       </header>
     </div>
