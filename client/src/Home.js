@@ -1,33 +1,35 @@
-// App.js
-import { FaArrowUp } from 'react-icons/fa'; // Assuming you are using react-icons for icons
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-import NavigationBar from './NavigationBar'; // Import the NavigationBar component
-import Addictions from './Addictions';
-import Activities from './Activities';
+import NavigationBar from './NavigationBar'; // Confirm the path
+import Addictions from './Addictions'; // Confirm the path
+import { FaArrowUp } from 'react-icons/fa'; // Confirm you are using react-icons
+
 
 
 const Home = () => {
   const [rotate, setRotate] = useState(true);
 
-   // Add a function to handle scrolling to the top
-   const scrollToTop = () => {
+  // Scroll to top function
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth', // Smooth scrolling animation
+      behavior: 'smooth',
     });
-  }
+  };
 
   useEffect(() => {
+    // Set a timeout to stop the rotation of gears
     const timeout = setTimeout(() => {
-      setRotate(false); // Stop the rotation after 5 seconds
+      setRotate(false);
     }, 5000);
 
+    // Clear timeout if the component is unmounted
     return () => clearTimeout(timeout);
   }, []);
 
   return (
-    <div className="Home">
+    <div className="App">
+      <NavigationBar /> {/* Render the navigation bar */}
       <header className="App-header">
         <NavigationBar /> {/* Include the NavigationBar component */}
          {/* Add a link to scroll to the Addictions section */}
@@ -68,9 +70,7 @@ const Home = () => {
               left: '35%',
               transform: 'translateX(-50%)'
             }}
-            
             className={`App-logo App-logo.middle-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-            
             src="/gears/gearLeft.png"
             alt="Rotating Gear"
           />
@@ -115,31 +115,18 @@ const Home = () => {
           />
         </div>
 
-       
-        {/* Add a link to scroll to the Addictions section
-        <tr><a href="#addictions" className="explore-addictions-link">
+        {/* Add a link to scroll to the Addictions section */}
+        <a href="#addictions" className="explore-addictions-link">
           <h2>Explore Addictions</h2>
-        </a></tr>
-        <tr><a href="#activities" className="explore-activities-link">
-          <h2>Explore Activities</h2>
-        </a></tr> */}
-
+        </a>
  {/* Add the scroll-to-top button/icon */}
  <button className="scroll-to-top-button" onClick={scrollToTop}>
           <FaArrowUp />
         </button>
-        
       </main>
 
-      {/* Addictions section */}
-      <div id="addictions">
-        <Addictions />
-      </div>
-
-      {/* Activities section */}
-      <div id="activities">
-        <Activities />
-      </div>
+      {/* Add the Addictions component with an id */}
+      <Addictions id="addictions" />
     </div>
   );
 };
