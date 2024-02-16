@@ -36,6 +36,12 @@
   height: 450px;
   overflow: hidden;
 }
+.addictions-container div > div:nth-child(1) {
+  position: relative;
+  width: 200px;
+  height: 400px;
+  overflow: hidden;
+}
 
 /* Styling for the images */
 .addictions-container div > div img {
@@ -117,6 +123,6 @@
 }
 
 .arrow-button-right {
-  right: 10px; /* Adjust the right position */
+  right: 30px; /* Adjust the right position */
 }
 
