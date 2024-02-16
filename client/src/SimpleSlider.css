@@ -1,13 +1,24 @@
 .statistics-page {
     background-color: #0B0533;
-}
+    text-align: center; /* Centers text elements */
+    /* Ensure there's no padding or margin causing the extra space */
+    padding: 0;
+    margin: 0;
+  }
 
-.carousel-container {
+  .carousel-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Set the height of the container to full viewport height */
-}
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-start; /* Aligns children to the start of the container */
+    align-items: center; /* Centers children horizontally */
+    height: auto; /* Adjust height to content */
+    background-color: #0B0533; /* Ensure the background color fills the container */
+    /* Remove padding-top or set it to a smaller value */
+    margin-top: 0; /* Adjust or remove to reduce space */
+    /* ... other styles */
+  }
+
+
 
 .carousel-root {
     max-width: 90%; /* Adjust the maximum width of the container */
@@ -85,11 +96,13 @@
     box-sizing: border-box;
 }
 
+
+
 .box {
     position: relative;
     width: 22vw;
     height: 40vh;
-    background-color: grey;
+    /* background-color: grey; */
     color: white;
     display: flex;
     justify-content: center;
@@ -138,15 +151,79 @@
 
 .box-row {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around; /* or 'space-between' if you want the boxes to take up all available space */
     align-items: center;
-    width: 100%;
+    width: 100%; /* You can increase the width if needed, but it's already set to full width */
+    height: auto; /* Change this to a specific value or percentage if you want a taller row */
+    margin: auto; /* Adjust the margin as needed */
+    padding: 20px; /* Add more padding to increase spacing around the boxes */
+    flex-wrap: wrap; /* Allows boxes to wrap to the next line if there isn't enough horizontal space */
 }
 
-/* Box color classes unchanged */
+
+
+
+
+.carousel-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.nav-item {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.nav-item.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+.box {
+    position: relative;
+    width: 22vw;
+    height: 40vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3vw;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Specific background colors for each box */
 .box.yellow { background-color: #F5A720; }
 .box.orange { background-color: #D9822A; }
 .box.peach { background-color: #BE5C43; }
 .box.pink { background-color: #b14a73; }
 .box.magenta { background-color: #A33862; }
 .box.purple { background-color: #6A2774; }
+
+/* Apply the same background color to the box-header within each box */
+.box.yellow .box-header,
+.box.orange .box-header,
+.box.peach .box-header,
+.box.pink .box-header,
+.box.magenta .box-header,
+.box.purple .box-header {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5em;
+    z-index: 10;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0;
+    background-color: inherit; /* Inherits the color from the parent box */
+    width: 760px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
