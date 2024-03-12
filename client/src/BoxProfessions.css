@@ -1,0 +1,120 @@
+/* General styling for the statistics page or section */
+/* .statistics-page {
+    background-color: #0B0533;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+} */
+
+/* Styling for the container of the slider */
+.box-professions-container {
+    width: 90%; /* Adjust based on your layout */
+    margin: 20px auto; /* Center the slider with some space on top and bottom */
+    padding: 20px 0; /* Padding above and below the slider */
+}
+
+/* Styles for each box within the slides */
+.box {
+    margin: 15px; /* Space between boxes */
+    width: 100%; /* Full width within the carousel */
+    height: 300px; /* Fixed height, can be adjusted */
+    background-color: #f5f5f5; /* Default background, will be overridden by specific class */
+    color: white; /* Text color */
+    display: flex; /* Enables the use of justify-content and align-items below */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    border-radius: 10px; /* Rounded corners */
+    position: relative; /* Allows absolute positioning for child elements */
+}
+
+/* Styling for the image container inside each box */
+.image-container {
+    width: 85%; /* Adjust width if necessary */
+    height: 85%; /* Adjust height if necessary */
+    overflow: hidden; /* Hide parts of the image that don't fit */
+    position: relative; /* Necessary for positioning within the box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; /* Match the box's border-radius */
+}
+
+/* Styling for images inside each box */
+.box-image {
+    width: 100%; /* Ensure the image covers the full container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the container, cropping the image if necessary */
+}
+
+/* Background colors for specific box classes */
+.box.yellow { background-color: #F5A720; }
+.box.orange { background-color: #D9822A; }
+.box.peach { background-color: #BE5C43; }
+.box.pink { background-color: #b14a73; }
+.box.magenta { background-color: #A33862; }
+.box.purple { background-color: #6A2774; }
+
+/* Adjustments for vertical navigation arrows to always be visible */
+.slick-prev, .slick-next {
+    left: 50%;
+    top: auto;
+    width: 20px; /* Width of the arrows */
+    height: 20px; /* Height of the arrows */
+    transform: translateX(-50%);
+    background-color: #DD9313; /* Arrow background color */
+    border-radius: 50%; /* Make the arrows circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black; /* Arrow color */
+    z-index: 1; /* Ensure arrows are above other content */
+    opacity: 1; /* Make arrows always visible */
+}
+
+/* Position adjustments */
+.slick-prev {
+    bottom: 98%; /* Place 'up' arrow towards the bottom of the slider */
+}
+
+.slick-next {
+    top: 98%; /* Place 'down' arrow towards the top of the slider */
+}
+
+/* Arrow icons */
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 20px; /* Size of the arrows */
+    line-height: 1;
+    color: black; /* Color of the arrows */
+    opacity: 1; /* Arrows are fully visible */
+}
+
+/* Up and Down arrow icons */
+.slick-prev:before {
+    content: '↑'; /* Up arrow symbol */
+}
+
+.slick-next:before {
+    content: '↓'; /* Down arrow symbol */
+}
+
+/* Ensure arrows are always visible */
+.slick-prev:hover, .slick-next:hover,
+.slick-prev:hover:before, .slick-next:hover:before {
+    opacity: 1; /* Arrows remain fully visible on hover */
+    background-color: #F5A720; /* Change background color slightly on hover for better UI feedback */
+}
+
+/* Slick slider dots (navigation pagination) */
+.slick-dots {
+    bottom: -50px; /* Adjust based on your layout */
+}
+
+.slick-dots li button:before {
+    font-size: 12px; /* Size of the dots */
+    color: white; /* Color of the dots */
+}
+
+.slick-dots li.slick-active button:before {
+    color: #DD9313; /* Color of the active dot */
+}
