@@ -6,6 +6,7 @@ const Professions = () => {
         <div>
             {/* <h1>Professions</h1> */}
             <BoxProfessions /> {/* This line calls the BoxProfessions component */}
+            {/* <BoxProfessions /> */}
         </div>
     );
 };

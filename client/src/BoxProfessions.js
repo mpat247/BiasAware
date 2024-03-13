@@ -28,7 +28,8 @@ const BoxProfessions = () => {
 
     return (
         <div className="box-professions-container">
-            <Slider {...settings}>
+        <Slider {...settings}>
+            <div className="slide-container"> {/* New container for the slide */}
                 <div className="box yellow">
                     <div className="image-container">
                         <img src={basketball} alt="basketball" className="box-image"/>
@@ -46,22 +47,35 @@ const BoxProfessions = () => {
                 </div>
                 <div className="box pink">
                     <div className="image-container">
-                        <img src={hockey} alt="hockey" className="box-image"/> {/* Fixed duplicate volleyball image */}
+                        <img src={hockey} alt="hockey" className="box-image"/>
                     </div>
                 </div>
-                {/* <div className="box magenta">
+            </div>
+            <div className="slide-container"> {/* New container for the slide */}
+                <div className="box yellow">
                     <div className="image-container">
-                        <img src={bingo} alt="bingo" className="box-image"/>
+                        <img src={basketball} alt="basketball" className="box-image"/>
                     </div>
                 </div>
-                <div className="box purple">
+                <div className="box orange">
                     <div className="image-container">
-                        <img src={tennis} alt="tennis" className="box-image"/>
+                        <img src={cricket} alt="cricket" className="box-image"/>
                     </div>
-                </div> */}
-                {/* Add more slides as needed */}
-            </Slider>
-        </div>
+                </div>
+                <div className="box peach">
+                    <div className="image-container">
+                        <img src={volleyball} alt="volleyball" className="box-image"/>
+                    </div>
+                </div>
+                <div className="box pink">
+                    <div className="image-container">
+                        <img src={hockey} alt="hockey" className="box-image"/>
+                    </div>
+                </div>
+            </div>
+            {/* Add more slides as needed */}
+        </Slider>
+    </div>
     );
 };
 

@@ -8,7 +8,7 @@
 
 /* Styling for the container of the slider */
 .box-professions-container {
-    width: 90%; /* Adjust based on your layout */
+    width: 40%; /* Adjust based on your layout */
     margin: 20px auto; /* Center the slider with some space on top and bottom */
     padding: 20px 0; /* Padding above and below the slider */
 }
@@ -117,4 +117,13 @@
 
 .slick-dots li.slick-active button:before {
     color: #DD9313; /* Color of the active dot */
+}
+
+.slide-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: start; /* Align children to the start of the container */
+    height: 100%; /* Set to the desired height */
+    width: 100%; /* Match the slider's width */
 }
