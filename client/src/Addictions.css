@@ -160,4 +160,164 @@
 .arrow-button-right {
   right: -40px;
 }
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
 
+.popup-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 500px;
+  background-color: #0B0533;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 999;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.popup-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  padding: 8px 16px;
+  background-color: #2B1451;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #1e0940;
+}
+
+.popup-active {
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #080328; /* Semi-transparent black */
+  z-index: 998; /* Ensure the overlay is behind the popup */
+}
+
+.rectanglepop1 {
+  position: absolute;
+  top: 100px;
+  left: 1px;
+  width: 180px;
+  height: 280px;
+  background-color: #2B1451;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.rectanglepop2 {
+  position: absolute;
+  top: 30px;
+  left: 200px;
+  width: 360px;
+  height: 400px;
+  background-color: #2B1451;
+}
+
+.rectanglepop3 {
+  position: absolute;
+  top: 35px;
+  left: 205px;
+  width: 360px;
+  height: 400px;
+  background-color: #1e0940;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.rectanglepop5 {
+  position: absolute;
+  bottom: 80px;
+  right: 1px;
+  width: 180px;
+  height: 280px;
+  background-color: #2B1451;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.image1 {
+  position: absolute;
+  top: 114px; /* Adjust the top position to place it inside the popup */
+  left: 15px; /* Adjust the left position to place it inside the popup */
+  width: 150px; /* Adjust the width as needed */
+  height: 120px; /* Adjust the height as needed */
+  background-color: #ffffff; /* Set a background color */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+.image2 {
+  position: absolute;
+  top: 247px; /* Adjust the top position to place it inside the popup */
+  left: 15px; /* Adjust the left position to place it inside the popup */
+  width: 150px; /* Adjust the width as needed */
+  height: 120px; /* Adjust the height as needed */
+  background-color: #ffffff; /* Set a background color */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+
+.image4 {
+  position: absolute;
+  top: 115px; /* Adjust the top position to place it inside the popup */
+  right: 15px; /* Adjust the left position to place it inside the popup */
+  width: 150px; /* Adjust the width as needed */
+  height: 120px; /* Adjust the height as needed */
+  background-color: #ffffff; /* Set a background color */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+
+.image3 {
+  position: absolute;
+  top: 247px; /* Adjust the top position to place it inside the popup */
+  right: 16px; /* Adjust the left position to place it inside the popup */
+  width: 150px; /* Adjust the width as needed */
+  height: 120px; /* Adjust the height as needed */
+  background-color: #ffffff; /* Set a background color */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+.image5 {
+  position: absolute;
+  top:98px; /* Adjust the top position to place it inside the popup */
+  left: px; /* Adjust the left position to place it inside the popup */
+  width: 330px; /* Adjust the width as needed */
+  height: 280px; /* Adjust the height as needed */
+  background-color: #ffffff; /* Set a background color */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
