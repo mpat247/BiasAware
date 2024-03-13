@@ -9,7 +9,7 @@ const BoxProfessions = () => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3, // Number of slides to show at once
+        slidesToShow: 3,
         slidesToScroll: 1,
         vertical: true,
         verticalSwiping: true,
@@ -18,13 +18,18 @@ const BoxProfessions = () => {
     return (
         <div className="box-container">
             <div className="box-content">
-                <Slider {...settings}>
-                    <div className="slide-box" style={{ backgroundColor: 'red' }}>Box 1</div>
-                    <div className="slide-box" style={{ backgroundColor: 'blue' }}>Box 2</div>
-                    <div className="slide-box" style={{ backgroundColor: 'green' }}>Box 3</div>
-                    <div className="slide-box" style={{ backgroundColor: 'purple' }}>Box 4</div>
-                    {/* Add more slides as needed */}
-                </Slider>
+                <div className="left-box"></div>
+                <div className="middle-box"></div>
+                <div className="right-boxes-container">
+                    <div className="underlay-right-boxes-container">
+                        <div className="box"></div>
+                        <div className="box"></div>
+                        <div className="box"></div>
+                        <div className="box"></div>
+                    </div>
+                    {/* Boxes content */}
+                    
+                </div>
             </div>
         </div>
     );

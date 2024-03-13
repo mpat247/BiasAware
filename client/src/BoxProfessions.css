@@ -1,38 +1,80 @@
 .box-container {
     display: flex;
-    justify-content: center; /* Center the box horizontally */
-    align-items: start; /* Align the box to the top */
+    justify-content: center;
+    align-items: start;
     height: 100vh;
     background-color: orange;
-    padding-top: 150px; /* Push the box down from the top */
+    padding-top: 140px;
 }
 
 .box-content {
-    width: calc(100% - 60px); /* Adjust width as needed, leaving space for padding */
-    height: calc(100% - 100px); /* Adjust height based on padding-top */
-    margin: auto; /* Center the box horizontally */
-    padding: 30px; /* Padding inside the box */
-    background-color: pink;
-    border-radius: 5px;
+    width: calc(100% - 40px);
+    height: calc(100% - 100px);
+    margin: auto;
+    padding: 30px;
+    background-color: #0B0533;
     text-align: center;
-    /* color: white; */
+    color: black;
+    display: flex;
 }
 
-.box-content .slick-slider {
-    margin: 0 auto;
-    width: 90%; /* Adjust the width to fit inside box-content */
-    height: 100%; /* Make the slider fill the box content in height */
-}
-
-.slide-box {
-    height: 180px; /* Height of each slide box */
-    width: auto; /* Width will adjust based on content */
-    margin: 10px auto; /* Center the box in the slide */
-    border-radius: 5px; /* Rounded corners for the box */
-    display: flex; /* Setup for centering content inside the box */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    color: white; /* Text color inside the box */
-    font-size: 20px; /* Text size inside the box */
+.right-boxes-container {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     background-color: aqua;
+    margin-left: auto;
+    border-radius: 5px;
+}
+
+/* .background-boxes-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: yellow;
+    margin-left: auto;
+    border-radius: 5px;
+} */
+
+.underlay-right-boxes-container {
+    width: 50%;
+    height: 100%;
+    background-color: #0B0533;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+
+.box {
+    width: 70%; /* Set width relative to the .boxes-container */
+    height: 125px;
+    margin: 10px;
+    background-color: lightblue;
+    /* border: 1px solid blue; */
+}
+
+
+.left-box {
+    width: 30%;
+    height: 100%; /* Adjust height as needed */
+    background-color: lightgreen; /* Adjust color as needed */
+    margin-right: 20px; /* Adjust margin as needed */
+    border-radius: 5px;
+}
+
+.middle-box {
+    width: 40%;
+    height: 100%; /* Adjust height as needed */
+    background-color: lightpink; /* Adjust color as needed */
+    margin-right: 20px; /* Adjust margin as needed */
+    border-radius: 5px;
 }
