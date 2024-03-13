@@ -5,7 +5,7 @@ import './Home.css';
 import NavigationBar from './NavigationBar'; // Import the NavigationBar component
 import Addictions from './Addictions';
 import Activities from './Activities';
-
+import QOL from './QOL'; // Import the QOL component
 
 const Home = () => {
   const [rotate, setRotate] = useState(true);
@@ -36,6 +36,9 @@ const Home = () => {
         fontSize: '3em',
         zindex:10}}>
           <h2>A Shopahpolic</h2>
+        </a>
+        <a href="#qol" style={{ color: 'white', textDecoration: 'none', fontFamily: 'Abhaya Libre ExtraBold', fontSize: '3em', zIndex: 10 }}>
+          <h2>Quality of Life</h2>
         </a>
 
         {/* <h1 style={{ 
@@ -139,6 +142,11 @@ const Home = () => {
       {/* Activities section */}
       <div id="activities">
         <Activities />
+      </div>
+
+      {/* Quality of Life section */}
+      <div id="qol">
+        <QOL />
       </div>
     </div>
   );
