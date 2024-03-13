@@ -7,6 +7,8 @@ import Activities from './Activities';
 import Professions from './Professions';
 import QOL from './QOL';
 import Engineering from './Engineering'; // Import the Engineering component
+import Emotions from './Emotions';
+
 
 import './App.css';
 
@@ -20,6 +22,8 @@ function App() {
         <Route path="/Professions" element={<Professions />} />
         <Route path="/QOL" element={<QOL />} />
         <Route path="/Engineering" element={<Engineering />} />
+        <Route path="/Emotions" element={<Emotions />} />
+
         {/* Define other routes here if needed */}
       </Routes>
     </Router>
