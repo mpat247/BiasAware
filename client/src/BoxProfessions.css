@@ -19,34 +19,35 @@
 }
 
 .right-boxes-container {
-    width: 30%;
+    width: 30%; /* Adjust based on your design */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 100%; /* Adjust based on your design */
     background-color: aqua;
     margin-left: auto;
     border-radius: 5px;
-    position: relative; /* This ensures the arrows are positioned relative to this container */
+    position: relative; /* Essential for positioning arrows */
 }
 
 .underlay-right-boxes-container {
-    width: 60%;
-    height: 90%;
-    background-color: yellow;
+    width: 60%; /* Adjust based on your design */
+    height: 100%; /* Control the height of the yellow box */
+    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    border: 1px solid black;
-    overflow: hidden;
+    justify-content: start; /* Adjust if you want the boxes to start from top */
+    border: 5px solid white;
+    overflow: hidden; /* Prevents boxes from spilling out */
+    position: relative; /* Necessary to contain top and bottom arrows */
 }
 
 .box {
-    width: 70%;
-    height: 125px;
-    margin: 10px 0;
+    width: 70%; /* Relative to the parent container */
+    height: 100px; /* Adjust based on your design */
+    margin: 10px 0; /* Adjust space between boxes */
     background-color: red;
 }
 
@@ -67,23 +68,23 @@
 }
 
 .slick-prev, .slick-next {
-    z-index: 1000;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background-color: #fff;
-    color: black;
-    border-radius: 50%;
-    border: 1px solid black;
-    opacity: 1;
-    position: absolute;
+    z-index: 1000; /* Increased for better visibility */
+    transform: translateX(-50%); /* Center the arrow horizontally */
+    width: 30px; /* Set the width of the arrow */
+    height: 30px; /* Set the height of the arrow */
+    color: black; /* Set the color of the arrow */
+    border-radius: 50%; /* Make the arrows round */
+    opacity: 1; /* Ensure arrows are fully opaque */
+    position: absolute; /* Position the arrows absolutely within the container */
 }
 
+
 .right-boxes-container .slick-prev {
-    left: 10px; /* Adjust if necessary */
+    top: 10px; /* Position the 'previous' arrow at the top of the yellow box */
+    left: 50%; /* Center horizontally */
 }
 
 .right-boxes-container .slick-next {
-    right: 10px; /* Adjust if necessary */
+    bottom: -100px; /* Position the 'next' arrow at the bottom of the yellow box */
+    left: 50%; /* Center horizontally */
 }
