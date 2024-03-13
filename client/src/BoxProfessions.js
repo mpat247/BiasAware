@@ -2,17 +2,40 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import './BoxProfessions.css'; // Make sure the path is correct
+import './BoxProfessions.css';
+
+function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{ ...style, display: "block", background: "green", borderRadius: "50%" }}
+            onClick={onClick}
+        />
+    );
+}
+
+function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{ ...style, display: "block", background: "green", borderRadius: "50%" }}
+            onClick={onClick}
+        />
+    );
+}
 
 const BoxProfessions = () => {
     const settings = {
-        dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         vertical: true,
         verticalSwiping: true,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
     };
 
     return (
@@ -22,13 +45,13 @@ const BoxProfessions = () => {
                 <div className="middle-box"></div>
                 <div className="right-boxes-container">
                     <div className="underlay-right-boxes-container">
-                        <div className="box"></div>
-                        <div className="box"></div>
-                        <div className="box"></div>
-                        <div className="box"></div>
+                        <Slider {...settings}>
+                            <div className="box"></div>
+                            <div className="box"></div>
+                            <div className="box"></div>
+                            <div className="box"></div>
+                        </Slider>
                     </div>
-                    {/* Boxes content */}
-                    
                 </div>
             </div>
         </div>
