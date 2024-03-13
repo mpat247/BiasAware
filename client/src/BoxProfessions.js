@@ -24,6 +24,8 @@ const BoxProfessions = () => {
         slidesToShow: 4, // Adjust based on your display needs
         slidesToScroll: 1,
         adaptiveHeight: true // This will adjust the height based on the slide content
+        // margin: '0',
+        // padding: '0'
     };
 
     return (
