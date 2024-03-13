@@ -19,7 +19,7 @@
 }
 
 .right-boxes-container {
-    width: 30%;
+    width: 30%; /* Adjust as needed */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,26 +28,7 @@
     background-color: aqua;
     margin-left: auto;
     border-radius: 5px;
-    position: relative; /* This ensures the arrows are positioned relative to this container */
-}
-
-.underlay-right-boxes-container {
-    width: 60%;
-    height: 90%;
-    background-color: yellow;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    border: 1px solid black;
-    /* overflow: hidden; */
-}
-
-.box {
-    /* width: 40%; */
-    height: 125px;
-    margin: 10px 0;
-    background-color: red;
+    position: relative;
 }
 
 .left-box {
@@ -66,24 +47,10 @@
     border-radius: 5px;
 }
 
-.slick-prev, .slick-next {
-    z-index: 1000;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    /* background-color: #fff; */
-    color: black;
-    border-radius: 50%;
-    /* border: 1px solid black; */
-    opacity: 1;
-    position: absolute;
-}
-
-.right-boxes-container .slick-prev {
-    left: 10px; /* Adjust if necessary */
-}
-
-.right-boxes-container .slick-next {
-    right: 10px; /* Adjust if necessary */
+.box {
+    width: 80%; /* Adjust as needed */
+    height: 20%; /* Adjust as needed */
+    background-color: lightgray; /* Adjust colors as needed */
+    margin: 5px 0; /* Adjust spacing between boxes */
+    border-radius: 5px;
 }
