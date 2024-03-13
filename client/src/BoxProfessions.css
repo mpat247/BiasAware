@@ -19,61 +19,36 @@
 }
 
 .right-boxes-container {
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 20%;
     height: 100%;
     background-color: aqua;
-    position: relative;
+    margin-left: auto;
     border-radius: 5px;
+    position: relative; /* This ensures the arrows are positioned relative to this container */
 }
 
-/* .underlay-right-boxes-container {
+.underlay-right-boxes-container {
+    width: 60%;
+    height: 90%;
+    background-color: yellow;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; 
-    width: 70%;
-    height: 100%;
-    background-color: black;
-    overflow: hidden;
-    position: relative;
+    justify-content: start;
+    border: 1px solid black;
+    /* overflow: hidden; */
 }
 
 .box {
-    width: 100%;
-    height: 110px; 
-    margin: 5px 0; 
+    /* width: 40%; */
+    height: 125px;
+    margin: 10px 0;
     background-color: red;
-    border-radius: 5px;
-} */
-
-/* CSS */
-.underlay-right-boxes-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* This centers the content horizontally in the container */
-    justify-content: center; /* This centers the content vertically in the container */
-    width: 60%; /* Adjust the width based on your layout needs */
-    height: 90%; /* Adjust the height based on your layout needs */
-    background-color: black;
-    overflow: hidden;
-    position: relative;
-    padding: 10px 0; /* This adds some padding at the top and bottom */
 }
-
-
-.box {
-    width: 50%; /* Relative width to fit within the parent container */
-    height: 50px; /* Each box takes roughly a quarter of the container height, adjust based on total padding/margin */
-    margin: 1% 0; /* Small margin between boxes */
-    background-color: red;
-    border-radius: 5px;
-}
-
-
 
 .left-box {
     width: 30%;
@@ -84,7 +59,7 @@
 }
 
 .middle-box {
-    width: 50%;
+    width: 40%;
     height: 100%;
     background-color: lightpink;
     margin-right: 20px;
@@ -93,21 +68,22 @@
 
 .slick-prev, .slick-next {
     z-index: 1000;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
     width: 30px;
     height: 30px;
+    /* background-color: #fff; */
     color: black;
     border-radius: 50%;
+    /* border: 1px solid black; */
     opacity: 1;
     position: absolute;
 }
 
 .right-boxes-container .slick-prev {
-    top: 10px;
-    left: 50%;
+    left: 10px; /* Adjust if necessary */
 }
 
 .right-boxes-container .slick-next {
-    bottom: 10px;
-    left: 50%;
+    right: 10px; /* Adjust if necessary */
 }

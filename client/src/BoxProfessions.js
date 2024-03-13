@@ -44,14 +44,14 @@ const BoxProfessions = () => {
                 <div className="left-box"></div>
                 <div className="middle-box"></div>
                 <div className="right-boxes-container">
-                    <div className="underlay-right-boxes-container">
+                    {/* <div className="underlay-right-boxes-container"> */}
                         <Slider {...settings}>
                             <div className="box"></div>
                             <div className="box"></div>
                             <div className="box"></div>
                             <div className="box"></div>
                         </Slider>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         </div>
