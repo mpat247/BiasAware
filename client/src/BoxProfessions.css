@@ -1,19 +1,38 @@
 .box-container {
     display: flex;
-    justify-content: center; /* Keep this to center the box horizontally */
-    align-items: start; /* Change this from 'center' to 'start' to align the box to the top */
+    justify-content: center; /* Center the box horizontally */
+    align-items: start; /* Align the box to the top */
     height: 100vh;
     background-color: orange;
-    padding-top: 150px; /* Add top padding to push the box down, adjust this value as needed */
+    padding-top: 150px; /* Push the box down from the top */
 }
 
 .box-content {
-    width: calc(100% - 60px); /* Adjust if needed */
-    height: calc(100% - 100px); /* Adjust the height calculation if you changed padding-top */
-    margin: auto; /* Keeps the box centered horizontally */
-    padding: 30px;
-    background-color:#080424;
+    width: calc(100% - 60px); /* Adjust width as needed, leaving space for padding */
+    height: calc(100% - 100px); /* Adjust height based on padding-top */
+    margin: auto; /* Center the box horizontally */
+    padding: 30px; /* Padding inside the box */
+    background-color: pink;
     border-radius: 5px;
     text-align: center;
-    color: white;
+    /* color: white; */
+}
+
+.box-content .slick-slider {
+    margin: 0 auto;
+    width: 90%; /* Adjust the width to fit inside box-content */
+    height: 100%; /* Make the slider fill the box content in height */
+}
+
+.slide-box {
+    height: 180px; /* Height of each slide box */
+    width: auto; /* Width will adjust based on content */
+    margin: 10px auto; /* Center the box in the slide */
+    border-radius: 5px; /* Rounded corners for the box */
+    display: flex; /* Setup for centering content inside the box */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color: white; /* Text color inside the box */
+    font-size: 20px; /* Text size inside the box */
+    background-color: aqua;
 }
