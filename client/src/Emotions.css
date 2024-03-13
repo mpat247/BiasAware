@@ -1,0 +1,260 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0B0533; /* Set the background color of the body to #0B0533 */
+}
+
+/*.emotions-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}*/
+
+.rectangle {
+  background-color: #2B1451;
+  width: 800px;
+  height: 100px;
+  margin-top: 30px; /* Adjust the margin-top value to bring the rectangle down */
+  margin-left: 350px; /* Adjust the margin-left value to move the rectangle to the right */
+  position: relative; /* Ensure that z-index works */
+  z-index: 2; /* Set a higher z-index for rectangle */
+}
+
+.rectangle .title {
+  font-family: 'Abhaya Libre ExtraBold';
+  font-size: 60px; /* Decreased font size */
+  color: #E8C450;
+  text-align: center;
+  position: absolute; /* Position the title absolutely */
+  top: 10px; /* Move the title up by 10px */
+  left: 0; /* Center the title horizontally */
+  width: 100%; /* Ensure the title spans the full width of the rectangle */
+  letter-spacing: 6px; /* Add space between letters */
+}
+
+.rectangleback1 {
+  background-color: #1e0940;
+  width: 800px;
+  height: 100px;
+  margin-top: -90px; /* Adjust the margin-top value to bring the rectangle down */
+  margin-left: 360px;
+  position: relative; /* Ensure that z-index works */
+  z-index: 1; /* Set a lower z-index for rectangleback1 */
+}
+
+.rectangle2 {
+  background-color: #2B1451;
+  width: 800px;
+  height: 500px;
+  margin-top: 20px; /* Adjust the margin-top value to bring the rectangle down */
+  margin-left: 350px;
+  position: relative; /* Ensure that z-index works */
+  z-index: 2; /* Set a higher z-index for rectangle */
+}
+
+.rectangleback2 {
+  background-color: #1e0940;
+  width: 800px;
+  height: 500px;
+  margin-top: -490px; /* Adjust the margin-top value to bring the rectangle down */
+  margin-left: 360px;
+  position: relative; /* Ensure that z-index works */
+  z-index: 1; /* Set a lower z-index for rectangleback1 */
+}
+
+.emotion-button {
+  background-color: transparent; /* Set the background color to transparent */
+  border: none; /* Remove the border */
+  padding: 0; /* Remove padding */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.emotion-image {
+  width: 100px; /* Adjust the width of the images as needed */
+  height: 100px; /* Adjust the height of the images as needed */
+  object-fit: contain; /* Ensure the entire image is visible */
+  margin: 8px 8px 8px 20px; /* Add margin to the right */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Create 5 columns */
+  grid-template-rows: repeat(4, 1fr); /* Create 4 rows */
+  gap: 5px; /* Add some gap between the images */
+  padding: 12px; /* Add padding to the grid */
+}
+
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 500px;
+  background-color: #0B0533;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 999;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.popup-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  padding: 8px 16px;
+  background-color: #2B1451;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #1e0940;
+}
+
+
+.popup-active {
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.emotions-page {
+  filter: blur(0); /* Remove blur effect when popup is active */
+}
+
+.popup-card {
+  /* Your existing styles for the popup card */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #080328; /* Semi-transparent black */
+  z-index: 998; /* Ensure the overlay is behind the popup */
+}
+
+.rectanglepop1 {
+  position: absolute;
+  top: 100px;
+  left: 1px;
+  width: 180px;
+  height: 280px;
+  background-color: #2B1451;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.rectanglepop2 {
+  position: absolute;
+  top: 30px;
+  left: 200px;
+  width: 360px;
+  height: 400px;
+  background-color: #2B1451;
+}
+
+.rectanglepop3 {
+  position: absolute;
+  top: 35px;
+  left: 205px;
+  width: 360px;
+  height: 400px;
+  background-color: #1e0940;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.rectanglepop5 {
+  position: absolute;
+  bottom: 80px;
+  right: 1px;
+  width: 180px;
+  height: 280px;
+  background-color: #2B1451;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.image1 {
+  position: absolute;
+  top: 114px; /* Adjust the top position to place it inside the popup */
+  left: 15px; /* Adjust the left position to place it inside the popup */
+  width: 150px; /* Adjust the width as needed */
+  height: 120px; /* Adjust the height as needed */
+  background-color: #ffffff; /* Set a background color */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+.image2 {
+  position: absolute;
+  top: 247px; /* Adjust the top position to place it inside the popup */
+  left: 15px; /* Adjust the left position to place it inside the popup */
+  width: 150px; /* Adjust the width as needed */
+  height: 120px; /* Adjust the height as needed */
+  background-color: #ffffff; /* Set a background color */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+
+.image4 {
+  position: absolute;
+  top: 115px; /* Adjust the top position to place it inside the popup */
+  right: 15px; /* Adjust the left position to place it inside the popup */
+  width: 150px; /* Adjust the width as needed */
+  height: 120px; /* Adjust the height as needed */
+  background-color: #ffffff; /* Set a background color */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+
+.image3 {
+  position: absolute;
+  top: 247px; /* Adjust the top position to place it inside the popup */
+  right: 16px; /* Adjust the left position to place it inside the popup */
+  width: 150px; /* Adjust the width as needed */
+  height: 120px; /* Adjust the height as needed */
+  background-color: #ffffff; /* Set a background color */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+.image5 {
+  position: absolute;
+  top:98px; /* Adjust the top position to place it inside the popup */
+  left: px; /* Adjust the left position to place it inside the popup */
+  width: 330px; /* Adjust the width as needed */
+  height: 280px; /* Adjust the height as needed */
+  background-color: #ffffff; /* Set a background color */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+/* Your existing styles for the popup card */
+

@@ -1,10 +1,10 @@
 /* Example in App.css or index.css */
 :root{
   /* background-color: yellow; */
-  background-image: url('/public/image_grid.jpg');
+/*  background-image: url('/public/image_grid.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: repeat;*/
 }
 
 body {

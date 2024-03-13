@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = "mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority";
+const uri = "mongodb+srv://arshroop:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority";
 
 const clientOptions = { 
     serverApi: { 
