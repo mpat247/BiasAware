@@ -19,36 +19,38 @@
 }
 
 .right-boxes-container {
-    width: 30%; /* Adjust based on your design */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%; /* Adjust based on your design */
-    background-color: aqua;
-    margin-left: auto;
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    width: 20%; /* Take the full width of its parent to align children properly */
+    height: 100%; /* Use the full height to enable vertical centering */
+    background-color: aqua; /* Maintaining your color scheme */
+    position: relative; /* If it’s positioning its child elements absolutely */
     border-radius: 5px;
-    position: relative; /* Essential for positioning arrows */
 }
+
 
 .underlay-right-boxes-container {
-    width: 60%; /* Adjust based on your design */
-    height: 100%; /* Control the height of the yellow box */
-    background-color: black;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: start; /* Adjust if you want the boxes to start from top */
-    border: 5px solid white;
+    align-items: center; /* This centers the slider horizontally */
+    justify-content: center; /* This centers the slider vertically */
+    width: 70%; /* Adjust based on your design */
+    height: 100%; /* Control the height of the black box */
+    background-color: black;
+    /* border: 5px solid white; */
     overflow: hidden; /* Prevents boxes from spilling out */
-    position: relative; /* Necessary to contain top and bottom arrows */
+    position: relative; /* Necessary for the positioning of arrows and other elements */
 }
 
+
 .box {
-    width: 70%; /* Relative to the parent container */
-    height: 100px; /* Adjust based on your design */
-    margin: 10px 0; /* Adjust space between boxes */
+    width: 100%; /* Relative to the parent container */
+    height: 110px; /* Adjust based on your design */
+    margin: 5px 0; /* Adjust space between boxes */
     background-color: red;
+    border-radius: 5px;
 }
 
 .left-box {
@@ -60,7 +62,7 @@
 }
 
 .middle-box {
-    width: 40%;
+    width: 50%;
     height: 100%;
     background-color: lightpink;
     margin-right: 20px;
