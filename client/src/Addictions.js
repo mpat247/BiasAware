@@ -1,3 +1,5 @@
+// Addictions.js
+
 import React, { useState, useEffect } from 'react';
 import NavigationBar from './NavigationBar';
 import './Addictions.css';
@@ -21,7 +23,6 @@ const PopupCard = ({ image, onClose }) => (
     </div>
   </div>
 );
-
 
 const Addictions = () => {
   const [images, setImages] = useState([]);
@@ -53,10 +54,12 @@ const Addictions = () => {
 
   const openPopup = () => {
     setShowPopup(true);
+    document.body.style.overflow = 'hidden'; // Disable scrolling
   };
 
   const closePopup = () => {
     setShowPopup(false);
+    document.body.style.overflow = 'auto'; // Enable scrolling
   };
 
   const getCurrentImages = () => {
@@ -107,6 +110,7 @@ const Addictions = () => {
           </button>
         </div>
       </header>
+      {showPopup && <div className="overlay" onClick={closePopup}></div>}
       {showPopup && <PopupCard onClose={closePopup} />}
     </div>
   );

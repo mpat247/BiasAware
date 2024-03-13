@@ -229,6 +229,7 @@
   height: 100%;
   background-color: #080328; /* Semi-transparent black */
   z-index: 998; /* Ensure the overlay is behind the popup */
+  opacity: 0.8; /* Set opacity to 50% */
 }
 
 .rectanglepop1 {
@@ -320,4 +321,15 @@
   height: 280px; /* Adjust the height as needed */
   background-color: #ffffff; /* Set a background color */
   z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+.rectangleback2 {
+  background-color: #1e0940;
+  width: 800px;
+  height: 500px;
+  margin-top: -490px; /* Adjust the margin-top value to bring the rectangle down */
+  margin-left: 360px;
+  position: relative; /* Ensure that z-index works */
+  z-index: 1; /* Set a lower z-index for rectangleback1 */
+  
 }
