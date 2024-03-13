@@ -21,37 +21,59 @@
 .right-boxes-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center children horizontally */
-    justify-content: center; /* Center children vertically */
-    width: 20%; /* Take the full width of its parent to align children properly */
-    height: 100%; /* Use the full height to enable vertical centering */
-    background-color: aqua; /* Maintaining your color scheme */
-    position: relative; /* If it’s positioning its child elements absolutely */
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    background-color: aqua;
+    position: relative;
     border-radius: 5px;
 }
 
+/* .underlay-right-boxes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+    width: 70%;
+    height: 100%;
+    background-color: black;
+    overflow: hidden;
+    position: relative;
+}
 
+.box {
+    width: 100%;
+    height: 110px; 
+    margin: 5px 0; 
+    background-color: red;
+    border-radius: 5px;
+} */
+
+/* CSS */
 .underlay-right-boxes-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* This centers the slider horizontally */
-    justify-content: center; /* This centers the slider vertically */
-    width: 70%; /* Adjust based on your design */
-    height: 100%; /* Control the height of the black box */
+    align-items: center; /* This centers the content horizontally in the container */
+    justify-content: center; /* This centers the content vertically in the container */
+    width: 60%; /* Adjust the width based on your layout needs */
+    height: 90%; /* Adjust the height based on your layout needs */
     background-color: black;
-    /* border: 5px solid white; */
-    overflow: hidden; /* Prevents boxes from spilling out */
-    position: relative; /* Necessary for the positioning of arrows and other elements */
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0; /* This adds some padding at the top and bottom */
 }
 
 
 .box {
-    width: 100%; /* Relative to the parent container */
-    height: 110px; /* Adjust based on your design */
-    margin: 5px 0; /* Adjust space between boxes */
+    width: 50%; /* Relative width to fit within the parent container */
+    height: 50px; /* Each box takes roughly a quarter of the container height, adjust based on total padding/margin */
+    margin: 1% 0; /* Small margin between boxes */
     background-color: red;
     border-radius: 5px;
 }
+
+
 
 .left-box {
     width: 30%;
@@ -70,23 +92,22 @@
 }
 
 .slick-prev, .slick-next {
-    z-index: 1000; /* Increased for better visibility */
-    transform: translateX(-50%); /* Center the arrow horizontally */
-    width: 30px; /* Set the width of the arrow */
-    height: 30px; /* Set the height of the arrow */
-    color: black; /* Set the color of the arrow */
-    border-radius: 50%; /* Make the arrows round */
-    opacity: 1; /* Ensure arrows are fully opaque */
-    position: absolute; /* Position the arrows absolutely within the container */
+    z-index: 1000;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    color: black;
+    border-radius: 50%;
+    opacity: 1;
+    position: absolute;
 }
 
-
 .right-boxes-container .slick-prev {
-    top: 10px; /* Position the 'previous' arrow at the top of the yellow box */
-    left: 50%; /* Center horizontally */
+    top: 10px;
+    left: 50%;
 }
 
 .right-boxes-container .slick-next {
-    bottom: -100px; /* Position the 'next' arrow at the bottom of the yellow box */
-    left: 50%; /* Center horizontally */
+    bottom: 10px;
+    left: 50%;
 }
