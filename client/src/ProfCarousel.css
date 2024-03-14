@@ -132,3 +132,24 @@ html, body, main {
 .arrow:hover {
     color: white; /* Adjust the color on hover */
 }
+
+.yellowBox {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px; /* Adjust the width as needed */
+    height: 100%;
+    background-color: yellow;
+}
+
+.slideImage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%; /* Adjust the width as needed */
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
