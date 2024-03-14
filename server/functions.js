@@ -1,11 +1,10 @@
 require('dotenv').config();
-const mongoose = require('mongoose');
 const Image = require('./models/imageModel'); // Adjust the import path as necessary
 const Bias = require('./models/biasModel'); // Adjust the import path as necessary
+const { connectToDatabase, mongoose } = require('./dbConfig'); // Adjust the path as necessary
 const fs = require('fs');
 const path = require('path');
 const csv = require('csv-parser'); // Make sure this line is included
-
 
 async function updateImageBias() {
   const images = await Image.find({}); // Fetch all images
@@ -98,6 +97,57 @@ async function updateImagePrompts() {
   }
 }
 
+async function updateImageFieldsFromCSV(csvFilePath) {
+  try {
+    console.log(`Reading CSV file from: ${csvFilePath}`);
+    const imagesToUpdate = [];
+
+    // Read the CSV file
+    fs.createReadStream(csvFilePath)
+      .pipe(csv())
+      .on('data', (row) => {
+        const imageName = row.name;
+        const skinShade = row.skinShade;
+        const gender = row.gender;
+
+        // Construct object with necessary fields
+        const imageData = {
+          skin_shade: skinShade,
+          gender: gender
+        };
+
+        // Add image data to array
+        imagesToUpdate.push({ name: imageName, update: imageData });
+
+        console.log(`Mapping found - ImageName: ${imageName}, Skin Shade: ${skinShade}, Gender: ${gender}`);
+      })
+      .on('end', async () => {
+        console.log(`CSV file reading completed. Found ${imagesToUpdate.length} mappings.`);
+
+        // Connect to MongoDB
+        const db = await connectToDatabase();
+
+        // Update images in the database
+        await Promise.all(imagesToUpdate.map(async (imageData) => {
+          const { name, update } = imageData;
+          await Image.findOneAndUpdate({ name }, update);
+          console.log(`Updated image ${name} with skin shade and gender information.`);
+        }));
+
+        console.log('Completed updating images with skin shade and gender information.');
+
+        // Disconnect from MongoDB
+        await mongoose.disconnect();
+        console.log('Disconnected from the database.');
+      })
+      .on('error', (error) => {
+        console.error('Error reading CSV file:', error);
+      });
+  } catch (error) {
+    console.error('Error updating images:', error);
+  }
+}
+
 async function main() {
   try {
     await mongoose.connect('mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -105,7 +155,10 @@ async function main() {
 
    // await updateImageBias();
    // await updateImageGenerator();
-    await updateImagePrompts();
+   // await updateImagePrompts();
+
+    const csvFilePath = "/Users/manav/Documents/Fourth Year/Capstone/BiasAware/server/finalv.csv";
+    await updateImageFieldsFromCSV(csvFilePath);
 
     console.log('Completed updating images with bias and generator information.');
   } catch (error) {
