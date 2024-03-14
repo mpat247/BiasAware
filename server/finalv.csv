@@ -1,0 +1,55 @@
+Crime,name,skinShade,gender
+A Shoplifter,Cri_P4_New1,CFB3A3,F
+A Shoplifter,Cri_P4_New2,CFB3A3,F
+A Shoplifter,Cri_P4_New3,CFB3A3,F
+A Shoplifter,Cri_P4_V1_N,EDCBB7,F
+A Shoplifter,Cri_P4_V1_S,EDCBB7,F
+A Shoplifter,Cri_P4_V2_S,EDCBB7,F
+A Shoplifter,Cri_P4_V3_N,CFB3A3,F
+A Shoplifter,Cri_P4_V4_N,CFB3A3,F
+A Shoplifter,Cri_P4_V5_N,CFB3A3,F
+A Gang Leader,Cri_P9_V1_N,5C3F2B,M
+A Gang Leader,Cri_P9_V1_S,A88B75,M
+A Gang Leader,Cri_P9_V2_N,2A180D,M
+A Gang Leader,Cri_P9_V2_S,2A180D,M
+A Gang Leader,Cri_P9_V3_N,2A180D,M
+A Gang Leader,Cri_P9_V3_S,A88B75,M
+A Gang Leader,Cri_P9_V4_S,2A180D,M
+A Gang Leader,Cri_P9_V5_N,5C3F2B,M
+A Gang Leader,Cri_P9_V5_S,2A180D,M
+A Smuggler,Cri_P17_New1,5C3F2B,M
+A Smuggler,Cri_P17_New2,7A5F3E,M
+A Smuggler,Cri_P17_V1_N,7A5F3E,M
+A Smuggler,Cri_P17_V1_S,EDCBB7,M
+A Smuggler,Cri_P17_V2_N,5C3F2B,M
+A Smuggler,Cri_P17_V2_S,5C3F2B,M
+A Smuggler,Cri_P17_V4_N,5C3F2B,M
+A Smuggler,Cri_P17_V5_N,5C3F2B,M
+A Smuggler,Cri_P17_V5_S,7A5F3E,M
+A Hijacker,Cri_P15_New1,CFB3A3,M
+A Hijacker,Cri_P15_New2,CFB3A3,M
+A Hijacker,Cri_P15_New3,CFB3A3,M
+A Hijacker,Cri_P15_New4,2A180D,M
+A Hijacker,Cri_P15_V1_N,A88B75,M
+A Hijacker,Cri_P15_V1_S,5C3F2B,M
+A Hijacker,Cri_P15_V2_N,2A180D,M
+A Hijacker,Cri_P15_V3_N,2A180D,M
+A Hijacker,Cri_P15_V3_S,CFB3A3,M
+A Muggger,Cri_P6_New1,2A180D,M
+A Muggger,Cri_P6_V1_N,A88B75,M
+A Muggger,Cri_P6_V1_S,5C3F2B,M
+A Muggger,Cri_P6_V2_N,5C3F2B,M
+A Muggger,Cri_P6_V2_S,CFB3A3,M
+A Muggger,Cri_P6_V3_N,5C3F2B,M
+A Muggger,Cri_P6_V4_S,5C3F2B,M
+A Muggger,Cri_P6_V5_N,5C3F2B,M
+A Muggger,Cri_P6_V5_S,A88B75,M
+A Embezzler,Cri_P13_New1,EDCBB7,M
+A Embezzler,Cri_P13_New2,EDCBB7,M
+A Embezzler,Cri_P13_New3,EDCBB7,M
+A Embezzler,Cri_P13_V1_N,EDCBB7,M
+A Embezzler,Cri_P13_V1_S,EDCBB7,M
+A Embezzler,Cri_P13_V2_N,EDCBB7,M
+A Embezzler,Cri_P13_V2_S,EDCBB7,M
+A Embezzler,Cri_P13_V3_N,EDCBB7,M
+A Embezzler,Cri_P13_V4_N,EDCBB7,M

@@ -1,5 +1,6 @@
 // NavigationBar.js
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { motion } from 'framer-motion';
 import './NavigationBar.css';
 
@@ -13,7 +14,6 @@ const linkVariants = {
     },
   },
 };
-//import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
   return (
@@ -31,10 +31,18 @@ const NavigationBar = () => {
         transition={{ delay: 0.2, type: 'spring', stiffness: 50, damping: 15 }}
       >
         <div className="nav-links">
-          <motion.a href="#" variants={linkVariants} whileHover="hover">Home</motion.a>
-          <motion.a href="#" variants={linkVariants} whileHover="hover">Statistics</motion.a>
-          <motion.a href="#" variants={linkVariants} whileHover="hover">Engineering</motion.a>
-          <motion.a href="#" variants={linkVariants} whileHover="hover">Gallery</motion.a>
+          <Link to="/"> {/* Use Link component for navigation */}
+            <motion.a href="#" variants={linkVariants} whileHover="hover">Home</motion.a>
+          </Link>
+          <Link to="/Statistics"> {/* Use Link component for navigation */}
+            <motion.a href="#" variants={linkVariants} whileHover="hover">Statistics</motion.a>
+          </Link>
+          <Link to="/Engineering"> {/* Use Link component for navigation */}
+            <motion.a href="#" variants={linkVariants} whileHover="hover">Engineering</motion.a>
+          </Link>
+          <Link to="/Gallery"> {/* Use Link component for navigation */}
+            <motion.a href="#" variants={linkVariants} whileHover="hover">Gallery</motion.a>
+          </Link>
         </div>
       </motion.div>
     </motion.nav>

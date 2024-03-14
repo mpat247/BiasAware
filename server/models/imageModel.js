@@ -21,10 +21,23 @@ const imageSchema = new mongoose.Schema({
     type: String,
     required: false // Set to false if some images might not have a prompt
   },
-  generator: {
+  gender: {
+    type: String,
+    required: false // Set to false if some images might not have a prompt
+  },
+  qol_type: {
+    type: String,
+    required: false // Set to false if some images might not have a prompt
+  },
+  profession_type: {
+    type: String,
+    required: false // Set to false if some images might not have a prompt
+  },
+  skin_shade: {
     type: String,
     required: false // Set to false if some images might not have a prompt
   }
+
 }, {
   timestamps: true // Optionally add timestamps for created and updated times
 });

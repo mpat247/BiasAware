@@ -5,6 +5,7 @@ const User = require('./models/userModel');
 const Image = require('./models/imageModel');
 const Bias = require('./models/biasModel'); // Adjust the path as necessary
 const recursiveReadDir = require('recursive-readdir');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const app = express();
@@ -13,6 +14,7 @@ const { GridFSBucket } = require('mongodb');
 
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.json({ msg: 'Welcome to the MERN Capstone Project' });
@@ -149,7 +151,11 @@ app.post('/bias', async (req, res) => {
   }
 });
 
+const addictionsRoute = require('./routes/addictions');
+app.use('/addictions', addictionsRoute);
 
+const emotionsRoute = require('./routes/emotions');
+app.use('/emotions', emotionsRoute);
 
 async function main() {
   try {

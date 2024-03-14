@@ -1,165 +1,90 @@
-#addictions {
-  /* Add any global styles for the 'addictions' ID here */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0B0533; /* Set the background color of the body to #0B0533 */
 }
 
-.Addictions {
-  /* Add any global styles for the 'Addictions' class here */
-}
-
-.App-header {
-  /* Add any styles for the header inside the 'Addictions' component here */
-}
-
-.addictions-container {
+/*.emotions-page {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  position: relative;
+  align-items: center;
+  height: 100vh;
+}*/
 
+.rectangle {
+  background-color: #2B1451;
+  width: 800px;
+  height: 100px;
+  margin-top: 30px; /* Adjust the margin-top value to bring the rectangle down */
+  margin-left: 350px; /* Adjust the margin-left value to move the rectangle to the right */
+  position: relative; /* Ensure that z-index works */
+  z-index: 2; /* Set a higher z-index for rectangle */
 }
 
-.addictions-container h1 {
-  color: #DD9313;
+.rectangle .title {
   font-family: 'Abhaya Libre ExtraBold';
-  font-size: 4em;
-  text-shadow: 2px 2px 4px rgba(168, 108, 6, 1);
-  margin-bottom: 20px;
-  animation: fadeIn 1s ease-in-out;
+  font-size: 60px; /* Decreased font size */
+  color: #E8C450;
+  text-align: center;
+  position: absolute; /* Position the title absolutely */
+  top: 10px; /* Move the title up by 10px */
+  left: 0; /* Center the title horizontally */
+  width: 100%; /* Ensure the title spans the full width of the rectangle */
+  letter-spacing: 6px; /* Add space between letters */
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.rectangleback1 {
+  background-color: #1e0940;
+  width: 800px;
+  height: 100px;
+  margin-top: -90px; /* Adjust the margin-top value to bring the rectangle down */
+  margin-left: 360px;
+  position: relative; /* Ensure that z-index works */
+  z-index: 1; /* Set a lower z-index for rectangleback1 */
 }
 
-.addictions-container div {
-  display: flex;
-  margin-right: 20px; /* Add 10px margin between images */
+.rectangle2 {
+  background-color: #2B1451;
+  width: 800px;
+  height: 500px;
+  margin-top: 20px; /* Adjust the margin-top value to bring the rectangle down */
+  margin-left: 350px;
+  position: relative; /* Ensure that z-index works */
+  z-index: 2; /* Set a higher z-index for rectangle */
 }
 
-/* Styling for the image divs */
-.addictions-container div > div {
-  position: relative;
-  width: 300px;
-  height: 450px;
-  overflow: hidden;
-}
-.addictions-container div > div:nth-child(1) {
-  position: relative;
-  width: 200px;
-  height: 400px;
-  overflow: hidden;
+.rectangleback2 {
+  background-color: #1e0940;
+  width: 800px;
+  height: 500px;
+  margin-top: -490px; /* Adjust the margin-top value to bring the rectangle down */
+  margin-left: 360px;
+  position: relative; /* Ensure that z-index works */
+  z-index: 1; /* Set a lower z-index for rectangleback1 */
 }
 
-/* Styling for the images */
-.addictions-container div > div img {
-  width: 300px;
-  height: 450px;
-  border-radius: 30px;
-  object-fit: cover;
+.emotion-button {
+  background-color: transparent; /* Set the background color to transparent */
+  border: none; /* Remove the border */
+  padding: 0; /* Remove padding */
+  cursor: pointer; /* Change cursor to pointer */
 }
 
-/* Styling for the first image (index 1) */
-.addictions-container div > div:nth-child(1) img {
-  position: relative;
-  opacity: 0.5;
-  border-radius: 30px;
-  width: 200px;
-  height: 350px;
-  margin-top: 50px;
+.emotion-image {
+  width: 100px; /* Adjust the width of the images as needed */
+  height: 100px; /* Adjust the height of the images as needed */
+  object-fit: contain; /* Ensure the entire image is visible */
+  margin: 8px 8px 8px 20px; /* Add margin to the right */
 }
 
-/* Styling for the second image (index 2) */
-.addictions-container div > div:nth-child(2) img {
-  position: relative;
-  width: 300px;
-  height: 450px;
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Create 5 columns */
+  grid-template-rows: repeat(4, 1fr); /* Create 4 rows */
+  gap: 5px; /* Add some gap between the images */
+  padding: 12px; /* Add padding to the grid */
 }
 
-/* Styling for the third image (index 3) */
-.addictions-container div > div:nth-child(3) img {
-  position: relative;
-  width: 300px;
-  height: 450px;
-}
-
-/* Adjust the styling for the last image's div */
-.addictions-container div:last-child {
-  overflow: hidden;
-  position: relative;
-  width: 200px;
-  height: 350px;
-  border-radius: 30px;
-  margin-right: 0;
-  margin-top: 50px;
-}
-
-/* Styling for the image inside the last div */
-.addictions-container div:last-child img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: relative;
-  opacity: 0.5;
-  border-radius: 30px;
-}
-
-/* Add a pseudo-element to create the left half of the image with reduced opacity */
-.addictions-container div:last-child::before {
-  content: "";
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  opacity: 0.5;
-  border-radius: 30px;
-}
-
-/* Styling for the image divs */
-.addictions-container .image-component {
-  transition: transform 0.3s ease-in-out;
-  margin: 0 10px; /* Add margin between images */
-}
-
-/* Hover effect */
-.addictions-container .image-component:hover {
-  transform: scale(1.1);
-}
-
-/* Styling for the images */
-.image-component img {
-  border-radius: 20px;
-  object-fit: cover;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.image-component img:hover {
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
-}
-
-
-
-.arrow-button {
-  margin-top: 20px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #DD9313;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-}
-
-.arrow-button-left {
-  left: -40px;
-}
-
-.arrow-button-right {
-  right: -40px;
-}
 .popup-wrapper {
   position: fixed;
   top: 0;
@@ -217,8 +142,17 @@
   background-color: #1e0940;
 }
 
+
 .popup-active {
   overflow: hidden; /* Prevent scrolling */
+}
+
+.emotions-page {
+  filter: blur(0); /* Remove blur effect when popup is active */
+}
+
+.popup-card {
+  /* Your existing styles for the popup card */
 }
 
 .overlay {
@@ -321,3 +255,6 @@
   background-color: #ffffff; /* Set a background color */
   z-index: 999; /* Ensure it's above other elements in the popup */
 }
+
+/* Your existing styles for the popup card */
+
