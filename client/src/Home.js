@@ -6,6 +6,7 @@ import NavigationBar from './NavigationBar'; // Import the NavigationBar compone
 import Addictions from './Addictions';
 import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
+import Emotions from './Emotions';
 
 const Home = () => {
   const [rotate, setRotate] = useState(true);
@@ -147,6 +148,11 @@ const Home = () => {
       {/* Quality of Life section */}
       <div id="qol">
         <QOL />
+      </div>
+
+      {/* Quality of Life section */}
+      <div id="Emotions">
+        <Emotions />
       </div>
     </div>
   );

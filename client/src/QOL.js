@@ -68,8 +68,17 @@ const QOL = () => {
   return (
     <div style={{ backgroundColor: '#0B0533' }}>
       {/* Your QOL content goes here */}
-      <h1>Quality of Life Page</h1>
-
+      <h1 style={{
+                color: '#DD9313',
+                fontFamily: 'Abhaya Libre ExtraBold',
+                fontSize: '4em',
+                textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
+                textAlign: 'center',
+                margin: '0',
+                padding: '50px 0'
+            }}>
+                Q U A L I T Y     O F     L I F E 
+            </h1>
       {/* Enclosing box for the four smaller boxes */}
       <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: '70px', width: '1000px', marginLeft: '250px' }}>
         {/* Rectangles */}

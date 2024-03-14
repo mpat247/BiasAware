@@ -51,7 +51,7 @@ router.get('/caffeine', async (req, res) => {
 
 router.get('/main-images', async (req, res) => {
     try {
-      const images = await Image.find({ bias_name: "Addiction",prompt: /main/i });
+      const images = await Image.find({ prompt: /main/i });
   
       if (!images.length) {
         return res.status(404).send({ message: 'No main images found' });

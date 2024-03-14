@@ -21,26 +21,26 @@ const PopupCard = ({ image, onClose }) => (
 
 const Emotions = () => {
   const images = [
-    "/emotions/Group 137.png",
-    "/emotions/Group 138.png",
-    "/emotions/Group 139.png",
-    "/emotions/Group 140.png",
-    "/emotions/Group 141.png",
-    "/emotions/Group 142.png",
-    "/emotions/Group 143.png",
-    "/emotions/Group 144.png",
-    "/emotions/Group 145.png",
-    "/emotions/Group 146.png",
-    "/emotions/Group 147.png",
-    "/emotions/Group 149.png",
-    "/emotions/Group 150.png",
-    "/emotions/Group 151.png",
-    "/emotions/Group 152.png",
-    "/emotions/Group 153.png",
-    "/emotions/Group 154.png",
-    "/emotions/Group 155.png",
-    "/emotions/Group 156.png",
-    "/emotions/Group 157.png"
+    "/emotions/1happy.png",
+    "/emotions/2sad.png",
+    "/emotions/3angry.png",
+    "/emotions/4loved.png",
+    "/emotions/5confused.png",
+    "/emotions/6cautious.png",
+    "/emotions/7depressed.png",
+    "/emotions/8irritated.png",
+    "/emotions/9energetic.png",
+    "/emotions/10confident.png",
+    "/emotions/11disappointed.png",
+    "/emotions/12proud.png",
+    "/emotions/13grateful.png",
+    "/emotions/14jealous.png",
+    "/emotions/15optimistic.png",
+    "/emotions/16resourceful.png",
+    "/emotions/17regretful.png",
+    "/emotions/18empowered.png",
+    "/emotions/19discouraged.png",
+    "/emotions/20hated.png"
   ];
 
   const [showPopup, setShowPopup] = useState(false);
@@ -58,6 +58,16 @@ const Emotions = () => {
   
   return (
     <div className="emotions-page">
+      <h1 style={{
+                color: '#DD9313',
+                fontFamily: 'Abhaya Libre ExtraBold',
+                fontSize: '4em',
+                textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
+                textAlign: 'center',
+                margin: '0',
+                padding: '50px 0'
+            }}>
+E M O T I O N S             </h1>
       <div className="rectangle">
         <div className="title">I   AM   FEELING </div>
       </div>
