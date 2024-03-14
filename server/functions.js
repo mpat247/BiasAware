@@ -1,4 +1,7 @@
 require('dotenv').config();
+const express = require("express");
+const router = express.Router();
+const { GridFSBucket } = require('mongodb'); // Import GridFSBucket from mongodb package
 const Image = require('./models/imageModel'); // Adjust the import path as necessary
 const Bias = require('./models/biasModel'); // Adjust the import path as necessary
 const { connectToDatabase, mongoose } = require('./dbConfig'); // Adjust the path as necessary
