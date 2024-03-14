@@ -142,7 +142,7 @@ html, body, main {
 
 .slideContainer {
     position: relative;
-    width: 50%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -153,13 +153,14 @@ html, body, main {
     position: absolute;
     left: 5%; /* Adjusted left positioning to make it 90% in width */
     top: 5%; /* Adjusted top positioning to make it 90% in height */
-    width: 90%; /* Set width to 90% of the parent container */
+    width: 40%; /* Set width to 90% of the parent container */
     height: 90%; /* Set height to 90% of the parent container */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border: 2px solid yellow; /* Add border for photo frame effect */
+    border: 2px solid white; /* Add border for photo frame effect */
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
 
