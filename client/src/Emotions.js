@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './Emotions.css'; // Assuming the CSS file is named Emotions.css
 import axios from 'axios'; // Import Axios for making HTTP requests
 
 const PopupCard = ({ image, onClose, retrievedImage }) => (
@@ -56,12 +55,14 @@ const Emotions = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get('/emotions/main-images');
-        setRetrievedImages(response.data.images);
+        const response = await axios.get('http://localhost:3001/emotions/main-images');
+        const images = response.data.images;
+        setRetrievedImages(images);
+        console.log('Number of initially retrieved images:', images.length);
 
         // Create a mapping between emotions and retrieved images based on the prompt field
         const emotionToImageMap = {};
-        response.data.images.forEach(image => {
+        images.forEach(image => {
           Object.keys(emotionMap).forEach(emotion => {
             if (image.prompt.toLowerCase().includes(emotion)) {
               emotionToImageMap[emotion] = image.url;
