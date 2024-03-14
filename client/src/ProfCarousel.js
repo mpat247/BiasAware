@@ -93,6 +93,9 @@ const ProfCarousel = () => {
 
     return (
         <main>
+            <div className="titleBar">
+                <h1>HEALTHCARE</h1>
+            </div>
             <div id="carousel">
                 {slideImages.map((src, index) => (
                     <a key={index} className={getClassNames(index)} onClick={() => moveToSelected(index)} href="javascript:void(0);">
