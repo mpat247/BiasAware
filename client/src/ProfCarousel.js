@@ -31,6 +31,36 @@ const ProfCarousel = () => {
         'url("https://via.placeholder.com/800x600/FF0000/000000/?text=Slide10")' // Red
     ];
 
+    const slideTitles = [
+        "Title 1",
+        "Title 2",
+        "Title 3",
+        "Title 4",
+        "Title 5",
+        "Title 6",
+        "Title 7",
+        "Title 8",
+        "Title 9",
+        "Title 10",
+        // Add titles for each slide
+    ];
+
+    const slideCaptions = [
+        "Caption 1",
+        "Caption 2",
+        "Caption 3",
+        "Caption 4",
+        "Caption 5",
+        "Caption 6",
+        "Caption 7",
+        "Caption 8",
+        "Caption 9",
+        "Caption 10",
+        
+        
+        // Add captions for each slide
+    ];
+
     const moveToSelected = (element) => {
         if (element === "next") {
             setSelected((prevSelected) => (prevSelected + 1) % slideImages.length);
@@ -70,8 +100,8 @@ const ProfCarousel = () => {
                             <div className="slideImage" style={{ backgroundImage: slideBackgroundImages[index] }}></div>
                             <img src={src} alt={`Slide ${index + 1}`} />
                             <div className="slideTextContent">
-                                <h2>Title</h2>
-                                <p>Slide {index + 1} Content</p>
+                                <h2>{slideTitles[index]}</h2>
+                                <p>{slideCaptions[index]}</p>
                             </div>
                         </div>
                     </a>
