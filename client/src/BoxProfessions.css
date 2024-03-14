@@ -38,7 +38,7 @@
 .box {
     width: 100%; /* Occupy the entire width of the black box */
     max-width: 300px; 
-    height: 200px;
+    height: 150px;
     margin: 10px 0; /* Adjust vertical margin to create space between boxes */
     background-color: red;
     border-radius: 5px;
@@ -68,13 +68,13 @@
 }
 
 .slick-prev {
-    top: 10px; /* Adjust as needed */
+    top: -50px; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
 }
 
 .slick-next {
-    bottom: 10px; /* Adjust as needed */
+    bottom: 100px; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
 }
