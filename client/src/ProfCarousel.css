@@ -1,5 +1,7 @@
 @charset "utf8";
 @import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap');
 
 :root {
     --ImgSizeX: 50vw;
@@ -128,7 +130,7 @@ html, body, main {
 }
 
 .arrow:hover {
-    color: white; /* Adjust the color on hover */
+    color: black; /* Adjust the color on hover */
 }
 
 /* .yellowBox {
@@ -158,7 +160,6 @@ html, body, main {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border: 2px solid white; /* Add border for photo frame effect */
     box-sizing: border-box;
     border-radius: 5px;
 }
@@ -187,14 +188,17 @@ html, body, main {
     color: #fff; /* Adjust the color */
     margin-bottom: 0.5em; /* Add some bottom margin */
     font-family: 'Abhaya Libre ExtraBold';
-    text-shadow: 2px 2px 4px rgba(168, 108, 6, 1);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); /* White text shadow with higher opacity */
     text-align: center;
 }
+
 
 .slideTextContent p {
     font-size: 1em; /* Adjust the font size */
     color: #fff; /* Adjust the color */
     text-align: center; /* Center the text horizontally */
+    font-family: 'Almarai'; /* Apply the Almarai font */
 }
+
 
 
