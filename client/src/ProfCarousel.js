@@ -38,8 +38,6 @@ const ProfCarousel = () => {
 
     return (
         <main>
-            {/* <h1>Carousel</h1> */}
-            {/* <div className="gradientBRD"></div> */}
             <div id="carousel">
                 {slides.map((num, index) => (
                     <a key={index} className={getClassNames(index)} onClick={() => moveToSelected(index)} href="javascript:void(0);">
@@ -47,13 +45,10 @@ const ProfCarousel = () => {
                     </a>
                 ))}
             </div>
-            {/* <div className="gradientBRD"></div> */}
             <div className="buttons">
                 <button id="prev" className="arrow left" onClick={() => moveToSelected('prev')}>
-                    {/* SVG for left arrow */}
                 </button>
                 <button id="next" className="arrow right" onClick={() => moveToSelected('next')}>
-                    {/* SVG for right arrow */}
                 </button>
             </div>
         </main>
