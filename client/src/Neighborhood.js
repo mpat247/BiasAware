@@ -7,6 +7,7 @@ const Neighborhood = () => {
 
   // Added a new state variable to keep track of typed title
 const [typedCompareTitle, setTypedCompareTitle] = useState('');
+const [typedForestHillCompareTitle, setForestHillTypedCompareTitle] = useState('');
   useEffect(() => {
     // Check if the Google Maps API script is already loaded
     if (!window.google) {
@@ -46,27 +47,72 @@ const [typedCompareTitle, setTypedCompareTitle] = useState('');
   }, []);
 
   useEffect(() => {
+    let typingInterval; // Define typingInterval outside of useEffect
+    
     if (comparePopupVisible) {
       const title = 'A HOUSE IN JANE & FINCH';
-
+      let currentIndex = 0;
+  
       // Typing animation function
       const startTypingAnimation = () => {
-        let currentIndex = 0;
-        const typingInterval = setInterval(() => {
+        typingInterval = setInterval(() => {
           setTypedCompareTitle(title.substring(0, currentIndex + 1));
           currentIndex++;
           if (currentIndex === title.length) {
             clearInterval(typingInterval);
             // Wait for 7 seconds after typing completion
-            setTimeout(startTypingAnimation, 7000);
+            setTimeout(() => {
+              currentIndex = 0; // Reset currentIndex for next iteration
+              startTypingAnimation();
+            }, 7000);
           }
         }, 100);
       };
-
+  
       // Start the typing animation
       startTypingAnimation();
     }
-}, [comparePopupVisible]);
+  
+    // Cleanup function
+    return () => {
+      clearInterval(typingInterval);
+    };
+  }, [comparePopupVisible]);
+
+  useEffect(() => {
+    let typingInterval; // Define typingInterval outside of useEffect
+    
+    if (comparePopupVisible) {
+      const title = 'A HOUSE IN FOREST HILL';
+      let currentIndex = 0;
+  
+      // Typing animation function
+      const startTypingAnimation = () => {
+        typingInterval = setInterval(() => {
+          setForestHillTypedCompareTitle(title.substring(0, currentIndex + 1));
+          currentIndex++;
+          if (currentIndex === title.length) {
+            clearInterval(typingInterval);
+            // Wait for 7 seconds after typing completion
+            setTimeout(() => {
+              currentIndex = 0; // Reset currentIndex for next iteration
+              startTypingAnimation();
+            }, 7000);
+          }
+        }, 100);
+      };
+  
+      // Start the typing animation
+      startTypingAnimation();
+    }
+  
+    // Cleanup function
+    return () => {
+      clearInterval(typingInterval);
+    };
+  }, [comparePopupVisible]);
+  
+  
 
 
   const initMap = () => {
@@ -124,7 +170,9 @@ const [typedCompareTitle, setTypedCompareTitle] = useState('');
 
   return (
     <div>
-      <h1>Neighborhood Page</h1>
+      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+      <h1 style={{ color: '#DD9313', fontFamily: 'Abhaya Libre ExtraBold', fontSize: '4em', textShadow: '2px 2px 4px rgba(168, 108, 6, 1)' }}>N E I G H B O R H O O D</h1>
+      </div>
       <div id="map" style={{ width: '100%', height: '500px' }}></div>
 
       {/* Pop-up for Jane and Finch */}
@@ -176,6 +224,37 @@ const [typedCompareTitle, setTypedCompareTitle] = useState('');
             <div style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 1000 }}>
               <button id="popup-close-forest-hill">Close</button>
             </div>
+            <div style={{ position: 'absolute', top: '15%', left: '50%', transform: 'translateX(-50%)', backgroundColor: '#0B0533', padding: '20px 30px', borderRadius: '5px', zIndex: 1000 }}>
+              <h3 style={{ color: 'white', marginRight: '10px' }}>{titleIndex === 0 ? 'A HOUSE IN FOREST HILL' : 'AN APARTMENT IN FOREST HILL'}</h3>
+            </div>
+            <div style={{ position: 'absolute', top: '12.5%', left: '70%', transform: 'translateX(-50%)', padding: '20px 30px', borderRadius: '5px', zIndex: 1000}}>
+              <img src="/Arrows/NextButton.png" alt="Next" style={{ width: '80px', height: '80px', cursor: 'pointer' }} onClick={handleNextTitle} />
+            </div>
+            {/* Squares */}
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', display: 'flex', justifyContent: 'space-between', width: '50%', zIndex: 1000 }}>
+              <div style={{ backgroundColor: 'grey', width: '200px', height: '200px' }}></div>
+              <div style={{ backgroundColor: 'grey', width: '200px', height: '200px' }}></div>
+              <div style={{ backgroundColor: 'grey', width: '200px', height: '200px' }}></div>
+            </div>
+            {/* End of Squares */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '15%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                backgroundColor: '#0B0533',
+                padding: '20px 30px',
+                borderRadius: '5px',
+                zIndex: 1000,
+                cursor: 'pointer' // Add cursor pointer to indicate clickability
+              }}
+              onClick={handleCompareClick} // Moved onClick event to the div wrapping the "Compare" text
+            >
+              <h3 style={{ color: 'white', marginRight: '10px' }}>COMPARE</h3>
+            </div>
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', width: '80%', height: '80%' }}>
+            </div>
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', width: '80%', height: '80%' }}>
               {/* Forest Hill content */}
             </div>
@@ -194,16 +273,35 @@ const [typedCompareTitle, setTypedCompareTitle] = useState('');
               </div>
               <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', width: '80%', height: '80%' }}>
                 {/* Compare content */}
-                <div style={{ position: 'absolute', top: '10%', left: '30%', transform: 'translateX(-50%)', backgroundColor: '#0B0533', padding: '20px 30px', borderRadius: '5px', zIndex: 1000 }}>
+                <div style={{ position: 'absolute', top: '10%', left: '25%', transform: 'translateX(-50%)', backgroundColor: '#0B0533', padding: '20px 30px', borderRadius: '5px', zIndex: 1000 }}>
                 <h3 style={{ color: 'white', marginRight: '10px' }}>{typedCompareTitle}</h3>
             </div>
             {/* New Rectangles */}
-            <div style={{ position: 'absolute', top: '60%', left: '15%', transform: 'translate(-50%, -50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1000 }}>
+            <div style={{ position: 'absolute', top: '62%', left: '15%', transform: 'translate(-50%, -50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1000 }}>
         <div style={{ backgroundColor: 'grey', width: '200px', height: '200px', marginBottom: '20px' }}></div>
         <div style={{ backgroundColor: 'grey', width: '200px', height: '200px' }}></div>
       </div>
           {/* End of New Rectangles */}
-            
+            {/* New Rectangles */}
+            <div style={{ position: 'absolute', top: '62%', left: '35%', transform: 'translate(-50%, -50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1000 }}>
+          <div style={{ backgroundColor: 'grey', width: '200px', height: '200px', marginBottom: '20px' }}></div>
+          <div style={{ backgroundColor: 'grey', width: '200px', height: '200px' }}></div>
+        </div>
+            {/* End of New Rectangles */}
+             {/* New Rectangles */}
+             <div style={{ position: 'absolute', top: '62%', left: '63%', transform: 'translate(-50%, -50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1000 }}>
+        <div style={{ backgroundColor: 'grey', width: '200px', height: '200px', marginBottom: '20px' }}></div>
+        <div style={{ backgroundColor: 'grey', width: '200px', height: '200px' }}></div>
+      </div>
+          {/* End of New Rectangles */}
+            {/* New Rectangles */}
+            <div style={{ position: 'absolute', top: '62%', left: '83%', transform: 'translate(-50%, -50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1000 }}>
+          <div style={{ backgroundColor: 'grey', width: '200px', height: '200px', marginBottom: '20px' }}></div>
+          <div style={{ backgroundColor: 'grey', width: '200px', height: '200px' }}></div>
+        </div>
+        <div style={{ position: 'absolute', top: '10%', left: '72%', transform: 'translateX(-50%)', backgroundColor: '#0B0533', padding: '20px 0px', borderRadius: '5px', zIndex: 1000 }}>
+        <h3 style={{ color: 'white', marginRight: '10px' }}>{typedForestHillCompareTitle}</h3>
+        </div>
               </div>
             </div>
           </div>
