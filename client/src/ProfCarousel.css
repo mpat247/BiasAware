@@ -1,0 +1,160 @@
+@charset "utf8";
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap');
+
+:root {
+    --ImgSizeX: 50vw;
+    --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3);
+    --minFontSize: 10px;
+    --maxFontSize: 32px;
+    --scaler: 5vw;
+    font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
+}
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, main {
+    /* height: 100%; */
+    /* background-color: #28292d; */
+}
+
+h1 {
+    background: linear-gradient(to bottom, #cfc09f 22%, #634f2c 24%, #cfc09f 26%, #cfc09f 27%, #ffecb3 40%, #3a2c0f 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 2em;
+    text-align: center;
+}
+
+.gradientBRD {
+    background: linear-gradient(to left, darkgoldenrod, palegoldenrod, darkgoldenrod);
+    padding: 5px 0 0;
+}
+
+pre {
+    font-size: 50%;
+    text-align: center;
+    margin-top: 2em;
+    color: #D5AD6D;
+}
+
+#carousel {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: var(--ImgSizeY);
+    background: radial-gradient(ellipse at center, DarkGoldenRod 0%, black 100%);
+}
+
+#carousel a {
+    position: absolute;
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+    transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+    opacity: 1;
+}
+
+#carousel a img {
+    width: var(--ImgSizeX);
+    height: 100%;
+    transition: width 1s;
+}
+
+#carousel a.hideLeft {
+    left: 0%;
+    opacity: 0;
+    transform: translateY(50%) translateX(0%);
+}
+
+#carousel a.hideRight {
+    left: 100%;
+    opacity: 0;
+    transform: translateY(50%) translateX(-100%);
+}
+
+#carousel a.prev {
+    z-index: 5;
+    left: 30%;
+    transform: translateY(17.5%) translateX(-50%);
+}
+
+#carousel a.next {
+    z-index: 5;
+    left: 70%;
+    transform: translateY(17.5%) translateX(-50%);
+}
+
+#carousel a.prev img,
+#carousel a.next img {
+    width: calc(var(--ImgSizeX) / 4 * 3);
+}
+
+#carousel a.prevSecond,
+#carousel a.nextSecond {
+    z-index: 4;
+    opacity: 0.7;
+}
+
+#carousel a.prevSecond {
+    left: 15%;
+    transform: translateY(50%) translateX(-50%);
+}
+
+#carousel a.nextSecond {
+    left: 85%;
+    transform: translateY(50%) translateX(-50%);
+}
+
+#carousel a.prevSecond img,
+#carousel a.nextSecond img {
+    width: calc(var(--ImgSizeX) / 2);
+}
+
+#carousel a.selected {
+    z-index: 6;
+    left: 50%;
+    transform: translateY(0) translateX(-50%);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 3em;
+    margin: auto;
+    margin-top: 0.5em;
+}
+
+.buttons button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 2.5em;
+    height: 3em;
+}
+
+.arrow {
+    cursor: pointer;
+    width: 2.5em;
+    height: 3em;
+}
+
+.left:hover polyline, .left:focus polyline,
+.right:hover polyline, .right:focus polyline {
+    stroke-width: 3;
+}
+
+.left:active polyline, .right:active polyline {
+    stroke-width: 6;
+    transition: all 100ms ease-in-out;
+}
+
+polyline {
+    transition: all 250ms ease-in-out;
+}

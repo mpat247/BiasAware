@@ -23,27 +23,30 @@
 }
 
 .underlay-right-boxes-container {
-    width: 20%; /* Adjust the width of the black box */
-    height: 100%;
+    width: 20%;
+    height: 100%; /* No change here, adapts to parent's height */
     background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Change from center to flex-start */
     overflow: hidden;
     position: relative;
     border-radius: 5px;
 }
 
-/* CSS */
 .box {
-    width: 90%; /* Adjust the width to occupy 90% of the black box */
-    max-width: 300px; 
-    height: 125px;
-    margin: 15px auto; /* Center the boxes horizontally */
+    width: 90%; /* Adjust based on container width, this remains unchanged */
+    max-width: 300px; /* Ensures the box is not overly wide on large screens, remains unchanged */
+    height: calc((100% - 3 * 10px) / 4); /* Distributes the height equally among four boxes minus the space for three margins */
+    margin: 10px auto; /* Reduces margin to give more height to the boxes */
     background-color: red;
     border-radius: 5px;
 }
+
+
+/* Remember, if there are other elements inside underlay-right-boxes-container, you will need to adjust these percentages */
+
 
 
 .left-box {
