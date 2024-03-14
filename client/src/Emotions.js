@@ -46,6 +46,19 @@ const Emotions = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/emotions/main');
+        setImages(response.data.images);
+      } catch (error) {
+        console.error('Failed to fetch main images:', error);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
   const handleClick = (image) => {
     setSelectedImage(image);
     setShowPopup(true);

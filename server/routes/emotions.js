@@ -7,51 +7,11 @@ const fs = require('fs');
 const { GridFSBucket } = require('mongodb'); // Import GridFSBucket from mongodb package
 const path = require('path');
 
-// Ensure the caffeineImages directory exists
-const imagesDir = path.join(__dirname, '..', 'caffeineImages');
-if (!fs.existsSync(imagesDir)) {
-    fs.mkdirSync(imagesDir, { recursive: true });
-}
 
-router.get('/caffeine', async (req, res) => {
-  try {
-    const images = await Image.find({
-      bias_name: "Addiction",
-      prompt: { $regex: 'Caffeine', $options: 'i' },
-    });
 
-    if (!images || images.length === 0) {
-      return res.status(404).send({ message: 'No images found matching criteria' });
-    }
-
-    const bucket = new mongoose.mongo.GridFSBucket(mongoose.connection.db, {
-      bucketName: 'images' // Replace 'images' with your actual GridFS bucket name
-    });
-
-    images.forEach((image) => {
-      const filename = image.name;
-      const outputPath = path.join(imagesDir, filename);
-      const writeStream = fs.createWriteStream(outputPath);
-
-      bucket.openDownloadStreamByName(filename).pipe(writeStream)
-        .on('error', function(error) {
-            console.error(`Error downloading ${filename}:`, error);
-        })
-        .on('finish', function() {
-            console.log(`Successfully saved ${filename} to ${outputPath}`);
-        });
-    });
-
-    res.status(200).send({ message: 'Images are being processed and saved.', Images: images});
-  } catch (error) {
-    console.error('Failed to fetch and save images:', error);
-    res.status(500).send({ message: 'Failed to fetch and save images', error: error.message });
-  }
-});
-
-router.get('/main-images', async (req, res) => {
+router.get('/main', async (req, res) => {
     try {
-      const images = await Image.find({ prompt: /main/i });
+      const images = await Image.find({ prompt: /Individual/i });
   
       if (!images.length) {
         return res.status(404).send({ message: 'No main images found' });
