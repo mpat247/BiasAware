@@ -32,24 +32,12 @@ h1 {
     text-align: center;
 }
 
-.gradientBRD {
-    background: linear-gradient(to left, darkgoldenrod, palegoldenrod, darkgoldenrod);
-    padding: 5px 0 0;
-}
-
-pre {
-    font-size: 50%;
-    text-align: center;
-    margin-top: 2em;
-    color: #D5AD6D;
-}
-
 #carousel {
     display: flex;
     justify-content: center;
     position: relative;
     height: var(--ImgSizeY);
-    background: radial-gradient(ellipse at center, DarkGoldenRod 0%, black 100%);
+    background: yellow;
 }
 
 #carousel a {
