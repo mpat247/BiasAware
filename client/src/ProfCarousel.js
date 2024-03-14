@@ -32,7 +32,7 @@ const ProfCarousel = () => {
     ];
 
     const slideTitles = [
-        "Title 1",
+        "D O C T O R",
         "Title 2",
         "Title 3",
         "Title 4",
@@ -100,7 +100,7 @@ const ProfCarousel = () => {
                             <div className="slideImage" style={{ backgroundImage: slideBackgroundImages[index] }}></div>
                             <img src={src} alt={`Slide ${index + 1}`} />
                             <div className="slideTextContent">
-                                <h2>{slideTitles[index]}</h2>
+                                <h1>{slideTitles[index]}</h1>
                                 <p>{slideCaptions[index]}</p>
                             </div>
                         </div>
