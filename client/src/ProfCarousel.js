@@ -58,10 +58,10 @@ const ProfCarousel = () => {
             </div>
             <div className="buttons">
                 <button id="prev" className="arrow left" onClick={() => moveToSelected('prev')}>
-                    {/* Insert Left Arrow SVG Here */}
+                    &lt;
                 </button>
                 <button id="next" className="arrow right" onClick={() => moveToSelected('next')}>
-                    {/* Insert Right Arrow SVG Here */}
+                    &gt;
                 </button>
             </div>
         </main>

@@ -18,10 +18,7 @@
 
 html, body, main {
     height: 100%;
-    /* background-color: #28292d; */
-    /* background-color: transparent;  */
     background-color: orange;
-    
 }
 
 #carousel {
@@ -119,24 +116,19 @@ html, body, main {
     padding: 0;
     width: 2.5em;
     height: 3em;
+    font-size: 1.5em; /* Adjust the font size */
+    color: #0B0533; /* Adjust the color */
 }
 
 .arrow {
     cursor: pointer;
     width: 2.5em;
     height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.left:hover polyline, .left:focus polyline,
-.right:hover polyline, .right:focus polyline {
-    stroke-width: 3;
-}
-
-.left:active polyline, .right:active polyline {
-    stroke-width: 6;
-    transition: all 100ms ease-in-out;
-}
-
-polyline {
-    transition: all 250ms ease-in-out;
+.arrow:hover {
+    color: white; /* Adjust the color on hover */
 }
