@@ -3,18 +3,36 @@ import NavigationBar from './NavigationBar';
 import './Addictions.css';
 import ArrowLeftImage from "./Arrows/Arrow_Left_1.png";
 import ArrowRightImage from "./Arrows/Arrow_Right_1.png";
-import axios from 'axios'; // Make sure to install axios for making HTTP requests
+import axios from 'axios';
+
+const PopupCard = ({ image, onClose }) => (
+  <div className="popup-card">
+    <div className="popup-content">
+      <img src={image} alt="selected-addiction" className="popup-image" />
+      <button className="close-button" onClick={onClose}>Close</button>
+      <div className="rectanglepop1"></div>
+      <div className="rectanglepop2"></div>
+      <div className="rectanglepop3"></div>
+      <div className="image1"></div>
+      <div className="image2"></div>
+      <div className="image3"></div>
+      <div className="image4"></div>
+      <div className="image5"></div>
+    </div>
+  </div>
+);
+
 
 const Addictions = () => {
   const [images, setImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
         const response = await axios.get('http://localhost:3001/addictions/main-images');
         setImages(response.data.images);
-        console.log(response.data.images);
       } catch (error) {
         console.error('Failed to fetch main images:', error);
       }
@@ -33,6 +51,14 @@ const Addictions = () => {
     );
   };
 
+  const openPopup = () => {
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
   const getCurrentImages = () => {
     return [
       images[(currentImageIndex + images.length - 2) % images.length],
@@ -44,15 +70,12 @@ const Addictions = () => {
   };
 
   const ImageComponent = ({ src, alt }) => {
-    console.log('Image src:', src); // Debugging statement
     return (
       <div className="image-component">
-        <img src={src} alt={alt} />
+        <img src={src} alt={alt} onClick={() => openPopup()} />
       </div>
     );
   };
-
-  console.log('Current images:', getCurrentImages()); // Debugging statement
 
   return (
     <div id="addictions" className="Addictions">
@@ -84,6 +107,7 @@ const Addictions = () => {
           </button>
         </div>
       </header>
+      {showPopup && <PopupCard onClose={closePopup} />}
     </div>
   );
 };
