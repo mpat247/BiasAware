@@ -69,6 +69,10 @@ const ProfCarousel = () => {
                         <div className="slideContainer">
                             <div className="slideImage" style={{ backgroundImage: slideBackgroundImages[index] }}></div>
                             <img src={src} alt={`Slide ${index + 1}`} />
+                            <div className="slideTextContent">
+                                <h2>Title</h2>
+                                <p>Slide {index + 1} Content</p>
+                            </div>
                         </div>
                     </a>
                 ))}
