@@ -29,7 +29,6 @@ html, body, main {
     height: var(--ImgSizeY);
 }
 
-
 #carousel a {
     position: absolute;
     aspect-ratio: 4 / 3;
@@ -42,7 +41,6 @@ html, body, main {
     width: var(--ImgSizeX);
     height: 100%;
     transition: width 1s;
-    /* border-radius: 5px; */
 }
 
 #carousel a.hideLeft {
@@ -133,23 +131,35 @@ html, body, main {
     color: white; /* Adjust the color on hover */
 }
 
-.yellowBox {
+/* .yellowBox {
     position: absolute;
     left: 0;
     top: 0;
-    width: 50px; /* Adjust the width as needed */
+    width: 50px; 
     height: 100%;
     background-color: yellow;
+} */
+
+.slideContainer {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slideImage {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 50%; /* Adjust the width as needed */
-    height: 100%;
+    left: 5%; /* Adjusted left positioning to make it 90% in width */
+    top: 5%; /* Adjusted top positioning to make it 90% in height */
+    width: 90%; /* Set width to 90% of the parent container */
+    height: 90%; /* Set height to 90% of the parent container */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    border: 2px solid yellow; /* Add border for photo frame effect */
+    box-sizing: border-box;
 }
+
 

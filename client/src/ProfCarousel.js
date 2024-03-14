@@ -66,8 +66,10 @@ const ProfCarousel = () => {
             <div id="carousel">
                 {slideImages.map((src, index) => (
                     <a key={index} className={getClassNames(index)} onClick={() => moveToSelected(index)} href="javascript:void(0);">
-                        <div className="slideImage" style={{ backgroundImage: slideBackgroundImages[index] }}></div>
-                        <img src={src} alt={`Slide ${index + 1}`} />
+                        <div className="slideContainer">
+                            <div className="slideImage" style={{ backgroundImage: slideBackgroundImages[index] }}></div>
+                            <img src={src} alt={`Slide ${index + 1}`} />
+                        </div>
                     </a>
                 ))}
             </div>
