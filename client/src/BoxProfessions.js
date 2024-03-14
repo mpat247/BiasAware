@@ -9,7 +9,7 @@ const BoxProfessions = () => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         vertical: true,
         verticalSwiping: true,
@@ -23,11 +23,11 @@ const BoxProfessions = () => {
                 {/* <div className="right-boxes-container"> */}
                     <div className="underlay-right-boxes-container">
                         <Slider {...settings}>
-                            <div className="box"></div>
-                            <div className="box"></div>
-                            <div className="box"></div>
-                            <div className="box"></div>
-                            <div className="box"></div>
+                            <div className="box">Box 1</div>
+                            <div className="box">Box 2</div>
+                            <div className="box">Box 3</div>
+                            <div className="box">Box 4</div>
+                            {/* <div className="box">Box 1</div> */}
                         </Slider>
                     </div>
                 {/* </div> */}
