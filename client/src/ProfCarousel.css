@@ -19,7 +19,8 @@
 html, body, main {
     height: 100%;
     /* background-color: #28292d; */
-    background-color: transparent; /* Or any color, 'transparent' will show whatever is behind */
+    /* background-color: transparent;  */
+    background-color: orange;
     
 }
 
@@ -44,6 +45,7 @@ html, body, main {
     width: var(--ImgSizeX);
     height: 100%;
     transition: width 1s;
+    /* border-radius: 5px; */
 }
 
 #carousel a.hideLeft {

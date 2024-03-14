@@ -3,7 +3,19 @@ import './ProfCarousel.css';
 
 const ProfCarousel = () => {
     const [selected, setSelected] = useState(0);
-    const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Assuming you have 10 slides as per your HTML
+    // Use URLs for your desired images here; I'm keeping placeholders for demonstration:
+    const slides = [
+        'https://via.placeholder.com/800x600/0B0533/ffffff/?text=', // Blue
+        'https://via.placeholder.com/800x600/0B0533/ffffff/?text=', // Green
+        'https://via.placeholder.com/800x600/0B0533/ffffff/?text=', // Red
+        'https://via.placeholder.com/800x600/0B0533/000000/?text=', // Yellow
+        'https://via.placeholder.com/800x600/0B0533/ffffff/?text=', // Magenta
+        'https://via.placeholder.com/800x600/0B0533/000000/?text=', // Cyan
+        'https://via.placeholder.com/800x600/0B0533/ffffff/?text=', // Orange
+        'https://via.placeholder.com/800x600/0B0533/ffffff/?text=', // Brown
+        'https://via.placeholder.com/800x600/0B0533/ffffff/?text=', // Purple
+        'https://via.placeholder.com/800x600/0B0533/ffffff/?text='  // Gray
+    ];
 
     const moveToSelected = (element) => {
         if (element === "next") {
@@ -15,7 +27,6 @@ const ProfCarousel = () => {
         }
     };
 
-    // Calculating classes for carousel slides
     const getClassNames = (index) => {
         let className = '';
         if (index === selected) {
@@ -39,16 +50,18 @@ const ProfCarousel = () => {
     return (
         <main>
             <div id="carousel">
-                {slides.map((num, index) => (
+                {slides.map((src, index) => (
                     <a key={index} className={getClassNames(index)} onClick={() => moveToSelected(index)} href="javascript:void(0);">
-                        <img src={`https://via.placeholder.com/800x600/f06/fff/?text=${num}`} alt={`Slide ${num}`} />
+                        <img src={src} alt={`Slide ${index + 1}`} />
                     </a>
                 ))}
             </div>
             <div className="buttons">
                 <button id="prev" className="arrow left" onClick={() => moveToSelected('prev')}>
+                    {/* Insert Left Arrow SVG Here */}
                 </button>
                 <button id="next" className="arrow right" onClick={() => moveToSelected('next')}>
+                    {/* Insert Right Arrow SVG Here */}
                 </button>
             </div>
         </main>
