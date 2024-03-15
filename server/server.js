@@ -155,6 +155,9 @@ const addictionsRoute = require('./routes/addictions');
 app.use('/addictions', addictionsRoute);
 
 
+const crimeRoutes = require('./routes/crime');
+app.use('/crime', crimeRoutes);
+
 
 async function main() {
   try {
