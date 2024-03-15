@@ -6,10 +6,9 @@ import Statistics from './Statistics';
 import Activities from './Activities';
 import Professions from './Professions';
 import QOL from './QOL';
-import Engineering from './Engineering'; // Import the Engineering component
+import Engineering from './Engineering';
 import Emotions from './Emotions';
-
-
+import Neighborhood from './Neighborhood'; // Import the Neighborhood component
 import './App.css';
 
 function App() {
@@ -23,7 +22,7 @@ function App() {
         <Route path="/QOL" element={<QOL />} />
         <Route path="/Engineering" element={<Engineering />} />
         <Route path="/Emotions" element={<Emotions />} />
-
+        <Route path="/Neighborhood" element={<Neighborhood />} /> {/* Add this line */}
         {/* Define other routes here if needed */}
       </Routes>
     </Router>
