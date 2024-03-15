@@ -22,17 +22,18 @@ const PopupCard = ({ image, onClose }) => (
   </div>
 );
 
-
 const Addictions = () => {
   const [images, setImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
         const response = await axios.get('http://localhost:3001/addictions/main-images');
         setImages(response.data.images);
+        setLoading(false); // Set loading to false once images are fetched
       } catch (error) {
         console.error('Failed to fetch main images:', error);
       }
@@ -81,31 +82,35 @@ const Addictions = () => {
     <div id="addictions" className="Addictions">
       <header className="App-header">
         <NavigationBar />
-        <div className="addictions-container">
-          <h1 style={{ 
-            color: '#DD9313', 
-            fontFamily: 'Abhaya Libre ExtraBold', 
-            fontSize: '4em', 
-            textShadow: '2px 2px 4px rgba(168, 108, 6, 1)'
-          }}>
-            A D D I C T I O N S
-          </h1>
-          <div style={{ display: 'flex' }}>
-            {getCurrentImages().map((image, index) => (
-              <ImageComponent
-                key={index}
-                src={image}
-                alt={`Addictions Illustration ${currentImageIndex + index - 2}`}
-              />
-            ))}
+        {loading ? (
+          <div>Loading...</div> // Show loading indicator while images are being fetched
+        ) : (
+          <div className="addictions-container">
+            <h1 style={{ 
+              color: '#DD9313', 
+              fontFamily: 'Abhaya Libre ExtraBold', 
+              fontSize: '4em', 
+              textShadow: '2px 2px 4px rgba(168, 108, 6, 1)'
+            }}>
+              A D D I C T I O N S
+            </h1>
+            <div style={{ display: 'flex' }}>
+              {getCurrentImages().map((image, index) => (
+                <ImageComponent
+                  key={index}
+                  src={image}
+                  alt={`Addictions Illustration ${currentImageIndex + index - 2}`}
+                />
+              ))}
+            </div>
+            <button className="arrow-button arrow-button-left" onClick={previousImage}>
+              <img src={ArrowLeftImage} alt="Left Arrow" />
+            </button>
+            <button className="arrow-button arrow-button-right" onClick={nextImage}>
+              <img src={ArrowRightImage} alt="Right Arrow" />
+            </button>
           </div>
-          <button className="arrow-button arrow-button-left" onClick={previousImage}>
-            <img src={ArrowLeftImage} alt="Left Arrow" />
-          </button>
-          <button className="arrow-button arrow-button-right" onClick={nextImage}>
-            <img src={ArrowRightImage} alt="Right Arrow" />
-          </button>
-        </div>
+        )}
       </header>
       {showPopup && <PopupCard onClose={closePopup} />}
     </div>
