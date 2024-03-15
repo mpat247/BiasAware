@@ -8,6 +8,8 @@ import QOL from './QOL';
 import Engineering from './Engineering';
 import Emotions from './Emotions';
 import Neighborhood from './Neighborhood'; // Import the Neighborhood component
+import Crime from './Crime'; // Import the Neighborhood component
+
 import './App.css';
 
 function App() {
