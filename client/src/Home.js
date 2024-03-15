@@ -6,9 +6,6 @@ import NavigationBar from './NavigationBar'; // Import the NavigationBar compone
 import Addictions from './Addictions';
 import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
-import Emotions from './Emotions';
-import ProfessionsLanding from './ProfessionsLanding';
-
 
 const Home = () => {
   const [rotate, setRotate] = useState(true);
@@ -34,8 +31,16 @@ const Home = () => {
       <header className="App-header">
         <NavigationBar /> {/* Include the NavigationBar component */}
          {/* Add a link to scroll to the Addictions section */}
+         <a href="#addictions" style={{ color: 'white', textDecoration: 'none',
+        fontFamily: 'Abhaya Libre ExtraBold', 
+        fontSize: '3em',
+        zindex:10}}>
+          <h2>A Shopahpolic</h2>
+        </a>
+        <a href="#qol" style={{ color: 'white', textDecoration: 'none', fontFamily: 'Abhaya Libre ExtraBold', fontSize: '3em', zIndex: 10 }}>
+          <h2>Quality of Life</h2>
+        </a>
 
-        
         {/* <h1 style={{ 
   color: '#DD9313',
   fontFamily: 'Abhaya Libre ExtraBold', 
@@ -239,16 +244,6 @@ const Home = () => {
       {/* Quality of Life section */}
       <div id="qol">
         <QOL />
-      </div>
-
-      {/* Quality of Life section */}
-      <div id="Emotions">
-        <Emotions />
-      </div>
-
-      {/* Quality of Life section */}
-      <div id="ProfessionsLanding">
-        <ProfessionsLanding />
       </div>
     </div>
   );

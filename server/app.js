@@ -154,11 +154,7 @@ app.post('/bias', async (req, res) => {
 const addictionsRoute = require('./routes/addictions');
 app.use('/addictions', addictionsRoute);
 
-const emotionsRoute = require('./routes/emotions');
-app.use('/emotions', emotionsRoute);
 
-const qolRoute = require('./routes/qol');
-app.use('/qol', qolRoute);
 
 async function main() {
   try {

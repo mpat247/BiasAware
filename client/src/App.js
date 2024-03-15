@@ -1,4 +1,3 @@
-// App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
@@ -9,7 +8,6 @@ import QOL from './QOL';
 import Engineering from './Engineering';
 import Emotions from './Emotions';
 import Neighborhood from './Neighborhood'; // Import the Neighborhood component
-import ProfessionsLanding from './ProfessionsLanding'; // Import the Neighborhood component
 import './App.css';
 
 function App() {
@@ -24,8 +22,9 @@ function App() {
         <Route path="/Engineering" element={<Engineering />} />
         <Route path="/Emotions" element={<Emotions />} />
         <Route path="/Neighborhood" element={<Neighborhood />} /> {/* Add this line */}
-        <Route path="/ProfessionsLanding" element={<ProfessionsLanding />} /> {/* Add this line */}
         {/* Define other routes here if needed */}
+        <Route path="/Crime" element={<Crime />} /> {/* Define the route for Crime page */}
+
       </Routes>
     </Router>
   );
