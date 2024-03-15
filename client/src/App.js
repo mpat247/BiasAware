@@ -5,6 +5,7 @@ import Home from './Home';
 import Statistics from './Statistics';
 import Activities from './Activities';
 import Professions from './Professions';
+import ProfessionsLanding from './ProfessionsLanding';
 import QOL from './QOL';
 import Engineering from './Engineering'; // Import the Engineering component
 import Emotions from './Emotions';
@@ -20,6 +21,7 @@ function App() {
         <Route path="/Statistics" element={<Statistics />} />
         <Route path="/Activities" element={<Activities />} />
         <Route path="/Professions" element={<Professions />} />
+        <Route path="/ProfessionsLanding" element={<ProfessionsLanding />} />
         <Route path="/QOL" element={<QOL />} />
         <Route path="/Engineering" element={<Engineering />} />
         <Route path="/Emotions" element={<Emotions />} />

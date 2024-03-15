@@ -1,0 +1,50 @@
+html, body, main {
+    height: 100%;
+    /* background-color: #0B0533; */
+}
+
+
+/* ProfessionsLanding.css */
+.landing-page {
+    background-image: url('./images/Cleaned\ Pentagon.png'); /* Replace '/path/to/your/image.jpg' with the path to your image */
+    background-size: cover; /* Cover the entire container with the background image */
+    background-position: center; /* Center the background image */
+    height: 100vh; /* Make the container take up the full height of the viewport */
+}
+
+.icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+.business {
+    top: 4%; /* Adjust based on actual positioning */
+    left: 35%; /* Adjust based on actual positioning */
+}
+
+.healthcare {
+    top: 10%; /* Adjust based on actual positioning */
+    right: 15%; /* Adjust based on actual positioning */
+}
+
+.maintenance {
+    bottom: 20%; /* Adjust based on actual positioning */
+    right: 20%; /* Adjust based on actual positioning */
+}
+
+.education {
+    bottom: 10%; /* Adjust based on actual positioning */
+    left: 40%; /* Adjust based on actual positioning */
+}
+
+.labour {
+    bottom: 40%; /* Adjust based on actual positioning */
+    left: 15%; /* Adjust based on actual positioning */
+}
+
+.icon img {
+    width: 200px; /* Adjust based on your needs */
+    height: auto;
+}
