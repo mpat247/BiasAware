@@ -1,15 +1,14 @@
 html, body, main {
     height: 100%;
-    /* background-color: #0B0533; */
 }
-
 
 /* ProfessionsLanding.css */
 .landing-page {
-    background-image: url('./images/Cleaned\ Pentagon.png'); /* Replace '/path/to/your/image.jpg' with the path to your image */
+    background-image: url('./images/Cleaned\ Pentagon.png'); /* Replace with the path to your image */
     background-size: cover; /* Cover the entire container with the background image */
     background-position: center; /* Center the background image */
     height: 100vh; /* Make the container take up the full height of the viewport */
+    position: relative; /* Establish a positioning context for absolute positioning of icons */
 }
 
 .icon {
@@ -17,11 +16,32 @@ html, body, main {
     border: none;
     cursor: pointer;
     position: absolute;
+    text-align: center; /* Ensure the text is centered below the icon */
+    transition: transform 0.3s ease; /* Smooth transformation for the whole container */
+}
+
+.icon img {
+    width: 200px; /* Adjust based on your needs */
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transformation for hover effect */
+}
+
+.icon:hover img {
+    transform: scale(1.1); /* Increase size by 10% */
+}
+
+.icon span {
+    display: block; /* Ensures the text appears on a new line */
+    margin-top: 10px; /* Space between the icon and the text */
+    color: #0B0533; /* Adjust text color as needed */
+    font-family: 'Abhaya Libre ExtraBold';
+    font-size: 30px; /* Adjust the font size of the title */
+    font-weight: bold;
 }
 
 .business {
     top: 4%; /* Adjust based on actual positioning */
-    left: 35%; /* Adjust based on actual positioning */
+    left: 37%; /* Adjust based on actual positioning */
 }
 
 .healthcare {
@@ -30,21 +50,16 @@ html, body, main {
 }
 
 .maintenance {
-    bottom: 20%; /* Adjust based on actual positioning */
-    right: 20%; /* Adjust based on actual positioning */
+    bottom: 15%; /* Adjust based on actual positioning */
+    right: 15%; /* Adjust based on actual positioning */
 }
 
 .education {
-    bottom: 10%; /* Adjust based on actual positioning */
-    left: 40%; /* Adjust based on actual positioning */
+    bottom: 4%; /* Adjust based on actual positioning */
+    left: 39%; /* Adjust based on actual positioning */
 }
 
 .labour {
     bottom: 40%; /* Adjust based on actual positioning */
     left: 15%; /* Adjust based on actual positioning */
-}
-
-.icon img {
-    width: 200px; /* Adjust based on your needs */
-    height: auto;
 }
