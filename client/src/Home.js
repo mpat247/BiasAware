@@ -6,6 +6,7 @@ import NavigationBar from './NavigationBar'; // Import the NavigationBar compone
 import Addictions from './Addictions';
 import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
+import Crime from './Crime';
 
 const Home = () => {
   const [rotate, setRotate] = useState(true);
@@ -39,6 +40,9 @@ const Home = () => {
         </a>
         <a href="#qol" style={{ color: 'white', textDecoration: 'none', fontFamily: 'Abhaya Libre ExtraBold', fontSize: '3em', zIndex: 10 }}>
           <h2>Quality of Life</h2>
+        </a>
+        <a href="#crime" style={{ color: 'white', textDecoration: 'none', fontFamily: 'Abhaya Libre ExtraBold', fontSize: '3em', zIndex: 10 }}>
+          <h2>Crime</h2>
         </a>
 
         {/* <h1 style={{ 
@@ -147,6 +151,10 @@ const Home = () => {
       {/* Quality of Life section */}
       <div id="qol">
         <QOL />
+      </div>
+      {/* Crime section */}
+      <div id="crime">
+        <Crime />
       </div>
     </div>
   );

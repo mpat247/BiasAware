@@ -1,0 +1,25 @@
+/* Crime.css */
+.heatmaps-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.heatmap-container {
+    width: 16.66%; /* Each heatmap container takes up one-third of the space */
+    padding: 10px;
+}
+
+.heatmap {
+    width: 100%; /* Make each heatmap fill its container */
+}
+
+.heatmap-row {
+    display: flex;
+}
+
+.heatmap-square {
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Adjust the size as needed */
+    background-color: black; /* You can adjust the color */
+    margin: 2px; /* Adjust the spacing between squares */
+}
