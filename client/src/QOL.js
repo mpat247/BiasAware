@@ -79,7 +79,6 @@ const QOL = () => {
 
   return (
     <div style={{ backgroundColor: '#0B0533', position: 'relative' }}>
-<<<<<<< HEAD
 <h1 style={{
   color: '#DD9313',
   fontFamily: 'Abhaya Libre ExtraBold',
@@ -93,11 +92,6 @@ const QOL = () => {
 </h1>
 
       <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: 'auto', width: '1000px'}}>
-=======
-      <h1>Quality of Life Page</h1>
-
-      <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: '70px', width: '1000px', marginLeft: '250px' }}>
->>>>>>> origin/QOL
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
           <div style={{ width: '500px', height: '100px', backgroundColor: '#B3BBC8', margin: '10px' }}></div>
           <div style={{ width: '500px', height: '100px', backgroundColor: '#B3BBC8', margin: '10px' }}></div>
