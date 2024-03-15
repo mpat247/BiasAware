@@ -19,7 +19,7 @@ const ProfessionsLanding = () => {
   margin: ' auto 0 auto',
   padding: '50px 0'
 }}>
-  P R O F E S S I O N S
+  {/* P R O F E S S I O N S */}
 </h1>
             <div className="icon business">
                 <Link to="/Professions">
