@@ -121,12 +121,23 @@ async function updateImageFieldsFromCSV(csvFilePath) {
       .on('end', async () => {
         console.log(`CSV file reading completed. Found ${imagesToUpdate.length} mappings.`);
 
+        // Retrieve images where bias_name is 'crime'
+        const crimeImages = await Image.find({ bias_name: 'crime' });
+
         // Update images in the database
-        for (const imageData of imagesToUpdate) {
-          const { name, skin_shade, gender } = imageData;
-          // Update or insert document with new fields and data
-          await Image.updateOne({ name }, { $set: { skin_shade, gender } }, { upsert: true });
-          console.log(`Updated image ${name} with skin shade ${skin_shade} and gender ${gender}.`);
+        for (const image of crimeImages) {
+          // Find the corresponding record in imagesToUpdate array
+          const correspondingRecord = imagesToUpdate.find(record => record.name === image.name);
+          if (correspondingRecord) {
+            // Update the image with skin_shade and gender
+            await Image.updateOne({ _id: image._id }, {
+              $set: {
+                skin_shade: correspondingRecord.skin_shade,
+                gender: correspondingRecord.gender
+              }
+            });
+            console.log(`Updated image ${image.name} with skin shade ${correspondingRecord.skin_shade} and gender ${correspondingRecord.gender}.`);
+          }
         }
 
         console.log('Completed updating images with skin shade and gender information.');
@@ -139,10 +150,11 @@ async function updateImageFieldsFromCSV(csvFilePath) {
   }
 }
 
+
 async function main() {
   let db;
   try {
-    db = await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    db = await mongoose.connect('mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority&appName=biasaware', { useNewUrlParser: true, useUnifiedTopology: true });
     console.log('Successfully connected to the database.');
 
     const csvFilePath = "/Users/manav/Documents/Fourth Year/Capstone/BiasAware/server/finalv.csv";

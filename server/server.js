@@ -157,6 +157,9 @@ app.use('/addictions', addictionsRoute);
 const emotionsRoute = require('./routes/emotions');
 app.use('/emotions', emotionsRoute);
 
+const qolRoute = require('./routes/qol');
+app.use('/qol', qolRoute);
+
 async function main() {
   try {
     await connectToDatabase(); // Make sure this function actually waits for the connection
