@@ -7,6 +7,8 @@ import Addictions from './Addictions';
 import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
 import Emotions from './Emotions';
+import ProfessionsLanding from './ProfessionsLanding';
+
 
 const Home = () => {
   const [rotate, setRotate] = useState(true);
@@ -153,6 +155,11 @@ const Home = () => {
       {/* Quality of Life section */}
       <div id="Emotions">
         <Emotions />
+      </div>
+
+      {/* Quality of Life section */}
+      <div id="ProfessionsLanding">
+        <ProfessionsLanding />
       </div>
     </div>
   );
