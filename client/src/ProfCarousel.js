@@ -19,16 +19,16 @@ const ProfCarousel = () => {
 
     // URLs for the images you want to use as the background for each slide
     const slideBackgroundImages = [
-        'url("https://via.placeholder.com/800x600/FFFF00/000000/?text=Slide1")', // Yellow
-        'url("https://via.placeholder.com/800x600/FF00FF/000000/?text=Slide2")', // Purple
-        'url("https://via.placeholder.com/800x600/00FFFF/000000/?text=Slide3")', // Cyan
-        'url("https://via.placeholder.com/800x600/FF0000/000000/?text=Slide4")', // Red
-        'url("https://via.placeholder.com/800x600/00FF00/000000/?text=Slide5")', // Green
-        'url("https://via.placeholder.com/800x600/0000FF/000000/?text=Slide6")', // Blue
-        'url("https://via.placeholder.com/800x600/FFFF00/000000/?text=Slide7")', // Yellow
-        'url("https://via.placeholder.com/800x600/FF00FF/000000/?text=Slide8")', // Purple
-        'url("https://via.placeholder.com/800x600/00FFFF/000000/?text=Slide9")', // Cyan
-        'url("https://via.placeholder.com/800x600/FF0000/000000/?text=Slide10")' // Red
+        'url("https://via.placeholder.com/800x600/FFFF00/000000/?")', // Yellow
+        'url("https://via.placeholder.com/800x600/FF00FF/000000/?")', // Purple
+        'url("https://via.placeholder.com/800x600/00FFFF/000000/?")', // Cyan
+        'url("https://via.placeholder.com/800x600/FF0000/000000/?")', // Red
+        'url("https://via.placeholder.com/800x600/00FF00/000000/?")', // Green
+        'url("https://via.placeholder.com/800x600/0000FF/000000/?")', // Blue
+        'url("https://via.placeholder.com/800x600/FFFF00/000000/?")', // Yellow
+        'url("https://via.placeholder.com/800x600/FF00FF/000000/?")', // Purple
+        'url("https://via.placeholder.com/800x600/00FFFF/000000/?")', // Cyan
+        'url("https://via.placeholder.com/800x600/FF0000/000000/?")' // Red
     ];
 
     const slideTitles = [
