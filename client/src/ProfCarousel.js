@@ -19,8 +19,8 @@ const ProfCarousel = () => {
 
     // URLs for the images you want to use as the background for each slide
     const slideBackgroundImages = [
-        'url("https://via.placeholder.com/800x600/FFFF00/000000/?")', // Yellow
-        'url("https://via.placeholder.com/800x600/FF00FF/000000/?")', // Purple
+        'url("https://via.placeholder.com/800x600/FFFF00/000000/?")', 
+        'url("https://via.placeholder.com/800x600/FF00FF/000000/?")',
         'url("https://via.placeholder.com/800x600/00FFFF/000000/?")', // Cyan
         'url("https://via.placeholder.com/800x600/FF0000/000000/?")', // Red
         'url("https://via.placeholder.com/800x600/00FF00/000000/?")', // Green
