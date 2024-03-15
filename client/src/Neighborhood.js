@@ -12,7 +12,7 @@ const [typedForestHillCompareTitle, setForestHillTypedCompareTitle] = useState('
     // Check if the Google Maps API script is already loaded
     if (!window.google) {
       const googleMapScript = document.createElement('script');
-      googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
+      googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBsjWQ6SH9eAj0AwbWnwAmKsjnFB9Zxgk8&callback=initMap`;
       googleMapScript.async = true;
       googleMapScript.defer = true;
       googleMapScript.addEventListener('error', handleScriptError);
