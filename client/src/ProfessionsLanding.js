@@ -10,17 +10,7 @@ import LabourIcon from './images/LabourProf.png'; // Adjust path as necessary
 const ProfessionsLanding = () => {
     return (
         <div className="landing-page">
-            <h1 style={{
-  color: '#DD9313',
-  fontFamily: 'Abhaya Libre ExtraBold',
-  fontSize: '4em',
-  textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
-  textAlign: 'center',
-  margin: ' auto 0 auto',
-  padding: '50px 0'
-}}>
-  P R O F E S S I O N S
-</h1>
+            
             <div className="icon business">
                 <Link to="/Professions">
                     <img src={BusinessIcon} alt="Business" />

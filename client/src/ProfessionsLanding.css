@@ -21,7 +21,7 @@ html, body, main {
 }
 
 .icon img {
-    width: 200px; /* Adjust based on your needs */
+    width: 100px; /* Adjust based on your needs */
     height: auto;
     transition: transform 0.3s ease; /* Smooth transformation for hover effect */
 }
