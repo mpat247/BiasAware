@@ -6,7 +6,7 @@
     "build:client": "cd client && npm run build",
     "start:server": "cd server && npm start",
     "start:client": "cd client && npm start",
-    "start:all": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "start": "npx concurrently \"npm run dev:server\" \"npm run start:client\"",
     "dev:server": "cd server && npm run dev",
     "dev:all": "npx concurrently \"npm run dev:server\" \"npm run start:client\""
   },
