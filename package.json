@@ -8,7 +8,7 @@
     "start:client": "cd client && npm start",
     "start:all": "concurrently \"npm run start:server\" \"npm run start:client\"",
     "dev:server": "cd server && npm run dev",
-    "dev:all": "concurrently \"npm run dev:server\" \"npm run start:client\""
+    "dev:all": "npx concurrently \"npm run dev:server\" \"npm run start:client\""
   },
   "devDependencies": {
     "concurrently": "^7.0.0"
