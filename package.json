@@ -1,15 +1,12 @@
 {
-  "name": "capstone",
-  "version": "0.1.0",
-  "private": true,
   "scripts": {
-    "install:all": "cd client && npm install && cd ../server && npm install",
-    "start": "npm run install:all && concurrently \"npm run start:server\" \"npm run start:client\"",
-    "start:client": "cd client && npm start",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "install:all": "npm run install:client && npm run install:server",
+    "build:client": "cd client && npm run build",
     "start:server": "cd server && npm start",
-    "build": "cd client && npm run build",
-    "test": "cd client && npm test",
-    "eject": "cd client && npm run eject"
+    "start:client": "cd client && npm start",
+    "start": "npm run install:all && concurrently \"npm run start:server\" \"npm run start:client\""
   },
   "devDependencies": {
     "concurrently": "^7.6.0"
