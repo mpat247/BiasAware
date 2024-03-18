@@ -6,7 +6,7 @@
     "build:client": "cd client && npm run build",
     "start:server": "cd server && npm start",
     "start:client": "cd client && npm start",
-    "start": "npx concurrently \"npm run start:server\" \"npm run start:client\""
+    "start": "npm run install:all && concurrently \"npm run start:server\" \"npm run start:client\""
   },
   "devDependencies": {
     "concurrently": "^7.6.0"
