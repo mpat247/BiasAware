@@ -7,9 +7,11 @@ const crimes = ["shoplifter", "gang leader", "smuggler", "hijacker", "mugger", "
 const Crime = () => {
     const [crimeData, setCrimeData] = useState([]);
     useEffect(() => {
+      
         const fetchData = async () => {
+          const apiUrl = window.env.API_URL;
           try {
-            const response = await axios.get('http://localhost:3001/crime/main-images');
+            const response = await axios.get(`${apiUrl}/crime/main-images`);
             setCrimeData(response.data.images);
           } catch (error) {
             console.error('Error fetching crime data:', error);
