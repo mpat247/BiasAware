@@ -155,10 +155,6 @@ const addictionsRoute = require('./routes/addictions');
 app.use('/addictions', addictionsRoute);
 
 
-
-const addictionsRoute = require('./routes/addictions');
-app.use('/addictions', addictionsRoute);
-
 const emotionsRoute = require('./routes/emotions');
 app.use('/emotions', emotionsRoute);
 
