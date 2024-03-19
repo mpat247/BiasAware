@@ -13,7 +13,9 @@ const QOL2 = () => {
     // Function to fetch images for the bottom-left side
     const fetchBottomLeftImages = async () => {
       try {
-        const response = await fetch('http://localhost:3001/qol/main');
+        const apiUrl = window.env.API_URL;
+
+        const response = await fetch(`${apiUrl}/qol/main`);
         if (!response.ok) {
           throw new Error('Failed to fetch bottom-left images');
         }

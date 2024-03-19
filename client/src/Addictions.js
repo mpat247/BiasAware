@@ -31,9 +31,10 @@ const Addictions = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const apiUrl = window.env.API_URL;
     const fetchImages = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/addictions/main-images');
+        const response = await axios.get(`${apiUrl}/addictions/main-images`);
         setImages(response.data.images);
         setLoading(false); // Set loading to false once images are fetched
       } catch (error) {

@@ -56,7 +56,8 @@ const Emotions = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get('/emotions/main-images');
+        const apiUrl = window.env.API_URL;
+        const response = await axios.get(`${apiUrl}/emotions/main-images`);
         setRetrievedImages(response.data.images);
 
         // Create a mapping between emotions and retrieved images based on the prompt field
