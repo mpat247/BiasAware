@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const QOL2 = () => {
   const [bottomLeftImages, setBottomLeftImages] = useState([]);
@@ -11,11 +12,12 @@ const QOL2 = () => {
 
   useEffect(() => {
     // Function to fetch images for the bottom-left side
+    const apiUrl = window.env.API_URL;
+    console.log(apiUrl);
     const fetchBottomLeftImages = async () => {
       try {
-        const apiUrl = window.env.API_URL;
 
-        const response = await fetch(`${apiUrl}/qol/main`);
+        const response = await fetch(`http://localhost:3001/qol/main`);
         if (!response.ok) {
           throw new Error('Failed to fetch bottom-left images');
         }
@@ -44,6 +46,7 @@ const QOL2 = () => {
         // Set the bottomLeftImages state with the updated data
         setBottomLeftImages(shuffledImages);
       } catch (error) {
+        console.log("hello")
         console.error('Failed to fetch bottom-left images:', error);
       }
     };
