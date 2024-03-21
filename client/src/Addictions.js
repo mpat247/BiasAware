@@ -1,11 +1,13 @@
 // Addictions.js
 
+
 import React, { useState, useEffect } from 'react';
 import NavigationBar from './NavigationBar';
 import './Addictions.css';
 import ArrowLeftImage from "./Arrows/Arrow_Left_1.png";
 import ArrowRightImage from "./Arrows/Arrow_Right_1.png";
 import axios from 'axios';
+import REACT_APP_API_URL from './config.js'
 
 const PopupCard = ({ image, onClose }) => (
   <div className="popup-card">
@@ -30,10 +32,12 @@ const Addictions = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const API = REACT_APP_API_URL;
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/addictions/main-images');
+        console.log(REACT_APP_API_URL);
+        const response = await axios.get(`${API}/addictions/main-images`);
         setImages(response.data.images);
         setLoading(false); // Set loading to false once images are fetched
       } catch (error) {
