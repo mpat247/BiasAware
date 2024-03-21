@@ -2,3 +2,4 @@ server/node_modules.js
 client/node_modules.js
 server/.env
 .DS_Store
+node_modules
