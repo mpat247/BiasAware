@@ -5,10 +5,11 @@ import './Home.css';
 import NavigationBar from './NavigationBar'; // Import the NavigationBar component
 import Addictions from './Addictions';
 import Activities from './Activities';
-import QOL from './QOL'; // Import the QOL component
+import QOL from './QOL';
 import Crime from './Crime';
 import Emotions from './Emotions';
 import ProfessionsLanding from './ProfessionsLanding';
+import './App.css';
 
 
 
@@ -155,6 +156,7 @@ const Home = () => {
       </header>
 
       <main>
+        
         <div className="gear-container">
           <img
             style={{
@@ -172,18 +174,11 @@ const Home = () => {
             alt="Rotating Gear"
           />
           <img
-            style={{
-              width: '26vw',
-              height: '26vw',
-              position: 'absolute',
-              bottom: '28%',
-              right: '14%',
-              transform: 'translateY(-50%)'
-            }}
             className={`App-logo App-logo.right-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
             src="/gears/gearLeft.png"
             alt="Rotating Gear"
           />
+
           <img
             style={{
               width: '22vw',
@@ -210,7 +205,31 @@ const Home = () => {
             src="/gears/gearRight.png"
             alt="Rotating Gear"
           />
-        </div>
+          </div> 
+
+         {/* <div className="gear-container">
+            <img
+              className={`middle-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+              src="/gears/gearLeft.png"
+              alt="Rotating Gear"
+            />
+            <img
+              className={`right-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+              src="/gears/gearLeft.png"
+              alt="Rotating Gear"
+            />
+            <img
+              className={`top-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+              src="/gears/gearRight.png"
+              alt="Rotating Gear"
+            />
+            <img
+              className={`bottom-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+              src="/gears/gearRight.png"
+              alt="Rotating Gear"
+            />
+          </div>*/}
+
 
        
         {/* Add a link to scroll to the Addictions section

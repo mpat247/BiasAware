@@ -1,11 +1,13 @@
 /* Home.css */
 
+@import url('master.css');
+
 /* Global body styles */
 body {
-  margin: 0;
-  padding-top: 60px; /* Adjust based on the height of your navbar */
-  font-size: calc(10px + 2vmin);
-  color: white;
+    margin: 0;
+    padding-top: 60px; /* Adjust based on the height of your navbar */
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 /* Header styles */
@@ -33,27 +35,38 @@ body {
 
 /* Individual gear adjustments */
 .App-logo.middle-gear {
-  width: 100px;
-  height: 100px;
-  top: 30%;
-  left: 50%;
+  width: 33vw;
+  height: 33vw;
+  position: absolute;
+  top: 15%;
+  left: 35%;
   transform: translate(-50%, -50%);
 }
 
-.App-logo.left-gear {
-  width: 80px;
-  height: 80px;
-  top: 50%;
-  left: 20%;
+.App-logo.top-gear {
+  width: 22vw;
+  height: 22vw;
+  top: 9%;
+  left: 22.5%;
   transform: translate(-50%, -50%);
 }
+
+.App-logo.bottom-gear {
+  width: 22vw;
+  height: 22vw;
+  bottom: -4%;
+  left: 28%;
+  transform: translate(-50%, 50%);
+}
+
 
 .App-logo.right-gear {
-  width: 80px;
-  height: 80px;
-  bottom: 20%;
-  right: 20%;
-  transform: translate(50%, -50%);
+  width: 26vw !important;
+  height: 26vw !important;
+  position: absolute !important;
+  bottom: 28% !important;
+  right: 20% !important;
+  transform: translate(50%, -50%) !important;
 }
 
 /* Gear rotation animation */
@@ -553,5 +566,31 @@ body {
 .App-header .pro3 h2 {
   font-size: 1em !important; /* Adjust the font size as needed */
 }
+
+.container {
+  background-color: #f9f9f9;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  body {
+      font-size: 14px;
+  }
+
+  /* Add more styles for smaller screens */
+}
+
+@media (max-width: 480px) {
+  body {
+      font-size: 12px;
+  }
+
+  /* Add more styles for even smaller screens */
+}
+
+
+
+
+
 
 

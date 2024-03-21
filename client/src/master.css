@@ -1,0 +1,59 @@
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Container styles */
+.container {
+    margin: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Margin, border, and padding styles */
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
+.border-1 {
+    border: 1px solid #ccc;
+}
+
+.border-round {
+    border-radius: 5px;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    /* Add more responsive styles as needed */
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+
+    /* Adjust other styles for smaller screens */
+}

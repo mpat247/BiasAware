@@ -10,6 +10,8 @@ import Emotions from './Emotions';
 import Neighborhood from './Neighborhood'; // Import the Neighborhood component
 import Crime from './Crime'; // Import the Neighborhood component
 import QOL2 from './QOL2';
+import './Home.css';
+import './master.css';
 
 import './App.css';
 
