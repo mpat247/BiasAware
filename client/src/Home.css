@@ -554,4 +554,39 @@ body {
   font-size: 1em !important; /* Adjust the font size as needed */
 }
 
+.gear-styling {
+  width: 33vw;
+  height: 33vw;
+  position: absolute;
+  top: 15%;
+  left: 35%;
+  transform: translateX(-50%);
+}
+
+.gear-styling2 {
+  width: 26vw;
+  height: 26vw;
+  position: absolute;
+  top: 28%;
+  left: 14%;
+  transform: translateY(-50%);
+}
+
+.gear-styling3 {
+  width: 22vw;
+  height: 22vw;
+  position: absolute;
+  top: 9%;
+  left: 22.5%;
+  transform: translateY(-50%);
+}
+
+.gear-styling4 {
+  width: 22vw;
+  height: 22vw;
+  position: absolute;
+  top: -4%;
+  left: 28%;
+  transform: translateY(-50%);
+}
 

@@ -156,57 +156,25 @@ const Home = () => {
 
       <main>
         <div className="gear-container">
+        <img
+          className={`App-logo App-logo.middle-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'} gear-styling`}
+          src="/gears/gearLeft.png"
+          alt="Rotating Gear"
+        />
           <img
-            style={{
-              width: '33vw',
-              height: '33vw',
-              position: 'absolute',
-              top: '15%',
-              left: '35%',
-              transform: 'translateX(-50%)'
-            }}
-            
-            className={`App-logo App-logo.middle-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-            
+            className={`App-logo App-logo.right-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'} gear-styling2`}
             src="/gears/gearLeft.png"
             alt="Rotating Gear"
           />
           <img
-            style={{
-              width: '26vw',
-              height: '26vw',
-              position: 'absolute',
-              bottom: '28%',
-              right: '14%',
-              transform: 'translateY(-50%)'
-            }}
-            className={`App-logo App-logo.right-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
-            src="/gears/gearLeft.png"
-            alt="Rotating Gear"
-          />
-          <img
-            style={{
-              width: '22vw',
-              height: '22vw',
-              position: 'absolute',
-              top: '9%',
-              left: '22.5%',
-              transform: 'translateY(-50%)'
-            }}
-            className={`App-logo App-logo.top-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+            
+            className={`App-logo App-logo.top-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'} gear-styling3`}
             src="/gears/gearRight.png"
             alt="Rotating Gear"
           />
           <img
-            style={{
-              width: '22vw',
-              height: '22vw',
-              position: 'absolute',
-              bottom: '-4%',
-              left: '28%',
-              transform: 'translateY(-50%)'
-            }}
-            className={`App-logo App-logo.bottom-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'}`}
+            
+            className={`App-logo App-logo.bottom-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'} gear-styling4`}
             src="/gears/gearRight.png"
             alt="Rotating Gear"
           />
