@@ -1,0 +1,77 @@
+/* Crime.css */
+.heatmaps-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.heatmap-container {
+    width: 16.66%; /* Each heatmap container takes up one-sixth of the space */
+    padding: 10px;
+}
+
+.heatmap-row {
+    display: flex;
+}
+
+.heatmap {
+    width: 100%; /* Make each heatmap fill its container */
+}
+
+.heatmap-square {
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Adjust the size as needed */
+    background-color: black; /* You can adjust the color */
+    margin: 2px; /* Adjust the spacing between squares */
+}
+
+/* Add margin under the first row */
+.heatmaps-container .heatmap-container:nth-child(n+1):nth-child(-n+6) {
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+/* Remove margin from the right side of the first heatmap */
+.heatmaps-container .heatmap-container:nth-child(1) {
+    margin-right: -100px;
+    margin-left: 150px;
+}
+
+/* Remove margin from the right side of the first heatmap */
+.heatmaps-container .heatmap-container:nth-child(3) {
+    margin-right: -100px;
+    margin-left: 50px
+}
+
+/* Remove margin from the right side of the first heatmap */
+.heatmaps-container .heatmap-container:nth-child(5) {
+    margin-right: -100px;
+    margin-left: 50px
+}
+
+/* Remove margin from the right side of the first heatmap */
+.heatmaps-container .heatmap-container:nth-child(7) {
+    margin-right: -100px;
+    margin-left: 150px;
+    margin-bottom: 100px;
+}
+
+/* Remove margin from the right side of the first heatmap */
+.heatmaps-container .heatmap-container:nth-child(9) {
+    margin-right: -100px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+}
+
+/* Remove margin from the right side of the first heatmap */
+.heatmaps-container .heatmap-container:nth-child(11) {
+    margin-right: -100px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+}
+
+.title-box h2 {
+    margin: 10px;
+  }
+
+
+

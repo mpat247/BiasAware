@@ -6,8 +6,10 @@ import NavigationBar from './NavigationBar'; // Import the NavigationBar compone
 import Addictions from './Addictions';
 import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
+import Crime from './Crime';
 import Emotions from './Emotions';
 import ProfessionsLanding from './ProfessionsLanding';
+
 
 
 const Home = () => {
@@ -34,15 +36,7 @@ const Home = () => {
       <header className="App-header">
         <NavigationBar /> {/* Include the NavigationBar component */}
          {/* Add a link to scroll to the Addictions section */}
-         <a href="#addictions" style={{ color: 'white', textDecoration: 'none',
-        fontFamily: 'Abhaya Libre ExtraBold', 
-        fontSize: '3em',
-        zindex:10}}>
-          <h2>A Shopahpolic</h2>
-        </a>
-        <a href="#qol" style={{ color: 'white', textDecoration: 'none', fontFamily: 'Abhaya Libre ExtraBold', fontSize: '3em', zIndex: 10 }}>
-          <h2>Quality of Life</h2>
-        </a>
+        
 
         {/* <h1 style={{ 
   color: '#DD9313',
@@ -55,12 +49,109 @@ const Home = () => {
 }}>
   A C T I V I T I E S
 </h1> */}
-        <a href="#activities" style={{ color: 'white', textDecoration: 'none',
-        fontFamily: 'Abhaya Libre ExtraBold', 
-        fontSize: '3em',
-        zindex:10}}>
-          <h2>A Basketball Player</h2>
-        </a>
+{/* Addiction Prompts*/}
+<a href="#addictions" className="addiction-prompt">
+  <h2>A Plastic Surgery Dependant Individual</h2>
+</a>
+
+<a href="#addictions" className="addiction-prompt2">
+  <h2>A Tattoo Dependant</h2>
+</a>
+
+<a href="#addictions" className="addiction-promptss3">
+  <h2>Individual</h2>
+</a>
+
+<a href="#activities" className="acc-prompt1">
+  <h2>A Basketball Player</h2>
+</a>
+
+<a href="#activities" className="acc-prompt2">
+  <h2>A Skater</h2>
+</a>
+
+<a href="#qol" className="qol-prompt1">
+  <h2>A Person in</h2>
+</a>
+
+<a href="#qol" className="qol-prompt2">
+  <h2>Designer Attire</h2>
+</a>
+
+<a href="#qol" className="qol-prompt3">
+  <h2>A Person Living</h2>
+</a>
+
+<a href="#qol" className="qol-prompt4">
+  <h2>in an Unhygienic Place</h2>
+</a>
+
+<a href="#emotions" className="qol-prompt5">
+  <h2>A Sad Individual</h2>
+</a>
+
+<a href="#emotions" className="qol-prompt6">
+  <h2>A Happy Individual</h2>
+</a>
+
+<a href="#emotions" className="emotions1">
+  <h2>A Proud Individual</h2>
+</a>
+
+<a href="#emotions" className="pro1">
+  <h2>A CEO</h2>
+</a>
+
+<a href="#emotions" className="pro2">
+  <h2>A Family Doctor</h2>
+</a>
+
+<a href="#emotions" className="eng">
+  <h2>A Computer Engineer</h2>
+</a>
+
+<a href="#emotions" className="eng1">
+  <h2>Engineering</h2>
+</a>
+
+<a href="#emotions" className="eng2">
+  <h2>A Biomedical Engineer</h2>
+</a>
+
+<a href="#emotions" className="eng3">
+  <h2>A Shoplifter</h2>
+</a>
+
+<a href="#emotions" className="eng4">
+  <h2>A Smuggler</h2>
+</a>
+
+<a href="#emotions" className="hood1">
+  <h2>A House in</h2>
+</a>
+
+<a href="#emotions" className="hoods1">
+  <h2>Jane & Finch</h2>
+</a>
+
+<a href="#emotions" className="hood2">
+  <h2>An Apartment in</h2>
+</a>
+
+<a href="#emotions" className="hoods2">
+  <h2>Forest Hill</h2>
+</a>
+
+<a href="#emotions" className="cri1">
+  <h2>A Hijacker</h2>
+</a>
+
+<a href="#emotions" className="pro3">
+  <h2>An Accountant</h2>
+</a>
+
+
+        
       </header>
 
       <main>
@@ -151,7 +242,6 @@ const Home = () => {
       <div id="qol">
         <QOL />
       </div>
-
       {/* Quality of Life section */}
       <div id="Emotions">
         <Emotions />
@@ -161,7 +251,12 @@ const Home = () => {
       <div id="ProfessionsLanding">
         <ProfessionsLanding />
       </div>
+
+      <div id="Crime">
+        <Crime />
+      </div>
     </div>
+
   );
 };
 
