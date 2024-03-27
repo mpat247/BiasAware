@@ -9,12 +9,24 @@ import QOL from './QOL'; // Import the QOL component
 import Crime from './Crime';
 import Emotions from './Emotions';
 import ProfessionsLanding from './ProfessionsLanding';
-
-
+import LandingPage from './LandingPage';
 
 const Home = () => {
   const [rotate, setRotate] = useState(true);
+  const [showLandingPage, setShowLandingPage] = useState(true);
 
+      // Function to handle button click in LandingPage component
+      const handleButtonClick = () => {
+        setShowLandingPage(false); // Hide landing page component
+    };
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setShowLandingPage(false); // Hide landing page component after 10 seconds
+        }, 10000);
+
+        return () => clearTimeout(timeout);
+    }, []);
    // Add a function to handle scrolling to the top
    const scrollToTop = () => {
     window.scrollTo({
@@ -155,6 +167,8 @@ const Home = () => {
       </header>
 
       <main>
+      {showLandingPage && <LandingPage onButtonClick={handleButtonClick} />} {/ Render LandingPage component if showLandingPage is true /}
+                {!showLandingPage && (
         <div className="gear-container">
         <img
           className={`App-logo App-logo.middle-gear ${rotate ? 'rotating-gear' : 'stopped-rotation'} gear-styling`}
@@ -179,7 +193,7 @@ const Home = () => {
             alt="Rotating Gear"
           />
         </div>
-
+        )}
        
         {/* Add a link to scroll to the Addictions section
         <tr><a href="#addictions" className="explore-addictions-link">
@@ -195,6 +209,7 @@ const Home = () => {
         </button>
         
       </main>
+      
 
       {/* Addictions section */}
       <div id="addictions">

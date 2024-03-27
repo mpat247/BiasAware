@@ -555,13 +555,15 @@ body {
 }
 
 .gear-styling {
-  width: 33vw;
-  height: 33vw;
-  position: absolute;
-  top: 15%;
-  left: 35%;
-  transform: translateX(-50%);
+    width: 33vw;
+    height: 33vw;
+    position: absolute;
+    top: 15%;
+    left: 35%;
+    transform: translateX(-50%);
 }
+
+
 
 .gear-styling2 {
   width: 26vw;
