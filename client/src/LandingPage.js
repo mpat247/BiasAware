@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './LandingPage.css';
 import Responsive from './Responsive';
-const LandingPage = ({ onButtonClick}) => {
+const LandingPage = () => {
   useEffect(() => {
     // Create a div element for container
     const container = document.createElement('div');
