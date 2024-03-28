@@ -150,26 +150,48 @@ async function updateImageFieldsFromCSV(csvFilePath) {
   }
 }
 
+async function addBiasFieldsToImages() {
+  try {
+    const images = await Image.find({});
+    console.log(`Found ${images.length} images to update.`);
+
+    for (const image of images) {
+      console.log(`Adding bias fields to image: ${image.name}`);
+      await Image.findByIdAndUpdate(image._id, {
+        $set: {
+          gender_bias: null,
+          race_bias: null,
+          age_bias: null
+        }
+      });
+      console.log(`Bias fields added to image: ${image.name}`);
+    }
+    console.log("All images updated with bias fields.");
+  } catch (error) {
+    console.error("Error occurred while adding bias fields to images:", error);
+  }
+}
+
+
 
 async function main() {
-  let db;
   try {
-    db = await mongoose.connect('mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority&appName=biasaware', { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect('mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority&appName=biasaware',
+      { useNewUrlParser: true, useUnifiedTopology: true });
     console.log('Successfully connected to the database.');
 
     const csvFilePath = "/Users/manav/Documents/Fourth Year/Capstone/BiasAware/server/finalv.csv";
-    await updateImageFieldsFromCSV(csvFilePath);
+    await addBiasFieldsToImages();
 
-    console.log('Completed updating images with skin shade and gender information.');
+    console.log('Added Fields to Image');
   } catch (error) {
     console.error('Failed to update images:', error);
   } finally {
-    if (db) {
-      await db.close(); // Close the database connection if it was opened
-      console.log('Disconnected from the database.');
-    }
+    await mongoose.disconnect(); // Close the database connection
+    console.log('Disconnected from the database.');
   }
 }
+
 
 
 main().catch(console.error);
