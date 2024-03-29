@@ -1,73 +1,72 @@
-require('dotenv').config();
-const express = require("express");
-const router = express.Router();
-const { GridFSBucket } = require('mongodb'); // Import GridFSBucket from mongodb package
-const Image = require('./models/imageModel'); // Adjust the import path as necessary
-const Bias = require('./models/biasModel'); // Adjust the import path as necessary
-const { connectToDatabase, mongoose } = require('./dbConfig'); // Adjust the path as necessary
+const mongoose = require('mongoose');
 const fs = require('fs');
-const path = require('path');
-const csv = require('csv-parser'); // Make sure this line is included
-
-
-
-
+const csv = require('csv-parser');
+const Image = require('./models/imageModel'); // Adjust the import path as necessary
 
 async function addDescriptionFromCSV(csvFilePath) {
   try {
+    // Establish a connection to the MongoDB database
+    await mongoose.connect('mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority&appName=biasaware', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log('Successfully connected to the database.');
+
     console.log(`Reading CSV file from: ${csvFilePath}`);
 
-    // Read the CSV file
-    fs.createReadStream(csvFilePath)
-      .pipe(csv())
-      .on('data', async (row) => {
-        const prompt = row.prompt;
-        const description = row.description;
+    // Create a promise to wait for CSV file processing to complete
+    await new Promise((resolve, reject) => {
+      const updates = []; // Hold promises for all update operations
 
-        // Find the image document with the matching prompt
-        const image = await Image.findOne({ prompt: prompt });
+      fs.createReadStream(csvFilePath)
+        .pipe(csv())
+        .on('data', (row) => {
+          const prompt = row.prompt;
+          const description = row.description;
 
-        if (image) {
-          // Update the image document with the description
-          await Image.findByIdAndUpdate(image._id, { description: description });
-          console.log(`Updated image ${prompt} with description: ${description}`);
-        } else {
-          console.log(`Image with prompt ${prompt} not found in the database.`);
-        }
-      })
-      .on('end', () => {
-        console.log('CSV file reading completed.');
-      })
-      .on('error', (error) => {
-        console.error('Error reading CSV file:', error);
-      });
+          // Push update operation promises into the updates array
+          const updatePromise = Image.findOne({ prompt: prompt }).then(image => {
+            if (image) {
+              // Update the image document with the description
+              return Image.findByIdAndUpdate(image._id, { description: description });
+            } else {
+              console.log(`Image with prompt ${prompt} not found.`);
+              return Promise.resolve();
+            }
+          });
+
+          updates.push(updatePromise);
+        })
+        .on('end', () => {
+          // Resolve the main promise after all updates are done
+          Promise.all(updates).then(() => {
+            console.log('CSV file processing completed.');
+            resolve();
+          }).catch(reject);
+        })
+        .on('error', (error) => {
+          console.error('Error processing CSV file:', error);
+          reject(error);
+        });
+    });
+
+    console.log('Completed updating images with description information.');
   } catch (error) {
     console.error('Error updating images:', error);
+  } finally {
+    // Close the connection after all operations are done
+    await mongoose.disconnect();
+    console.log('Disconnected from the database.');
   }
 }
 
 async function main() {
-  let connection;
   try {
-    connection = await mongoose.connect('mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority&appName=biasaware', { useNewUrlParser: true, useUnifiedTopology: true });
-    console.log('Successfully connected to the database.');
-
-   // const csvFilePath = "/Users/manav/Documents/Fourth Year/Capstone/BiasAware/server/calDes.csv";
-    await addDescriptionFromCSV('D:/manav/Documents/Engineering/4th Year/Capstone/BiasAware/server/finalCSV.csv');
-
-    console.log('Completed updating images with skin shade and gender information.');
+    const csvFilePath = "/Users/manav/Documents/Fourth Year/Capstone/BiasAware/server/des1.csv";
+    await addDescriptionFromCSV(csvFilePath);
   } catch (error) {
     console.error('Failed to update images:', error);
-  } finally {
-    if (connection) {
-      await connection.disconnect(); // Disconnect the connection if it was opened
-      console.log('Disconnected from the database.');
-    }
   }
 }
 
-main()
-
-
-
-
+main();

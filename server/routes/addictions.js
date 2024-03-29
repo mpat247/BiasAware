@@ -38,14 +38,15 @@ router.get('/main-images', async (req, res) => {
             downloadStream.on('end', () => {
                 const imgBase64 = Buffer.concat(data).toString('base64');
                 const prompt = image.prompt.replace('Main_', '').replace(/_/g, ' '); // Removing "Main_" and replacing "_" with a space
+                // Include the description in the resolved object
                 resolve({
                     image: `data:${contentType};base64,${imgBase64}`,
-                    prompt: prompt
+                    prompt: prompt,
+                    description: image.description // Add the description field here
                 });
-                // console.log('Prompt:', prompt); // Logging the prompt for each image
             });
         });
-    }));
+      }));
     
      
 
