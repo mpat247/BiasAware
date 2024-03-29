@@ -333,3 +333,24 @@
   z-index: 1; /* Set a lower z-index for rectangleback1 */
   
 }
+
+.popup-prompt {
+  text-align: center;
+  width: 80%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the text horizontally */
+  overflow-wrap: break-word; /* Allow long words to break */
+  overflow: auto; /* Enable scrolling if the text overflows */
+  font-size: 22px; /* Adjust the font size as needed */
+
+}
+
+
+
+.image2 {
+  position: absolute;
+  top:98px; /* Adjust the top position to place it inside the popup */
+  left: px; /* Adjust the left position to place it inside the popup */
+  width: 330px; /* Adjust the width as needed */
+  height: 280px; /* Adjust the height as needed */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
