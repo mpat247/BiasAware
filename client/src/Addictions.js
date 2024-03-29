@@ -15,6 +15,8 @@ const Addictions = () => {
   const [popUpMain, setPopUpMain] = useState([]);
   const [sideImagesData, setSideImagesData] = useState([]);
   const [popUpSide, setPopUpSide] = useState([]);
+  const [popupDescription, setpopupDescription] = useState('');
+
 
   const API = REACT_APP_API_URL;
 
@@ -44,7 +46,7 @@ const Addictions = () => {
     );
   };
 
-  const PopupCard = ({ image, prompt, sideImages, onClose }) => {
+  const PopupCard = ({ image, prompt, sideImages, onClose, description }) => {
     const formattedPrompt = prompt => {
       const vowels = ['a', 'e', 'i', 'o', 'u'];
       const firstLetter = prompt.toLowerCase().charAt(0);
@@ -65,33 +67,40 @@ const Addictions = () => {
           <div className="rectanglepop1"></div>
           <div className="rectanglepop2"></div>
           <div className="rectanglepop3">
-            <p className="popup-prompt" style={{ textAlign: 'center' }}>{formattedPrompt(prompt)}</p>
+            <div><p className="popup-prompt" style={{ textAlign: 'center' }}>{formattedPrompt(prompt)}</p></div>
+            <div><p className="popup-description" style={{ textAlign: 'center' }}>{description}</p></div>
+
           </div>
           {filledSideImages.map((sideImage, index) => (
             <div key={index} className={`image${index + 1}`}>
               <img src={sideImage} alt={`sideImage${index + 1}`} className="popup-image" />
             </div>
           ))}
-          <div className="image5"><img src={image} alt="selected-addiction" className="popup-image" /></div>
+
+<div className="image5"><img src={image} alt="selected-addiction" className="popup-image" /></div>
+
         </div>
       </div>
     );
   };
   
 
-  const openPopup = async (prompt) => {
+  const openPopup = async (prompt, description) => {
     setShowPopup(true);
     document.body.style.overflow = 'hidden'; // Disable scrolling
     setPopupPrompt(prompt);
-
+    setpopupDescription(description); // Correct this line to properly set the description
+  
     // Find the main image corresponding to the prompt
     const mainImage = imagesData.find(image => image.prompt === prompt)?.image;
     setPopUpMain([mainImage]);
-
+  
     // Find the side images corresponding to the prompt
     const sideImages = sideImagesData.filter(image => image.prompt === prompt).map(image => image.image);
     setPopUpSide(sideImages);
   };
+  
+  
 
   const closePopup = () => {
     setShowPopup(false);
@@ -108,10 +117,10 @@ const Addictions = () => {
     ];
   };
 
-  const ImageComponent = ({ src, alt, prompt }) => {
+  const ImageComponent = ({ src, alt, prompt, description }) => {
     return (
       <div className="image-component">
-        <img src={src} alt={alt} onClick={() => openPopup(prompt)} />
+        <img src={src} alt={alt} onClick={() => openPopup(prompt,description)} />
       </div>
     );
   };
@@ -139,6 +148,7 @@ const Addictions = () => {
                   src={image.image}
                   alt={`Addictions Illustration ${currentImageIndex + index - 2}`}
                   prompt={image.prompt}
+                  description={image.description}
                 />
               ))}
             </div>
@@ -152,7 +162,7 @@ const Addictions = () => {
         )}
       </header>
       {showPopup && <div className="overlay" onClick={closePopup}></div>}
-      {showPopup && <PopupCard image={popUpMain[0]} prompt={popupPrompt} sideImages={popUpSide} onClose={closePopup} />}
+      {showPopup && <PopupCard image={popUpMain[0]} prompt={popupPrompt} sideImages={popUpSide} onClose={closePopup} description={popupDescription} />}
     </div>
   );
 };
