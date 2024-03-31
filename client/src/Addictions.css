@@ -340,75 +340,34 @@
   
 }
 
-/* Adjustments for smaller screens */
-@media screen and (max-width: 768px) {
-  /* Adjustments for containers and images */
-  .addictions-container h1{
-    font-size: 2em;
-    margin-left: -1.75em;
-  }
-  .Addictions {
-    max-width: 50%; /* Adjust maximum width for smaller screens */
-    margin-left:15em;
-  }
-  .images-container-addiction{
-    
-  }
-  
-/* Styling for the image divs */
-.addictions-container div > div {
-  position: relative;
-  width: 100px;/*300*/
-  height: 250px;
-  overflow: hidden;
-}
-.addictions-container div > div:nth-child(1) {
-  position: relative;
-  width: 50px;
-  height: 250px;
-  overflow: hidden;
+.popup-prompt {
+  text-align: center;
+  width: 80%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the text horizontally */
+  overflow-wrap: break-word; /* Allow long words to break */
+  overflow: auto; /* Enable scrolling if the text overflows */
+  font-size: 22px; /* Adjust the font size as needed */
+  transform: translateY(-5%);
+
 }
 
-/* Styling for the images */
-.addictions-container div > div img {
-  width: 100px;
-  height: 250px;
-  border-radius: 30px;
-  object-fit: cover;
+
+
+.image2 {
+  position: absolute;
+  top:98px; /* Adjust the top position to place it inside the popup */
+  left: px; /* Adjust the left position to place it inside the popup */
+  width: 330px; /* Adjust the width as needed */
+  height: 280px; /* Adjust the height as needed */
+  z-index: 999; /* Ensure it's above other elements in the popup */
 }
 
-/* Styling for the first image (index 1) */
-.addictions-container div > div:nth-child(1) img {
-  position: relative;
-  opacity: 0.5;
-  border-radius: 30px;
-  width: 50px;
-  height: 200px;
-  margin-top: 50px;
-}
+.popup-description {
+  text-align: center;
+  margin-top: 40px; /* Increase the margin-top value to push the description further down */
+  overflow-wrap: break-word;
+  font-size: 18px; /* Adjust the font size as needed */
+  /* Additional styling as needed */
+  transform: translateY(925%);
 
-/* Styling for the second image (index 2) */
-.addictions-container div > div:nth-child(2) img {
-  position: relative;
-  width: 100px;
-  height: 250px;
-}
-
-/* Styling for the third image (index 3) */
-.addictions-container div > div:nth-child(3) img {
-  position: relative;
-  width: 100px;
-  height: 250px;
-}
-
-/* Adjust the styling for the last image's div */
-.addictions-container div:last-child {
-  overflow: hidden;
-  position: relative;
-  width: 50px;
-  height: 200px;
-  border-radius: 20px;
-  margin-right: 0;
-  margin-top: 50px;
-}
 }

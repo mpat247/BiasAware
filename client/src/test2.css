@@ -1,0 +1,30 @@
+/* Heat Map Container Styles */
+.heatMapContainer {
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Maximum width to avoid overly large displays */
+    margin: auto; /* Centers the container */
+    overflow-x: auto; /* Allows horizontal scrolling for smaller screens */
+    padding: 20px; /* Padding for aesthetic spacing around the heat map */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow for depth */
+    border-radius: 8px; /* Optional: Rounds the corners of the container */
+    background-color: #fff; /* Optional: Background color for the container */
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .heatMapContainer {
+      max-width: 95%; /* Allows the container to fit better on small screens */
+      padding: 10px; /* Reduces padding to save space */
+    }
+    /* Adjust font size or other styles for elements inside the container */
+  }
+  
+  /* Additional media query for very small screens, such as mobile phones */
+  @media (max-width: 480px) {
+    .heatMapContainer {
+      max-width: 100%; /* Utilizes the full width for very small devices */
+      padding: 5px; /* Minimizes padding to maximize space */
+    }
+    /* Further adjustments can be added here */
+  }
+  
