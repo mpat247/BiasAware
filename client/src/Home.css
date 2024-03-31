@@ -1,22 +1,29 @@
 /* Home.css */
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 /* Global body styles */
 body {
   margin: 0;
-  padding-top: 60px; /* Adjust based on the height of your navbar */
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 40px; /* Adjust based on the height of your navbar */
+  font-size: calc(7px + 2vmin);
+  color: #140C46;
+  
 }
+
 
 /* Header styles */
 .App-header {
   background-color: #140C46;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 20px; /* Additional padding to avoid overlapping with the navbar */
+  padding-top: 10px; /* Additional padding to avoid overlapping with the navbar */
+  
 }
 
 /* App container styles */
@@ -30,30 +37,68 @@ body {
   pointer-events: none;
   z-index: 1; /* Ensure the gears are above other content */
 }
-
-/* Individual gear adjustments */
-.App-logo.middle-gear {
-  width: 100px;
-  height: 100px;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* Common styles for all gears */
+.gear-container {
+ width: 80vw; /* Adjust the width as needed */
+  height: 80vh; /* Adjust the height as needed */
+  position: relative;
+  margin: auto;
+  
 }
 
-.App-logo.left-gear {
-  width: 80px;
-  height: 80px;
-  top: 50%;
-  left: 20%;
-  transform: translate(-50%, -50%);
+
+/* Adjust sizes and positions for different screen widths */
+@media only screen and (max-width: 768px) {
+  .gear-container{
+    
+  }
+  
 }
 
-.App-logo.right-gear {
-  width: 80px;
-  height: 80px;
-  bottom: 20%;
-  right: 20%;
-  transform: translate(50%, -50%);
+@media only screen and (min-width: 769px) and (max-width: 1225px) {
+  .gear-container {
+    width: 70%; /* Adjust the width as needed for medium screens */
+    height: 70%; /* Adjust the height as needed for medium screens */
+  }
+}
+
+
+@media only screen and (min-width: 1225px) {
+  .gear {
+    width: 33vw;
+  height: 33vw;
+  position: absolute;
+  top: 49%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  }
+
+  .right-gear {
+    width: 26vw;
+  height: 26vw;
+  position: absolute;
+  bottom: 0%;
+  right: 14%;
+  transform: translateY(-50%);
+  }
+
+  .left-gear {
+    width: 22vw;
+  height: 22vw;
+  position: absolute;
+  top: 32%;
+  left: 22.5%;
+  transform: translateY(-50%);
+  }
+
+  .bottom-gear {
+    width: 22vw;
+    height: 22vw;
+    position: absolute;
+    bottom: -27%;
+    left: 28%;
+    transform: translateY(-50%);
+  }
 }
 
 /* Gear rotation animation */
@@ -106,21 +151,9 @@ body {
   background-color: #140C46; /* Change color on hover */
 }
 
-.addiction-prompt {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.5em !important; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 49.9%; /* Adjust the top position as needed */
-  left: 51.7%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .addiction-prompt h2 {
-  font-size: 1.15em !important; /* Adjust the font size as needed */
-}
+
+
 
 
 .addiction-prompt3 {
@@ -154,101 +187,33 @@ body {
 .App-header .addiction-prompts3 h2 {
   font-size: 1em !important; /* Adjust the font size as needed */
 }
-.addiction-prompt2 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.7em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 53.5%; /* Adjust the top position as needed */
-  left: 72.9%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
+
+
+
+
+
+
+
+/* Media query for screens with a maximum width of 768px */
+@media only screen and (max-width: 768px) {
+  .acc-prompt2 {
+    font-size: 0.6em; /* Adjust the font size for smaller screens */
+    top: 20%; /* Adjust the top position for smaller screens */
+    left: 80%; /* Center the text horizontally */
+    transform: translateX(-50%); /* Center the text horizontally */
+    margin-left:2em;
+  }
+  .App-header .main-body{
+    width:10px;
+  }
+  
 }
 
-.App-header .addiction-prompt2 h2 {
-  font-size: 0.9em !important; /* Adjust the font size as needed */
-}
 
-.addiction-promptss3 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.7em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 56%; /* Adjust the top position as needed */
-  left: 72.9%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .addiction-promptss3 h2 {
-  font-size: .9em !important; /* Adjust the font size as needed */
-}
 
-.acc-prompt1 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 41.4%; /* Adjust the top position as needed */
-  left: 72.8%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .acc-prompt1 h2 {
-  font-size: 1em !important; /* Adjust the font size as needed */
-}
 
-.acc-prompt2 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 30.3%; /* Adjust the top position as needed */
-  left: 33.5%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
-
-.App-header .acc-prompt2 h2 {
-  font-size: 2.1em !important; /* Adjust the font size as needed */
-}
-
-.qol-prompt1 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 24%; /* Adjust the top position as needed */
-  left: 33.5%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
-
-.App-header .qol-prompt1 h2 {
-  font-size: .7em !important; /* Adjust the font size as needed */
-}
-
-.qol-prompt2 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 26.2%; /* Adjust the top position as needed */
-  left: 33.6%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
-
-.App-header .qol-prompt2 h2 {
-  font-size: .7em !important; /* Adjust the font size as needed */
-}
 
 .qol-prompts2 {
   color: white;
@@ -266,329 +231,57 @@ body {
   font-size: 1.2em !important; /* Adjust the font size as needed */
 }
 
-.qol-prompt3 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 36%; /* Adjust the top position as needed */
-  left: 73%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .qol-prompt3 h2 {
-  font-size: 0.7em !important; /* Adjust the font size as needed */
-}
 
-.qol-prompt4 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 38%; /* Adjust the top position as needed */
-  left: 73%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .qol-prompt4 h2 {
-  font-size: .7em !important; /* Adjust the font size as needed */
-}
 
-.qol-prompt5 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 45.2%; /* Adjust the top position as needed */
-  left: 73%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .qol-prompt5 h2 {
-  font-size: 1.3em !important; /* Adjust the font size as needed */
-}
 
-.qol-prompt6 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 84%; /* Adjust the top position as needed */
-  left: 39.2%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .qol-prompt6 h2 {
-  font-size: .9em !important; /* Adjust the font size as needed */
-}
 
-.pro1 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 88%; /* Adjust the top position as needed */
-  left: 39.2%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .pro1 h2 {
-  font-size: 1.7em !important; /* Adjust the font size as needed */
-}
 
-.pro2 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 34.6%; /* Adjust the top position as needed */
-  left: 33.6%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .pro2 h2 {
-  font-size: 1.08em !important; /* Adjust the font size as needed */
-}
 
-.eng {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 53%; /* Adjust the top position as needed */
-  left: 51.7%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .eng h2 {
-  font-size: 1.25em !important; /* Adjust the font size as needed */
-}
 
-.eng1 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 45%; /* Adjust the top position as needed */
-  left: 51.8%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .eng1 h2 {
-  font-size: 2.1em !important; /* Adjust the font size as needed */
-}
 
-.eng2 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 81%; /* Adjust the top position as needed */
-  left: 39%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .eng2 h2 {
-  font-size: 0.8em !important; /* Adjust the font size as needed */
-}
 
-.eng3 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 36.5%; /* Adjust the top position as needed */
-  left: 51.6%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .eng3 h2 {
-  font-size: 1em !important; /* Adjust the font size as needed */
-}
 
-.eng4 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 57.5%; /* Adjust the top position as needed */
-  left: 51.9%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .eng4 h2 {
-  font-size: 1.9em !important; /* Adjust the font size as needed */
-}
 
-.hood1 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 75%; /* Adjust the top position as needed */
-  left: 39%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .hood1 h2 {
-  font-size: 1.2em !important; /* Adjust the font size as needed */
-}
 
-.hoods1 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 78%; /* Adjust the top position as needed */
-  left: 39.1%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
 
-.App-header .hoods1 h2 {
-  font-size: 1.2em !important; /* Adjust the font size as needed */
-}
 
-.hood2 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 38%; /* Adjust the top position as needed */
-  left: 33.5%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .App-header .hood2 h2 {
   font-size: .8em !important; /* Adjust the font size as needed */
 }
 
-.hoods2 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 40.4%; /* Adjust the top position as needed */
-  left: 33.5%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
-
-.App-header .hoods2 h2 {
-  font-size: .8em !important; /* Adjust the font size as needed */
-}
-
-.emotions1 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 40.5%; /* Adjust the top position as needed */
-  left: 51.5%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
-
-.App-header .emotions1 h2 {
-  font-size: 1.1em !important; /* Adjust the font size as needed */
-}
-
-.cri1 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 49.2%; /* Adjust the top position as needed */
-  left: 73%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
-
-.App-header .cri1 h2 {
-  font-size: 1.76em !important; /* Adjust the font size as needed */
-}
-
-.pro3 {
-  color: white;
-  text-decoration: none;
-  font-family: 'Abhaya Libre Medium';
-  font-size: 0.8em; /* Adjust the font size as needed */
-  z-index: 10;
-  position: absolute;
-  top: 62%; /* Adjust the top position as needed */
-  left: 51.8%; /* Adjust the left position as needed */
-  transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
-}
-
-.App-header .pro3 h2 {
-  font-size: 1em !important; /* Adjust the font size as needed */
-}
-
-.gear-styling {
-    width: 33vw;
-    height: 33vw;
-    position: absolute;
-    top: 15%;
-    left: 35%;
-    transform: translateX(-50%);
-}
 
 
 
-.gear-styling2 {
-  width: 26vw;
-  height: 26vw;
-  position: absolute;
-  top: 28%;
-  left: 14%;
-  transform: translateY(-50%);
-}
 
-.gear-styling3 {
-  width: 22vw;
-  height: 22vw;
-  position: absolute;
-  top: 9%;
-  left: 22.5%;
-  transform: translateY(-50%);
-}
 
-.gear-styling4 {
-  width: 22vw;
-  height: 22vw;
-  position: absolute;
-  top: -4%;
-  left: 28%;
-  transform: translateY(-50%);
-}
+
+
+
 

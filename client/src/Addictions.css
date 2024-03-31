@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 #addictions {
   /* Add any global styles for the 'addictions' ID here */
 }
@@ -7,7 +12,7 @@
 }
 
 .App-header {
-  /* Add any styles for the header inside the 'Addictions' component here */
+  
 }
 
 .addictions-container {
@@ -16,7 +21,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-
+  
 }
 
 .addictions-container h1 {
@@ -26,6 +31,7 @@
   text-shadow: 2px 2px 4px rgba(168, 108, 6, 1);
   margin-bottom: 20px;
   animation: fadeIn 1s ease-in-out;
+
 }
 
 @keyframes fadeIn {
@@ -332,4 +338,77 @@
   position: relative; /* Ensure that z-index works */
   z-index: 1; /* Set a lower z-index for rectangleback1 */
   
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  /* Adjustments for containers and images */
+  .addictions-container h1{
+    font-size: 2em;
+    margin-left: -1.75em;
+  }
+  .Addictions {
+    max-width: 50%; /* Adjust maximum width for smaller screens */
+    margin-left:15em;
+  }
+  .images-container-addiction{
+    
+  }
+  
+/* Styling for the image divs */
+.addictions-container div > div {
+  position: relative;
+  width: 100px;/*300*/
+  height: 250px;
+  overflow: hidden;
+}
+.addictions-container div > div:nth-child(1) {
+  position: relative;
+  width: 50px;
+  height: 250px;
+  overflow: hidden;
+}
+
+/* Styling for the images */
+.addictions-container div > div img {
+  width: 100px;
+  height: 250px;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+/* Styling for the first image (index 1) */
+.addictions-container div > div:nth-child(1) img {
+  position: relative;
+  opacity: 0.5;
+  border-radius: 30px;
+  width: 50px;
+  height: 200px;
+  margin-top: 50px;
+}
+
+/* Styling for the second image (index 2) */
+.addictions-container div > div:nth-child(2) img {
+  position: relative;
+  width: 100px;
+  height: 250px;
+}
+
+/* Styling for the third image (index 3) */
+.addictions-container div > div:nth-child(3) img {
+  position: relative;
+  width: 100px;
+  height: 250px;
+}
+
+/* Adjust the styling for the last image's div */
+.addictions-container div:last-child {
+  overflow: hidden;
+  position: relative;
+  width: 50px;
+  height: 200px;
+  border-radius: 20px;
+  margin-right: 0;
+  margin-top: 50px;
+}
 }

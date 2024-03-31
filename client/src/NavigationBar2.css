@@ -73,15 +73,22 @@
   
   /* Adjust styles for smaller screens */
   @media screen and (max-width: 768px) {
+    
     .nav-links-container {
-      flex-direction: row; /* Change back to row layout on smaller screens */
-      justify-content: center; /* Center align the links */
-      padding: 0; /* Remove padding */
+      flex-direction: column; /* Display links in a column */
+      align-items: center; /* Center align items */
+      overflow-x: hidden; /* Hide horizontal overflow */
+      width: 100%; /* Ensure full width */
+      margin-bottom: -5em;
     }
   
     .nav-links {
-      flex-direction: row; /* Change back to row layout on smaller screens */
-      gap: 15px; /* Add gap between links */
+      margin-top: -2px; /* Add some space between title and links */
+      width: 100%; /* Ensure full width */
+      
+    }
+    .nav-links {
+      font-size: 14px; /* Adjust font size for smaller screens */
     }
     
   }

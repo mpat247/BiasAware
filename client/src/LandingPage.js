@@ -3,6 +3,8 @@ import './LandingPage.css';
 import Responsive from './Responsive';
 const LandingPage = () => {
   useEffect(() => {
+    document.body.classList.add('no-scroll');
+    
     // Create a div element for container
     const container = document.createElement('div');
     container.classList.add('container');
@@ -148,6 +150,11 @@ const LandingPage = () => {
       }, 10000);
       }, 5000); // 5 seconds delay for new sentence
     }, 7000); // 7 seconds delay for initial fade out
+    // Remove the CSS class to allow scrolling when the component unmounts
+    return () => {
+      document.body.classList.remove('no-scroll');
+      
+    };
   }, []);
 
   // Function to handle clicking on the icon
@@ -176,6 +183,7 @@ const LandingPage = () => {
   }
   
   return null;
+  
 };
 
 export default LandingPage;
