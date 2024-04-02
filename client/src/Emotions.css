@@ -298,3 +298,32 @@ body {
   text-align: center; /* Center the text */
   font-size: 1.2rem; /* Adjust size as needed */
 }
+
+.image-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.side-images.left {
+  margin-right: 20px;
+}
+
+.side-images.right {
+  margin-left: 20px;
+}
+
+.side-image {
+  width: 100px;
+  margin: 10px 0;
+}
+
+.main-image-container {
+  text-align: center;
+}

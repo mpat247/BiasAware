@@ -2,23 +2,32 @@ import React, { useState, useEffect } from 'react';
 import './Emotions.css';
 import axios from 'axios';
 
-const PopupCard = ({ onClose, retrievedImage, prompt }) => {
-  console.log("PopupCard prompt:", prompt);
+const PopupCard = ({ onClose, retrievedImage, prompt, sideImages }) => {
+  // Adjusted to handle the display of side images in a similar manner to your Addictions example
   return (
     <div className="popup-card">
       <div className="popup-content">
         <button className="close-button" onClick={onClose}>Close</button>
-        <div className="rectanglepop7">
-          {retrievedImage && <img src={retrievedImage} alt="retrieved-emotion" className="retrieved-image-centered" />}
-          {prompt && <div className="prompt-text">{prompt}</div>}
+        <div className="image-layout">
+          <div className="side-images left">
+            {sideImages.slice(0, 2).map((img, index) => (
+              <img key={index} src={img.image} alt={`side-emotion-left-${index}`} className="side-image" />
+            ))}
+          </div>
+          <div className="main-image-container">
+            {retrievedImage && <img src={retrievedImage} alt="retrieved-emotion" className="retrieved-image-centered" />}
+            {prompt && <div className="prompt-text">{prompt}</div>}
+          </div>
+          <div className="side-images right">
+            {sideImages.slice(2, 4).map((img, index) => (
+              <img key={index} src={img.image} alt={`side-emotion-right-${index}`} className="side-image" />
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
-
-
 
 const Emotions = () => {
   const emotionMap = {
@@ -46,18 +55,21 @@ const Emotions = () => {
 
   const [showPopup, setShowPopup] = useState(false);
   const [retrievedImages, setRetrievedImages] = useState([]);
+  const [sideImages, setSideImages] = useState([]);
   const [retrievedImage, setRetrievedImage] = useState('');
   const [PopUpPrompt, setPopUpPrompt] = useState('');
+  const [displaySideImages, setDisplaySideImages] = useState([]);
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/emotions/main');
-        if (response && response.data.images) {
-          console.log('Fetched images:', response.data.images);
-          setRetrievedImages(response.data.images);
-        } else {
-          console.error('No response received from the server.');
+        const responseMain = await axios.get('http://localhost:3001/emotions/main');
+        const responseSide = await axios.get('http://localhost:3001/emotions/side');
+        if (responseMain.data && responseMain.data.images) {
+          setRetrievedImages(responseMain.data.images);
+        }
+        if (responseSide.data && responseSide.data.images) {
+          setSideImages(responseSide.data.images);
         }
       } catch (error) {
         console.error('Failed to fetch images:', error);
@@ -67,23 +79,16 @@ const Emotions = () => {
   }, []);
 
   const handleClick = (emotion, prompt) => {
-    console.log(`Clicked emotion: ${emotion}`);
-    console.log(`Clicked prompt: ${prompt}`);
-    console.log('Available emotions in retrieved images:', retrievedImages.map((img, index) => ({ index, emotion: img.emotion })));
-  
-    const imageObj = retrievedImages.find(image => {
-      const imageEmotionNormalized = image.emotion?.toLowerCase().trim();
-      const clickedEmotionNormalized = emotion.toLowerCase().trim();
-      return imageEmotionNormalized.includes(clickedEmotionNormalized);
-    });
-  
+    const imageObj = retrievedImages.find(image => image.emotion?.toLowerCase().trim() === emotion.toLowerCase().trim());
     if (imageObj) {
-      console.log(`Matching image found for "${emotion}":`, imageObj);
-      setRetrievedImage(imageObj.image); // Assuming 'image' correctly points to the image URL
-      setPopUpPrompt(imageObj.prompt); // Now also setting the prompt for display
+      setRetrievedImage(imageObj.image);
+      setPopUpPrompt(imageObj.prompt);
+
+      // Filter and set the side images related to the clicked main image's emotion
+      const relatedSideImages = sideImages.filter(img => img.emotion === imageObj.emotion);
+      setDisplaySideImages(relatedSideImages);
+
       setShowPopup(true);
-    } else {
-      console.error(`No matching image found for "${emotion}".`);
     }
   };
 
@@ -91,6 +96,7 @@ const Emotions = () => {
     setShowPopup(false);
     setRetrievedImage('');
     setPopUpPrompt('');
+    setDisplaySideImages([]);
   };
 
   return (
@@ -105,7 +111,7 @@ const Emotions = () => {
         </div>
       </div>
       {showPopup && <div className="overlay" onClick={handleClose}></div>}
-      {showPopup && <PopupCard onClose={handleClose} retrievedImage={retrievedImage} prompt={PopUpPrompt} />}
+      {showPopup && <PopupCard onClose={handleClose} retrievedImage={retrievedImage} prompt={PopUpPrompt} sideImages={displaySideImages} />}
     </div>
   );
 };
