@@ -1,7 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react'; // Correctly import useState here
 import './NewActivities.css';
 
+const Popup = ({ isVisible, onClose }) => {
+    if (!isVisible) return null;
+
+    return (
+        <div className="popup-overlay" onClick={onClose}>
+            <div className="popup-content" onClick={e => e.stopPropagation()}>
+                {/* Popup content */}
+                <div>Popup Content - Slide 1</div>
+                <div>Popup Content - Slide 2</div>
+                <div>Popup Content - Slide 3</div>
+                <button onClick={onClose}>Close</button>
+            </div>
+        </div>
+    );
+};
+
 const NewActivities = () => {
+    const [isPopupVisible, setPopupVisible] = useState(false);
 
     useEffect(() => {
         var autoplayIntervalInSeconds = 1;
@@ -30,8 +47,20 @@ const NewActivities = () => {
                 this.bindDotClickHandlers();
 
                 this.makeSliderScrollable();
-                this.prevBtn.addEventListener('click', () => this.prevSlider());
-                this.nextBtn.addEventListener('click', () => this.nextSlider());
+                // this.prevBtn.addEventListener('click', () => this.prevSlider());
+                // this.nextBtn.addEventListener('click', () => this.nextSlider());
+
+                // Inside your PostSlider class constructor or the relevant method where you bind event listeners to the arrows
+this.prevBtn.addEventListener('click', (event) => {
+    event.stopPropagation(); // Stop the event from propagating to the parent div
+    this.prevSlider();
+});
+this.nextBtn.addEventListener('click', (event) => {
+    event.stopPropagation(); // Stop the event from propagating to the parent div
+    this.nextSlider();
+});
+
+
 
                 this.createDots();
                 this.setActiveDotByScroll();
@@ -256,58 +285,66 @@ const NewActivities = () => {
         })
     }, []);
 
-    return (
-        <h1>
-            <div className="PostSlide">
-                <div className="innerContainer active">
-                    <div className="slider">
-                        <div className="slide">
-                            <div
-                                style={{background: "url('https://images.unsplash.com/photo-1504730030853-eff311f57d3c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
-                        </div>
-                        <div className="slide">
-                            <div
-                                style={{background: "url('https://images.unsplash.com/photo-1485811661309-ab85183a729c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
-                        </div>
-                        <div className="slide">
-                            <div
-                                style={{background: "url('https://images.unsplash.com/photo-1517805686688-47dd930554b2?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
-                        </div>
-                        <div className="slide">
-                            <div
-                                style={{background: "url('https://images.unsplash.com/photo-1700317440746-7e16b87199b5?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
-                        </div>
-                        <div className="slide">
-                            <div
-                                style={{background: "url('https://images.unsplash.com/photo-1512310604669-443f26c35f52?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
-                        </div>
-                        <div className="slide">
-                            <div
-                                style={{background: "url('https://images.unsplash.com/photo-1527736947477-2790e28f3443?q=80&w=1962&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
-                        </div>
-                    </div>
+    const handleSlideClick = () => {
+        // This function will be called when a slide is clicked
+        setPopupVisible(true);
+    };
 
-                    <div className="handles">
-                        <span className="prev">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg"><path
-                                    d="M15.0001 19.92L8.48009 13.4C7.71009 12.63 7.71009 11.37 8.48009 10.6L15.0001 4.07999"
-                                    stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10"
-                                    strokeLinecap="round" strokeLinejoin="round"></path></svg>
-                        </span>
-                        <span className="next">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg"><path
-                                    d="M8.99991 19.92L15.5199 13.4C16.2899 12.63 16.2899 11.37 15.5199 10.6L8.99991 4.07999"
-                                    stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10"
-                                    strokeLinecap="round" strokeLinejoin="round"></path></svg>
-                        </span>
-                    </div>
-                    <div className="dots">
+    return (
+        <>
+            <h1>
+                <div className="PostSlide" onClick={handleSlideClick}>
+                    <div className="innerContainer active">
+                        <div className="slider">
+                            <div className="slide">
+                                <div
+                                    style={{background: "url('https://images.unsplash.com/photo-1504730030853-eff311f57d3c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
+                            </div>
+                            <div className="slide">
+                                <div
+                                    style={{background: "url('https://images.unsplash.com/photo-1485811661309-ab85183a729c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
+                            </div>
+                            <div className="slide">
+                                <div
+                                    style={{background: "url('https://images.unsplash.com/photo-1517805686688-47dd930554b2?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
+                            </div>
+                            <div className="slide">
+                                <div
+                                    style={{background: "url('https://images.unsplash.com/photo-1700317440746-7e16b87199b5?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
+                            </div>
+                            <div className="slide">
+                                <div
+                                    style={{background: "url('https://images.unsplash.com/photo-1512310604669-443f26c35f52?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
+                            </div>
+                            <div className="slide">
+                                <div
+                                    style={{background: "url('https://images.unsplash.com/photo-1527736947477-2790e28f3443?q=80&w=1962&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
+                            </div>
+                        </div>
+
+                        <div className="handles">
+                            <span className="prev">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M15.0001 19.92L8.48009 13.4C7.71009 12.63 7.71009 11.37 8.48009 10.6L15.0001 4.07999"
+                                        stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10"
+                                        strokeLinecap="round" strokeLinejoin="round"></path></svg>
+                            </span>
+                            <span className="next">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"><path
+                                        d="M8.99991 19.92L15.5199 13.4C16.2899 12.63 16.2899 11.37 15.5199 10.6L8.99991 4.07999"
+                                        stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10"
+                                        strokeLinecap="round" strokeLinejoin="round"></path></svg>
+                            </span>
+                        </div>
+                        <div className="dots">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </h1>
+            </h1>
+            <Popup isVisible={isPopupVisible} onClose={() => setPopupVisible(false)}/>
+        </>
     );
 };
 
