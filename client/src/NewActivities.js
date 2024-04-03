@@ -7,19 +7,16 @@ const Popup = ({ isVisible, onClose }) => {
     return (
         <div className="popup-overlay" onClick={onClose}>
             <div className="popup-content" onClick={e => e.stopPropagation()}>
-                {/* popup-slides-container will wrap the slides */}
-                <div className="popup-slides-container">
-                    <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide1.jpg')"}}>
-                        {/* Content for slide 1 */}
-                    </div>
-                    <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide2.jpg')"}}>
-                        {/* Content for slide 2 */}
-                    </div>
-                    <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide3.jpg')"}}>
-                        {/* Content for slide 3 */}
-                    </div>
+                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide1.jpg')"}}>
+                    {/* Optional content on slide */}
                 </div>
-                <button onClick={onClose}>Close</button>
+                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide2.jpg')"}}>
+                    {/* Optional content on slide */}
+                </div>
+                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide3.jpg')"}}>
+                    {/* Optional content on slide */}
+                </div>
+                {/* <button onClick={onClose}>Close</button> */}
             </div>
         </div>
     );
@@ -61,14 +58,16 @@ const NewActivities = () => {
                 // this.nextBtn.addEventListener('click', () => this.nextSlider());
 
                 // Inside your PostSlider class constructor or the relevant method where you bind event listeners to the arrows
-                this.prevBtn.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Stop the event from propagating to the parent div
-                    this.prevSlider();
-                });
-                this.nextBtn.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Stop the event from propagating to the parent div
-                    this.nextSlider();
-                });
+this.prevBtn.addEventListener('click', (event) => {
+    event.stopPropagation(); // Stop the event from propagating to the parent div
+    this.prevSlider();
+});
+this.nextBtn.addEventListener('click', (event) => {
+    event.stopPropagation(); // Stop the event from propagating to the parent div
+    this.nextSlider();
+});
+
+
 
                 this.createDots();
                 this.setActiveDotByScroll();
@@ -306,27 +305,27 @@ const NewActivities = () => {
                         <div className="slider">
                             <div className="slide">
                                 <div
-                                    style={{background: "url('https://picsum.photos/id/1/200/300')"}}></div>
+                                    style={{background: "url('https://images.unsplash.com/photo-1504730030853-eff311f57d3c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
                             </div>
                             <div className="slide">
                                 <div
-                                    style={{background: "url('https://picsum.photos/id/1/200/300')"}}></div>
+                                    style={{background: "url('https://images.unsplash.com/photo-1485811661309-ab85183a729c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
                             </div>
                             <div className="slide">
                                 <div
-                                    style={{background: "url('https://picsum.photos/id/1/200/300')"}}></div>
+                                    style={{background: "url('https://images.unsplash.com/photo-1517805686688-47dd930554b2?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
                             </div>
                             <div className="slide">
                                 <div
-                                    style={{background: "url('https://picsum.photos/id/1/200/300')"}}></div>
+                                    style={{background: "url('https://images.unsplash.com/photo-1700317440746-7e16b87199b5?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
                             </div>
                             <div className="slide">
                                 <div
-                                    style={{background: "url('https://picsum.photos/id/1/200/300')"}}></div>
+                                    style={{background: "url('https://images.unsplash.com/photo-1512310604669-443f26c35f52?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
                             </div>
                             <div className="slide">
                                 <div
-                                    style={{background: "url('https://picsum.photos/id/1/200/300')"}}></div>
+                                    style={{background: "url('https://images.unsplash.com/photo-1527736947477-2790e28f3443?q=80&w=1962&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
                             </div>
                         </div>
 
