@@ -166,24 +166,25 @@ const NewActivities = () => {
             }
 
             setActiveDotByScroll() {
-                this.dots = this.container.querySelectorAll('.dots span');
                 this.slider.addEventListener('scroll', () => {
                     const scrollLeft = this.slider.scrollLeft;
-                    const currentIndex = Math.trunc((Math.abs(scrollLeft) + 2) / this.slider.clientWidth);
-
-                    console.log('Scroll Left:', scrollLeft);
-                    console.log('Current Index:', currentIndex);
-
-                    for (let i = 0; i < this.dots.length; i++) {
-                        this.dots[i].classList.remove('active');
+                    // Assuming each slide is the same width and fills the slider.
+                    const index = Math.floor(scrollLeft / this.oneSlideWidth);
+            
+                    // Clear all active states.
+                    this.dots.forEach(dot => dot.classList.remove('active'));
+            
+                    // Safely add the active state to the current dot if it exists.
+                    if (index < this.dots.length) {
+                        this.dots[index].classList.add('active');
                     }
-
-                    this.dots[currentIndex].classList.add('active');
-
-                    this.prevBtn.style.opacity = Math.abs(scrollLeft) < 1 ? '0' : '1'; /*it means there is no element before so it would hide prev button*/
-                    this.nextBtn.style.opacity = Math.abs(scrollLeft) + 2 >= this.slider.scrollWidth - this.slider.clientWidth ? '0' : '1'; /*it means there is no element after so it would hide next button*/
+            
+                    // Update button visibility based on scroll position.
+                    this.prevBtn.style.opacity = scrollLeft > 0 ? '1' : '0';
+                    this.nextBtn.style.opacity = (scrollLeft + this.slider.clientWidth) < this.slider.scrollWidth ? '1' : '0';
                 });
             }
+            
 
 
             nextSlider() {
