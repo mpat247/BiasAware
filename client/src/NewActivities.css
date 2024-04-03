@@ -184,64 +184,89 @@ body{
   
   /* Existing styles for NewActivities component */
 /* ...Your existing CSS... */
+.popup-overlay {
+    position: fixed; /* Positioned relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent background */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 10; /* Higher z-index so it's above other content */
+}
+
+.popup-content {
+    width: 50%;
+    height: 50%;
+    background: #007bff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px; /* Adjust based on your desired width */
+}
+
+.popup-slides-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
 
 .popup-slide {
     background-size: cover;
     background-position: center;
-    width: 100%; /* Adjust based on your layout */
-    height: 200px; /* Adjust height as needed */
-    margin-bottom: 10px;
-    border-radius: 5px; /* Optional: for rounded corners */
-    width: 30%; /* Each slide takes up 30% of the popup width */
-    margin: 1%; /* Add a little margin around slides */
-    box-sizing: border-box; /* Include padding and borders in the width */
-    background-color: #007bff;
+    flex-grow: 1;
+    height: 200px;
+    margin: 0 10px; /* Adjust the margin as needed */
+    border-radius: 5px;
+    background-color: white; /* Example background color */
 }
 
-/* Button within popup */
+/* Close button styling */
 .popup-content button {
-    margin-top: 20px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     background-color: #007bff;
     color: #ffffff;
     cursor: pointer;
-    
+    width: auto;
+    align-self: center;
 }
 
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); /* Dim the background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Make sure it's above other content */
+@media (max-width: 960px) {
+    .popup-slides-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .popup-slide {
+        width: 80%; /* Adjust the width as needed */
+        margin-bottom: 10px;
+        height: 90px;
+    }
+
+    /* Adjust button styling as needed for mobile view */
+    .popup-content button {
+        width: 80%; /* Match the slide width */
+        margin-top: 20px;
+    }
 }
 
-.popup-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 60%; /* Or any percentage or fixed size you want */
-    height: 70%;
-    /* max-width: 700px; Optional: if you want a maximum size */
-    text-align: center;
-    display: flex;
-    justify-content: space-around; /* Distribute children evenly */
-    align-items: center;
-    flex-wrap: wrap; /* Allow children to wrap inside the container */
-}
-
-/* Adjustments for smaller screens */
+/* Additional responsiveness for very small screens */
 @media (max-width: 600px) {
     .popup-slide {
-      width: 90%; /* On small screens, make each slide take up more space */
-      margin-bottom: 20px; /* Add more space below each slide */
+        width: 90%; /* Increase width for smaller screens */
+        height: 90px;
     }
-  }
+
+    /* Adjust button styling as needed for very small screens */
+    .popup-content button {
+        width: 90%; /* Match the slide width */
+    }
+}

@@ -7,14 +7,17 @@ const Popup = ({ isVisible, onClose }) => {
     return (
         <div className="popup-overlay" onClick={onClose}>
             <div className="popup-content" onClick={e => e.stopPropagation()}>
-                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide1.jpg')"}}>
-                    {/* Optional content on slide */}
-                </div>
-                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide2.jpg')"}}>
-                    {/* Optional content on slide */}
-                </div>
-                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide3.jpg')"}}>
-                    {/* Optional content on slide */}
+                {/* popup-slides-container will wrap the slides */}
+                <div className="popup-slides-container">
+                    <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide1.jpg')"}}>
+                        {/* Content for slide 1 */}
+                    </div>
+                    <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide2.jpg')"}}>
+                        {/* Content for slide 2 */}
+                    </div>
+                    <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide3.jpg')"}}>
+                        {/* Content for slide 3 */}
+                    </div>
                 </div>
                 <button onClick={onClose}>Close</button>
             </div>
