@@ -7,15 +7,22 @@ const Popup = ({ isVisible, onClose }) => {
     return (
         <div className="popup-overlay" onClick={onClose}>
             <div className="popup-content" onClick={e => e.stopPropagation()}>
-                {/* Popup content */}
-                <div>Popup Content - Slide 1</div>
-                <div>Popup Content - Slide 2</div>
-                <div>Popup Content - Slide 3</div>
+                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide1.jpg')"}}>
+                    {/* Optional content on slide */}
+                </div>
+                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide2.jpg')"}}>
+                    {/* Optional content on slide */}
+                </div>
+                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide3.jpg')"}}>
+                    {/* Optional content on slide */}
+                </div>
                 <button onClick={onClose}>Close</button>
             </div>
         </div>
     );
 };
+
+
 
 const NewActivities = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
