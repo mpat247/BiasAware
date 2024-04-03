@@ -1,26 +1,27 @@
+// Emotions.js
+
 import React, { useState, useEffect } from 'react';
 import './Emotions.css';
 import axios from 'axios';
 
 const PopupCard = ({ onClose, retrievedImage, prompt, sideImages }) => {
-  // Adjusted to handle the display of side images in a similar manner to your Addictions example
   return (
-    <div className="popup-card">
-      <div className="popup-content">
-        <button className="close-button" onClick={onClose}>Close</button>
-        <div className="image-layout">
-          <div className="side-images left">
+    <div className="popup-card-emotions">
+      <div className="popup-content-emotions">
+        <button className="close-button-emotions" onClick={onClose}>Close</button>
+        <div className="image-layout-emotions">
+          <div className="side-images-emotions left">
             {sideImages.slice(0, 2).map((img, index) => (
-              <img key={index} src={img.image} alt={`side-emotion-left-${index}`} className="side-image" />
+              <img key={index} src={img.image} alt={`side-emotion-left-${index}`} className="side-image-emotions" />
             ))}
           </div>
-          <div className="main-image-container">
-            {retrievedImage && <img src={retrievedImage} alt="retrieved-emotion" className="retrieved-image-centered" />}
-            {prompt && <div className="prompt-text">{prompt}</div>}
+          <div className="main-image-container-emotions">
+            {retrievedImage && <img src={retrievedImage} alt="retrieved-emotion" className="retrieved-image-centered-emotions" />}
+            {prompt && <div className="prompt-text-emotions">{prompt}</div>}
           </div>
-          <div className="side-images right">
+          <div className="side-images-emotions right">
             {sideImages.slice(2, 4).map((img, index) => (
-              <img key={index} src={img.image} alt={`side-emotion-right-${index}`} className="side-image" />
+              <img key={index} src={img.image} alt={`side-emotion-right-${index}`} className="side-image-emotions" />
             ))}
           </div>
         </div>
@@ -84,7 +85,6 @@ const Emotions = () => {
       setRetrievedImage(imageObj.image);
       setPopUpPrompt(imageObj.prompt);
 
-      // Filter and set the side images related to the clicked main image's emotion
       const relatedSideImages = sideImages.filter(img => img.emotion === imageObj.emotion);
       setDisplaySideImages(relatedSideImages);
 

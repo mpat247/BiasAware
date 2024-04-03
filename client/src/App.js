@@ -31,8 +31,8 @@ function App() {
         {/* Define other routes here if needed */}
         <Route path="/Crime" element={<Crime />} /> {/* Define the route for Crime page */}
         <Route path="/QOL2" element={<QOL2 />} /> {/* Define the route for Crime page */}
+        <Route path="/Addictions" element={<Addictions />} />
 
-        <Route path="/Addictions" element={<Addictions />} /> {/* Define the route for Crime page */}
         <Route path="/test2" element={<test2 />} /> {/* Define the route for Crime page */}
 
       </Routes>
