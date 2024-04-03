@@ -185,24 +185,6 @@ body{
   /* Existing styles for NewActivities component */
 /* ...Your existing CSS... */
 
-.popup-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-      /* ...existing styles... */
-  flex-direction: row; /* Align children side by side */
-  justify-content: center; /* Center children horizontally */
-  flex-wrap: wrap; /* Allow wrapping if there's not enough space */
-  max-width: none; /* Override previous max-width */
-}
-
 .popup-slide {
     background-size: cover;
     background-position: center;
@@ -226,6 +208,34 @@ body{
     color: #ffffff;
     cursor: pointer;
     
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Dim the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Make sure it's above other content */
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 60%; /* Or any percentage or fixed size you want */
+    height: 70%;
+    /* max-width: 700px; Optional: if you want a maximum size */
+    text-align: center;
+    display: flex;
+    justify-content: space-around; /* Distribute children evenly */
+    align-items: center;
+    flex-wrap: wrap; /* Allow children to wrap inside the container */
 }
 
 /* Adjustments for smaller screens */
