@@ -241,7 +241,7 @@ body{
 /* Adjustments for smaller screens */
 @media (max-width: 600px) {
     .popup-slide {
-      width: 90%; /* On small screens, make each slide take up more space */
+      width: 30%; /* On small screens, make each slide take up more space */
       margin-bottom: 20px; /* Add more space below each slide */
     }
   }
