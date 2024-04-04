@@ -8,7 +8,7 @@ const Popup = ({ isVisible, onClose }) => {
         <div className="popup-overlay" onClick={onClose}>
             <div className="popup-content" onClick={e => e.stopPropagation()}>
                 <div className="popup-header">
-                    <h2>Title</h2>
+                    <h2>O C C U P A T I O N</h2>
                 </div>
                 {/* <div className="popup-body">
                     <div className="popup-slide">
@@ -31,7 +31,7 @@ const Popup = ({ isVisible, onClose }) => {
                         </div>
                     </div>
                     <div className="popup-slide-caption">
-                        <p>Your single caption here</p>
+                        <p>The statistical analysis caption is going to go here.</p>
                     </div>
                     </div>
                 <div className="popup-footer">

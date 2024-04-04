@@ -184,6 +184,8 @@ body{
   
   /* Existing styles for NewActivities component */
 /* ...Your existing CSS... */
+
+/*POPUP CODE*/
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -202,7 +204,7 @@ body{
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 60%; /* Adjust as needed */
+    width: 70%; /* Adjust as needed */
     height: 95%; /* Adjust as needed */
     text-align: center;
     display: flex;
@@ -238,7 +240,7 @@ body{
     display: flex; /* Use flexbox to arrange children in a row */
     justify-content: space-between; /* Space out children */
     width: 100%; /* Take the full width to align the slides in a row */
-    height: calc(100% - 40px); /* Adjust height based on the caption and padding */
+    height: calc(100% - 10px); /* Adjust height based on the caption and padding */
     margin-bottom: 10px;
 }
 
@@ -251,9 +253,6 @@ body{
     align-items: center;
     border-radius: 10px;
 }
-
-/* Additional styles for the caption and button as previously stated */
-
 
 /* Remove outer margins for the first and last slide */
 .popup-slide:first-child, .popup-slide:last-child {
