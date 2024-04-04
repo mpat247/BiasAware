@@ -198,7 +198,7 @@ body{
 }
 
 .popup-content {
-    background: yellow;
+    background: #0B0533;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -211,10 +211,7 @@ body{
     align-items: center;
     flex-wrap: wrap; 
     flex-direction: column; /* stack children vertically */
-}
-
-.popup-slide {
-    background-color: red;
+    border-radius: 10px;
 }
 
 .popup-header, .popup-body, .popup-footer {
@@ -222,19 +219,42 @@ body{
 }
 
 .popup-header {
-    background-color: blue;
+    /* background-color: blue; */
     /* additional styles if needed */
 }
 
 .popup-body {
     flex-grow: 1; /* Take available space */
-    /* additional styles if needed */
+    display: flex; /* Use flexbox to arrange children */
+    justify-content: space-between; /* Space out children */
+    align-items: center; /* Center children vertically */
     background-color: pink;
+    padding: 20px; /* Add some padding around the slides */
+    border-radius: 10px;
 }
+
+.popup-slide {
+    width: 32%; /* Each slide takes up 30% of the popup-body width */
+    height: 85%; /* Adjust the height as needed */
+    background-color: red; /* Just an example, set to any color you want */
+    /* Additional styles for your slides */
+    display: flex; /* Use flex to enable alignment of inner content */
+    justify-content: center; /* Center inner content horizontally */
+    align-items: center; /* Center inner content vertically */
+    margin: 0 10px; /* Optional: add some space between slides */
+    border-radius: 10px; /* Optional: if you want rounded corners */
+}
+
+/* Adjustments for first and last slide if you don't want outer margins */
+.popup-slide:first-child, .popup-slide:last-child {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 
 .popup-footer {
     /* additional styles if needed */
-    background-color: purple;
+    /* background-color: purple; */
 }
 
 /* Button inside the footer */
