@@ -10,14 +10,30 @@ const Popup = ({ isVisible, onClose }) => {
                 <div className="popup-header">
                     <h2>Title</h2>
                 </div>
+                {/* <div className="popup-body">
+                    <div className="popup-slide">
+                    </div>
+                    <div className="popup-slide">
+                    </div>
+                    <div className="popup-slide">
+                    </div>
+                </div> */}
                 <div className="popup-body">
-                    <div className="popup-slide">
+                    <div className="popup-slides-container">
+                        <div className="popup-slide">
+                            {/* <h1>hi</h1> */}
+                        </div>
+                        <div className="popup-slide">
+                            {/* Content of the second slide */}
+                        </div>
+                        <div className="popup-slide">
+                            {/* Content of the third slide */}
+                        </div>
                     </div>
-                    <div className="popup-slide">
+                    <div className="popup-slide-caption">
+                        <p>Your single caption here</p>
                     </div>
-                    <div className="popup-slide">
                     </div>
-                </div>
                 <div className="popup-footer">
                     <button onClick={onClose}>Close</button>
                 </div>

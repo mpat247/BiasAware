@@ -200,18 +200,15 @@ body{
 .popup-content {
     background: #0B0533;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 60%; /* Or any percentage or fixed size you want */
-    height: 80%;
-    /* max-width: 700px; Optional: if you want a maximum size */
+    width: 60%; /* Adjust as needed */
+    height: 80%; /* Adjust as needed */
     text-align: center;
     display: flex;
-    justify-content: space-around; /* Distribute children evenly */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap; 
-    flex-direction: column; /* stack children vertically */
-    border-radius: 10px;
 }
 
 .popup-header, .popup-body, .popup-footer {
@@ -219,45 +216,63 @@ body{
 }
 
 .popup-header {
-    /* background-color: blue; */
-    /* additional styles if needed */
+    /* Style as needed */
+    background-color: green;
+    margin-bottom: 20px;
 }
 
 .popup-body {
     flex-grow: 1; /* Take available space */
     display: flex; /* Use flexbox to arrange children */
-    justify-content: space-between; /* Space out children */
-    align-items: center; /* Center children vertically */
+    flex-direction: column; /* Stack container and caption vertically */
+    justify-content: flex-start; /* Start children at the top of the container */
+    align-items: center; /* Center children horizontally */
     background-color: pink;
     padding: 20px; /* Add some padding around the slides */
     border-radius: 10px;
 }
 
-.popup-slide {
-    width: 32%; /* Each slide takes up 30% of the popup-body width */
-    height: 85%; /* Adjust the height as needed */
-    background-color: red; /* Just an example, set to any color you want */
-    /* Additional styles for your slides */
-    display: flex; /* Use flex to enable alignment of inner content */
-    justify-content: center; /* Center inner content horizontally */
-    align-items: center; /* Center inner content vertically */
-    margin: 0 10px; /* Optional: add some space between slides */
-    border-radius: 10px; /* Optional: if you want rounded corners */
+.popup-slides-container {
+    display: flex; /* Use flexbox to arrange children in a row */
+    justify-content: space-between; /* Space out children */
+    width: 100%; /* Take the full width to align the slides in a row */
+    height: calc(100% - 40px); /* Adjust height based on the caption and padding */
 }
 
-/* Adjustments for first and last slide if you don't want outer margins */
+.popup-slide {
+    width: 32%; /* Each slide takes up 32% of the popup-body width */
+    height: 85%; /* Adjust the height as needed */
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+/* Additional styles for the caption and button as previously stated */
+
+
+/* Remove outer margins for the first and last slide */
 .popup-slide:first-child, .popup-slide:last-child {
     margin-left: 0;
     margin-right: 0;
 }
 
-
-.popup-footer {
-    /* additional styles if needed */
-    /* background-color: purple; */
+.popup-slide-caption {
+    color: #000000; /* Text color */
+    text-align: center; /* Center the caption text */
+    width: 100%; /* Take the full width of the body */
+    /* Add additional styling as needed */
+    background-color: orange;
 }
 
-/* Button inside the footer */
+.popup-footer {
+    margin-top: 10px;
+    background-color: aqua;
+    border-radius: 5px;
+    /* Style as needed */
+}
+
 .popup-footer button {
     margin: 10px 0;
     padding: 5px 10px;
@@ -266,7 +281,6 @@ body{
     cursor: pointer;
 }
 
-/* When hover over the button */
 .popup-footer button:hover {
     background-color: #e2e2e2;
 }
