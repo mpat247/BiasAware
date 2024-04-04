@@ -184,7 +184,6 @@ body{
   
   /* Existing styles for NewActivities component */
 /* ...Your existing CSS... */
-
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -210,13 +209,45 @@ body{
     display: flex;
     justify-content: space-around; /* Distribute children evenly */
     align-items: center;
-    /* flex-wrap: wrap; Remove this line to make the slides appear horizontally */
+    flex-wrap: wrap; 
 }
 
 .popup-slide {
-    width: 30%; /* Adjust the width as needed */
+    width: calc(33.33% - 20px); /* Adjust the width as needed */
     height: 200px; /* Adjust the height as needed */
     background-color: red;
     border-radius: 8px;
     margin: 10px; /* Adjust the margin as needed */
+}
+
+/* For screens with a maximum width of 960px */
+@media (max-width: 960px) {
+    .popup-slide {
+        width: calc(50% - 20px); /* Adjust the width as needed */
+    }
+}
+
+/* For screens with a maximum width of 640px */
+@media (max-width: 640px) {
+    .popup-slide {
+        width: calc(100% - 20px); /* Adjust the width as needed */
+    }
+}
+
+@media (max-width: 540px) {
+    .popup-slide {
+        height: 150px; 
+    }
+}
+
+@media (max-width: 390px) {
+    .popup-slide {
+        height: 190px; 
+    }
+}
+
+@media (max-width: 380px) {
+    .popup-slide {
+        height: 140px; /* Adjust the height as needed */
+    }
 }
