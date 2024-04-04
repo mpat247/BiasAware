@@ -7,13 +7,13 @@ const Popup = ({ isVisible, onClose }) => {
     return (
         <div className="popup-overlay" onClick={onClose}>
             <div className="popup-content" onClick={e => e.stopPropagation()}>
-                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide1.jpg')"}}>
+                <div className="popup-slide">
                     {/* Optional content on slide */}
                 </div>
-                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide2.jpg')"}}>
+                <div className="popup-slide">
                     {/* Optional content on slide */}
                 </div>
-                <div className="popup-slide" style={{backgroundImage: "url('https://example.com/slide3.jpg')"}}>
+                <div className="popup-slide">
                     {/* Optional content on slide */}
                 </div>
                 {/* <button onClick={onClose}>Close</button> */}
@@ -58,15 +58,14 @@ const NewActivities = () => {
                 // this.nextBtn.addEventListener('click', () => this.nextSlider());
 
                 // Inside your PostSlider class constructor or the relevant method where you bind event listeners to the arrows
-this.prevBtn.addEventListener('click', (event) => {
-    event.stopPropagation(); // Stop the event from propagating to the parent div
-    this.prevSlider();
-});
-this.nextBtn.addEventListener('click', (event) => {
-    event.stopPropagation(); // Stop the event from propagating to the parent div
-    this.nextSlider();
-});
-
+                this.prevBtn.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Stop the event from propagating to the parent div
+                    this.prevSlider();
+                });
+                this.nextBtn.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Stop the event from propagating to the parent div
+                    this.nextSlider();
+                });
 
 
                 this.createDots();

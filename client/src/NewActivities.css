@@ -210,6 +210,13 @@ body{
     display: flex;
     justify-content: space-around; /* Distribute children evenly */
     align-items: center;
-    flex-wrap: wrap; /* Allow children to wrap inside the container */
+    /* flex-wrap: wrap; Remove this line to make the slides appear horizontally */
 }
 
+.popup-slide {
+    width: 30%; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+    background-color: red;
+    border-radius: 8px;
+    margin: 10px; /* Adjust the margin as needed */
+}
