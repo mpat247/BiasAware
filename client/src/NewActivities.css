@@ -203,7 +203,7 @@ body{
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 60%; /* Adjust as needed */
-    height: 80%; /* Adjust as needed */
+    height: 95%; /* Adjust as needed */
     text-align: center;
     display: flex;
     flex-direction: column; /* Stack children vertically */
@@ -233,15 +233,18 @@ body{
 }
 
 .popup-slides-container {
+    align-items: center;
+    /* background-color: purple; */
     display: flex; /* Use flexbox to arrange children in a row */
     justify-content: space-between; /* Space out children */
     width: 100%; /* Take the full width to align the slides in a row */
     height: calc(100% - 40px); /* Adjust height based on the caption and padding */
+    margin-bottom: 10px;
 }
 
 .popup-slide {
-    width: 32%; /* Each slide takes up 32% of the popup-body width */
-    height: 85%; /* Adjust the height as needed */
+    width: 32.5%; /* Each slide takes up 32% of the popup-body width */
+    height: 100%; /* Adjust the height as needed */
     background-color: red;
     display: flex;
     justify-content: center;
@@ -269,7 +272,7 @@ body{
 .popup-footer {
     margin-top: 10px;
     background-color: aqua;
-    border-radius: 5px;
+    border-radius: 10px;
     /* Style as needed */
 }
 
