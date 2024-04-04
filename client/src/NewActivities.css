@@ -185,31 +185,6 @@ body{
   /* Existing styles for NewActivities component */
 /* ...Your existing CSS... */
 
-.popup-slide {
-    background-size: cover;
-    background-position: center;
-    width: 100%; /* Adjust based on your layout */
-    height: 200px; /* Adjust height as needed */
-    margin-bottom: 10px;
-    border-radius: 5px; /* Optional: for rounded corners */
-    width: 30%; /* Each slide takes up 30% of the popup width */
-    margin: 1%; /* Add a little margin around slides */
-    box-sizing: border-box; /* Include padding and borders in the width */
-    background-color: #007bff;
-}
-
-/* Button within popup */
-.popup-content button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #ffffff;
-    cursor: pointer;
-    
-}
-
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -224,12 +199,12 @@ body{
 }
 
 .popup-content {
-    background: #fff;
+    background: yellow;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 60%; /* Or any percentage or fixed size you want */
-    height: 70%;
+    height: 80%;
     /* max-width: 700px; Optional: if you want a maximum size */
     text-align: center;
     display: flex;
@@ -238,10 +213,3 @@ body{
     flex-wrap: wrap; /* Allow children to wrap inside the container */
 }
 
-/* Adjustments for smaller screens */
-@media (max-width: 600px) {
-    .popup-slide {
-      width: 30%; /* On small screens, make each slide take up more space */
-      margin-bottom: 20px; /* Add more space below each slide */
-    }
-  }
