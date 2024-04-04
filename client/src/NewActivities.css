@@ -219,7 +219,8 @@ body{
 
 .popup-header {
     /* Style as needed */
-    background-color: green;
+    color: white;
+    background-color: orange;
     margin-bottom: 20px;
 }
 
@@ -229,7 +230,7 @@ body{
     flex-direction: column; /* Stack container and caption vertically */
     justify-content: flex-start; /* Start children at the top of the container */
     align-items: center; /* Center children horizontally */
-    background-color: pink;
+    /* background-color: pink; */
     padding: 20px; /* Add some padding around the slides */
     border-radius: 10px;
 }
@@ -261,16 +262,16 @@ body{
 }
 
 .popup-slide-caption {
-    color: #000000; /* Text color */
+    color: white; /* Text color */
     text-align: center; /* Center the caption text */
     width: 100%; /* Take the full width of the body */
     /* Add additional styling as needed */
-    background-color: orange;
+    /* background-color: lightgreen; */
 }
 
 .popup-footer {
     margin-top: 10px;
-    background-color: aqua;
+    /* background-color: aqua; */
     border-radius: 10px;
     /* Style as needed */
 }
