@@ -1,0 +1,17 @@
+.map-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .map-container .frame{
+    width:90%;
+    height:700px;
+  }
+  
+  /* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .map-container .frame{
+        width:90%;
+        height:500px;
+      }
+}

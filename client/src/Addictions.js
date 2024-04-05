@@ -6,20 +6,20 @@ import './Addictions.css';
 import ArrowLeftImage from "./Arrows/Arrow_Left_1.png";
 import ArrowRightImage from "./Arrows/Arrow_Right_1.png";
 import axios from 'axios';
-
+import { Helmet } from 'react-helmet';
 const PopupCard = ({ image, onClose }) => (
-  <div className="popup-card">
-    <div className="popup-content">
-      <img src={image} alt="selected-addiction" className="popup-image" />
+  <div className="popup-card-addiction">
+    <div className="popup-content-addiction">
+      <img src={image} alt="selected-addiction" className="popup-image-addiction" />
       <button className="close-button" onClick={onClose}>Close</button>
-      <div className="rectanglepop1"></div>
-      <div className="rectanglepop2"></div>
-      <div className="rectanglepop3"></div>
-      <div className="image1"></div>
-      <div className="image2"></div>
-      <div className="image3"></div>
-      <div className="image4"></div>
-      <div className="image5"></div>
+      <div className="rectanglepop1-addiction"></div>
+      <div className="rectanglepop2-addiction"></div>
+      <div className="rectanglepop3-addiction"></div>
+      <div className="image1-addiction"></div>
+      <div className="image2-addiction"></div>
+      <div className="image3-addiction"></div>
+      <div className="image4-addiction"></div>
+      <div className="image5-addiction"></div>
     </div>
   </div>
 );
@@ -84,13 +84,17 @@ const Addictions = () => {
 
   return (
     <div id="addictions" className="Addictions">
+      <Helmet>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+      </Helmet>
       <header className="App-header">
-        <NavigationBar />
+      
+        
         {loading ? (
           <div>Loading...</div> // Show loading indicator while images are being fetched
         ) : (
           <div className="addictions-container">
-            <h1>
+            <h1 className="addictions-header">
               A D D I C T I O N S
             </h1>
             <div className="images-container-addiction" style={{ display: 'flex' }}>
@@ -113,6 +117,7 @@ const Addictions = () => {
       </header>
       {showPopup && <div className="overlay" onClick={closePopup}></div>}
       {showPopup && <PopupCard onClose={closePopup} />}
+      
     </div>
   );
 };

@@ -231,7 +231,7 @@ body {
   .ring .acc-prompt2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'DM Sans';
     font-size: 0.75em; /* Adjust the font size as needed */
     z-index: 8;
     position: absolute;
@@ -246,7 +246,7 @@ body {
   .ring .qol-prompt1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'DM Sans';
     font-size: 0.75em; /* Adjust the font size as needed */
     z-index: 8;
     position: absolute;
@@ -261,7 +261,7 @@ body {
   .ring .qol-prompt2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'DM Sans';
     font-size: 0.75em; /* Adjust the font size as needed */
     z-index: 8;
 
@@ -276,7 +276,7 @@ body {
   .ring .pro2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'DM Sans';
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     top: 40.6%; /* Adjust the top position as needed */
@@ -291,7 +291,7 @@ body {
   .ring .hood2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'DM Sans';
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
@@ -302,7 +302,7 @@ body {
   .ring .hoods2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'DM Sans';
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
@@ -312,8 +312,8 @@ body {
   .ring4 .hood1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family: 'Noto Sans';
+    font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
     top: 10%; /* Adjust the top position as needed */
@@ -325,8 +325,8 @@ body {
   .hoods1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family: 'Noto Sans';
+    font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
     top: 25%; /* Adjust the top position as needed */
@@ -341,8 +341,8 @@ body {
   .ring4 .eng2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family: 'Noto Sans';
+    font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
     top: 42%; /* Adjust the top position as needed */
@@ -356,8 +356,8 @@ body {
   .ring4 .qol-prompt6 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family: 'Noto Sans';
+    font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
     top: 55%; /* Adjust the top position as needed */
@@ -371,12 +371,12 @@ body {
   .ring4 .pro1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'Noto Sans';
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 70%; /* Adjust the top position as needed */
-    left: 25%; /* Adjust the left position as needed */
+    top: 67%; /* Adjust the top position as needed */
+    left: 23%; /* Adjust the left position as needed */
   }
 
   .pro1 h2 {
@@ -385,7 +385,7 @@ body {
   .ring2 .eng3 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'Plus Jakarta Sans';
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
@@ -400,7 +400,7 @@ body {
   .ring2 .emotions1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'Plus Jakarta Sans';
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
@@ -415,7 +415,7 @@ body {
   .ring2 .eng1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'Plus Jakarta Sans';
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
@@ -431,8 +431,8 @@ body {
   .ring2 .addiction-prompt {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.5em !important; /* Adjust the font size as needed */
+    font-family: 'Plus Jakarta Sans';
+    font-size: 0.45em !important; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
     top: 40.9%; /* Adjust the top position as needed */
@@ -446,8 +446,8 @@ body {
   .ring2 .eng {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family: 'Plus Jakarta Sans';
+    font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
     top: 48%; /* Adjust the top position as needed */
@@ -460,7 +460,7 @@ body {
   .ring2 .eng4 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'Plus Jakarta Sans';
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
@@ -475,8 +475,8 @@ body {
   .ring2 .pro3 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family: 'Plus Jakarta Sans';
+    font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
     top: 82%; /* Adjust the top position as needed */
@@ -491,12 +491,12 @@ body {
   .ring3 .qol-prompt3 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'Encode Sans Expanded';
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
     top: 10%; /* Adjust the top position as needed */
-    left: 25%; /* Adjust the left position as needed */
+    left: 21%; /* Adjust the left position as needed */
   }
   
   .qol-prompt3 h2 {
@@ -506,7 +506,7 @@ body {
   .qol-prompt4 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'Encode Sans Expanded';
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
@@ -520,11 +520,11 @@ body {
   .acc-prompt1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family: 'Encode Sans Expanded';
+    font-size: 0.6em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 30%; /* Adjust the top position as needed */
+    top: 40%; /* Adjust the top position as needed */
     left: 8%; /* Adjust the left position as needed */
   }
   
@@ -535,12 +535,12 @@ body {
   .ring3 .qol-prompt5 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family: 'Encode Sans Expanded';
+    font-size: 0.6em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 45%; /* Adjust the top position as needed */
-    left:5%; /* Adjust the left position as needed */
+    top: 53%; /* Adjust the top position as needed */
+    left:7%; /* Adjust the left position as needed */
   }
   
   .qol-prompt5 h2 {
@@ -550,11 +550,11 @@ body {
   .ring3 .cri1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family: 'Encode Sans Expanded';
+    font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 60%; /* Adjust the top position as needed */
+    top: 65%; /* Adjust the top position as needed */
     left: 15%; /* Adjust the left position as needed */
   }
   
@@ -565,12 +565,12 @@ body {
   .ring2 .addiction-prompt2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'Plus Jakarta Sans';
     font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
     top: 85%; /* Adjust the top position as needed */
-    left: 30%; /* Adjust the left position as needed */
+    left: 25%; /* Adjust the left position as needed */
   }
   
   .addiction-prompt2 h2 {
@@ -579,7 +579,7 @@ body {
   .ring2 .addiction-promptss3 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family: 'Plus Jakarta Sans';
     font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;

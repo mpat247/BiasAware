@@ -1,0 +1,51 @@
+/* Aerospace.css */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80px; /* Adjust the width as needed */
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+  }
+  
+  .sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align icons to the top left */
+    position: absolute; /* Position the icons absolutely within the sidebar */
+    top: 20px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the left position as needed */
+  }
+  
+  .expanded-window {
+    position: fixed;
+    top: 0;
+    left: 80px; /* Width of the sidebar */
+    width: calc(100% - 80px); /* Adjust the width as needed */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: none; /* Initially hidden */
+    z-index: 999; /* Ensure the window appears above other content */
+  }
+  
+  .sidebar-icons > * {
+    margin-bottom: 25px;
+    font-size: 40px; /* Increase the icon size */
+  }
+  
+  /* Styling for icons */
+  .sidebar-icons > * {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar-icons > *:hover {
+    transform: scale(1.2);
+  }
+  
+  .expanded-window.active {
+    display: block; /* Show the expanded window when active */
+  }
+  

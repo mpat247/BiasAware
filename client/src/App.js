@@ -12,6 +12,8 @@ import Crime from './Crime';
 import QOL2 from './QOL2';
 import Responsive from './Responsive'; // Import the Responsive component
 import LandingPage from './LandingPage';
+import Neighborhood2 from './Neighborhood2';
+import Aerospace from './Aerospace';
 // Import the createResponsiveDesign function
 
 import './App.css';
@@ -34,6 +36,8 @@ function App() {
         <Route path="/QOL2" element={<QOL2 />} />
         <Route path="/Responsive" element={<Responsive />} /> {/* Render the Responsive component */}
         <Route path="/LandingPage" element={<LandingPage />} />
+        <Route path="/Neighborhood2" element={<Neighborhood2 />} />
+        <Route path="/aerospace" element={<Aerospace />} />
       </Routes>
     </Router>
   );

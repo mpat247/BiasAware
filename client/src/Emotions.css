@@ -55,8 +55,8 @@ body {
 
 .rectangleback2 {
   background-color: #1e0940;
-  width: 800px;
-  height: 500px;
+  width: 20vw;
+  height: 30vw !important;
   margin-top: -490px; /* Adjust the margin-top value to bring the rectangle down */
   margin-left: 360px;
   position: relative; /* Ensure that z-index works */

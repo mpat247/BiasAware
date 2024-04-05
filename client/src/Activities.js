@@ -16,6 +16,7 @@ const Activities = () => {
 
     return (
         <div className="carousel-container statistics-page">
+            
             <h1 style={{
                 color: '#DD9313',
                 fontFamily: 'Abhaya Libre ExtraBold',

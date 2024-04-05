@@ -127,7 +127,7 @@ const Emotions = () => {
         </div>
       </div>
       {showPopup && <div className="overlay" onClick={handleClose}></div>}
-      {showPopup && <PopupCard image={selectedImage} onClose={handleClose} retrievedImage={retrievedImage} />}
+      {showPopup && <PopupCard  image={selectedImage} onClose={handleClose} retrievedImage={retrievedImage} />}
       <div className="rectangleback2"></div>
       {/* Print the first retrieved image at the bottom for testing */}
       {retrievedImages.length > 0 && (
