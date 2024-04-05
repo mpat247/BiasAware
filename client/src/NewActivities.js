@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './NewActivities.css';
+import basketball from './images/image 7.png';
 
 const Popup = ({ isVisible, onClose }) => {
     if (!isVisible) return null;
@@ -13,7 +14,6 @@ const Popup = ({ isVisible, onClose }) => {
                 <div className="activities-popup-body">
                     <div className="activities-popup-slides-container">
                         <div className="activities-popup-slide">
-                            {/* <h1>hi</h1> */}
                         </div>
                         <div className="activities-popup-slide">
                             {/* Content of the second slide */}
@@ -38,7 +38,7 @@ const NewActivities = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     useEffect(() => {
-        var autoplayIntervalInSeconds = 1;
+        var autoplayIntervalInSeconds = 10;
 
         class PostSlider {
 
@@ -234,22 +234,56 @@ const NewActivities = () => {
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">
                         <div className="activities-slider">
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
-                            <div className="activities-slide"></div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner">
+                                    {/* <img src={basketball} alt="basketball"/> */}
+                                </div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
+                            <div className="activities-slide">
+                                <div className="activities-slide-inner"></div>
+                            </div>
                         </div>
 
                         <div className="activities-handles">
