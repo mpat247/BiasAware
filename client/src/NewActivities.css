@@ -14,7 +14,7 @@ body {
     color: #e2e2e2;
 }
 
-.activities-slide {
+/* .activities-slide {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,24 +24,29 @@ body {
     height: 420px;
     margin: 0 10px;
     background-color: yellow;
-    /* border-radius: 10px; */
     padding: 20px; 
-    box-sizing: border-box; /* This ensures padding does not increase the size of the box */
-}
+    box-sizing: border-box;
+} */
 
 .activities-slide-inner {
-    background-color: orchid;
-    width: 100%; /* It will occupy the full width minus the padding */
-    height: 100%; /* It will occupy the full height minus the padding */
-    border-radius: 10px; /* Slightly less than the .activities-slide to maintain the rounded corners */
-    overflow: hidden; /* This will ensure no spillover */
+    position: relative; /* Positioning context for absolute children */
+    background-color: green;
+    width: 100%; /* Full width minus padding */
+    height: 100%; /* Full height minus padding */
+    border-radius: 10px;
+    overflow: hidden; /* Ensures no overflow */
 }
 
-.activities-slide-inner img {
-    width: 100%; /* This will make the image take up full width of the container */
-    height: 100%; /* This will make the image take up full height of the container */
-    object-fit: fill; /* This will ensure the image covers the space without distorting aspect ratio */
+.activities-slide-inner .activities-image {
+    position: absolute; /* Positioned absolutely to its parent */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the parent */
+    height: 100%; /* Full height of the parent */
+    object-fit: fill; /* Cover the whole area without losing aspect ratio */
 }
+
+
   
   .activities-handles svg path{
       stroke:#e2e2e2!important;
@@ -83,16 +88,27 @@ body {
   }
   
   .activities-PostSlide .activities-innerContainer .activities-slider .activities-slide {
-      display: block;
+      /* display: block;
       background-size: cover!important;
       background-position: center center!important;
       min-width: 280px;
-      /* height: 420px; */
+      
       height: 340px;
-      /* 335px is perfect too but cutting it close */
       margin: 0 10px;
       background-color: yellow;
-      border-radius: 10px;
+      border-radius: 10px; */
+
+      display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover!important;
+        background-position: center center!important;
+        min-width: 280px;
+        height: 340px;
+        margin: 0 10px;
+        background-color: yellow;
+        padding: 20px; 
+        box-sizing: border-box;
   }
 
   .activities-PostSlide .activities-innerContainer .activities-handles {

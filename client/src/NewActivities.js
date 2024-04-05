@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './NewActivities.css';
 import basketball from './images/image 7.png';
+import cricket from './images/image 8.png';
+import volleyball from './images/image 9.png';
+import hockey from './images/image 10.png';
+import bingo from './images/image 11.png';
+import tennis from './images/image 12.png';
 
 const Popup = ({ isVisible, onClose }) => {
     if (!isVisible) return null;
@@ -236,23 +241,33 @@ const NewActivities = () => {
                         <div className="activities-slider">
                             <div className="activities-slide">
                                 <div className="activities-slide-inner">
-                                    <img src={basketball} alt="basketball"/>
+                                    <img src={basketball} alt="basketball" className="activities-image"/>
                                 </div>
                             </div>
                             <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
+                                <div className="activities-slide-inner">
+                                <img src={cricket} alt="cricket" className="activities-image"/>
+                                </div>
                             </div>
                             <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
+                                <div className="activities-slide-inner">
+                                    <img src={volleyball} alt="volleyball" className="activities-image"/>
+                                </div>
                             </div>
                             <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
+                                <div className="activities-slide-inner">
+                                    <img src={hockey} alt="hockey" className="activities-image"/>
+                                </div>
                             </div>
                             <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
+                                <div className="activities-slide-inner">
+                                    <img src={bingo} alt="bingo" className="activities-image"/>
+                                </div>
                             </div>
                             <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
+                                <div className="activities-slide-inner">
+                                    <img src={tennis} alt="tennis" className="activities-image"/>
+                                </div>
                             </div>
                             <div className="activities-slide">
                                 <div className="activities-slide-inner"></div>
