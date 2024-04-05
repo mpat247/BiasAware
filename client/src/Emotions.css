@@ -179,10 +179,21 @@ body {
   position: absolute;
   top: 30px;
   left: 200px;
-  width: 360px;
-  height: 400px;
+  width: 360px; /* Adjust if needed */
+  height: 400px; /* Adjust if needed */
   background-color: #2B1451;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Optional: to ensure no overflow if image is too big */
 }
+
+.rectanglepop2 img {
+  max-width:80%;
+  max-height: 80%;
+  object-fit: contain; /* This will ensure the image fits within the container without stretching. */
+}
+
 
 .rectanglepop3 {
   position: absolute;
@@ -192,6 +203,7 @@ body {
   height: 400px;
   background-color: #1e0940;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
 }
 
 .rectanglepop5 {
@@ -258,3 +270,31 @@ body {
 
 /* Your existing styles for the popup card */
 
+.retrieved-image-centered {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain; /* This ensures the image fits while maintaining aspect ratio */
+
+}
+
+.rectanglepop7 {
+  position: relative; /* Ensure relative positioning for absolute children */
+}
+
+.prompt-text {
+  color: #fff; /* Adjust based on your design */
+  text-align: center; /* Center the text */
+  font-size: 1.2rem; /* Adjust size as needed */
+  margin-top: 10px; /* Adjust the margin to position it above the image */
+}
+
+
+.rectanglepop7 .prompt-text {
+  position: absolute; /* Position the prompt absolutely */
+  top: -30px; /* Adjust the distance above the image */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  color: #fff; /* Adjust based on your design */
+  text-align: center; /* Center the text */
+  font-size: 1.2rem; /* Adjust size as needed */
+}

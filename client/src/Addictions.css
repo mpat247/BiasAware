@@ -355,42 +355,38 @@
 
 /* Adjustments for smaller screens */
 @media screen and (max-width: 768px) {
-  .addictions-container h1 {
-    color: #DD9313;
-    font-family: 'Abhaya Libre ExtraBold';
-    font-size: 10vw;
-    text-shadow: 2px 2px 4px rgba(168, 108, 6, 1);
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease-in-out;
+  /* Adjustments for containers and images */
+  .addictions-container h1{
+    font-size: 2em;
+    margin-left: -1.75em;
   }
+  .Addictions {
+    max-width: 50%; /* Adjust maximum width for smaller screens */
+    margin-left:15em;
+  }
+  .images-container-addiction{
+    
+  }
+  
 /* Styling for the image divs */
 .addictions-container div > div {
   position: relative;
-  width: 25vw;
-  height: 45vw;
+  width: 100px;/*300*/
+  height: 250px;
   overflow: hidden;
-}
-.addictions-container div  {
-  position: relative;
-  width: 80vw; /* 50% of the parent element's width */
-  height: 55vw; /* 75% of the parent element's height */
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
 }
 .addictions-container div > div:nth-child(1) {
   position: relative;
-  width: 70vw;
-  height: 45vw;
+  width: 50px;
+  height: 250px;
   overflow: hidden;
-  margin-bottom: 50px;
 }
 
 /* Styling for the images */
 .addictions-container div > div img {
-  width: 12vw;
-  height: 20vw;
-  
+  width: 100px;
+  height: 250px;
+  border-radius: 30px;
   object-fit: cover;
 }
 
@@ -398,100 +394,34 @@
 .addictions-container div > div:nth-child(1) img {
   position: relative;
   opacity: 0.5;
-  
-  width: 12vw;
-  height: 20vw;
+  border-radius: 30px;
+  width: 50px;
+  height: 200px;
   margin-top: 50px;
 }
 
 /* Styling for the second image (index 2) */
 .addictions-container div > div:nth-child(2) img {
   position: relative;
-  width: 15vw;
-  height: 25vw;
-}
-/* Styling for the second image (index 2) */
-.addictions-container div > div:nth-child(2) {
-  position: relative;
-  width: 130vw;
-  height: 25vw;
+  width: 100px;
+  height: 250px;
 }
 
-/* Styling for the second image (index 2) */
-.addictions-container div > div:nth-child(3) {
-  position: relative;
-  width: 130vw;
-  height: 25vw;
-}
-
-/* Styling for the second image (index 2) */
-.addictions-container div > div:nth-child(4) {
-  position: relative;
-  width: 130vw;
-  height: 25vw;
-}
 /* Styling for the third image (index 3) */
 .addictions-container div > div:nth-child(3) img {
   position: relative;
-  width: 15vw;
-  height: 25vw;
+  width: 100px;
+  height: 250px;
 }
 
-/* Styling for the third image (index 3) */
-.addictions-container div > div:nth-child(4) img {
-  position: relative;
-  width: 15vw;
-  height: 25vw;
-}
 /* Adjust the styling for the last image's div */
 .addictions-container div:last-child {
   overflow: hidden;
   position: relative;
-  width: 80vw;
-  height: 45vw;
-  justify-content: center;
-  margin-bottom: 50px;
+  width: 50px;
+  height: 200px;
+  border-radius: 20px;
   margin-right: 0;
-  
+  margin-top: 50px;
 }
-
-/* Styling for the image inside the last div */
-.addictions-container div:last-child img {
-  width: 12vw;
-  height: 20vw;
-  object-fit: cover;
-  position: relative;
-  opacity: 0.5;
- 
-}
-.arrow-button {
-  margin-top: 20px;
-  background: none;
-  border: none;
-  font-size: 3vw;
-  color: #DD9313;
-  cursor: pointer;
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
-  z-index: 100;
-  align-items: center;
-  justify-content: center;
-}
-
-.arrow-button-left {
-  left: -7vw;
-  align-items: center;
-  justify-content: center;
-}
-
-.arrow-button-right {
-  right: -4vw;
-  align-items: center;
-  justify-content: center;
-}
-.arrow-button img {
-  transform: scale(0.4); /* You can adjust the scale factor as needed */
-}
-
 }

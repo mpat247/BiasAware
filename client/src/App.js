@@ -15,6 +15,9 @@ import LandingPage from './LandingPage';
 import Neighborhood2 from './Neighborhood2';
 import Aerospace from './Aerospace';
 // Import the createResponsiveDesign function
+import Addictions from './Addictions';
+import test2 from './test2';
+
 
 import './App.css';
 
@@ -38,6 +41,9 @@ function App() {
         <Route path="/LandingPage" element={<LandingPage />} />
         <Route path="/Neighborhood2" element={<Neighborhood2 />} />
         <Route path="/aerospace" element={<Aerospace />} />
+        <Route path="/Addictions" element={<Addictions />} /> {/* Define the route for Crime page */}
+        <Route path="/test2" element={<test2 />} /> {/* Define the route for Crime page */}
+
       </Routes>
     </Router>
   );

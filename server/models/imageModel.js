@@ -7,39 +7,42 @@ const imageSchema = new mongoose.Schema({
   },
   prompt: {
     type: String,
-    required: false // Set to false if some images might not have a prompt
+    required: false
   },
   bias_id: {
     type: String,
-    required: false // Set to false if some images might not have a prompt
+    required: false
   },
   bias_name: {
     type: String,
-    required: false // Set to false if some images might not have a prompt
+    required: false
   },
   bias_type: {
     type: String,
-    required: false // Set to false if some images might not have a prompt
+    required: false
   },
   gender: {
     type: String,
-    required: false // Set to false if some images might not have a prompt
+    required: false
   },
   qol_type: {
     type: String,
-    required: false // Set to false if some images might not have a prompt
+    required: false
   },
   profession_type: {
     type: String,
-    required: false // Set to false if some images might not have a prompt
+    required: false
   },
   skin_shade: {
     type: String,
-    required: false // Set to false if some images might not have a prompt
+    required: false
+  },
+  description: { // New field for description
+    type: String,
+    required: false
   }
-
 }, {
-  timestamps: true // Optionally add timestamps for created and updated times
+  timestamps: true
 });
 
 const Image = mongoose.model('Images', imageSchema);
