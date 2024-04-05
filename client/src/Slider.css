@@ -1,0 +1,170 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg: rgb(0 0 0 / 3%);
+    --color-blue: #2196F3;
+    --color-yellow: #FDD835;
+    --color-red: #E53935;
+    --color-green: #388E3C;
+
+    --card-width: 320px; /* Define the width of each card */
+    --card-aspect-ratio: 16 / 9;
+
+    --arrow-size: 2.5rem;
+    --arrow-icon-size: 1.75rem;
+    --arrow-icon-color: rgb(0 0 0 / 50%);
+    --arrow-icon-color-hover: rgb(0 0 0 / 75%);
+    --arrow-bg-color: transparent;
+    --arrow-bg-color-hover: rgb(0 0 0 / 10%);
+
+    --bullet-size: .5rem;
+
+    --transition-speed: .5s;
+    --transition-bezier: cubic-bezier(0.55, -0.85, 0.2, 1.85);
+
+    --icon-arrow: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIwLDExVjEzSDhMMTMuNSwxOC41TDEyLjA4LDE5LjkyTDQuMTYsMTJMMTIuMDgsNC4wOEwxMy41LDUuNUw4LDExSDIwWiIgLz48L3N2Zz4="); 
+}
+
+.crime-container {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative !important;
+    top: 0 !important;
+}
+
+.crime-slider {
+    position: absolute;
+    width: calc(var(--card-width) + calc(var(--arrow-size) * 2) + 2rem);
+    overflow: hidden;
+    height: 300px; /* Set the height to whatever value works best for your layout */
+}
+
+.crime-slider__cards {
+    width: calc(var(--card-width) * 4); /* Adjusted for 4 cards in a row */
+    display: flex;
+    position: relative;
+    left: calc(-1 * var(--card-width) * var(--active-index, 0)); /* Adjusted for card position */
+    transition: left var(--transition-speed) ease-in-out;
+}
+
+.crime-slider__card {
+    width: var(--card-width);
+    aspect-ratio: var(--card-aspect-ratio);
+    border-radius: .5rem;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.crime-slider__card.active {
+    opacity: 1;
+}
+
+.crime-slider__card--blue {
+    background-color: var(--color-blue);
+}
+
+.crime-slider__card--green {
+    background-color: var(--color-green);
+}
+
+.crime-slider__card--yellow {
+    background-color: var(--color-yellow);
+}
+
+.crime-slider__card--red {
+    background-color: var(--color-red);
+}
+
+.crime-slider__arrows {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.crime-slider__arrow {
+    height: var(--arrow-size);
+    width: var(--arrow-size);
+    background-color: var(--arrow-bg-color);
+    border-radius: 50%;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.crime-slider__arrow[disabled] {
+    opacity: .25;
+    pointer-events: none;
+}
+
+.crime-slider__arrow:hover,
+.crime-slider__arrow:focus-visible {
+    background-color: var(--arrow-bg-color-hover);
+}
+
+.crime-slider__arrow::after {
+    content: '';
+    display: block;
+    height: var(--arrow-icon-size);
+    width: var(--arrow-icon-size);
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: var(--icon-arrow);
+    -webkit-mask-image: var(--icon-arrow);
+    background-color: var(--arrow-icon-color);
+}
+
+.crime-slider__arrow:hover::after,
+.crime-slider__arrow:focus-visible::after {
+    background-color: var(--arrow-icon-color-hover);
+}
+
+.crime-slider__arrow--next::after {
+    transform: rotate(180deg);
+}
+
+.crime-slider__bullets {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
+    pointer-events: none;
+}
+
+.crime-slider__bullet {
+    display: block;
+    height: var(--bullet-size);
+    width: var(--bullet-size);
+    background-color: white;
+    border: none;
+    border-radius: 2rem;
+    transition: width var(--transition-speed) var(--transition-bezier);
+}
+
+.crime-slider__bullet.active {
+    width: calc(var(--bullet-size) * 3);
+}
