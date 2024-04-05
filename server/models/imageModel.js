@@ -35,7 +35,7 @@ const imageSchema = new mongoose.Schema({
   },
   skin_shade: {
     type: String,
-    required: false // Set to false if some images might not have a prompt
+    required: false
   },
   gender_bias: {
     type: String, // Added field for gender bias
@@ -48,9 +48,12 @@ const imageSchema = new mongoose.Schema({
   age_bias: {
     type: String, // Added field for age bias
     required: false
-  }
+  },
+  description: { // New field for description
+    type: String,
+    required: false
 
-}, {
+}, 
   timestamps: true
 });
 

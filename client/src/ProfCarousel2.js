@@ -3,6 +3,10 @@ import './ProfCarousel.css';
 
 const ProfCarousel2 = () => {
     const [selected, setSelected] = useState(0);
+    const [slides, setSlides] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    
     // Use URLs for your desired images here; I'm keeping placeholders for demonstration:
     const slideImages = [
         'https://via.placeholder.com/800x600/0B0533/ffffff/?text=', // Blue
@@ -61,6 +65,30 @@ const ProfCarousel2 = () => {
         // Add captions for each slide
     ];
 
+    useEffect(() => {
+        setLoading(true);
+        const fetchImages = async () => {
+            try {
+                const response = await axios.get(`${REACT_APP_API_URL}/professions`);
+                const filteredSlides = response.data.images
+                    .filter(image => image.profession_type === selectedProfession)
+                    .map(image => ({
+                        src: image.image,
+                        title: image.prompt,
+                    }));
+                setSlides(filteredSlides);
+            } catch (err) {
+                setError('Failed to fetch images: ' + err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchImages();
+    }, [selectedProfession]);
+
+
+
     const moveToSelected = (element) => {
         if (element === "next") {
             setSelected((prevSelected) => (prevSelected + 1) % slideImages.length);
@@ -96,7 +124,7 @@ const ProfCarousel2 = () => {
             <div className="titleBar">
                 <h1>HEALTHCARE</h1>
             </div>
-            <div id="carousel">
+            <div id="carousel"> 
                 {slideImages.map((src, index) => (
                     <a key={index} className={getClassNames(index)} onClick={() => moveToSelected(index)} href="javascript:void(0);">
                         <div className="slideContainer">
