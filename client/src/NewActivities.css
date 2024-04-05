@@ -24,15 +24,17 @@ body{
   .dots span.active{
       opacity:1
   }
-  
+/*   
   .PostSlide {
       max-width: 1300px;
       margin: 40px auto;
+      background-color: violet;
   }
-  
+   */
   .PostSlide {
       max-width: 1300px;
       margin: 10px auto 40px;
+      background-color: aqua;
   }
   
   .PostSlide .innerContainer .slider {
@@ -111,7 +113,7 @@ body{
   }
   
   .PostSlide .handles .prev {
-      opacity: 0;
+      opacity: 1;
   }
   
   .PostSlide .handles .next {
