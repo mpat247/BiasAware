@@ -31,10 +31,30 @@ body{
       background-color: violet;
   }
    */
+
+   .PostSlide-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1300px;
+    margin: auto;
+    width: 100%;
+}
+
+    .title-container {
+        width: 100%; /* Make it as wide as the .PostSlide container */
+        text-align: center;
+        margin-bottom: 20px; /* Distance from the title to the .PostSlide */
+        /* Add more styling as needed */
+        background-color: plum;
+    }
+
   .PostSlide {
         /* display: flex;
         align-items: center; This centers its children vertically
         justify-content: center; This centers its children horizontally */
+        /* width: 100%; */
       max-width: 1300px;
       margin: 10px auto 40px;
       background-color: aqua;
@@ -45,7 +65,7 @@ body{
       width: 1280px;
       overflow-x: hidden;
       margin: auto;
-      background-color: pink;
+      /* background-color: pink; */
       position: relative;
       z-index: 2;
       align-items: center;
@@ -278,3 +298,4 @@ body{
 .popup-footer button:hover {
     background-color: #e2e2e2;
 }
+

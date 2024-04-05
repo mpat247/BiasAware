@@ -320,6 +320,10 @@ const NewActivities = () => {
     return (
         <>
             {/* <h1> */}
+            <div className="PostSlide-wrapper">
+            <div className="title-container">
+                <h1>ACTIVITIES</h1>
+            </div>
                 <div className="PostSlide" onClick={handleSlideClick}>
                     <div className="innerContainer active">
                         <div className="slider">
@@ -360,6 +364,7 @@ const NewActivities = () => {
                         {/* <div className="dots"></div> */}
                     </div>
                 </div>
+            </div>
             {/* </h1> */}
             <Popup isVisible={isPopupVisible} onClose={() => setPopupVisible(false)}/>
         </>
