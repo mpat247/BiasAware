@@ -34,8 +34,14 @@ body {
     width: 100%; /* It will occupy the full width minus the padding */
     height: 100%; /* It will occupy the full height minus the padding */
     border-radius: 10px; /* Slightly less than the .activities-slide to maintain the rounded corners */
+    overflow: hidden; /* This will ensure no spillover */
 }
 
+.activities-slide-inner img {
+    width: 100%; /* This will make the image take up full width of the container */
+    height: 100%; /* This will make the image take up full height of the container */
+    object-fit: fill; /* This will ensure the image covers the space without distorting aspect ratio */
+}
   
   .activities-handles svg path{
       stroke:#e2e2e2!important;

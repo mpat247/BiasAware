@@ -236,7 +236,7 @@ const NewActivities = () => {
                         <div className="activities-slider">
                             <div className="activities-slide">
                                 <div className="activities-slide-inner">
-                                    {/* <img src={basketball} alt="basketball"/> */}
+                                    <img src={basketball} alt="basketball"/>
                                 </div>
                             </div>
                             <div className="activities-slide">
