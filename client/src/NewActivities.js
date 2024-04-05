@@ -5,28 +5,28 @@ const Popup = ({ isVisible, onClose }) => {
     if (!isVisible) return null;
 
     return (
-        <div className="popup-overlay" onClick={onClose}>
-            <div className="popup-content" onClick={e => e.stopPropagation()}>
-                <div className="popup-header">
+        <div className="activities-popup-overlay" onClick={onClose}>
+            <div className="activities-popup-content" onClick={e => e.stopPropagation()}>
+                <div className="activities-popup-header">
                     <h2>O C C U P A T I O N</h2>
                 </div>
-                <div className="popup-body">
-                    <div className="popup-slides-container">
-                        <div className="popup-slide">
+                <div className="activities-popup-body">
+                    <div className="activities-popup-slides-container">
+                        <div className="activities-popup-slide">
                             {/* <h1>hi</h1> */}
                         </div>
-                        <div className="popup-slide">
+                        <div className="activities-popup-slide">
                             {/* Content of the second slide */}
                         </div>
-                        <div className="popup-slide">
+                        <div className="activities-popup-slide">
                             {/* Content of the third slide */}
                         </div>
                     </div>
-                    <div className="popup-slide-caption">
+                    <div className="activities-popup-slide-caption">
                         <p>The statistical analysis caption is going to go here.</p>
                     </div>
                     </div>
-                <div className="popup-footer">
+                <div className="activities-popup-footer">
                     <button onClick={onClose}>Close</button>
                 </div>
             </div>
@@ -48,12 +48,12 @@ const NewActivities = () => {
                     throw new Error(`Container not found.`);
                 }
 
-                this.slider = this.container.querySelector('.slider');
-                this.prevBtn = this.container.querySelector('.handles .prev');
-                this.nextBtn = this.container.querySelector('.handles .next');
+                this.slider = this.container.querySelector('.activities-slider');
+                this.prevBtn = this.container.querySelector('.activities-handles .activities-prev');
+                this.nextBtn = this.container.querySelector('.activities-handles .activities-next');
 
                 this.sLiderWidth = this.slider.clientWidth;
-                this.oneSLideWidth = this.container.querySelector('.slide:nth-child(2)').clientWidth;
+                this.oneSLideWidth = this.container.querySelector('.activities-slide:nth-child(2)').clientWidth;
                 console.log(this.oneSLideWidth);
                 this.sildesPerPage = Math.trunc(this.sLiderWidth / this.oneSLideWidth);
                 // this.sildesPerPage = Math.min(Math.trunc(this.sLiderWidth / this.oneSLideWidth), 3);
@@ -83,7 +83,7 @@ const NewActivities = () => {
                 return this;
             }
             changeSlidesMargins() {
-                const slides = this.container.querySelectorAll('.slide');
+                const slides = this.container.querySelectorAll('.activities-slide');
                 if (this.oneSLideWidth * 2 > this.sLiderWidth) {
                     this.slideMargin = 1;
                     this.oneSLideWidth = this.oneSLideWidth + (this.sLiderWidth - this.oneSLideWidth - 2);
@@ -115,35 +115,6 @@ const NewActivities = () => {
                 setTimeout(() => {
                     this.snapToNearestSlide();
                 }, 300);
-            }
-            scrollWithDots(pos) {
-                this.slider.scrollTo({
-                    top: 0,
-                    left: pos,
-                    behavior: "smooth"
-                });
-            }
-
-            handleDotClick(index) {
-                const position = index * (this.slider.getBoundingClientRect()['width']);
-                this.scrollWithDots(position);
-            }
-
-            changeActiveDot(i) {
-                for (let j = 0; j < this.dots.length; j++) {
-                    this.dots[j].classList.remove('active');
-                }
-                this.dots[i].classList.add('active');
-            }
-
-
-            bindDotClickHandlers() {
-                for (let i = 0; i < this.dots.length; i++) {
-                    this.dots[i].addEventListener('click', () => {
-                        console.log('Dot clicked:', i);
-                        this.handleDotClick(i);
-                    });
-                }
             }
 
             snapToNearestSlide() {
@@ -245,7 +216,7 @@ const NewActivities = () => {
         }
 
         window.addEventListener('load', function () {
-            var container = document.querySelector('.PostSlide .innerContainer');
+            var container = document.querySelector('.activities-PostSlide .activities-innerContainer');
             new PostSlider(container, 3);
         })
     }, []);
@@ -256,40 +227,40 @@ const NewActivities = () => {
 
     return (
         <>
-            <div className="PostSlide-wrapper">
-            <div className="title-container">
+            <div className="activities-PostSlide-wrapper">
+            <div className="activities-title-container">
                 <h1>ACTIVITIES</h1>
             </div>
-                <div className="PostSlide" onClick={handleSlideClick}>
-                    <div className="innerContainer active">
-                        <div className="slider">
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
-                            <div className="slide"></div>
+                <div className="activities-PostSlide" onClick={handleSlideClick}>
+                    <div className="activities-innerContainer active">
+                        <div className="activities-slider">
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
+                            <div className="activities-slide"></div>
                         </div>
 
-                        <div className="handles">
-                            <span className="prev">
+                        <div className="activities-handles">
+                            <span className="activities-prev">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg"><path
                                         d="M15.0001 19.92L8.48009 13.4C7.71009 12.63 7.71009 11.37 8.48009 10.6L15.0001 4.07999"
                                         stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10"
                                         strokeLinecap="round" strokeLinejoin="round"></path></svg>
                             </span>
-                            <span className="next">
+                            <span className="activities-next">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg"><path
                                         d="M8.99991 19.92L15.5199 13.4C16.2899 12.63 16.2899 11.37 15.5199 10.6L8.99991 4.07999"
