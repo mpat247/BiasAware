@@ -39,61 +39,48 @@ app.get('/users', async (req, res) => {
   }
 });
 
-function ignoreFunc(file, stats) {
-  // Filters out files that are not images
-  return !stats.isDirectory() && !/\.(jpg|jpeg|png|gif)$/i.test(path.extname(file));
+
+async function uploadImagesFromCSVAndFolder(csvFilePath, imagesFolderPath, db) {
+  const bucket = new GridFSBucket(db, { bucketName: 'images' });
+
+  fs.createReadStream(csvFilePath)
+    .pipe(csv())
+    .on('data', async (row) => {
+      const { name, prompt, bias_id, bias_name, generator } = row;
+      const imagePath = path.join(imagesFolderPath, `${name}.jpeg`);
+
+      if (fs.existsSync(imagePath)) {
+        console.log(`Uploading image: ${name}`);
+        const readStream = fs.createReadStream(imagePath);
+
+        const uploadStream = bucket.openUploadStream(name, {
+          metadata: { prompt, bias_id, bias_name, generator }
+        });
+
+        readStream.pipe(uploadStream)
+          .on('finish', () => console.log(`Successfully uploaded: ${name}`))
+          .on('error', (error) => console.error(`Error uploading ${name}:`, error));
+      } else {
+        console.log(`File not found: ${imagePath}`);
+      }
+    })
+    .on('end', () => console.log('CSV file processing completed.'));
 }
 
-const uploadImagesFromFolder = async (folderPath, db) => {
-  const bucket = new mongoose.mongo.GridFSBucket(db, { bucketName: 'images' });
-
-  try {
-    const files = await recursiveReadDir(folderPath, [ignoreFunc]);
-    for (let file of files) {
-      const filename = path.basename(file);
-      const readStream = fs.createReadStream(file);
-      const uploadStream = bucket.openUploadStream(filename);
-      readStream.pipe(uploadStream);
-
-      await new Promise((resolve, reject) => {
-        uploadStream.on('error', (error) => {
-          console.error(`Error uploading file ${filename}:`, error);
-          reject(error);
-        });
-        uploadStream.on('finish', () => {
-          console.log(`Uploaded ${filename} successfully.`);
-          resolve();
-        });
-      });
-
-      const newImage = new Image({
-        name: filename,
-        prompt: null, // Set other fields as null by default
-        bias_id: null,
-        bias_name: null,
-        bias_type: null,
-        generator: null,  
-      });
-      await newImage.save();
-    }
-    console.log(`${files.length} images uploaded successfully.`);
-  } catch (error) {
-    console.error('Error uploading images:', error);
-    throw error;
-  }
-};
-
 app.post('/upload-images', async (req, res) => {
-  try {
-    const db = await connectToDatabase();
-    const imagesFolder = path.resolve('D:/manav/Documents/Engineering/4th Year/Capstone/BiasAware/server/FINALIMAGES');
-    await uploadImagesFromFolder(imagesFolder, db);
+  const db = await connectToDatabase();
+
+  const csvFilePath = path.resolve(__dirname, 'server/Emotions/emotions123.csv');
+  const imagesFolderPath = path.resolve(__dirname, 'server/Emotions');
+
+  if ((mongoose.connection).readyState === 1) { // If MongoDB connection is ready
+    await uploadImagesFromCSVAndFolder(csvFilePath, imagesFolderPath, db);
     res.json({ message: 'Image upload process completed.' });
-  } catch (error) {
-    console.error('Error uploading images:', error);
-    res.status(500).json({ message: 'Failed to upload images', error });
+  } else {
+    res.status(500).json({ message: 'Database connection not ready' });
   }
 });
+
 
 app.get('/download-all-images', async (req, res) => {
   const db = await connectToDatabase();
@@ -163,6 +150,9 @@ app.use('/qol', qolRoute);
 
 const crimeRoutes = require('./routes/crime');
 app.use('/crime', crimeRoutes);
+
+const professionsRoute = require('./routes/professions');
+app.use('/professions', professionsRoute);
 
 async function main() {
   try {
