@@ -7,12 +7,35 @@ import hockey from './images/image 10.png';
 import bingo from './images/image 11.png';
 import tennis from './images/image 12.png';
 
-const Popup = ({ isVisible, onClose }) => {
+const colors = ["red", "grey", "white", "blue", "green", "yellow", "purple", "orange"]; // Define colors for slides
+
+// Define slide information, mapping each image to a color
+const slideInfo = [
+    { image: basketball, color: colors[0] },
+    { image: cricket, color: colors[1] },
+    { image: volleyball, color: colors[2] },
+    { image: hockey, color: colors[3] },
+    { image: bingo, color: colors[4] },
+    { image: tennis, color: colors[5] },
+    { image: basketball, color: colors[0] },
+    { image: cricket, color: colors[1] },
+    { image: volleyball, color: colors[2] },
+    { image: hockey, color: colors[3] },
+    { image: bingo, color: colors[4] },
+    { image: tennis, color: colors[5] },
+    { image: basketball, color: colors[0] },
+    { image: cricket, color: colors[1] },
+    { image: volleyball, color: colors[2] },
+    { image: hockey, color: colors[3] },    
+    //We're going to have 16 slides.
+  ];
+
+const Popup = ({ isVisible, onClose, bgColor }) => {
     if (!isVisible) return null;
 
     return (
         <div className="activities-popup-overlay" onClick={onClose}>
-            <div className="activities-popup-content" onClick={e => e.stopPropagation()}>
+             <div className="activities-popup-content" style={{ backgroundColor: bgColor }} onClick={e => e.stopPropagation()}>
                 <div className="activities-popup-header">
                     <h2>O C C U P A T I O N</h2>
                 </div>
@@ -41,6 +64,13 @@ const Popup = ({ isVisible, onClose }) => {
 
 const NewActivities = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
+    const [popupColor, setPopupColor] = useState(colors[0]); // Default color
+
+    const handleSlideClick = (color) => {
+        setPopupColor(color); // Set the popup color based on the clicked slide
+        setPopupVisible(true); // Show the popup
+    };
+
 
     useEffect(() => {
         var autoplayIntervalInSeconds = 10;
@@ -226,10 +256,6 @@ const NewActivities = () => {
         })
     }, []);
 
-    const handleSlideClick = () => {
-        setPopupVisible(true);
-    };
-
     return (
         <>
             <div className="activities-PostSlide-wrapper">
@@ -238,67 +264,15 @@ const NewActivities = () => {
             </div>
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">
-                        <div className="activities-slider">
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner">
-                                    <img src={basketball} alt="basketball" className="activities-image"/>
+                        
+                    <div className="activities-slider">
+                            {slideInfo.map((slide, index) => (
+                                <div key={index} className="activities-slide" onClick={() => handleSlideClick(slide.color)} style={{ backgroundColor: slide.color }}>
+                                    <div className="activities-slide-inner">
+                                        <img src={slide.image} alt={`Slide ${index + 1}`} className="activities-image" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner">
-                                <img src={cricket} alt="cricket" className="activities-image"/>
-                                </div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner">
-                                    <img src={volleyball} alt="volleyball" className="activities-image"/>
-                                </div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner">
-                                    <img src={hockey} alt="hockey" className="activities-image"/>
-                                </div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner">
-                                    <img src={bingo} alt="bingo" className="activities-image"/>
-                                </div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner">
-                                    <img src={tennis} alt="tennis" className="activities-image"/>
-                                </div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
-                            </div>
-                            <div className="activities-slide">
-                                <div className="activities-slide-inner"></div>
-                            </div>
+                            ))}
                         </div>
 
                         <div className="activities-handles">
@@ -320,7 +294,11 @@ const NewActivities = () => {
                     </div>
                 </div>
             </div>
-            <Popup isVisible={isPopupVisible} onClose={() => setPopupVisible(false)}/>
+            <Popup 
+            isVisible={isPopupVisible} 
+            onClose={() => setPopupVisible(false)} 
+            bgColor={popupColor} // Here you're using popupColor correctly
+            />
         </>
     );
 };

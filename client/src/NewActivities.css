@@ -106,9 +106,10 @@ body {
         min-width: 280px;
         height: 340px;
         margin: 0 10px;
-        background-color: yellow;
+        /* background-color: yellow; */
         padding: 20px; 
         box-sizing: border-box;
+        border-radius: 10px;
   }
 
   .activities-PostSlide .activities-innerContainer .activities-handles {
