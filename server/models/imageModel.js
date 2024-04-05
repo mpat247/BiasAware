@@ -52,10 +52,11 @@ const imageSchema = new mongoose.Schema({
   description: { // New field for description
     type: String,
     required: false
-
-}, 
-  timestamps: true
-});
+  }
+},
+  {
+    timestamps: true
+  });
 
 const Image = mongoose.model('Images', imageSchema);
 
