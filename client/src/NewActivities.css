@@ -32,6 +32,9 @@ body{
   }
    */
   .PostSlide {
+        /* display: flex;
+        align-items: center; This centers its children vertically
+        justify-content: center; This centers its children horizontally */
       max-width: 1300px;
       margin: 10px auto 40px;
       background-color: aqua;
@@ -42,6 +45,10 @@ body{
       width: 1280px;
       overflow-x: hidden;
       margin: auto;
+      background-color: pink;
+      position: relative;
+      z-index: 2;
+      align-items: center;
   }
   
   .PostSlide .innerContainer .slider .slide {
@@ -55,10 +62,10 @@ body{
       border-radius: 10px;
   }
   
-  .PostSlide .innerContainer .slider {
+  /* .PostSlide .innerContainer .slider {
       position: relative;
       z-index: 2;
-  }
+  } */
 
   .PostSlide .innerContainer .handles {
     display: flex;
@@ -78,26 +85,6 @@ body{
 .PostSlide .innerContainer .handles:focus-visible {
     outline: none;
 }
-
-
-  
-  
-  .PostSlide .dots {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      position: relative;
-  }
-  
-  .PostSlide .dots span {
-      border-radius: 10px;
-      background: #CBCBCB;
-      width: 6px;
-      height: 6px;
-      display: inline-block;
-      cursor: pointer;
-  }
   
   .PostSlide .slider * {
     -webkit-user-drag: none;

@@ -319,58 +319,26 @@ const NewActivities = () => {
 
     return (
         <>
-            <h1>
+            {/* <h1> */}
                 <div className="PostSlide" onClick={handleSlideClick}>
                     <div className="innerContainer active">
                         <div className="slider">
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1504730030853-eff311f57d3c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1485811661309-ab85183a729c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1517805686688-47dd930554b2?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1700317440746-7e16b87199b5?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1512310604669-443f26c35f52?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1527736947477-2790e28f3443?q=80&w=1962&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1504730030853-eff311f57d3c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1485811661309-ab85183a729c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1517805686688-47dd930554b2?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1700317440746-7e16b87199b5?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1512310604669-443f26c35f52?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1527736947477-2790e28f3443?q=80&w=1962&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1504730030853-eff311f57d3c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1485811661309-ab85183a729c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1517805686688-47dd930554b2?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
-                            <div className="slide">
-                                {/* <div style={{background: "url('https://images.unsplash.com/photo-1700317440746-7e16b87199b5?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div> */}
-                            </div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
+                            <div className="slide"></div>
                         </div>
 
                         <div className="handles">
@@ -392,7 +360,7 @@ const NewActivities = () => {
                         {/* <div className="dots"></div> */}
                     </div>
                 </div>
-            </h1>
+            {/* </h1> */}
             <Popup isVisible={isPopupVisible} onClose={() => setPopupVisible(false)}/>
         </>
     );
