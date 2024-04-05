@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; // Correctly import useState here
+import React, { useEffect, useState } from 'react';
 import './NewActivities.css';
 
 const Popup = ({ isVisible, onClose }) => {
@@ -10,14 +10,6 @@ const Popup = ({ isVisible, onClose }) => {
                 <div className="popup-header">
                     <h2>O C C U P A T I O N</h2>
                 </div>
-                {/* <div className="popup-body">
-                    <div className="popup-slide">
-                    </div>
-                    <div className="popup-slide">
-                    </div>
-                    <div className="popup-slide">
-                    </div>
-                </div> */}
                 <div className="popup-body">
                     <div className="popup-slides-container">
                         <div className="popup-slide">
@@ -41,8 +33,6 @@ const Popup = ({ isVisible, onClose }) => {
         </div>
     );
 };
-
-
 
 const NewActivities = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -70,27 +60,18 @@ const NewActivities = () => {
                 this.slideMargin = ((this.sLiderWidth - (this.sildesPerPage * this.oneSLideWidth)) / (this.sildesPerPage * 2)).toFixed(5);
                 this.changeSlidesMargins();
 
-                // Assign this.dots before calling bindDotClickHandlers
-                this.dots = this.container.querySelectorAll('.dots span');
-                // this.bindDotClickHandlers();
-
                 this.makeSliderScrollable();
-                // this.prevBtn.addEventListener('click', () => this.prevSlider());
-                // this.nextBtn.addEventListener('click', () => this.nextSlider());
 
                 // Inside your PostSlider class constructor or the relevant method where you bind event listeners to the arrows
                 this.prevBtn.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Stop the event from propagating to the parent div
+                    event.stopPropagation();
                     this.prevSlider();
                 });
+                
                 this.nextBtn.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Stop the event from propagating to the parent div
+                    event.stopPropagation();
                     this.nextSlider();
                 });
-
-
-                // this.createDots();
-                // this.setActiveDotByScroll();
 
                 this.autoplayInterval = null;
                 this.autoplayDelay = autoplayIntervalInSeconds * 1000;
@@ -117,7 +98,6 @@ const NewActivities = () => {
                     });
                 }
             }
-
 
             scrollToPosition(position, smooth = true) {
                 console.log('Scrolling to position:', position);
@@ -165,8 +145,8 @@ const NewActivities = () => {
                     });
                 }
             }
-            snapToNearestSlide() {
 
+            snapToNearestSlide() {
                 const currentPosition = this.slider.scrollLeft;
                 const nearestLeftScroll = Math.round(currentPosition / (this.oneSLideWidth + (this.slideMargin * 2))) * (this.oneSLideWidth + (this.slideMargin * 2));
                 console.log(nearestLeftScroll);
@@ -175,6 +155,7 @@ const NewActivities = () => {
                     behavior: 'smooth'
                 });
             }
+
             makeSliderScrollable() {
                 let isDragging = false;
                 let startPosition;
@@ -221,28 +202,6 @@ const NewActivities = () => {
                 };
             }
 
-            setActiveDotByScroll() {
-                this.slider.addEventListener('scroll', () => {
-                    const scrollLeft = this.slider.scrollLeft;
-                    // Assuming each slide is the same width and fills the slider.
-                    const index = Math.floor(scrollLeft / this.oneSlideWidth);
-            
-                    // Clear all active states.
-                    this.dots.forEach(dot => dot.classList.remove('active'));
-            
-                    // Safely add the active state to the current dot if it exists.
-                    if (index < this.dots.length) {
-                        this.dots[index].classList.add('active');
-                    }
-            
-                    // Update button visibility based on scroll position.
-                    this.prevBtn.style.opacity = scrollLeft > 0 ? '1' : '0';
-                    this.nextBtn.style.opacity = (scrollLeft + this.slider.clientWidth) < this.slider.scrollWidth ? '1' : '0';
-                });
-            }
-            
-
-
             nextSlider() {
                 const totalWidth = this.slider.scrollWidth;
                 const currentScroll = this.slider.scrollLeft;
@@ -274,26 +233,6 @@ const NewActivities = () => {
                 }
             }
 
-            createDots() {
-                const dotCount = Math.floor(this.slider.scrollWidth / this.slider.clientWidth);
-                const dotsContainer = this.container.querySelector('.dots');
-                dotsContainer.innerHTML = '';
-
-                for (let i = 0; i < dotCount; i++) {
-                    const dot = document.createElement('span');
-                    dot.addEventListener('click', () => {
-                        // this.changeActiveDot(i);
-                        this.handleDotClick(i);
-                    });
-
-                    if (i === 0) {
-                        dot.classList.add('active');
-                    }
-
-                    dotsContainer.appendChild(dot);
-                }
-            }
-
             startAutoplay() {
                 this.autoplayInterval = setInterval(() => {
                     this.nextSlider();
@@ -305,7 +244,6 @@ const NewActivities = () => {
             }
         }
 
-
         window.addEventListener('load', function () {
             var container = document.querySelector('.PostSlide .innerContainer');
             new PostSlider(container, 3);
@@ -313,13 +251,11 @@ const NewActivities = () => {
     }, []);
 
     const handleSlideClick = () => {
-        // This function will be called when a slide is clicked
         setPopupVisible(true);
     };
 
     return (
         <>
-            {/* <h1> */}
             <div className="PostSlide-wrapper">
             <div className="title-container">
                 <h1>ACTIVITIES</h1>
@@ -361,11 +297,9 @@ const NewActivities = () => {
                                         strokeLinecap="round" strokeLinejoin="round"></path></svg>
                             </span>
                         </div>
-                        {/* <div className="dots"></div> */}
                     </div>
                 </div>
             </div>
-            {/* </h1> */}
             <Popup isVisible={isPopupVisible} onClose={() => setPopupVisible(false)}/>
         </>
     );
