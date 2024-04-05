@@ -133,15 +133,10 @@ const Addictions = () => {
           <div>Loading...</div> // Show loading indicator while images are being fetched
         ) : (
           <div className="addictions-container">
-            <h1 style={{ 
-              color: '#DD9313', 
-              fontFamily: 'Abhaya Libre ExtraBold', 
-              fontSize: '4em', 
-              textShadow: '2px 2px 4px rgba(168, 108, 6, 1)'
-            }}>
+            <h1>
               A D D I C T I O N S
             </h1>
-            <div style={{ display: 'flex' }}>
+            <div className="images-container-addiction" style={{ display: 'flex' }}>
               {getCurrentImages().map((image, index) => (
                 <ImageComponent
                   key={index}
