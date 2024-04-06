@@ -1,3 +1,4 @@
+/* NewProfessions.css */
 body {
     display: flex;
     flex-direction: column;
@@ -7,62 +8,32 @@ body {
     background-color: #0B0533;
 }
 
-/* NewProfessions.css */
 .spinner {
-    width: 200px; /* Adjust as needed */
-    height: 200px; /* Adjust as needed */
+    width: 85vw;  /* Use 50% of the viewport width */
+    height: 85vw; /* Use 50% of the viewport width to keep the spinner circle */
+    max-width: 600px; /* Maximum size */
+    max-height: 600px; /* Maximum size */
     position: relative;
-    border: 2px solid white; /* Add a border for visibility */
     border-radius: 50%;
-    overflow: hidden;
+    background: conic-gradient(
+        #FF6666 0% 20%, 
+        #FFCC66 20% 40%, 
+        #99CC66 40% 60%, 
+        #66CCCC 60% 80%, 
+        #6666CC 80% 100%
+    );
     animation: spin 5s infinite linear;
 }
 
-.category {
-    position: absolute;
-    width: 100px; /* Adjust size as needed */
-    height: 100px; /* Adjust size as needed */
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background for visibility */
-    clip-path: polygon(50% 50%, 100% 0%, 100% 100%);
+/* Optional: Add a media query for very small screens to set a minimum size */
+@media (max-width: 300px) {
+    .spinner {
+        width: 100vw;
+        height: 100vw;
+    }
 }
-
-
-.category1 {
-    top: 0;
-    left: 50%;
-    transform-origin: bottom left;
-}
-
-.category2 {
-    top: 50%;
-    left: 100%;
-    transform-origin: bottom right;
-}
-
-.category3 {
-    top: 100%;
-    left: 50%;
-    transform-origin: top right;
-}
-
-.category4 {
-    top: 50%;
-    left: 0;
-    transform-origin: top left;
-}
-
-.category5 {
-    top: 50%;
-    left: 50%;
-    transform-origin: center center;
-}
-
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
