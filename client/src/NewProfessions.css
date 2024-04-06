@@ -9,17 +9,18 @@ body {
 
 .categories-container {
     position: relative;
-    width: 300px; /* Diameter of the circle */
-    height: 300px; /* Diameter of the circle */
+    width: 400px; /* Adjusted for bigger bubbles */
+    height: 400px; /* Adjusted for bigger bubbles */
     border-radius: 50%;
     margin: auto;
     animation: spin 20s linear infinite;
+    background-color: white;
 }
 
 .category-bubble {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 150px; /* Made bubbles larger */
+    height: 150px; /* Made bubbles larger */
     border-radius: 50%;
     display: flex;
     justify-content: center;
