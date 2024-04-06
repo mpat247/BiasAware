@@ -13,9 +13,8 @@ import Crime from './Crime';
 import QOL2 from './QOL2';
 import Responsive from './Responsive'; // Import the Responsive component
 import LandingPage from './LandingPage';
-// Import the createResponsiveDesign function
 import Addictions from './Addictions';
-import test2 from './test2';
+import Test from './Test'; // Import the test2 component
 
 
 import './App.css';

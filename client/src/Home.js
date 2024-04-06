@@ -6,6 +6,7 @@ import NavigationBar from './NavigationBar2'; // Import the NavigationBar compon
 import Addictions from './Addictions';
 import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
+import QOL2 from './QOL2'; // Import the QOL component
 import Crime from './Crime';
 import Emotions from './Emotions';
 import ProfessionsLanding from './ProfessionsLanding';
@@ -234,19 +235,21 @@ const Home = () => {
         
       </main>
 
-      {/* Addictions section */}
-      <div id="addictions">
-        <Addictions />
-      </div>
+      
 
       {/* Activities section */}
       <div id="activities">
         <Activities />
       </div>
 
+            {/* Addictions section */}
+            <div id="addictions">
+              <Addictions />
+            </div>
+
       {/* Quality of Life section */}
       <div id="qol">
-        <QOL />
+        <QOL2 />
       </div>
       {/* Quality of Life section */}
       <div id="Emotions">

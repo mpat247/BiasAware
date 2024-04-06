@@ -6,17 +6,38 @@ import ArrowRightImage from "./Arrows/Arrow_Right_1.png";
 import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
 
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+      });
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call on mount to get initial size
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowSize;
+}
+
 const Addictions = () => {
   const [imagesData, setImagesData] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(true);
   const [popupPrompt, setPopupPrompt] = useState('');
+  const [popupDescription, setPopupDescription] = useState('');
   const [popUpMain, setPopUpMain] = useState([]);
   const [sideImagesData, setSideImagesData] = useState([]);
   const [popUpSide, setPopUpSide] = useState([]);
-  const [popupDescription, setpopupDescription] = useState('');
-
+  const width = useWindowSize().width; // Directly extracting width
 
   const API = REACT_APP_API_URL;
 
@@ -46,118 +67,76 @@ const Addictions = () => {
     );
   };
 
-  const PopupCard = ({ image, prompt, sideImages, onClose, description }) => {
-    const formattedPrompt = prompt => {
-      const vowels = ['a', 'e', 'i', 'o', 'u'];
-      const firstLetter = prompt.toLowerCase().charAt(0);
-      if (vowels.includes(firstLetter)) {
-        return `An ${prompt} Dependent Individual`;
-      } else {
-        return `A ${prompt} Dependent Individual`;
-      }
-    };
-    
-    // Fill the sideImages array with empty strings if there are fewer than 4 side images
-    const filledSideImages = [...sideImages, '', '', '', ''].slice(0, 4);
-  
-    return (
-      <div className="popup-card">
-        <div className="popup-content">
-          <button className="close-button" onClick={onClose}>Close</button>
-          <div className="rectanglepop1"></div>
-          <div className="rectanglepop2"></div>
-          <div className="rectanglepop3">
-            <div><p className="popup-prompt" style={{ textAlign: 'center' }}>{formattedPrompt(prompt)}</p></div>
-            <div><p className="popup-description" style={{ textAlign: 'center' }}>{description}</p></div>
-
-          </div>
-          {filledSideImages.map((sideImage, index) => (
-            <div key={index} className={`image${index + 1}`}>
-              <img src={sideImage} alt={`sideImage${index + 1}`} className="popup-image" />
-            </div>
-          ))}
-
-<div className="image5"><img src={image} alt="selected-addiction" className="popup-image" /></div>
-
-        </div>
-      </div>
-    );
-  };
-  
-
-  const openPopup = async (prompt, description) => {
+  const openPopup = (prompt, description) => {
     setShowPopup(true);
     document.body.style.overflow = 'hidden'; // Disable scrolling
-    setPopupPrompt(prompt);
-    setpopupDescription(description); // Correct this line to properly set the description
-  
-    // Find the main image corresponding to the prompt
     const mainImage = imagesData.find(image => image.prompt === prompt)?.image;
-    setPopUpMain([mainImage]);
-  
-    // Find the side images corresponding to the prompt
+    setPopUpMain([mainImage]); // Assuming mainImage is an array
     const sideImages = sideImagesData.filter(image => image.prompt === prompt).map(image => image.image);
     setPopUpSide(sideImages);
+    setPopupPrompt(prompt);
+    setPopupDescription(description);
   };
-  
-  
 
   const closePopup = () => {
     setShowPopup(false);
     document.body.style.overflow = 'auto'; // Enable scrolling
   };
 
-  const getCurrentImages = () => {
-    return [
-      imagesData[(currentImageIndex + imagesData.length - 2) % imagesData.length],
-      imagesData[(currentImageIndex + imagesData.length - 1) % imagesData.length],
-      imagesData[currentImageIndex],
-      imagesData[(currentImageIndex + 1) % imagesData.length],
-      imagesData[(currentImageIndex + 2) % imagesData.length]
-    ];
-  };
+  const displayLogic = () => {
+    let className = '';
+    if (width > 768) {
+      className = 'five-images';
+    } else if (width > 480) {
+      className = 'three-images';
+    } else {
+      className = 'one-image';
+    }
 
-  const ImageComponent = ({ src, alt, prompt, description }) => {
+    const visibleImages = imagesData.slice(currentImageIndex, currentImageIndex + className.split('-')[0]);
+    if (visibleImages.length < className.split('-')[0]) {
+      visibleImages.push(...imagesData.slice(0, className.split('-')[0] - visibleImages.length));
+    }
+
     return (
-      <div className="image-component">
-        <img src={src} alt={alt} onClick={() => openPopup(prompt,description)} />
+      <div className={`${className} images-wrapper`}>
+        {visibleImages.map((image, index) => (
+          <div key={index} className="image-component" onClick={() => openPopup(image.prompt, image.description)}>
+            <img src={image.url} alt={`Addiction ${index + 1}`} />
+          </div>
+        ))}
       </div>
     );
   };
 
   return (
-    <div id="addictions" className="Addictions">
-      <header className="App-header">
-        <NavigationBar />
-        {loading ? (
-          <div>Loading...</div> // Show loading indicator while images are being fetched
-        ) : (
-          <div className="addictions-container">
-            <h1>
-              A D D I C T I O N S
-            </h1>
-            <div className="images-container-addiction" style={{ display: 'flex' }}>
-              {getCurrentImages().map((image, index) => (
-                <ImageComponent
-                  key={index}
-                  src={image.image}
-                  alt={`Addictions Illustration ${currentImageIndex + index - 2}`}
-                  prompt={image.prompt}
-                  description={image.description}
-                />
-              ))}
-            </div>
-            <button className="arrow-button arrow-button-left" onClick={previousImage}>
-              <img src={ArrowLeftImage} alt="Left Arrow" />
-            </button>
-            <button className="arrow-button arrow-button-right" onClick={nextImage}>
-              <img src={ArrowRightImage} alt="Right Arrow" />
-            </button>
+    <div className="Addictions">
+      <NavigationBar />
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className="addictions-container">
+          <h1>A D D I C T I O N S</h1>
+          {displayLogic()}
+          <button className="arrow-button arrow-button-left" onClick={previousImage}>
+            <img src={ArrowLeftImage} alt="Left Arrow" />
+          </button>
+          <button className="arrow-button arrow-button-right" onClick={nextImage}>
+            <img src={ArrowRightImage} alt="Right Arrow" />
+          </button>
+        </div>
+      )}
+      {showPopup && (
+        <div className="popup-wrapper">
+          <div className="popup-card">
+            <button className="close-button" onClick={closePopup}>Close</button>
+            <h2>{popupPrompt}</h2>
+            <p>{popupDescription}</p>
+            <img src={popUpMain[0]} alt="Main" />
+            {popUpSide.map((image, index) => <img key={index} src={image} alt={`Side ${index}`} />)}
           </div>
-        )}
-      </header>
-      {showPopup && <div className="overlay" onClick={closePopup}></div>}
-      {showPopup && <PopupCard image={popUpMain[0]} prompt={popupPrompt} sideImages={popUpSide} onClose={closePopup} description={popupDescription} />}
+        </div>
+      )}
     </div>
   );
 };

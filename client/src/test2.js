@@ -1,31 +1,38 @@
-import React from 'react';
-import { HeatMapGrid } from 'react-heatmap-grid';
+// CarouselComponent.jsx
+import React, { useState } from 'react';
+import './CarouselComponent.css';
 
-const test2 = () => {
-  const xLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-  const yLabels = ['1', '2', '3', '4', '5'];
-  const data = [
-    [1, 2, 3, 4, 5],
-    [2, 3, 4, 5, 6],
-    [3, 4, 5, 6, 7],
-    [4, 5, 6, 7, 8],
-    [5, 6, 7, 8, 9],
-  ];
+const CarouselComponent = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToPrevious = () => {
+    const isFirstImage = currentIndex === 0;
+    const newIndex = isFirstImage ? images.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToNext = () => {
+    const isLastImage = currentIndex === images.length - 1;
+    const newIndex = isLastImage ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
 
   return (
-    <div className="heatMapContainer">
-      <HeatMapGrid
-        xLabels={xLabels}
-        yLabels={yLabels}
-        data={data}
-        cellStyle={(background, value, min, max, data, x, y) => ({
-          background: `rgb(0, 151, 230, ${1 - (max - value) / (max - min)})`,
-          fontSize: "11px",
-        })}
-        cellRender={value => value && `${value}`}
-      />
+    <div className="carousel-container">
+      <button className="carousel-button prev" onClick={goToPrevious}>&lt;</button>
+      <div className="carousel-images">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Slide ${index}`}
+            className={`carousel-image ${index === currentIndex ? 'active' : ''}`}
+          />
+        ))}
+      </div>
+      <button className="carousel-button next" onClick={goToNext}>&gt;</button>
     </div>
   );
 };
 
-export default test2;
+export default CarouselComponent;

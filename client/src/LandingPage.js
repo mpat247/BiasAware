@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import './LandingPage.css';
 import Responsive from './Responsive';
 const LandingPage = () => {
+  
+  
+
   useEffect(() => {
     document.body.classList.add('no-scroll');
     
