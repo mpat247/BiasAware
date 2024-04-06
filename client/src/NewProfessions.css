@@ -1,72 +1,34 @@
 body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
     background-color: #0B0533;
 }
 
-figure {
-  background-color: #eee;
-  display: block;
-  margin: 0 auto;
-  position: relative;
-  width: 40em;
-  padding-bottom: 40em;
-  height: 0; /* This line might not be needed as padding-bottom sets the height */
-}
-
-figcaption {
-  font-size:1rem;
-  text-align:center;
-  color:#fff;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top:40%;
-  z-index:2;
-}
-
-svg {
-  display: block;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* Define the sizes of the pie sections */
-circle {
-  fill: none;
-  stroke-width: 31.8309886184;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-}
-
-.pie1 {
-  stroke: hsl(0, 70%, 50%);
-  stroke-dasharray: 20 80; /* 20% */
-  stroke-dashoffset: 25;
-}
-.pie2 {
-  stroke: hsl(72, 70%, 50%);
-  stroke-dasharray: 20 80; /* 20% */
-  stroke-dashoffset: 5; /* 20% offset */
-}
-.pie3 {
-  stroke: hsl(144, 70%, 50%);
-  stroke-dasharray: 20 80; /* 20% */
-  stroke-dashoffset: -15; /* 40% offset */
-}
-.pie4 {
-  stroke: hsl(216, 70%, 50%);
-  stroke-dasharray: 20 80; /* 20% */
-  stroke-dashoffset: -35; /* 60% offset */
-}
-.pie5 {
-  stroke: hsl(288, 70%, 50%);
-  stroke-dasharray: 20 80; /* 20% */
-  stroke-dashoffset: -55; /* 80% offset */
-}
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .category-bubble {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .category-bubble:hover {
+    transform: scale(1.1);
+  }
+    
