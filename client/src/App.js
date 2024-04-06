@@ -12,6 +12,7 @@ import Crime from './Crime'; // Import the Neighborhood component
 import QOL2 from './QOL2';
 import Addictions from './Addictions';
 import NewActivities from './NewActivities'
+import NewProfessions from './NewProfessions'
 
 import './App.css';
 
@@ -33,6 +34,7 @@ function App() {
 
         <Route path="/Addictions" element={<Addictions />} /> {/* Define the route for Crime page */}
         <Route path="/NewActivities" element={<NewActivities />} /> 
+        <Route path="/NewProfessions" element={<NewProfessions />} /> 
       </Routes>
     </Router>
   );
