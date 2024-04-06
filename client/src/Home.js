@@ -242,11 +242,11 @@ const Home = () => {
         <Activities />
       </div>
 
-            {/* Addictions section */}
-            <div id="addictions">
+      {/* Addictions section */}
+      <div id="addictions">
               <Addictions />
-            </div>
-
+      </div>
+            
       {/* Quality of Life section */}
       <div id="qol">
         <QOL2 />

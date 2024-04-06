@@ -14,8 +14,8 @@ import QOL2 from './QOL2';
 import Responsive from './Responsive'; // Import the Responsive component
 import LandingPage from './LandingPage';
 import Addictions from './Addictions';
-import Test from './Test'; // Import the test2 component
 
+//import Test from './Test'; // Import the test2 component
 
 import './App.css';
 
@@ -26,6 +26,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Addictions" element={<Addictions />} />
         <Route path="/Statistics" element={<Statistics />} />
         <Route path="/Activities" element={<Activities />} />
         <Route path="/ProfCarousel" element={<ProfCarousel />} />
@@ -42,13 +43,12 @@ function App() {
         {/* Define other routes here if needed */}
         <Route path="/Crime" element={<Crime />} /> {/* Define the route for Crime page */}
         <Route path="/QOL2" element={<QOL2 />} /> {/* Define the route for Crime page */}
-        <Route path="/Addictions" element={<Addictions />} />
 
-        <Route path="/test2" element={<test2 />} /> {/* Define the route for Crime page */}
 
       </Routes>
     </Router>
   );
 }
+// <Route path="/test2" element={<test2 />} /> {/* Define the route for Crime page */}
 
 export default App;

@@ -225,7 +225,7 @@ html, body, main {
     justify-content: center; /* Center the title horizontally */
     align-items: center; /* Center the title vertically */
     /* margin-top: 20px; */
-}
+}   
 
 .titleBar h1 {
     font-family: 'Abhaya Libre ExtraBold';
