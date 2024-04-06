@@ -9,10 +9,10 @@ body {
 }
 
 .spinner {
-    width: 85vw;  /* Use 50% of the viewport width */
-    height: 85vw; /* Use 50% of the viewport width to keep the spinner circle */
-    max-width: 600px; /* Maximum size */
-    max-height: 600px; /* Maximum size */
+    width: 85vw;  
+    height: 85vw;
+    max-width: 600px; 
+    max-height: 600px;
     position: relative;
     border-radius: 50%;
     background: conic-gradient(
@@ -25,11 +25,38 @@ body {
     animation: spin 5s infinite linear;
 }
 
-/* Optional: Add a media query for very small screens to set a minimum size */
+.category {
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligns the content to the edge of the slice */
+}
+
+.icon {
+    cursor: pointer; /* Shows a pointer cursor when hovering over the icons */
+    position: relative; /* Relative to the rotated .category container */
+    height: 20%; /* Smaller percentage of the spinner's size for better fit */
+    font-size: 4vw; /* Adjust the font-size to fit the icon within the slice */
+    pointer-events: none; /* Prevent the icon from blocking click events on the category */
+}
+
+/* Position the icons within their slices */
+.icon1 { transform: rotate(36deg); }
+.icon2 { transform: rotate(108deg); }
+.icon3 { transform: rotate(180deg); }
+.icon4 { transform: rotate(252deg); }
+.icon5 { transform: rotate(324deg); }
+
 @media (max-width: 300px) {
     .spinner {
         width: 100vw;
         height: 100vw;
+    }
+
+    .icon {
+        font-size: 6vw; /* Smaller icons for very small screens */
     }
 }
 
