@@ -14,6 +14,7 @@ import QOL2 from './QOL2';
 import Responsive from './Responsive'; // Import the Responsive component
 import LandingPage from './LandingPage';
 import Addictions from './Addictions';
+import NewActivities from './NewActivities'
 
 //import Test from './Test'; // Import the test2 component
 
@@ -45,6 +46,8 @@ function App() {
         <Route path="/QOL2" element={<QOL2 />} /> {/* Define the route for Crime page */}
 
 
+        <Route path="/Addictions" element={<Addictions />} /> {/* Define the route for Crime page */}
+        <Route path="/NewActivities" element={<NewActivities />} /> 
       </Routes>
     </Router>
   );
