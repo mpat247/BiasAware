@@ -235,7 +235,7 @@ body {
 }
 
 .activities-popup-content {
-    background: #0B0533;
+    background-color: #0B0533;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -255,7 +255,7 @@ body {
 .activities-popup-header {
     /* Style as needed */
     color: white;
-    background-color: orange;
+    /* background-color: orange; */
     margin-bottom: 20px;
 }
 
@@ -283,7 +283,7 @@ body {
 .activities-popup-slide {
     width: 32.5%; /* Each slide takes up 32% of the popup-body width */
     height: 100%; /* Adjust the height as needed */
-    background-color: red;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;

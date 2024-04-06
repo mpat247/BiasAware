@@ -17,29 +17,37 @@ const slideInfo = [
     { image: hockey, color: colors[3] },
     { image: bingo, color: colors[4] },
     { image: tennis, color: colors[5] },
-    { image: basketball, color: colors[0] },
-    { image: cricket, color: colors[1] },
-    { image: volleyball, color: colors[2] },
-    { image: hockey, color: colors[3] },
-    { image: bingo, color: colors[4] },
-    { image: tennis, color: colors[5] },
-    { image: basketball, color: colors[0] },
-    { image: cricket, color: colors[1] },
-    { image: volleyball, color: colors[2] },
-    { image: hockey, color: colors[3] },    
+    { image: basketball, color: colors[6] },
+    { image: cricket, color: colors[7] },
+    { image: volleyball, color: colors[0] },
+    { image: hockey, color: colors[1] },
+    { image: bingo, color: colors[2] },
+    { image: tennis, color: colors[3] },
+    { image: basketball, color: colors[4] },
+    { image: cricket, color: colors[5] },
+    { image: volleyball, color: colors[6] },
+    { image: hockey, color: colors[7] },    
     //We're going to have 16 slides.
   ];
 
 const Popup = ({ isVisible, onClose, bgColor }) => {
+
+    useEffect(() => {
+        console.log("Popup bgColor prop:", bgColor);
+    }, [bgColor]); // Only re-run the effect if bgColor changes
+
+
+
     if (!isVisible) return null;
+    // console.log("Popup color:", bgColor);
 
     return (
         <div className="activities-popup-overlay" onClick={onClose}>
-             <div className="activities-popup-content" style={{ backgroundColor: bgColor }} onClick={e => e.stopPropagation()}>
-                <div className="activities-popup-header">
+             <div className="activities-popup-content" onClick={e => e.stopPropagation()}>
+                <div className="activities-popup-header" style={{ backgroundColor: bgColor }}>
                     <h2>O C C U P A T I O N</h2>
                 </div>
-                <div className="activities-popup-body">
+                <div className="activities-popup-body" style={{ backgroundColor: bgColor }}>
                     <div className="activities-popup-slides-container">
                         <div className="activities-popup-slide">
                         </div>
@@ -66,10 +74,18 @@ const NewActivities = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [popupColor, setPopupColor] = useState(colors[0]); // Default color
 
-    const handleSlideClick = (color) => {
-        setPopupColor(color); // Set the popup color based on the clicked slide
+    const handleSlideClick = (event, color) => {
+        event.stopPropagation(); // Stop event propagation to prevent click on parent elements
+        console.log('Setting color to:', color);
+        setPopupColor(color);  // Update the popup color state
         setPopupVisible(true); // Show the popup
     };
+    
+    
+      // This useEffect will log whenever popupColor changes
+      useEffect(() => {
+        console.log('popupColor state updated to:', popupColor);
+      }, [popupColor]);
 
 
     useEffect(() => {
@@ -256,6 +272,10 @@ const NewActivities = () => {
         })
     }, []);
 
+    // Inside NewActivities component, before the return statement
+    console.log('Popup bgColor state:', popupColor);
+
+
     return (
         <>
             <div className="activities-PostSlide-wrapper">
@@ -264,11 +284,11 @@ const NewActivities = () => {
             </div>
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">
-                        
-                    <div className="activities-slider">
+
+                        <div className="activities-slider">
                             {slideInfo.map((slide, index) => (
-                                <div key={index} className="activities-slide" onClick={() => handleSlideClick(slide.color)} style={{ backgroundColor: slide.color }}>
-                                    <div className="activities-slide-inner">
+                                <div key={index} className="activities-slide" style={{ backgroundColor: slide.color }}>
+                                    <div className="activities-slide-inner" onClick={(e) => handleSlideClick(e, slide.color)}>
                                         <img src={slide.image} alt={`Slide ${index + 1}`} className="activities-image" />
                                     </div>
                                 </div>
