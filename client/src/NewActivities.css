@@ -27,6 +27,7 @@ p {
     border-radius: 10px;
     overflow: hidden; /* Ensures no overflow */
     z-index: 10;
+    cursor: pointer; /* To indicate the slide is clickable */
 }
 
 .activities-slide-inner .activities-image {
@@ -38,6 +39,32 @@ p {
     object-fit: fill; /* Cover the whole area without losing aspect ratio */
 }
 
+.activities-hover-caption {
+    display: none; /* Hide caption by default */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent grey overlay */
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+    z-index: 20; /* Make sure it's above the image */
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .activities-slide:hover .activities-hover-caption {
+    display: flex; /* Show caption on hover */
+    opacity: 1;
+  }
+  
+  .activities-slide:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Grey shadow on hover */
+  }
+  
 
   
   .activities-handles svg path{
@@ -155,44 +182,7 @@ p {
       justify-content: space-between;
   }
   
-  @media (min-width: 1280px){
-      .activities-PostSlide .activities-innerContainer .activities-slider{
-          width: 1200px!important;
-          margin: auto;
-      }
-  }
   
-  @media (max-width: 1280px){
-      .activities-PostSlide .activities-innerContainer .activities-handles{
-          width: calc(100% + 30px)!important;
-          margin-left: -15px!important;
-          margin-right: -15px!important;
-      }
-  }
-  
-  @media (min-width: 960px) and (max-width: 1280px){
-      .activities-PostSlide .activities-innerContainer .activities-slider{
-          width: 960px!important;
-      }
-  }
-  
-  @media (min-width: 960px) and (max-width: 1280px){
-      .activities-PostSlide .activities-innerContainer .activities-slider{
-          width: 960px!important;
-      }
-  }
-  
-  @media (min-width: 640px) and (max-width: 960px){
-      .activities-PostSlide .activities-innerContainer .activities-slider{
-          width: 640px!important;
-      }
-  }
-  
-  @media (max-width: 640px){
-      .activities-PostSlide .activities-innerContainer .activities-slider{
-          width: 300px!important;
-      }
-  }
   
   .activities-PostSlide .activities-innerContainer,
   .activities-PostSlide .activities-slider,
@@ -328,7 +318,44 @@ p {
     background-color: #e2e2e2;
 }
 
+@media (min-width: 1280px){
+    .activities-PostSlide .activities-innerContainer .activities-slider{
+        width: 1200px!important;
+        margin: auto;
+    }
+}
 
+@media (max-width: 1280px){
+    .activities-PostSlide .activities-innerContainer .activities-handles{
+        width: calc(100% + 30px)!important;
+        margin-left: -15px!important;
+        margin-right: -15px!important;
+    }
+}
+
+@media (min-width: 960px) and (max-width: 1280px){
+    .activities-PostSlide .activities-innerContainer .activities-slider{
+        width: 960px!important;
+    }
+}
+
+@media (min-width: 960px) and (max-width: 1280px){
+    .activities-PostSlide .activities-innerContainer .activities-slider{
+        width: 960px!important;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 960px){
+    .activities-PostSlide .activities-innerContainer .activities-slider{
+        width: 640px!important;
+    }
+}
+
+@media (max-width: 640px){
+    .activities-PostSlide .activities-innerContainer .activities-slider{
+        width: 300px!important;
+    }
+}
 
 @media (max-width: 1100px) {
     .activities-popup-slides-container {

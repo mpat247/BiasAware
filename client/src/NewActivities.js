@@ -11,22 +11,22 @@ const colors = ["#FFD600", "#F5A720", "#D9822A", "#BE5C43", "#A33862", "#6A2774"
 
 // Define slide information, mapping each image to a color
 const slideInfo = [
-    { image: basketball, color: colors[0] },
-    { image: cricket, color: colors[1] },
-    { image: volleyball, color: colors[2] },
-    { image: hockey, color: colors[3] },
-    { image: bingo, color: colors[4] },
-    { image: tennis, color: colors[5] },
-    { image: basketball, color: colors[6] },
-    { image: cricket, color: colors[7] },
-    { image: volleyball, color: colors[0] },
-    { image: hockey, color: colors[1] },
-    { image: bingo, color: colors[2] },
-    { image: tennis, color: colors[3] },
-    { image: basketball, color: colors[4] },
-    { image: cricket, color: colors[5] },
-    { image: volleyball, color: colors[6] },
-    { image: hockey, color: colors[7] },    
+    { image: basketball, color: colors[0], name: "Basketball"},
+    { image: cricket, color: colors[1], name: "Cricket"},
+    { image: volleyball, color: colors[2], name: "Volleyball"},
+    { image: hockey, color: colors[3], name: "Hockey"},
+    { image: bingo, color: colors[4], name: "Bingo"},
+    { image: tennis, color: colors[5], name: "Tennis"},
+    { image: basketball, color: colors[6], name: "Basketball"},
+    { image: cricket, color: colors[7], name: "Cricket"},
+    { image: volleyball, color: colors[0], name: "Volleyball"},
+    { image: hockey, color: colors[1], name: "Hockey"},
+    { image: bingo, color: colors[2], name: "Bingo"},
+    { image: tennis, color: colors[3], name: "Tennis"},
+    { image: basketball, color: colors[4], name: "Basketball"},
+    { image: cricket, color: colors[5], name: "Cricket"},
+    { image: volleyball, color: colors[6], name: "Volleyball"},
+    { image: hockey, color: colors[7], name: "Hockey"},
     //We're going to have 16 slides.
   ];
 
@@ -77,6 +77,8 @@ const Popup = ({ isVisible, onClose, bgColor }) => {
 const NewActivities = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [popupColor, setPopupColor] = useState(colors[0]); // Default color
+
+    const [hoveredSlide, setHoveredSlide] = useState(null);
 
     const handleSlideClick = (event, color) => {
         // This check ensures that only clicks directly on `activities-slide-inner`
@@ -295,7 +297,7 @@ const NewActivities = () => {
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">
 
-                        <div className="activities-slider">
+                        {/* <div className="activities-slider">
                             {slideInfo.map((slide, index) => (
                                 <div key={index} className="activities-slide" style={{ backgroundColor: slide.color }}>
                                     <div className="activities-slide-inner" onClick={(e) => handleSlideClick(e, slide.color)}>
@@ -303,7 +305,25 @@ const NewActivities = () => {
                                     </div>
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
+
+                <div className="activities-slider">
+                {slideInfo.map((slide, index) => (
+                    <div key={index} className="activities-slide" style={{ backgroundColor: slide.color }}>
+                    <div
+                        className="activities-slide-inner"
+                        onClick={(e) => handleSlideClick(e, slide.color)}
+                        onMouseEnter={() => setHoveredSlide(slide.name)}
+                        onMouseLeave={() => setHoveredSlide(null)}
+                    >
+                        <img src={slide.image} alt={slide.name} className="activities-image" />
+                        {hoveredSlide === slide.name && (
+                        <div className="activities-hover-caption">{slide.name}</div>
+                        )}
+                    </div>
+                    </div>
+                ))}
+            </div>
 
                         <div className="activities-handles">
                             <span className="activities-prev">
