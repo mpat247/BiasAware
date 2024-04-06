@@ -1,3 +1,68 @@
-/* body {
-    background-color: aqua;
-} */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0B0533;
+}
+
+/* NewProfessions.css */
+.spinner {
+    width: 200px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    position: relative;
+    border: 2px solid white; /* Add a border for visibility */
+    border-radius: 50%;
+    overflow: hidden;
+    animation: spin 5s infinite linear;
+}
+
+.category {
+    position: absolute;
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background for visibility */
+    clip-path: polygon(50% 50%, 100% 0%, 100% 100%);
+}
+
+
+.category1 {
+    top: 0;
+    left: 50%;
+    transform-origin: bottom left;
+}
+
+.category2 {
+    top: 50%;
+    left: 100%;
+    transform-origin: bottom right;
+}
+
+.category3 {
+    top: 100%;
+    left: 50%;
+    transform-origin: top right;
+}
+
+.category4 {
+    top: 50%;
+    left: 0;
+    transform-origin: top left;
+}
+
+.category5 {
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
