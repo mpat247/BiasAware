@@ -11,6 +11,8 @@ import Crime from './Crime';
 import Emotions from './Emotions';
 import ProfessionsLanding from './ProfessionsLanding';
 import LandingPage from './LandingPage'; // Import the LandingPage component
+import NewActivities from './NewActivities'; // Import the LandingPage component
+
 import './GearComponent.css';
 
 const Home = () => {
@@ -235,7 +237,13 @@ const Home = () => {
         
       </main>
 
+
+{/* Activities section */}
+<div id="activities">
+        <NewActivities />
+      </div>
       
+
 
       {/* Activities section */}
       <div id="activities">
