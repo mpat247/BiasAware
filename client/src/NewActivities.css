@@ -19,20 +19,6 @@ p {
     line-height: normal;
 }
 
-/* .activities-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover!important;
-    background-position: center center!important;
-    min-width: 280px;
-    height: 420px;
-    margin: 0 10px;
-    background-color: yellow;
-    padding: 20px; 
-    box-sizing: border-box;
-} */
-
 .activities-slide-inner {
     position: relative; /* Positioning context for absolute children */
     background-color: green;
@@ -247,12 +233,13 @@ p {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 60%; /* Adjust as needed */
-    height: 75%; /* Adjust as needed */
+    height: 95%; /* Adjust as needed */
     text-align: center;
     display: flex;
     flex-direction: column; /* Stack children vertically */
     justify-content: space-around;
     align-items: center;
+    overflow: hidden; /* Ensures no overflow */
 }
 
 .activities-popup-header, .activities-popup-body, .activities-popup-footer {
@@ -275,8 +262,8 @@ p {
     /* background-color: pink; */
     padding: 22px; /* Add some padding around the slides */
     border-radius: 10px;
-    width: 90%;
-    height: 200px;
+    width: 95%;
+    /* height: 200px; */
 }
 
 .activities-popup-slides-container {
@@ -298,6 +285,14 @@ p {
     align-items: center;
     border-radius: 10px;
 }
+
+.activities-popup-image {
+    width: 100%; /* Full width of the parent */
+    height: 100%; /* Full height of the parent */
+    object-fit: fill; /* Cover the whole area without losing aspect ratio */
+    border-radius: 10px;
+}
+
 
 /* Remove outer margins for the first and last slide */
 .activities-popup-slide:first-child, .activities-popup-slide:last-child {
@@ -333,6 +328,5 @@ p {
     background-color: #e2e2e2;
 }
 
-/* .activities-image-container {
-} */
+
 
