@@ -45,7 +45,7 @@ const Popup = ({ isVisible, onClose, bgColor }) => {
         <div className="activities-popup-overlay" onClick={onClose}>
              <div className="activities-popup-content" onClick={e => e.stopPropagation()}>
                 <div className="activities-popup-header" style={{ backgroundColor: bgColor }}>
-                    <h2>O C C U P A T I O N</h2>
+                    <h2>Activity Name</h2>
                 </div>
                 <div className="activities-popup-body" style={{ backgroundColor: bgColor }}>
                     <div className="activities-popup-slides-container">
