@@ -74,11 +74,35 @@ const NewActivities = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [popupColor, setPopupColor] = useState(colors[0]); // Default color
 
+    // const handleSlideClick = (event, color) => {
+    //     // Check if the clicked element has the class 'activities-slide-inner'
+    //     if (event.target.classList.contains('activities-slide-inner')) {
+    //         event.stopPropagation(); // Stop event propagation to prevent click on parent elements
+    //         console.log('Setting color to:', color);
+    //         setPopupColor(color);  // Update the popup color state
+    //         setPopupVisible(true); // Show the popup
+    //     }
+    // };
+
+    // const handleSlideClick = (event, color) => {
+    //     event.stopPropagation(); 
+    //     console.log('Setting color to:', color);
+    //     setPopupColor(color); 
+    //     setPopupVisible(true); 
+    // };
+
+
     const handleSlideClick = (event, color) => {
-        event.stopPropagation(); // Stop event propagation to prevent click on parent elements
+        // This check ensures that only clicks directly on `activities-slide-inner`
+        // or its descendants can trigger the popup.
+        if (!event.currentTarget.classList.contains('activities-slide-inner')) {
+            return; // Do nothing if the click is not on the target element.
+        }
+        
         console.log('Setting color to:', color);
-        setPopupColor(color);  // Update the popup color state
-        setPopupVisible(true); // Show the popup
+        setPopupColor(color); 
+        setPopupVisible(true);
+        event.stopPropagation(); // Prevent the event from bubbling further.
     };
     
     
