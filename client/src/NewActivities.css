@@ -1,15 +1,11 @@
-body {
+.activities-page-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* font-family: 'Roboto'; */
     background-color: #0B0533;
-    /* background: #1b1b1b; */
-    /* color: #e2e2e2; */
 }
-
 
 .activities-landing-title {
     font-family: "Crimson Text", serif;
@@ -18,10 +14,10 @@ body {
     font-style: normal;
 }
 
-p {
+/* p {
     margin-bottom: 0rem;
     line-height: normal;
-}
+} */
 
 .activities-slide-inner {
     position: relative; /* Positioning context for absolute children */
@@ -221,6 +217,8 @@ p {
 }
 
 .activities-popup-statistical-analysis {
+    margin-bottom: 0rem;
+    line-height: normal;
     font-size: 0.75rem;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;

@@ -50,22 +50,19 @@ const Popup = ({ isVisible, onClose, bgColor }) => {
                 <div className="activities-popup-body" style={{ backgroundColor: bgColor }}>
                     <div className="activities-popup-slides-container">
                         <div className="activities-popup-slide">
-                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
+                            <img src={basketball} alt="basketball" className="activities-popup-image"/>
                         </div>
                         <div className="activities-popup-slide">
-                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
+                            <img src={basketball} alt="basketball" className="activities-popup-image"/>
                         </div>
                         <div className="activities-popup-slide">
-                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
+                            <img src={basketball} alt="basketball" className="activities-popup-image"/>
                         </div>
                     </div>
                     <div className="activities-popup-slide-caption">
                         <p className="activities-popup-statistical-analysis">The statistical analysis caption is going to go here.</p>
                     </div>
                     </div>
-                {/* <div className="activities-popup-slide-caption">
-                    <p>The statistical analysis caption is going to go here.</p>
-                </div> */}
                 <div className="activities-popup-footer">
                 <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>Close</button>
                 </div>
@@ -289,7 +286,8 @@ const NewActivities = () => {
 
 
     return (
-        <>
+        // <>
+        <div className="activities-page-container">
             <div className="activities-PostSlide-wrapper">
             <div className="activities-title-container">
                 <h1 className="activities-landing-title">ACTIVITIES</h1>
@@ -344,7 +342,7 @@ const NewActivities = () => {
             onClose={() => setPopupVisible(false)} 
             bgColor={popupColor} // Here you're using popupColor correctly
             />
-        </>
+        </div>
     );
 };
 
