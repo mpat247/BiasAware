@@ -45,29 +45,29 @@ const Popup = ({ isVisible, onClose, bgColor }) => {
         <div className="activities-popup-overlay" onClick={onClose}>
              <div className="activities-popup-content" onClick={e => e.stopPropagation()}>
                 <div className="activities-popup-header" style={{ backgroundColor: bgColor }}>
-                    <h2>Activity Name</h2>
+                    <h1 className="activities-popup-title">Activity Name</h1>
                 </div>
                 <div className="activities-popup-body" style={{ backgroundColor: bgColor }}>
                     <div className="activities-popup-slides-container">
                         <div className="activities-popup-slide">
-                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
+                            <img src={basketball} alt="basketball" className="activities-popup-image"/>
                         </div>
                         <div className="activities-popup-slide">
-                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
+                            <img src={basketball} alt="basketball" className="activities-popup-image"/>
                         </div>
                         <div className="activities-popup-slide">
-                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
+                            <img src={basketball} alt="basketball" className="activities-popup-image"/>
                         </div>
                     </div>
                     <div className="activities-popup-slide-caption">
-                        <p>The statistical analysis caption is going to go here.</p>
+                        <p className="activities-popup-statistical-analysis">The statistical analysis caption is going to go here.</p>
                     </div>
                     </div>
                 {/* <div className="activities-popup-slide-caption">
                     <p>The statistical analysis caption is going to go here.</p>
                 </div> */}
                 <div className="activities-popup-footer">
-                    <button onClick={onClose}>Close</button>
+                <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>Close</button>
                 </div>
             </div>
         </div>
@@ -101,7 +101,7 @@ const NewActivities = () => {
 
 
     useEffect(() => {
-        var autoplayIntervalInSeconds = 10;
+        var autoplayIntervalInSeconds = 1;
 
         class PostSlider {
 
@@ -136,7 +136,7 @@ const NewActivities = () => {
                     this.nextSlider();
                 });
 
-                this.autoplayInterval = null;
+                // this.autoplayInterval = null;
                 this.autoplayDelay = autoplayIntervalInSeconds * 1000;
 
                 this.startAutoplay()
@@ -292,7 +292,7 @@ const NewActivities = () => {
         <>
             <div className="activities-PostSlide-wrapper">
             <div className="activities-title-container">
-                <h1>ACTIVITIES</h1>
+                <h1 className="activities-landing-title">ACTIVITIES</h1>
             </div>
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">
@@ -310,12 +310,7 @@ const NewActivities = () => {
                 <div className="activities-slider">
                 {slideInfo.map((slide, index) => (
                     <div key={index} className="activities-slide" style={{ backgroundColor: slide.color }}>
-                    <div
-                        className="activities-slide-inner"
-                        onClick={(e) => handleSlideClick(e, slide.color)}
-                        onMouseEnter={() => setHoveredSlide(slide.name)}
-                        onMouseLeave={() => setHoveredSlide(null)}
-                    >
+                    <div className="activities-slide-inner" onClick={(e) => handleSlideClick(e, slide.color)} onMouseEnter={() => setHoveredSlide(slide.name)} onMouseLeave={() => setHoveredSlide(null)}>
                         <img src={slide.image} alt={slide.name} className="activities-image" />
                         {hoveredSlide === slide.name && (
                         <div className="activities-hover-caption">{slide.name}</div>
