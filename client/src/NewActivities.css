@@ -330,3 +330,19 @@ p {
 
 
 
+@media (max-width: 1100px) {
+    .activities-popup-slides-container {
+      flex-direction: column; /* Stack slides vertically */
+    }
+  
+    .activities-popup-slide {
+      width: 100%; /* Each slide takes the full width of the popup-body */
+      margin-bottom: 10px; /* Add space between slides */
+    }
+  
+    /* Adjust the last-child to remove the margin at the bottom */
+    .activities-popup-slide:last-child {
+      margin-bottom: 0;
+    }
+  }
+  

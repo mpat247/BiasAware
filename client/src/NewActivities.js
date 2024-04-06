@@ -50,13 +50,13 @@ const Popup = ({ isVisible, onClose, bgColor }) => {
                 <div className="activities-popup-body" style={{ backgroundColor: bgColor }}>
                     <div className="activities-popup-slides-container">
                         <div className="activities-popup-slide">
-                            <img src={basketball} alt="basketball" className="activities-popup-image"/>
+                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
                         </div>
                         <div className="activities-popup-slide">
-                            <img src={basketball} alt="basketball" className="activities-popup-image"/>
+                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
                         </div>
                         <div className="activities-popup-slide">
-                            <img src={basketball} alt="basketball" className="activities-popup-image"/>
+                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
                         </div>
                     </div>
                     <div className="activities-popup-slide-caption">
