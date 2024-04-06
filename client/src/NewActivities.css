@@ -74,7 +74,7 @@ body {
   .activities-PostSlide {
       max-width: 1300px;
       margin: 10px auto 40px;
-      background-color: aqua;
+      /* background-color: aqua; */
   }
   
   .activities-PostSlide .activities-innerContainer .activities-slider {

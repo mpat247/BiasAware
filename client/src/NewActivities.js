@@ -7,7 +7,7 @@ import hockey from './images/image 10.png';
 import bingo from './images/image 11.png';
 import tennis from './images/image 12.png';
 
-const colors = ["red", "grey", "white", "blue", "green", "yellow", "purple", "orange"]; // Define colors for slides
+const colors = ["#FFD600", "#F5A720", "#D9822A", "#BE5C43", "#A33862", "#6A2774", "#441A93", "#161E7B"]; // Define colors for slides
 
 // Define slide information, mapping each image to a color
 const slideInfo = [
