@@ -5,13 +5,17 @@ body {
     align-items: center;
     height: 100vh;
     font-family: Roboto;
-    background: #1b1b1b;
-    color: #e2e2e2;
+    /* background: #1b1b1b; */
+    /* color: #e2e2e2; */
 }
-  
-body {
-    background: #1b1b1b;
-    color: #e2e2e2;
+
+h1 {
+    color: #DD9313;
+}
+
+p {
+    margin-bottom: 0rem;
+    line-height: normal;
 }
 
 /* .activities-slide {
@@ -68,7 +72,8 @@ body {
         text-align: center;
         margin-bottom: 20px; /* Distance from the title to the .PostSlide */
         /* Add more styling as needed */
-        background-color: plum;
+        /* background-color: plum; */
+        color: red;
     }
 
   .activities-PostSlide {
@@ -118,7 +123,7 @@ body {
     justify-content: space-between;
     position: relative;
     /* top: -230px; */
-    top: -170px;
+    top: -190px;
     width: 103%;
     cursor: pointer;
     margin-right: -20px;
@@ -267,8 +272,9 @@ body {
     justify-content: flex-start; /* Start children at the top of the container */
     align-items: center; /* Center children horizontally */
     /* background-color: pink; */
-    padding: 20px; /* Add some padding around the slides */
+    padding: 22px; /* Add some padding around the slides */
     border-radius: 10px;
+    width: 90%;
 }
 
 .activities-popup-slides-container {
@@ -282,7 +288,7 @@ body {
 }
 
 .activities-popup-slide {
-    width: 32.5%; /* Each slide takes up 32% of the popup-body width */
+    width: 32%; /* Each slide takes up 32% of the popup-body width */
     height: 100%; /* Adjust the height as needed */
     background-color: white;
     display: flex;
@@ -303,6 +309,7 @@ body {
     width: 100%; /* Take the full width of the body */
     /* Add additional styling as needed */
     /* background-color: lightgreen; */
+    padding-top: 10px;
 }
 
 .activities-popup-footer {

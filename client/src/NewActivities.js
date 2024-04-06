@@ -62,6 +62,9 @@ const Popup = ({ isVisible, onClose, bgColor }) => {
                         <p>The statistical analysis caption is going to go here.</p>
                     </div>
                     </div>
+                {/* <div className="activities-popup-slide-caption">
+                    <p>The statistical analysis caption is going to go here.</p>
+                </div> */}
                 <div className="activities-popup-footer">
                     <button onClick={onClose}>Close</button>
                 </div>
