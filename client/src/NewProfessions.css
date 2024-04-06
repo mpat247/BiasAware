@@ -5,33 +5,80 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #0B0533;
-}
+  }
 
-.categories-container {
-    position: relative;
-    width: 400px; /* Adjusted for bigger bubbles */
-    height: 400px; /* Adjusted for bigger bubbles */
-    border-radius: 50%;
-    margin: auto;
-    animation: spin 20s linear infinite;
-    background-color: white;
-}
-
-.category-bubble {
-    position: absolute;
-    width: 150px; /* Made bubbles larger */
-    height: 150px; /* Made bubbles larger */
+  @keyframes wave {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-40px); /* Increased peak height */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pop-in {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .categories-container {
+    display: flex;
+    flex-direction: row; /* Align bubbles in a row */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: aqua;
+    max-width: 90vw; /* Max width to keep the container within the viewport */
+  }
+  
+  .category-bubble {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #fff;
     font-weight: bold;
     transition: transform 0.3s ease;
     cursor: pointer;
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+    animation: pop-in 0.5s ease-out forwards, wave 3s ease-in-out infinite;
+  }
+  
+  .category-bubble:hover {
+    transform: scale(1.1);
+  }
+  
+  .category-bubble:nth-child(1) {
+    animation-delay: 0s, calc(0.1s * 1);
+  }
+  
+  .category-bubble:nth-child(2) {
+    animation-delay: 0s, calc(0.1s * 2);
+  }
+  
+  .category-bubble:nth-child(3) {
+    animation-delay: 0s, calc(0.1s * 3);
+  }
+  
+  .category-bubble:nth-child(4) {
+    animation-delay: 0s, calc(0.1s * 4);
+  }
+  
+  .category-bubble:nth-child(5) {
+    animation-delay: 0s, calc(0.1s * 5);
+  }
+  
+  /* Add more nth-child rules for additional bubbles */
+  
