@@ -229,6 +229,7 @@
   height: 100%;
   background-color: #080328; /* Semi-transparent black */
   z-index: 998; /* Ensure the overlay is behind the popup */
+  opacity: 0.8; /* Set opacity to 50% */
 }
 
 .rectanglepop1 {
@@ -320,4 +321,47 @@
   height: 280px; /* Adjust the height as needed */
   background-color: #ffffff; /* Set a background color */
   z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+.rectangleback2 {
+  background-color: #1e0940;
+  width: 800px;
+  height: 500px;
+  margin-top: -490px; /* Adjust the margin-top value to bring the rectangle down */
+  margin-left: 360px;
+  position: relative; /* Ensure that z-index works */
+  z-index: 1; /* Set a lower z-index for rectangleback1 */
+  
+}
+
+.popup-prompt {
+  text-align: center;
+  width: 80%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the text horizontally */
+  overflow-wrap: break-word; /* Allow long words to break */
+  overflow: auto; /* Enable scrolling if the text overflows */
+  font-size: 22px; /* Adjust the font size as needed */
+  transform: translateY(-5%);
+
+}
+
+
+
+.image2 {
+  position: absolute;
+  top:98px; /* Adjust the top position to place it inside the popup */
+  left: px; /* Adjust the left position to place it inside the popup */
+  width: 330px; /* Adjust the width as needed */
+  height: 280px; /* Adjust the height as needed */
+  z-index: 999; /* Ensure it's above other elements in the popup */
+}
+
+.popup-description {
+  text-align: center;
+  margin-top: 40px; /* Increase the margin-top value to push the description further down */
+  overflow-wrap: break-word;
+  font-size: 18px; /* Adjust the font size as needed */
+  /* Additional styling as needed */
+  transform: translateY(925%);
+
 }

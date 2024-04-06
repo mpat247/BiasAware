@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  overflow:auto; 
+  background: linear-gradient(-45deg, #0c062f, #140C46, #3e3671);
+  background-size: 800% 800%;
+  animation: gradient 20s ease infinite;
+height: 100vh;
+}
+.no-scroll {
+  overflow: hidden;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+}
+
+.main {
+  flex: 4;
+  display: flex;
+  flex-direction: column; /* Change flex direction to column */
+  align-items: center; /* Align items to the left */
+  justify-content: center; /* Center horizontally */
+  width: 100vw;
+  padding-left: 20px; /* Adjust left padding for spacing */
+  padding-right: 20px;
+}
+
+h1, h2 {
+  animation-name: fadeUp;
+  animation-duration: 2s;
+  font-size: 80px;
+  color: #F5A720;
+  align-items: center; /* Align items to the left */
+  justify-content: center; /* Center horizontally */
+}
+h2 {
+  font-size: 70px;
+  color: #F5A720;
+}
+p {
+  animation-name: fadeUp;
+  animation-duration: 2s;
+  font-size: 40px;
+  color: #F5A720;
+  align-items: center; /* Align items to the left */
+  justify-content: center; /* Center horizontally */
+  padding-left: 20px; /* Adjust left padding for spacing */
+  padding-right: 20px;
+}
+p2 {
+  font-size: 20px;
+  color: #F5A720;
+  align-items: center; /* Align items to the left */
+  justify-content: center; /* Center horizontally */
+}
+.new-header {
+  color: #F5A720;
+  font-size: 60px;
+  text-align: center; /* Center text horizontally */
+  position: absolute;
+  
+}
+.new-sentence {
+  color: #F5A720;
+  font-size: 40px;
+  text-align: center; /* Center text horizontally */
+  position: absolute;
+  
+}
+.gear-icon{
+  animation-name: fadeUp;
+  animation-duration: 2s;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  position: absolute;
+}
+.iconcontainer {
+
+  animation: gradient 15s ease infinite;
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 20%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background-color: #F5A720;
+  opacity: 0;
+  align-items: center;
+}
+
+#left {
+  animation-name: fadeFromLeft;
+  animation-duration: 2s;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
+}
+
+#right {
+  animation-name: fadeFromRight;
+  animation-duration: 2s;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0.3;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px) scale(1);
+  }
+}
+
+@keyframes fadeFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px) scale(1);
+  }
+}
+@keyframes fadeToLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes fadeToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+@keyframes fadeUpdateLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+   
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUpdateRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive CSS */
+@media only screen and (max-width: 768px) {
+  .h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  .new-header{
+    font-size: 24px;
+  }
+  .new-sentence{
+    font-size: 18px;
+  }
+  .icon{
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .new-header{
+    font-size:18px;
+  }
+  .new-sentence{
+    font-size: 14px;
+  }
+  .icon{
+    width: 40px;
+    height: 40px;
+  }
+}

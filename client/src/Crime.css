@@ -1,0 +1,173 @@
+.crimes-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .title {
+    text-align: center;
+    margin-top: 7%;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Set the grid to have 6 columns */
+    grid-gap: 10px;
+    background-color: #ffffff; /* Set the desired background color */
+  }
+  
+  .heatmap-container {
+    width: 11vw;
+    height: 11vw; /* Set the height of each heatmap container */
+    box-sizing: border-box;
+    border: none !important; /* Remove the border */
+    background-color: transparent !important; /* Set the background color to transparent */
+  }
+  
+  /* Remove background and border from heatmap containers */
+  div[id^="container"] {
+    background: transparent !important;
+    border: none !important;
+  }
+  
+  .anychart-credits {
+    display: none !important;
+  }
+  
+  .anychart-heatmap {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .crime-rectangle {
+    width: 20.7vw; /* Adjust width as needed */
+    height: 2.6vw; /* Adjust height as needed */
+    background-color: #0B0533; /* Set a background color */
+    margin: 27px 27px 27px 12.5px; /* Add margin for spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .6rem; /* Set the font size */
+    color: #ffffff; /* Set the text color */
+    font-family: 'Encode Sans Expanded', sans-serif;
+  }
+  
+  
+  .crime-rectangle-container {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important; 
+    margin-top: 20px; /* Add margin to separate from the title */
+  }
+
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0B0533; /* Blue with 30% opacity */
+    z-index: 9998; /* Below the popup */
+}
+
+.popup-crime {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff; /* Change the background color to white */
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 9999;
+  width: 40vh; /* Set the desired width */
+  height: 68vh; /* Set the desired height */
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  border-radius: 10px; /* Round the corners */
+}
+
+
+.popup-crime button {
+    position: absolute;
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Adjust the right position to move the button to the right */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: .5rem;
+    color: #333; /* Change button color */
+}
+
+.crime-popup-image {
+  width: 17vw;
+  height: 28vw; /* Set the height of the square */
+  background-color: #520b0b; /* Set the background color of the square */
+  margin: 50px auto; /* Center the square horizontally and add some margin */
+  border-radius: 10px;
+}
+
+.image-crime {
+  position: absolute;
+  bottom: 80px;
+  right: 1px;
+  width: 180px;
+  height: 280px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+@media screen and (max-width: 768px) {
+    /* For screens smaller than 768px */
+
+    .heatmap-container {
+        width: 16vw;
+        height: 16vw;
+        box-sizing: border-box;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* Set the grid to have 6 columns */
+        grid-gap: 3px;
+        background-color: #ffffff; /* Set the desired background color */
+      }
+
+    .crime-rectangle {
+        width: 24.8vw; /* Adjust width as needed */
+        height: 4vw; /* Adjust height as needed */
+        margin: 20px 20px 20px 17px; /* Add margin for spacing */
+        font-size: .4rem; /* Set the font size */
+      }
+      
+    .crime-rectangle-container {
+ 
+        margin-top: 5px; /* Add margin to separate from the title */
+      }
+    
+      .popup-crime {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ccc; /* Change the background color to white */
+        padding: 20px;
+        border: 1px solid #ccc;
+        z-index: 9999;
+        width: 10vh; /* Set the desired width */
+        height: 28vh; /* Set the desired height */
+        text-align: center;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        border-radius: 10px; /* Round the corners */
+      }
+  }
+
+
+  
+ 
+
+  

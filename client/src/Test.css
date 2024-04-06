@@ -1,0 +1,43 @@
+/* CarouselComponent.css */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.carousel-button.prev {
+    left: 32px;
+}
+
+.carousel-button.next {
+    right: 32px;
+}
+
+.carousel-images {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-image {
+    max-width: 100%;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+    border-radius: 10px;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}

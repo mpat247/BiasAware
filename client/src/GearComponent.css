@@ -1,0 +1,699 @@
+* {
+    box-sizing:border-box;
+
+  }
+body {
+    
+    
+  }
+  .main-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15em;
+  }
+  .gear-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 10em;
+    top: 1.0em;
+    margin-right: 19.75em;
+    margin-left: 35.5em;
+    
+  }
+  .center-circle {
+    position: relative;
+    width: 10em;
+    height: 10em;
+    padding: 0;
+    border-radius: 50%;
+    list-style: none;
+    margin: auto;
+    animation: spin-r 15s linear infinite;
+  }
+  .center-circle > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.25em;
+    height: 1.25em;
+    margin: -0.625em;
+    background: #F5A720;
+  }
+  .center-circle > *:nth-of-type(1) {
+    transform: rotate(5.5deg) translate(5em);
+  }
+  .center-circle > *:nth-of-type(2) {
+    transform: rotate(41.5deg) translate(5em);
+  }
+  .center-circle > *:nth-of-type(3) {
+    transform: rotate(77.5deg) translate(5em);
+  }
+  .center-circle > *:nth-of-type(4) {
+    transform: rotate(113.5deg) translate(5em);
+  }
+  .center-circle > *:nth-of-type(5) {
+    transform: rotate(149.5deg) translate(5em);
+  }
+  .center-circle > *:nth-of-type(6) {
+    transform: rotate(185.5deg) translate(5em);
+  }
+  .center-circle > *:nth-of-type(7) {
+    transform: rotate(221.5deg) translate(5em);
+  }
+  .center-circle > *:nth-of-type(8) {
+    transform: rotate(257.5deg) translate(5em);
+  }
+  .center-circle > *:nth-of-type(9) {
+    transform: rotate(293.5deg) translate(5em);
+  }
+  .center-circle > *:nth-of-type(10) {
+    transform: rotate(329.5deg) translate(5em);
+  }
+  .ring {
+    display: block;
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    border: solid 1.5em #F5A720;
+  }
+  .gear-container2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20em;
+    height: 20em;
+    top: 9.0em;
+    right: 22.35em;
+  }
+  .center-circle2 {
+    position: relative;
+    width: 20em;
+    height: 20em;
+    padding: 0;
+    border-radius: 50%;
+    list-style: none;
+    margin: auto;
+    animation: spin 15s linear infinite;
+  }
+  .center-circle2 > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3em;
+    height: 3em;
+    margin: -1.5em;
+    background: #F5A720;
+  }
+  .center-circle2 > *:nth-of-type(1) {
+    transform: rotate(5deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(2) {
+    transform: rotate(35deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(3) {
+    transform: rotate(65deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(4) {
+    transform: rotate(95deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(5) {
+    transform: rotate(125deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(6) {
+    transform: rotate(155deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(7) {
+    transform: rotate(185deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(8) {
+    transform: rotate(215deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(9) {
+    transform: rotate(245deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(10) {
+    transform: rotate(275deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(11) {
+    transform: rotate(305deg) translate(7em);
+  }
+  .center-circle2 > *:nth-of-type(12) {
+    transform: rotate(335deg) translate(7em);
+  }
+  .tooth {
+    display: block;
+    border-radius: 7px;
+  }
+  .ring2 {
+    display: block;
+    position: absolute;
+    width: 15em;
+    height: 15em;
+    border-radius: 50%;
+    border: solid 2em #F5A720;
+  }
+  .gear-container3 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 10em;
+    top: 9.0em;
+    right: 23em;
+  }
+  .center-circle3 {
+    position: relative;
+    width: 10em;
+    height: 10em;
+    padding: 0;
+    border-radius: 50%;
+    list-style: none;
+    margin: auto;
+    animation: spin-r 15s linear infinite;
+  }
+  .center-circle3 > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.25em;
+    height: 1.25em;
+    margin: -0.625em;
+    background: #F5A720;
+  }
+  .center-circle3 > *:nth-of-type(1) {
+    transform: rotate(5.5deg) translate(5em);
+  }
+  .center-circle3 > *:nth-of-type(2) {
+    transform: rotate(41.5deg) translate(5em);
+  }
+  .center-circle3 > *:nth-of-type(3) {
+    transform: rotate(77.5deg) translate(5em);
+  }
+  .center-circle3 > *:nth-of-type(4) {
+    transform: rotate(113.5deg) translate(5em);
+  }
+  .center-circle3 > *:nth-of-type(5) {
+    transform: rotate(149.5deg) translate(5em);
+  }
+  .center-circle3 > *:nth-of-type(6) {
+    transform: rotate(185.5deg) translate(5em);
+  }
+  .center-circle3 > *:nth-of-type(7) {
+    transform: rotate(221.5deg) translate(5em);
+  }
+  .center-circle3 > *:nth-of-type(8) {
+    transform: rotate(257.5deg) translate(5em);
+  }
+  .center-circle3 > *:nth-of-type(9) {
+    transform: rotate(293.5deg) translate(5em);
+  }
+  .center-circle3 > *:nth-of-type(10) {
+    transform: rotate(329.5deg) translate(5em);
+  }
+  .ring3 {
+    display: block;
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    border: solid 1.5em #F5A720;
+  }
+  .ring .acc-prompt2 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.75em; /* Adjust the font size as needed */
+    z-index: 8;
+    position: absolute;
+    top: 32.3%; /* Adjust the top position as needed */
+    left: 10.5%; /* Adjust the left position as needed */
+    margin-left:1em;
+  }
+  .acc-prompt2 h2 {
+    font-size: 1.5em !important; /* Adjust the font size as needed */
+  }
+
+  .ring .qol-prompt1 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.75em; /* Adjust the font size as needed */
+    z-index: 8;
+    position: absolute;
+    top: 10.3%; /* Adjust the top position as needed */
+    left: 12.5%; /* Adjust the left position as needed */
+    margin-left:1em;
+  }
+  .qol-prompt1 h2 {
+    font-size: 1em !important; /* Adjust the font size as needed */
+  }
+
+  .ring .qol-prompt2 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.75em; /* Adjust the font size as needed */
+    z-index: 8;
+
+    top: 20.3%; /* Adjust the top position as needed */
+    left: 12.5%; /* Adjust the left position as needed */
+    margin-left:4em;
+  }
+  .qol-prompt2 h2 {
+    font-size: 1em !important; /* Adjust the font size as needed */
+    margin-left:1.5em;
+  }
+  .ring .pro2 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    top: 40.6%; /* Adjust the top position as needed */
+    left: 33.6%; /* Adjust the left position as needed */
+  }
+
+  .pro2 h2 {
+    font-size: 1.08em !important; /* Adjust the font size as needed */
+    margin-top: 1.25em; /* Adjust the top position as needed */
+    margin-left:0.5em;
+  }
+  .ring .hood2 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 63%; /* Adjust the top position as needed */
+    left: 20.5%; /* Adjust the left position as needed */
+  }
+
+  .ring .hoods2 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 75.4%; /* Adjust the top position as needed */
+    left: 33.5%; /* Adjust the left position as needed */
+  }
+  .ring4 .hood1 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 10%; /* Adjust the top position as needed */
+    left: 20%; /* Adjust the left position as needed */
+  }
+  .hood1 h2 {
+    font-size: 1.2em !important; /* Adjust the font size as needed */
+  }
+  .hoods1 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 25%; /* Adjust the top position as needed */
+    left: 15.1%; /* Adjust the left position as needed */
+  }
+  .hoods1 h2 {
+    font-size: 1.2em !important; /* Adjust the font size as needed */
+  }
+    .hoods2 h2 {
+    font-size: .8em !important; /* Adjust the font size as needed */
+  }
+  .ring4 .eng2 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 42%; /* Adjust the top position as needed */
+    left: 10%; /* Adjust the left position as needed */
+  }
+
+  .eng2 h2 {
+    font-size: 0.8em !important; /* Adjust the font size as needed */
+  }
+
+  .ring4 .qol-prompt6 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 55%; /* Adjust the top position as needed */
+    left: 10%; /* Adjust the left position as needed */
+  }
+
+  .qol-prompt6 h2 {
+    font-size: .9em !important; /* Adjust the font size as needed */
+  }
+
+  .ring4 .pro1 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 70%; /* Adjust the top position as needed */
+    left: 25%; /* Adjust the left position as needed */
+  }
+
+  .pro1 h2 {
+    font-size: 1.7em !important; /* Adjust the font size as needed */
+  }
+  .ring2 .eng3 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 13.5%; /* Adjust the top position as needed */
+    left: 51.6%; /* Adjust the left position as needed */
+    transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
+  }
+
+  .eng3 h2 {
+    font-size: 1em !important; /* Adjust the font size as needed */
+  }
+  .ring2 .emotions1 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 15.5%; /* Adjust the top position as needed */
+    left: 20%; /* Adjust the left position as needed */
+  }
+
+  .emotions1 h2 {
+    font-size: 1.1em !important; /* Adjust the font size as needed */
+  }
+
+  .ring2 .eng1 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 35%; /* Adjust the top position as needed */
+    left: 51.8%; /* Adjust the left position as needed */
+    transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
+  }
+
+  .eng1 h2 {
+    font-size: 2.1em !important; /* Adjust the font size as needed */
+  }
+
+  .ring2 .addiction-prompt {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.5em !important; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 40.9%; /* Adjust the top position as needed */
+    left: 5.7%; /* Adjust the left position as needed */
+  }
+
+  .addiction-prompt h2 {
+    font-size: 1.25em !important; /* Adjust the font size as needed */
+  }
+
+  .ring2 .eng {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 48%; /* Adjust the top position as needed */
+    left: 12.7%; /* Adjust the left position as needed */
+  }
+
+  .eng h2 {
+    font-size: 1.25em !important; /* Adjust the font size as needed */
+  }
+  .ring2 .eng4 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 57.5%; /* Adjust the top position as needed */
+    left: 15.9%; /* Adjust the left position as needed */
+  }
+  
+  .eng4 h2 {
+    font-size: 1.9em !important; /* Adjust the font size as needed */
+  }
+
+  .ring2 .pro3 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 82%; /* Adjust the top position as needed */
+    left: 51.8%; /* Adjust the left position as needed */
+    transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
+  }
+  
+  .pro3 h2 {
+    font-size: 1em !important; /* Adjust the font size as needed */
+  }
+
+  .ring3 .qol-prompt3 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 10%; /* Adjust the top position as needed */
+    left: 25%; /* Adjust the left position as needed */
+  }
+  
+  .qol-prompt3 h2 {
+    font-size: 0.7em !important; /* Adjust the font size as needed */
+  }
+
+  .qol-prompt4 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 20%; /* Adjust the top position as needed */
+    left: 15%; /* Adjust the left position as needed */
+  }
+  
+  .qol-prompt4 h2 {
+    font-size: .7em !important; /* Adjust the font size as needed */
+  }
+  .acc-prompt1 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 30%; /* Adjust the top position as needed */
+    left: 8%; /* Adjust the left position as needed */
+  }
+  
+  .acc-prompt1 h2 {
+    font-size: 1em !important; /* Adjust the font size as needed */
+  }
+
+  .ring3 .qol-prompt5 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 45%; /* Adjust the top position as needed */
+    left:5%; /* Adjust the left position as needed */
+  }
+  
+  .qol-prompt5 h2 {
+    font-size: 1.2em !important; /* Adjust the font size as needed */
+  }
+
+  .ring3 .cri1 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.8em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 60%; /* Adjust the top position as needed */
+    left: 15%; /* Adjust the left position as needed */
+  }
+  
+  .cri1 h2 {
+    font-size: 1.5em !important; /* Adjust the font size as needed */
+  }
+
+  .ring2 .addiction-prompt2 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.7em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 85%; /* Adjust the top position as needed */
+    left: 30%; /* Adjust the left position as needed */
+  }
+  
+  .addiction-prompt2 h2 {
+    font-size: 0.9em !important; /* Adjust the font size as needed */
+  }
+  .ring2 .addiction-promptss3 {
+    color: white;
+    text-decoration: none;
+    font-family: 'Abhaya Libre Medium';
+    font-size: 0.7em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 92%; /* Adjust the top position as needed */
+    left: 40%; /* Adjust the left position as needed */
+  }
+  
+  .addiction-promptss3 h2 {
+    font-size: .9em !important; /* Adjust the font size as needed */
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .ring .acc-prompt2 {
+      font-size: 0.5em; /* Adjust the font size for smaller screens */
+      top: 30.3%; /* Adjust the top position as needed */
+      left: 10.5%; /* Center the text horizontally */
+      transform: translateX(-50%); /* Center the text horizontally */
+      margin-left:5em;
+    }
+    .acc-prompt2 h2 {
+        font-size: 2em !important; /* Adjust the font size as needed */
+        margin-top:0.25em;
+      }
+  }
+  .gear-container4 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 10em;
+    top: 19.0em;
+    right: 58em;
+  }
+  .center-circle4 {
+    position: relative;
+    width: 10em;
+    height: 10em;
+    padding: 0;
+    border-radius: 50%;
+    list-style: none;
+    margin: auto;
+    animation: spin 15s linear infinite;
+  }
+  .center-circle4 > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.25em;
+    height: 1.25em;
+    margin: -0.625em;
+    background: #F5A720;
+  }
+  .center-circle4 > *:nth-of-type(1) {
+    transform: rotate(5.5deg) translate(5em);
+  }
+  .center-circle4 > *:nth-of-type(2) {
+    transform: rotate(41.5deg) translate(5em);
+  }
+  .center-circle4 > *:nth-of-type(3) {
+    transform: rotate(77.5deg) translate(5em);
+  }
+  .center-circle4 > *:nth-of-type(4) {
+    transform: rotate(113.5deg) translate(5em);
+  }
+  .center-circle4 > *:nth-of-type(5) {
+    transform: rotate(149.5deg) translate(5em);
+  }
+  .center-circle4 > *:nth-of-type(6) {
+    transform: rotate(185.5deg) translate(5em);
+  }
+  .center-circle4 > *:nth-of-type(7) {
+    transform: rotate(221.5deg) translate(5em);
+  }
+  .center-circle4 > *:nth-of-type(8) {
+    transform: rotate(257.5deg) translate(5em);
+  }
+  .center-circle4 > *:nth-of-type(9) {
+    transform: rotate(293.5deg) translate(5em);
+  }
+  .center-circle4 > *:nth-of-type(10) {
+    transform: rotate(329.5deg) translate(5em);
+  }
+  .ring4 {
+    display: block;
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    border: solid 1.5em #F5A720;
+  }
+
+  
+  
+  @keyframes spin {
+    100% {
+        transform: rotate(360deg);
+   }
+  }
+  @keyframes spin-r {
+    100% {
+        transform: rotate(-360deg);
+   }
+  }
+  
+  @media (max-width: 767px) {
+  
+    .main-body{
+      margin-left: 300px;
+    }
+    
+    
+  }
+  /* For screens smaller than 768px (tablets and below) */
+  
+  
