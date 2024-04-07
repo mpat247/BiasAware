@@ -4,55 +4,104 @@ const csv = require('csv-parser');
 const mongoose = require('mongoose');
 const { GridFSBucket } = require('mongodb');
 
+// Import Image model
+const Image = require('./models/imageModel');
+
 // MongoDB connection string
 const mongoDB = 'mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority';
 
-// Connect to MongoDB
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connection established.'))
-  .catch(err => console.error('MongoDB connection error:', err));
+// async function saveImagesToMongoDB() {
+//   console.log('MongoDB connection established.');
+//   const conn = mongoose.connection;
+//   const gfs = new GridFSBucket(conn.db, { bucketName: 'images' });
 
-const conn = mongoose.connection;
+//   // CSV file path and images folder path
+//   const csvFilePath = 'D:/manav/Documents/Engineering/4th Year/Capstone/BiasAware/server/Emotions/import.csv';
+//   const imagesFolderPath = 'D:/manav/Documents/Engineering/4th Year/Capstone/BiasAware/server/Emotions';
 
-conn.once('open', function () {
-  console.log('Connection open. Ready to stream files to GridFS.');
+//   fs.createReadStream(csvFilePath)
+//     .pipe(csv())
+//     .on('data', async (row) => {
+//       const { name, prompt, bias_id, bias_name, generator } = row;
+//       const imageName = `${name}.jpg`;
+//       const imagePath = path.join(imagesFolderPath, imageName);
 
+//       // Check if image file exists
+//       if (fs.existsSync(imagePath)) {
+//         console.log(`Processing image: ${imageName}`);
+
+//         // Create read stream for image
+//         const readStream = fs.createReadStream(imagePath);
+//         // Open upload stream to GridFSBucket
+//         const writeStream = gfs.openUploadStream(imageName);
+
+//         // Pipe image read stream to GridFSBucket write stream
+//         readStream.pipe(writeStream)
+//           .on('finish', async () => {
+//             console.log(`Successfully uploaded ${imageName}`);
+
+//             // Save image metadata in the images collection
+//             await Image.create({
+//               name: imageName,
+//               prompt,
+//               bias_id,
+//               bias_name,
+//               bias_type: null,
+//               generator,
+//               createdAt: new Date(),
+//               updatedAt: new Date(),
+//               age_bias: null,
+//               gender_bias: null,
+//               race_bias: null
+//             });
+
+//             console.log(`Metadata for ${name} saved in the images collection.`);
+//           })
+//           .on('error', (err) => {
+//             console.error(`Error uploading ${imageName}:`, err);
+//           });
+//       } else {
+//         console.log(`Image file ${imageName} does not exist in the specified path: ${imagePath}`);
+//       }
+//     })
+//     .on('end', () => {
+//       console.log('CSV file processing completed. Initiating image fetch and save process.');
+//     });
+// }
+
+async function fetchAndSaveImages() {
+  console.log('Fetching images with name starting with EMO_P6.');
+  const conn = mongoose.connection;
   const gfs = new GridFSBucket(conn.db, { bucketName: 'images' });
-  const csvFilePath = './server/Emotions/emotions123.csv'; // Adjust to your CSV file path
-  const imagesFolderPath = './server/Emotions'; // Adjust to your images folder path
+  const fetchedDir = path.join(__dirname, 'FETCHED');
 
-  fs.createReadStream(csvFilePath)
-    .pipe(csv())
-    .on('data', async (row) => {
-      const { name, prompt, bias_id, bias_name, generator } = row;
-      const imagePath = path.join(imagesFolderPath, `${name}.jpeg`);
+  if (!fs.existsSync(fetchedDir)) {
+    fs.mkdirSync(fetchedDir);
+  }
 
-      if (fs.existsSync(imagePath)) {
-        console.log(`Processing image: ${name}`);
-
-        const readStream = fs.createReadStream(imagePath);
-        const writeStream = gfs.openUploadStream(name + '.jpeg', {
-          metadata: {
-            prompt, bias_id, bias_name, generator,
-            bias_type: null, gender: null, qol_type: null, profession_type: null, skin_shade: null, description: null
-          }
-        });
-
-        readStream.pipe(writeStream)
-          .on('finish', () => {
-            console.log(`Successfully uploaded ${name}. Metadata:`, {
-              prompt, bias_id, bias_name, generator
-              // Logging additional fields if necessary
-            });
-          })
-          .on('error', (err) => {
-            console.error(`Error uploading ${name}:`, err);
-          });
-      } else {
-        console.log(`Image file ${name} does not exist in the specified path: ${imagePath}`);
-      }
-    })
-    .on('end', () => {
-      console.log('CSV file processing completed. Check logs for details on each operation.');
+  const images = await Image.find({ name: /^EMO_P6/ });
+  images.forEach(image => {
+    const readStream = gfs.openDownloadStreamByName(image.name);
+    const writeStream = fs.createWriteStream(path.join(fetchedDir, `${image.name}`));
+    readStream.pipe(writeStream).on('finish', () => {
+      console.log(`Successfully fetched and saved ${image.name}`);
     });
-});
+  });
+}
+
+async function main() {
+  try {
+    await mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+   // await saveImagesToMongoDB();
+    await fetchAndSaveImages();
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+  }
+}
+
+// Init function to call main
+function init() {
+  main().then(() => console.log('All operations completed.'));
+}
+
+init();

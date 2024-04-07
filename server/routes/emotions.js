@@ -95,7 +95,8 @@ router.get('/side', async (req, res) => {
           // Include both prompt and prompt2 in the resolved object
           resolve({
             image: `data:${contentType};base64,${imgBase64}`,
-            prompt: image.prompt, // Original prompt
+            prompt: image.prompt, // Original prompt,
+            emotion: image.prompt
           });
           count ++;
           console.log('Image downloaded:', filename, 'Prompt:', image.prompt); // Removed 'Emotion:', emotion

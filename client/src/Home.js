@@ -6,11 +6,17 @@ import NavigationBar from './NavigationBar2'; // Import the NavigationBar compon
 import Addictions from './Addictions';
 import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
+import QOL2 from './QOL2'; // Import the QOL component
 import Crime from './Crime';
 import Emotions from './Emotions';
 import ProfessionsLanding from './ProfessionsLanding';
 import LandingPage from './LandingPage'; // Import the LandingPage component
+<<<<<<< HEAD
 import { Helmet } from 'react-helmet';
+=======
+import NewActivities from './NewActivities'; // Import the LandingPage component
+
+>>>>>>> main
 import './GearComponent.css';
 
 const Home = () => {
@@ -241,19 +247,38 @@ const Home = () => {
         
       </main>
 
+<<<<<<< HEAD
       {/* Addictions section */}
       <div class = "addiction" id="addictions" >
         <Addictions />
+=======
+
+{/* Activities section */}
+<div id="activities">
+        <NewActivities />
+>>>>>>> main
       </div>
+      
+
 
       {/* Activities section */}
       <div id="activities">
         <Activities />
       </div>
 
+      {/* Addictions section */}
+      <div id="addictions">
+              <Addictions />
+      </div>
+            
       {/* Quality of Life section */}
+<<<<<<< HEAD
       <div name = "qol" id="qol">
         <QOL />
+=======
+      <div id="qol">
+        <QOL2 />
+>>>>>>> main
       </div>
       {/* Quality of Life section */}
       <div id="Emotions">

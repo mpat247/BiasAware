@@ -151,6 +151,9 @@ app.use('/qol', qolRoute);
 const crimeRoutes = require('./routes/crime');
 app.use('/crime', crimeRoutes);
 
+const professionsRoute = require('./routes/professions');
+app.use('/professions', professionsRoute);
+
 async function main() {
   try {
     await connectToDatabase(); // Make sure this function actually waits for the connection

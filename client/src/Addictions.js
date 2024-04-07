@@ -34,13 +34,14 @@ const Addictions = () => {
   const [popupDescription, setpopupDescription] = useState('');
 
 
-  const API = REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const mainResponse = await axios.get(`${API}/addictions/main-images`);
-        const sideResponse = await axios.get(`${API}/addictions/side-images`);
+        const mainResponse = await axios.get(`${REACT_APP_API_URL}/addictions/main-images`);
+        const sideResponse = await axios.get(`${REACT_APP_API_URL}/addictions/side-images`);
+        console.log(mainResponse.data);
+        console.log(sideResponse.data);
         setImagesData(mainResponse.data.images);
         setSideImagesData(sideResponse.data.images);
         setLoading(false); // Set loading to false once images are fetched

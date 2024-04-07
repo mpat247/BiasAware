@@ -37,13 +37,26 @@ const imageSchema = new mongoose.Schema({
     type: String,
     required: false
   },
+  gender_bias: {
+    type: String, // Added field for gender bias
+    required: false
+  },
+  race_bias: {
+    type: String, // Added field for race bias
+    required: false
+  },
+  age_bias: {
+    type: String, // Added field for age bias
+    required: false
+  },
   description: { // New field for description
     type: String,
     required: false
   }
-}, {
-  timestamps: true
-});
+},
+  {
+    timestamps: true
+  });
 
 const Image = mongoose.model('Images', imageSchema);
 
