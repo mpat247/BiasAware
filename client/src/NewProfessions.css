@@ -93,3 +93,169 @@
 	right: 37px;
 	top: 22px
 }
+
+
+
+/*POPUP CODE*/
+.professions-popup-title {
+  font-family: "Crimson Text", serif;
+  color: White;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.professions-popup-statistical-analysis {
+  margin-bottom: 0rem;
+  line-height: normal;
+  font-size: 0.75rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.professions-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75); /* Dim the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Make sure it's above other content */
+}
+
+.professions-popup-content {
+  background-color: #0B0533;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 65%; /* Adjust as needed */
+  height: 95%; /* Adjust as needed */
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden; /* Ensures no overflow */
+}
+
+.professions-popup-header, .professions-popup-body, .professions-popup-footer {
+  width: 100%; /* Take full width of the parent */
+}
+
+.professions-popup-header {
+  /* Style as needed */
+  color: white;
+  /* background-color: orange; */
+  margin-bottom: 20px;
+}
+
+.professions-popup-body {
+  flex-grow: 1; /* Take available space */
+  display: flex; /* Use flexbox to arrange children */
+  flex-direction: column; /* Stack container and caption vertically */
+  justify-content: flex-start; /* Start children at the top of the container */
+  align-items: center; /* Center children horizontally */
+  /* background-color: pink; */
+  padding: 22px; /* Add some padding around the slides */
+  border-radius: 10px;
+  width: 95%;
+  /* height: 200px; */
+}
+
+.professions-popup-slides-container {
+  align-items: center;
+  /* background-color: purple; */
+  display: flex; /* Use flexbox to arrange children in a row */
+  justify-content: space-between; /* Space out children */
+  width: 100%; /* Take the full width to align the slides in a row */
+  height: calc(100% - 10px); /* Adjust height based on the caption and padding */
+  margin-bottom: 10px;
+}
+
+.professions-popup-slide {
+  width: 32%; /* Each slide takes up 32% of the popup-body width */
+  height: 100%; /* Adjust the height as needed */
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.professions-popup-image {
+  width: 100%; /* Full width of the parent */
+  height: 100%; /* Full height of the parent */
+  object-fit: fill; /* Cover the whole area without losing aspect ratio */
+  border-radius: 10px;
+}
+
+
+/* Remove outer margins for the first and last slide */
+.professions-popup-slide:first-child, .professions-popup-slide:last-child {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.professions-popup-slide-caption {
+  color: white; /* Text color */
+  text-align: center; /* Center the caption text */
+  width: 100%; /* Take the full width of the body */
+  /* Add additional styling as needed */
+  /* background-color: lightgreen; */
+  padding-top: 10px;
+}
+
+.professions-popup-footer {
+  margin-top: 10px;
+  /* background-color: aqua; */
+  border-radius: 10px;
+  /* Style as needed */
+}
+
+.professions-popup-button-text {
+  font-size: 0.75rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  color: white;
+}
+
+.professions-popup-footer button {
+  margin: 10px 0;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.professions-popup-footer button:hover {
+  background: rgba(0, 0, 0, 0.85); /* Semi-transparent grey overlay */
+  border: 1px solid;
+}
+
+@media (max-width: 1100px) {
+  /* .professions-popup-image {
+      width: 100%;
+      height: 100%;
+  } */
+
+  .professions-popup-slides-container {
+    flex-direction: column; /* Stack slides vertically */
+  }
+
+  .professions-popup-slide {
+    width: 100%; /* Each slide takes the full width of the popup-body */
+    margin-bottom: 10px; /* Add space between slides */
+  }
+
+  /* Adjust the last-child to remove the margin at the bottom */
+  .professions-popup-slide:last-child {
+    margin-bottom: 0;
+  }
+}
