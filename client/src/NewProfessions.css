@@ -1,22 +1,13 @@
-/* body {
-  font-family: 'Roboto', sans-serif;
-	padding-top: 50px;
-  padding-bottom: 50px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  background-color: #0B0533;
-} */
-
-
 .professions-landing-page-container {
+  /*This removes the 5% padding that I added in the category container*/
+  height: calc(100vh - 5%);
   font-family: 'Roboto', sans-serif;
 	/* padding-top: 5%; */
   /* padding-bottom: 5%; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: #0B0533;
 }
 
