@@ -18,10 +18,10 @@
     box-sizing: border-box;
 }
 
-/* html, body, main {
+html, body, main {
     height: 100%;
     background-color: white;
-} */
+}
 
 #carousel {
     overflow: hidden; /* Add this line */
@@ -30,6 +30,7 @@
     position: relative;
     height: var(--ImgSizeY);
     margin-top: 20px; /* Add margin-top to create space between the header bar and the carousel */
+    background-color: pink;
 }
 
 /* #carousel {
@@ -165,19 +166,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: yellow;
 }
 
 .slideImage {
     position: absolute;
-    left: 5%; /* Adjusted left positioning to make it 90% in width */
-    top: 5%; /* Adjusted top positioning to make it 90% in height */
-    width: 44%; /* Set width to 90% of the parent container */
-    height: 90%; /* Set height to 90% of the parent container */
+    width: 100%; 
+    height: 90%; 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     box-sizing: border-box;
     border-radius: 5px;
+    background-color: aqua;
 }
 
 

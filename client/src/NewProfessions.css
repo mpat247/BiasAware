@@ -99,7 +99,7 @@
 /*POPUP CODE*/
 .professions-popup-title {
   font-family: "Crimson Text", serif;
-  color: White;
+  color: white;
   font-weight: 700;
   font-style: normal;
 }
@@ -177,7 +177,7 @@
 }
 
 .professions-popup-slide {
-  width: 32%; /* Each slide takes up 32% of the popup-body width */
+  width: 100%; /* Each slide takes up 32% of the popup-body width */
   height: 100%; /* Adjust the height as needed */
   background-color: white;
   display: flex;

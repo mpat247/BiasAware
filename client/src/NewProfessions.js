@@ -23,12 +23,7 @@ const Popup = ({ onClose, bgColor, categoryName }) => {
                     <div className="professions-popup-slide">
                         {/* <img src={basketball} alt="basketball" className="professions-popup-image"/> */}
                     </div>
-                    <div className="professions-popup-slide">
-                        {/* <img src={basketball} alt="basketball" className="professions-popup-image"/> */}
-                    </div>
-                    <div className="professions-popup-slide">
-                        {/* <img src={basketball} alt="basketball" className="professions-popup-image"/> */}
-                    </div>
+                    
                 </div>
                 <div className="professions-popup-slide-caption">
                     <p className="professions-popup-statistical-analysis">The statistical analysis caption is going to go here.</p>
