@@ -1,6 +1,6 @@
 // CarouselComponent.jsx
 import React, { useState } from 'react';
-import './CarouselComponent.css';
+//import './CarouselComponent.css';
 
 const CarouselComponent = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

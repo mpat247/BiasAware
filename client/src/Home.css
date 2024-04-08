@@ -206,6 +206,7 @@ body {
   .App-header .main-body{
     width:10px;
   }
+ 
   
 }
 
@@ -230,48 +231,6 @@ body {
 .App-header .qol-prompts2 h2 {
   font-size: 1.2em !important; /* Adjust the font size as needed */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .App-header .hood2 h2 {
   font-size: .8em !important; /* Adjust the font size as needed */
 }

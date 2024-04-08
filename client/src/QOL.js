@@ -16,14 +16,14 @@ const QOL = () => {
     };
 
     const generateSquares = () => {
-      const bottomLeftSet = Array.from({ length: 4 }, (_, rowIndex) => (
+      const bottomLeftSet = Array.from({ length: 2 }, (_, rowIndex) => (
         <div key={rowIndex} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          {Array.from({ length: 4 }, (_, colIndex) => (
+          {Array.from({ length: 2 }, (_, colIndex) => (
             <div
               key={`${rowIndex}-${colIndex}`}
               style={{
-                width: '100px',
-                height: '100px',
+                width: '13vw',
+                height: '13vw',
                 backgroundColor: getRandomColor(),
                 margin: '5px',
                 cursor: 'pointer', // Added cursor pointer
@@ -34,14 +34,14 @@ const QOL = () => {
         </div>
       ));
 
-      const bottomRightSet = Array.from({ length: 4 }, (_, rowIndex) => (
+      const bottomRightSet = Array.from({ length: 2 }, (_, rowIndex) => (
         <div key={rowIndex} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          {Array.from({ length: 4 }, (_, colIndex) => (
+          {Array.from({ length: 2 }, (_, colIndex) => (
             <div
               key={`${rowIndex}-${colIndex}`}
               style={{
-                width: '100px',
-                height: '100px',
+                width: '13vw',
+                height: '13vw',
                 backgroundColor: getRandomColor(),
                 margin: '5px',
                 cursor: 'pointer', // Added cursor pointer
@@ -82,30 +82,33 @@ const QOL = () => {
 <h1 style={{
   color: '#DD9313',
   fontFamily: 'Abhaya Libre ExtraBold',
-  fontSize: '4em',
+  fontSize: '7vw',
   textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
   textAlign: 'center',
-  margin: '0',
-  padding: '50px 0'
+  padding: '50px 0',
 }}>
   Q U A L I T Y&nbsp;&nbsp;&nbsp;O F&nbsp;&nbsp;&nbsp;L I F E
+  <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: '20px auto', width:'60vw'}}>
+        <div style={{ display: 'flex'}}>
+          <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px' }}></div>
+          <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px' }}></div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          
+          <div style={{ width: '28vw', height: '30vw', backgroundColor: '#BFBFBF', margin: 'auto' }}>
+            {bottomLeftSquares}
+          
+          </div>
+          
+          <div style={{ width: '28vw', height: '30vw', backgroundColor: '#BFBFBF', margin: 'auto' }}>
+            {bottomRightSquares}
+            
+          </div>
+        </div>
+  </div>
 </h1>
 
-      <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: 'auto', width: '1000px'}}>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
-          <div style={{ width: '500px', height: '100px', backgroundColor: '#B3BBC8', margin: '10px' }}></div>
-          <div style={{ width: '500px', height: '100px', backgroundColor: '#B3BBC8', margin: '10px' }}></div>
-        </div>
-
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
-          <div style={{ width: '500px', height: '450px', backgroundColor: '#BFBFBF', margin: '10px' }}>
-            {bottomLeftSquares}
-          </div>
-          <div style={{ width: '500px', height: '450px', backgroundColor: '#BFBFBF', margin: '10px' }}>
-            {bottomRightSquares}
-          </div>
-        </div>
-      </div>
+      
 
       {/* Semi-transparent overlay */}
       {selectedBox && (

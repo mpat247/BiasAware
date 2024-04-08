@@ -13,10 +13,13 @@ import Crime from './Crime';
 import QOL2 from './QOL2';
 import Responsive from './Responsive'; // Import the Responsive component
 import LandingPage from './LandingPage';
+import Aerospace from './Aerospace';
+// Import the createResponsiveDesign function
 import Addictions from './Addictions';
 import NewActivities from './NewActivities'
+import test2 from './test2';
 
-//import Test from './Test'; // Import the test2 component
+
 
 import './App.css';
 
@@ -27,7 +30,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Addictions" element={<Addictions />} />
         <Route path="/Statistics" element={<Statistics />} />
         <Route path="/Activities" element={<Activities />} />
         <Route path="/ProfCarousel" element={<ProfCarousel />} />
@@ -37,21 +39,15 @@ function App() {
         <Route path="/Emotions" element={<Emotions />} />
         <Route path="/Neighborhood" element={<Neighborhood />} />
         <Route path="/Crime" element={<Crime />} />
-        <Route path="/QOL2" element={<QOL2 />} />
         <Route path="/Responsive" element={<Responsive />} /> {/* Render the Responsive component */}
         <Route path="/LandingPage" element={<LandingPage />} />
-        <Route path="/Neighborhood" element={<Neighborhood />} /> {/* Add this line */}
-        {/* Define other routes here if needed */}
-        <Route path="/Crime" element={<Crime />} /> {/* Define the route for Crime page */}
-        <Route path="/QOL2" element={<QOL2 />} /> {/* Define the route for Crime page */}
-
-
+        <Route path="/aerospace" element={<Aerospace />} />
         <Route path="/Addictions" element={<Addictions />} /> {/* Define the route for Crime page */}
+        <Route path="/test2" element={<test2 />} /> {/* Define the route for Crime page */}
         <Route path="/NewActivities" element={<NewActivities />} /> 
       </Routes>
     </Router>
   );
 }
-// <Route path="/test2" element={<test2 />} /> {/* Define the route for Crime page */}
 
 export default App;

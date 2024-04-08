@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import './Emotions.css';
 import axios from 'axios';
+import REACT_APP_API_URL from './config';
 
 const PopupCard = ({ onClose, retrievedImage, prompt, sideImages }) => {
   return (
@@ -64,8 +65,8 @@ const Emotions = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const responseMain = await axios.get('http://localhost:3001/emotions/main');
-        const responseSide = await axios.get('http://localhost:3001/emotions/side');
+        const responseMain = await axios.get(`${REACT_APP_API_URL}/emotions/main`);
+        const responseSide = await axios.get(`${REACT_APP_API_URL}/emotions/side`);
         if (responseMain.data && responseMain.data.images) {
           setRetrievedImages(responseMain.data.images);
         }
