@@ -12,6 +12,7 @@ import Emotions from './Emotions';
 import ProfessionsLanding from './ProfessionsLanding';
 import LandingPage from './LandingPage'; // Import the LandingPage component
 import NewActivities from './NewActivities'; // Import the LandingPage component
+import { Helmet } from 'react-helmet';
 
 import './GearComponent.css';
 
@@ -46,6 +47,12 @@ const Home = () => {
 
   return (
     <div className="Home">
+        <Helmet>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        </Helmet>
       {showLandingPage ? (
         <LandingPage /> // Show LandingPage component for 10 seconds
       ) : (
@@ -257,7 +264,7 @@ const Home = () => {
             
       {/* Quality of Life section */}
       <div id="qol">
-        <QOL2 />
+        <QOL />
       </div>
       {/* Quality of Life section */}
       <div id="Emotions">
