@@ -1,8 +1,3 @@
-@charset "utf8";
-@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Almarai&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap');
-
 :root {
     /* prev 50 */
     /* --ImgSizeX: 50vw; */
@@ -13,17 +8,6 @@
     --scaler: 5vw;
     font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
 }
-
-/* *, *:before, *:after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
-/* html, body, main {
-    height: 100%;
-    background-color: blueviolet;
-} */
 
 .slideContainer {
     position: relative;
@@ -40,6 +24,12 @@
     justify-content: center;
     position: relative;
     height: var(--ImgSizeY);
+    background-color: pink;
+
+
+    /* Other styles remain unchanged */
+    position: relative; /* This should be set to ensure child absolute positioning is relative to this container */
+    height: var(--ImgSizeY); /* Make sure this height is correct and does not collapse */
     background-color: pink;
 }
 
@@ -115,26 +105,22 @@
 
 .arrows {
     position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    z-index: 10;
-}
-
-.arrows span {
-    /* Remove left and right positioning if you use flexbox in the .arrows container */
-    /* Or you can keep it if you prefer absolute positioning over flexbox */
+    top: 50%; /* Center vertically in the carousel */
+    left: 0; /* Align to the left edge of the carousel */
+    right: 0; /* Align to the right edge of the carousel */
+    transform: translateY(-50%); /* Adjust vertical centering */
+    z-index: 10; /* Should be above all carousel content */
 }
 
 #prev {
-    left: 10px; /* or any value you prefer */
+    position: absolute;
+    left: 10px; /* Adjust left spacing as necessary */
     transform: translateY(-50%);
 }
 
 #next {
-    right: 10px; /* or any value you prefer */
+    position: absolute;
+    right: 10px; /* Adjust right spacing as necessary */
     transform: translateY(-50%);
 }
 

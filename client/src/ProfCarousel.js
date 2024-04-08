@@ -78,8 +78,7 @@ const ProfCarousel = () => {
                         </div>
                     </a>
                 ))}
-            </div>
-            <div className="arrows">
+                <div className="arrows">
                 <span
                     id="prev"
                     style={{ ...arrowStyle, left: '10px' }} // Adjust '10px' as needed
@@ -101,6 +100,8 @@ const ProfCarousel = () => {
                     </svg>
                 </span>
             </div>
+            </div>
+            
         </main>
     );
 };
