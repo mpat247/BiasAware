@@ -1,21 +1,32 @@
 import React, { useState } from 'react';
 import './ProfCarousel.css';
+import basketball from './images/image 7.png';
+import cricket from './images/image 8.png';
+import volleyball from './images/image 9.png';
+import hockey from './images/image 10.png';
+import bingo from './images/image 11.png';
+import tennis from './images/image 12.png';
 
 const ProfCarousel = () => {
     const [selected, setSelected] = useState(0);
     // Use URLs for your desired images here; I'm keeping placeholders for demonstration:
     const slideImages = [
-        'https://via.placeholder.com/800x600/000000/ffffff/?text=', // Blue
-        'https://via.placeholder.com/800x600/000000/ffffff/?text=', // Green
-        'https://via.placeholder.com/800x600/000000/ffffff/?text=', // Red
-        'https://via.placeholder.com/800x600/000000/ffffff/?text=', // Yellow
-        'https://via.placeholder.com/800x600/000000/ffffff/?text=', // Magenta
-        'https://via.placeholder.com/800x600/000000/ffffff/?text=', // Cyan
-        'https://via.placeholder.com/800x600/000000/ffffff/?text=',
-        'https://via.placeholder.com/800x600/000000/ffffff/?text=',
-        'https://via.placeholder.com/800x600/000000/ffffff/?text=',
-        'https://via.placeholder.com/800x600/000000/ffffff/?text=',
-          // Gray
+        basketball,
+        cricket,
+        volleyball,
+        hockey,
+        bingo, 
+        tennis
+        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=', 
+        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=', 
+        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=', 
+        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=', 
+        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=', 
+        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=',
+        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=',
+        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=',
+        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=',
+          
     ];
 
 
@@ -57,7 +68,6 @@ const ProfCarousel = () => {
                 {slideImages.map((src, index) => (
                     <a key={index} className={getClassNames(index)} onClick={() => moveToSelected(index)} href="javascript:void(0);">
                         <div className="slideContainer">
-                            <div className="slideImage"></div>
                             <img src={src} alt={`Slide ${index + 1}`} />
                         </div>
                     </a>

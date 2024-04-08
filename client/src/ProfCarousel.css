@@ -33,14 +33,6 @@ html, body, main {
     background-color: pink;
 }
 
-/* #carousel {
-    overflow: hidden; 
-    display: flex;
-    justify-content: center;
-    position: relative;
-    height: var(--ImgSizeY);
-} */
-
 #carousel a {
     position: absolute;
     aspect-ratio: 4 / 3;
@@ -125,7 +117,6 @@ html, body, main {
     right: 5%; /* Adjust the right position */
 }
 
-
 .buttons button {
     background: transparent;
     border: none;
@@ -150,15 +141,6 @@ html, body, main {
     color: black; /* Adjust the color on hover */
 }
 
-/* .yellowBox {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 50px; 
-    height: 100%;
-    background-color: yellow;
-} */
-
 .slideContainer {
     position: relative;
     width: 100%;
@@ -166,73 +148,5 @@ html, body, main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    
 }
-
-.slideImage {
-    position: absolute;
-    width: 100%; 
-    height: 90%; 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-sizing: border-box;
-    border-radius: 5px;
-    background-color: aqua;
-}
-
-
-.slideTextContent {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    width: 44%;
-    height: 90%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 2px solid white;
-    box-sizing: border-box;
-    border-radius: 5px;
-    display: flex; /* Center the content horizontally and vertically */
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
-}
-
-.slideTextContent h1 {
-    font-size: 1.5em; /* Adjust the font size */
-    color: #fff; /* Adjust the color */
-    margin-bottom: 0.5em; /* Add some bottom margin */
-    font-family: 'Abhaya Libre ExtraBold';
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); /* White text shadow with higher opacity */
-    text-align: center;
-}
-
-
-.slideTextContent p {
-    font-size: 1em; /* Adjust the font size */
-    color: #fff; /* Adjust the color */
-    text-align: center; /* Center the text horizontally */
-    font-family: 'Almarai'; /* Apply the Almarai font */
-}
-
-
-.titleBar {
-    background-color: #0B0533; /* Set the background color to blue */
-    width: 50%; /* Full width */
-    height: 50px; /* Set the height of the title bar */
-    display: flex; /* Center the title horizontally */
-    justify-content: center; /* Center the title horizontally */
-    align-items: center; /* Center the title vertically */
-    /* margin-top: 20px; */
-}
-
-.titleBar h1 {
-    font-family: 'Abhaya Libre ExtraBold';
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); /* White text shadow with higher opacity */
-    color: white; /* Set the color of the title text */
-    font-size: 24px; /* Adjust the font size of the title */
-    text-align: left;
-}
-
