@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProfCarousel.css';
 import basketball from './images/image 7.png';
 import cricket from './images/image 8.png';
@@ -17,21 +17,18 @@ const ProfCarousel = () => {
         hockey,
         bingo, 
         tennis
-        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=', 
-        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=', 
-        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=', 
-        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=', 
-        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=', 
-        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=',
-        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=',
-        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=',
-        // 'https://via.placeholder.com/800x600/000000/ffffff/?text=',
-          
     ];
 
+    // This effect sets up an interval to change the slide every 3 seconds (3000ms)
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSelected(prevSelected => (prevSelected + 1) % slideImages.length);
+        }, 1500); // Change 3000 to however many milliseconds you want
 
+        // Clear the interval when the component is unmounted
+        return () => clearInterval(interval);
+    }, [slideImages.length]); // Only re-run the effect if slideImages.length changes
 
-    
     const moveToSelected = (element) => {
         if (element === "next") {
             setSelected((prevSelected) => (prevSelected + 1) % slideImages.length);

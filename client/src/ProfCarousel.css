@@ -29,7 +29,6 @@ html, body, main {
     justify-content: center;
     position: relative;
     height: var(--ImgSizeY);
-    margin-top: 20px; /* Add margin-top to create space between the header bar and the carousel */
     background-color: pink;
 }
 
