@@ -54,7 +54,7 @@
 	justify-content: space-between;
 	overflow: hidden;
 	background: #FFFFFF;
-	border: 1px solid #CDCDCD;
+	/* border: 1px solid #CDCDCD; */
 	border-radius: 3px;
 	text-decoration: none;
 	transition: 0.5s;
@@ -64,7 +64,7 @@
 
 .category-item:hover {
 	border: 1px solid #fff0;
-	box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
+	box-shadow: 3px 3px 20px rgba(255, 255, 255, 0.507);
 	border-radius: 3px;
 }
 
@@ -75,16 +75,17 @@
 	line-height: 28px;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 200;
+  font-weight: 300;
   font-style: normal;
-  color: black;
-	/* color: #2F3035; */
+  color:  #0B0533;
+	/* color: white; */
 /* 	padding-left: 20px; */
 /* 	padding-top: 20px; */
 }
 
 .category-item:hover>.category-item-title {
-	color: #1C62CD;
+	color: white;
+  /* color: #0B0533; */
 }
 
 .category-item-img {
