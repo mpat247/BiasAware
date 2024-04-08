@@ -10,6 +10,23 @@
   box-sizing: border-box; /* Include padding in the element's total height */
 }
 
+.professions-landing-page-title {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto; /* Center the title */
+  background-color: red;
+}
+
+.professions-landing-page-header {
+  font-family: "Crimson Text", serif;
+  color: white;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 6vw; /* Responsively size the font */
+  max-width: 100%; /* Ensure it doesn't exceed the container width */
+  overflow-wrap: break-word; /* Ensures the text breaks to prevent overflow */
+}
+
 .category {
   max-width: 1170px;
   width: 100%; /* Ensure it doesn't exceed its parent's width */

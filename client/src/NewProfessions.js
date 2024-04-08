@@ -19,6 +19,9 @@ const categories = [
   const ProfessionsLanding = () => {
     return (
         <div className="professions-landing-page-container">
+          <div className="professions-landing-page-title">
+            <h1 className="professions-landing-page-header">PROFESSIONS</h1>
+          </div>
           <div class="category">
             <a href="#" class="category-item">
               <span class="category-item-title">Business</span>
