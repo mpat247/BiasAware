@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: 'Roboto', sans-serif;
 	padding-top: 50px;
   padding-bottom: 50px;
@@ -6,21 +6,37 @@ body {
 	justify-content: center;
 	align-items: center;
   background-color: #0B0533;
+} */
+
+
+.professions-landing-page-container {
+  font-family: 'Roboto', sans-serif;
+	/* padding-top: 5%; */
+  /* padding-bottom: 5%; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  height: 100vh;
+  background-color: #0B0533;
 }
 
 .category {
+  /*I ADDED PADDING TOP AND WITHIN YELLOW CONTAINER*/
+  padding-top: 5%; 
+  padding-bottom: 5%;
 	max-width: 1170px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 20px;
 	row-gap: 20px;
+  background-color: yellow;
 }
 
 .category-item {
 	position: relative;
 	min-width: 370px;
-	height: 130px;
+	height: 200px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -45,34 +61,18 @@ body {
 	font-weight: 700;
 	font-size: 23px;
 	line-height: 28px;
-	color: #2F3035;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  color: black;
+	/* color: #2F3035; */
 /* 	padding-left: 20px; */
 /* 	padding-top: 20px; */
 }
 
-.category-item-img {
-  justify-content: right;
-}
-
 .category-item:hover>.category-item-title {
 	color: #1C62CD;
-}
-
-.category-item-link {
-	font-size: 14px;
-	padding-left: 20px;
-	padding-bottom: 14px;
-	color: #C4C4C4;
-}
-
-.category-item-link::after {
-	content: url("data:image/svg+xml,%3Csvg width='6' height='9' viewBox='0 0 6 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.228824 7.88793C-0.0650262 8.13366 -0.0762933 8.54196 0.203658 8.79989C0.48361 9.05782 0.948767 9.06771 1.24262 8.82198C1.24262 8.82198 5.77719 4.97116 5.78955 4.95998C6.07934 4.69388 6.06851 4.27195 5.76535 4.01758L1.24266 0.178763C0.949277 -0.067399 0.484101 -0.0581918 0.203658 0.199327C-0.0767845 0.456847 -0.0662956 0.865161 0.227086 1.11132L3.71295 4.12125C3.94389 4.32066 3.94393 4.67861 3.71304 4.87807L0.228824 7.88793Z' fill='%23C4C4C4'/%3E%3C/svg%3E%0A");
-	margin-left: 3px;
-	transition: 0.5s;
-}
-
-.category-item:hover>.category-item-link::after {
-	margin-left: 8px;
 }
 
 .category-item-img {

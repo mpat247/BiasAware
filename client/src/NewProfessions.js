@@ -18,7 +18,7 @@ const categories = [
 
   const ProfessionsLanding = () => {
     return (
-        <div className="professions-flexboxes-container">
+        <div className="professions-landing-page-container">
           <div class="category">
             <a href="#" class="category-item">
               <span class="category-item-title">Business</span>
