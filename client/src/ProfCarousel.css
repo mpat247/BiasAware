@@ -4,7 +4,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap');
 
 :root {
-    --ImgSizeX: 50vw;
+    /* prev 50 */
+    /* --ImgSizeX: 50vw; */
+    --ImgSizeX: 45vw;
     --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3);
     --minFontSize: 10px;
     --maxFontSize: 32px;
@@ -21,6 +23,15 @@
 html, body, main {
     height: 100%;
     background-color: white;
+}
+
+.slideContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #carousel {
@@ -102,50 +113,36 @@ html, body, main {
     transform: translateY(0) translateX(-50%);
 }
 
-.buttons {
-    z-index: 1000;
+.arrows {
+    position: absolute;
+    width: 100%;
+    /* top: 50%;
+    transform: translateY(-50%); */
     display: flex;
     justify-content: space-between;
-    width: 3em;
-    margin: auto;
-    margin-top: 21%;
+    z-index: 10;
+}
+
+.arrows span {
+    cursor: pointer;
     position: absolute;
-    top: 50%; /* Position the buttons vertically centered */
-    transform: translateY(-50%); /* Adjust to vertically center the buttons */
-    left: 5%; /* Adjust the left position */
-    right: 5%; /* Adjust the right position */
+    z-index: 1000; /* Ensure the arrows are clickable over the images */
 }
 
-.buttons button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 2.5em;
-    height: 3em;
-    font-size: 1.5em; /* Adjust the font size */
-    color: #0B0533; /* Adjust the color */
+#prev {
+    left: 10px; /* Adjust as necessary */
 }
 
-.arrow {
-    cursor: pointer;
-    width: 2.5em;
-    height: 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#next {
+    right: 10px; /* Adjust as necessary */
 }
 
-.arrow:hover {
-    color: black; /* Adjust the color on hover */
+.arrows svg {
+    fill: none; /* SVG path border color */
+    stroke: white; /* SVG path color */
+    stroke-width: 2px; /* SVG path border width */
 }
 
-.slideContainer {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.arrows svg:hover {
+    stroke: #0B0533; /* Change arrow color on hover */
 }
