@@ -14,16 +14,16 @@
     font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
 }
 
-*, *:before, *:after {
+/* *, *:before, *:after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
-html, body, main {
+/* html, body, main {
     height: 100%;
-    background-color: white;
-}
+    background-color: blueviolet;
+} */
 
 .slideContainer {
     position: relative;
@@ -115,27 +115,29 @@ html, body, main {
 
 .arrows {
     position: absolute;
+    top: 50%;
     width: 100%;
-    /* top: 50%;
-    transform: translateY(-50%); */
+    transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
     z-index: 10;
 }
 
 .arrows span {
-    cursor: pointer;
-    position: absolute;
-    z-index: 1000; /* Ensure the arrows are clickable over the images */
+    /* Remove left and right positioning if you use flexbox in the .arrows container */
+    /* Or you can keep it if you prefer absolute positioning over flexbox */
 }
 
 #prev {
-    left: 10px; /* Adjust as necessary */
+    left: 10px; /* or any value you prefer */
+    transform: translateY(-50%);
 }
 
 #next {
-    right: 10px; /* Adjust as necessary */
+    right: 10px; /* or any value you prefer */
+    transform: translateY(-50%);
 }
+
 
 .arrows svg {
     fill: none; /* SVG path border color */
