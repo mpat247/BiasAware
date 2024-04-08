@@ -68,6 +68,17 @@ const ProfCarousel = () => {
         zIndex: 1000,
     };
 
+        // Inside your return function before the main tag
+    const arrowLeftStyle = {
+        ...arrowStyle,
+        left: '0%', // Use a percentage value or `vw` units here
+    };
+
+    const arrowRightStyle = {
+        ...arrowStyle,
+        right: '0%', // Use a percentage value or `vw` units here
+    };
+
     return (
         <main>
             <div id="carousel">
@@ -79,22 +90,12 @@ const ProfCarousel = () => {
                     </a>
                 ))}
                 <div className="arrows">
-                <span
-                    id="prev"
-                    style={{ ...arrowStyle, left: '10px' }} // Adjust '10px' as needed
-                    onClick={() => moveToSelected('prev')}
-                >
-                    {/* SVG for the previous arrow */}
+                <span id="prev" style={arrowLeftStyle} onClick={() => moveToSelected('prev')}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15 19l-6-6 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </span>
-                <span
-                    id="next"
-                    style={{ ...arrowStyle, right: '10px' }} // Adjust '10px' as needed
-                    onClick={() => moveToSelected('next')}
-                >
-                    {/* SVG for the next arrow */}
+                <span id="next" style={arrowRightStyle} onClick={() => moveToSelected('next')}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 5l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>

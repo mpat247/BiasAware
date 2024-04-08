@@ -103,27 +103,6 @@
     transform: translateY(0) translateX(-50%);
 }
 
-.arrows {
-    position: absolute;
-    top: 50%; /* Center vertically in the carousel */
-    left: 0; /* Align to the left edge of the carousel */
-    right: 0; /* Align to the right edge of the carousel */
-    transform: translateY(-50%); /* Adjust vertical centering */
-    z-index: 10; /* Should be above all carousel content */
-}
-
-#prev {
-    position: absolute;
-    left: 10px; /* Adjust left spacing as necessary */
-    transform: translateY(-50%);
-}
-
-#next {
-    position: absolute;
-    right: 10px; /* Adjust right spacing as necessary */
-    transform: translateY(-50%);
-}
-
 
 .arrows svg {
     fill: none; /* SVG path border color */
