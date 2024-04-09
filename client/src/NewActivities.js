@@ -6,31 +6,34 @@ import volleyball from './images/image 9.png';
 import hockey from './images/image 10.png';
 import bingo from './images/image 11.png';
 import tennis from './images/image 12.png';
+import axios from 'axios'; 
+import REACT_APP_API_URL from './config.js';
 
 const colors = ["#FFD600", "#F5A720", "#D9822A", "#BE5C43", "#A33862", "#6A2774", "#441A93", "#161E7B"]; // Define colors for slides
 
 // Define slide information, mapping each image to a color
-const slideInfo = [
-    { image: basketball, color: colors[0], name: "Basketball"},
-    { image: cricket, color: colors[1], name: "Cricket"},
-    { image: volleyball, color: colors[2], name: "Volleyball"},
-    { image: hockey, color: colors[3], name: "Hockey"},
-    { image: bingo, color: colors[4], name: "Bingo"},
-    { image: tennis, color: colors[5], name: "Tennis"},
-    { image: basketball, color: colors[6], name: "Basketball"},
-    { image: cricket, color: colors[7], name: "Cricket"},
-    { image: volleyball, color: colors[0], name: "Volleyball"},
-    { image: hockey, color: colors[1], name: "Hockey"},
-    { image: bingo, color: colors[2], name: "Bingo"},
-    { image: tennis, color: colors[3], name: "Tennis"},
-    { image: basketball, color: colors[4], name: "Basketball"},
-    { image: cricket, color: colors[5], name: "Cricket"},
-    { image: volleyball, color: colors[6], name: "Volleyball"},
-    { image: hockey, color: colors[7], name: "Hockey"},
-    //We're going to have 16 slides.
-  ];
+const initialSlideInfo = [
+    { image: null, color: colors[0], name: "Badminton" },
+    { image: null, color: colors[1], name: "Basketball" },
+    { image: null, color: colors[2], name: "Bingo" },
+    { image: null, color: colors[3], name: "Cricket" },
+    { image: null, color: colors[4], name: "Cycling" },
+    { image: null, color: colors[5], name: "Marathon" },
+    { image: null, color: colors[6], name: "Meditating" },
+    { image: null, color: colors[7], name: "Paint" },
+    { image: null, color: colors[0], name: "Rowing" },
+    { image: null, color: colors[1], name: "Skating" },
+    { image: null, color: colors[2], name: "Tennis" },
+    { image: null, color: colors[3], name: "Travel" },
+    { image: null, color: colors[4], name: "VideoGame" },
+    { image: null, color: colors[5], name: "Volleyball" },
+    { image: null, color: colors[6], name: "Weightlifting" },
+    { image: null, color: colors[6], name: "Yoga" },
 
-const Popup = ({ isVisible, onClose, bgColor }) => {
+];
+
+
+const Popup = ({ isVisible, onClose, bgColor,description, name, sideImages, selectedImage }) => {
 
     useEffect(() => {
         console.log("Popup bgColor prop:", bgColor);
@@ -45,26 +48,23 @@ const Popup = ({ isVisible, onClose, bgColor }) => {
         <div className="activities-popup-overlay" onClick={onClose}>
              <div className="activities-popup-content" onClick={e => e.stopPropagation()}>
                 <div className="activities-popup-header" style={{ backgroundColor: bgColor }}>
-                    <h1 className="activities-popup-title">Activity Name</h1>
+                    <h1 className="activities-popup-title">{name}</h1>
                 </div>
                 <div className="activities-popup-body" style={{ backgroundColor: bgColor }}>
                     <div className="activities-popup-slides-container">
-                        <div className="activities-popup-slide">
-                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
-                        </div>
-                        <div className="activities-popup-slide">
-                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
-                        </div>
-                        <div className="activities-popup-slide">
-                            {/* <img src={basketball} alt="basketball" className="activities-popup-image"/> */}
-                        </div>
+                        {sideImages.map((img, index) => (
+                            <div key={index} className="activities-popup-slide">
+                                <img src={img.image} alt={`Side image ${index + 1}`} className="activities-popup-image" />
+                            </div>
+                        ))}
+                        
                     </div>
                     <div className="activities-popup-slide-caption">
-                        <p className="activities-popup-statistical-analysis">The statistical analysis caption is going to go here.</p>
+                        <p className="activities-popup-statistical-analysis">{description}</p>
                     </div>
                     </div>
                 <div className="activities-popup-footer">
-                <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>Close</button>
+                <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}></button>
                 </div>
             </div>
         </div>
@@ -74,15 +74,78 @@ const Popup = ({ isVisible, onClose, bgColor }) => {
 const NewActivities = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);
     const [popupColor, setPopupColor] = useState(colors[0]); // Default color
-
+    const [slideInfo, setSlideInfo] = useState(initialSlideInfo); // Use slideInfo as a state
+    const [sideImages, setSideImages] = useState([]); // Add a state for side images
     const [hoveredSlide, setHoveredSlide] = useState(null);
+    const [selectedSideImages, setSelectedSideImages] = useState([]);
+    const [fetchedSideImages, setFetchedSideImages] = useState([]); // State variable for fetched side images
+    const [selectedImageDescription, setSelectedImageDescription] = useState(''); // State variable for selected image description
+    const [selectedImageName, setSelectedImageName] = useState(''); // State variable for selected image name
+    const [selectedImage, setSelectedImage] = useState(''); // State variable for selected image name
 
-    const handleSlideClick = (event, color) => {
+
+    useEffect(() => {
+        const fetchMainImages = async () => {
+            const API_URL = REACT_APP_API_URL;
+            console.log(API_URL);             
+            try {
+                const response = await axios.get(`${API_URL}/activities`);
+                const sideResponse = await axios.get(`${API_URL}/activities/side`);
+
+                const fetchedImages = response.data.images;
+                const fetchedSideImages = sideResponse.data.images;
+                console.log(response)
+                console.log(fetchedImages)
+                console.log(fetchedSideImages)
+
+                const updatedSlideInfo = slideInfo.map(slide => {
+                    const foundImage = fetchedImages.find(img => img.prompt.replace(/^Main_/, '') === slide.name);
+                    return foundImage ? { ...slide, image: foundImage.image, description: foundImage.description } : slide;
+                });
+
+
+                setSlideInfo(updatedSlideInfo); // Update the state to trigger a re-render
+                setFetchedSideImages(fetchedSideImages);
+            } catch (error) {
+                console.error('Failed to fetch main images:', error);
+            }
+        };
+
+        fetchMainImages();
+    }, []); 
+
+    const handleSlideClick = (event, color, name, description, image) => {
         // This check ensures that only clicks directly on `activities-slide-inner`
         // or its descendants can trigger the popup.
         if (!event.currentTarget.classList.contains('activities-slide-inner')) {
             return; // Do nothing if the click is not on the target element.
         }
+
+        console.log(color, name, description, image)
+        
+        setSelectedImage(image);
+        console.log(image)
+        const name2 = name.substring(0, 4);
+        const filteredSideImages = fetchedSideImages.filter(image => image.filterer === name2);
+
+        // Safely accessing properties with optional chaining
+        let promptToAdd = filteredSideImages[0]?.prompt ?? 'Default Prompt';
+        let filteredToAdd = filteredSideImages[0]?.filterer ?? 'Default Filterer';
+
+        let objectToInsert = { image: image, prompt: promptToAdd, filterer: filteredToAdd };
+
+        // Consider conditionally adding objectToInsert based on whether filteredSideImages has items
+        if (filteredSideImages.length > 0) {
+            filteredSideImages.splice(1, 0, objectToInsert);
+        }
+
+        console.log(filteredSideImages)
+        setSelectedImageDescription(description);
+        setSelectedImageName(name);
+        setSelectedSideImages(filteredSideImages); // Set the filtered side images
+        // Finally, show the popup
+        setPopupVisible(true);
+
         
         console.log('Setting color to:', color);
         setPopupColor(color); 
@@ -308,7 +371,7 @@ const NewActivities = () => {
                 <div className="activities-slider">
                 {slideInfo.map((slide, index) => (
                     <div key={index} className="activities-slide" style={{ backgroundColor: slide.color }}>
-                    <div className="activities-slide-inner" onClick={(e) => handleSlideClick(e, slide.color)} onMouseEnter={() => setHoveredSlide(slide.name)} onMouseLeave={() => setHoveredSlide(null)}>
+                    <div className="activities-slide-inner" onClick={(e) => handleSlideClick(e, slide.color, slide.name, slide.description, slide.image)} onMouseEnter={() => setHoveredSlide(slide.name)} onMouseLeave={() => setHoveredSlide(null)}>
                         <img src={slide.image} alt={slide.name} className="activities-image" />
                         {hoveredSlide === slide.name && (
                         <div className="activities-hover-caption">{slide.name}</div>
@@ -341,6 +404,11 @@ const NewActivities = () => {
             isVisible={isPopupVisible} 
             onClose={() => setPopupVisible(false)} 
             bgColor={popupColor} // Here you're using popupColor correctly
+                description={selectedImageDescription}
+                name={selectedImageName}
+                sideImages={selectedSideImages} 
+                selectedImage={selectedImage}
+
             />
         </div>
     );

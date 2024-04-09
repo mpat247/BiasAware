@@ -154,6 +154,9 @@ app.use('/crime', crimeRoutes);
 const professionsRoute = require('./routes/professions');
 app.use('/professions', professionsRoute);
 
+const activitiesRoute = require('./routes/activities');
+app.use('/activities', activitiesRoute);
+
 async function main() {
   try {
     await connectToDatabase(); // Make sure this function actually waits for the connection

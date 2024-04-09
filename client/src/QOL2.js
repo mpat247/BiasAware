@@ -10,76 +10,28 @@ const QOL2 = () => {
   const [selectedImageName, setSelectedImageName] = useState(null);
 
   useEffect(() => {
-    // Function to fetch images for the bottom-left side
-    const fetchBottomLeftImages = async () => {
+    const fetchImages = async (url, setImagesState) => {
       try {
-        const response = await fetch('http://localhost:3001/qol/main');
-        if (!response.ok) {
-          throw new Error('Failed to fetch bottom-left images');
-        }
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
-        console.log(data);
-    
-        // Extract image data and prompt, and construct image URL
         const imagesWithImage = data.images.map(image => ({
-          imageData: image.imageData, // Assuming image data is directly available in the imageData field
-          prompt: image.prompt
-        }));
-    
-        // Log prompt field for each image
-        imagesWithImage.forEach(image => {
-          console.log('Prompt:', image.prompt);
-        });
-    
-        // Log image data for debugging
-        imagesWithImage.forEach(image => {
-          console.log('Image Data:', image.imageData);
-        });
-    
-        // Shuffle the images
-        const shuffledImages = shuffleArray(imagesWithImage);
-    
-        // Set the bottomLeftImages state with the updated data
-        setBottomLeftImages(shuffledImages);
-      } catch (error) {
-        console.error('Failed to fetch bottom-left images:', error);
-      }
-    };
-
-    // Function to fetch images for the bottom-right side
-    const fetchBottomRightImages = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/qol/main2');
-        if (!response.ok) {
-          throw new Error('Failed to fetch bottom-right images');
-        }
-        const data = await response.json();
-        console.log('Bottom right images:', data.images); // Log the retrieved images
-
-        // Extract image data and create prompt for each image
-        const imagesWithPrompt = data.images.map(image => ({
           imageData: image.imageData,
           prompt: image.prompt
         }));
-
-        // Log prompt for each image
-        imagesWithPrompt.forEach(image => {
-          console.log('Prompt:', image.prompt);
-        });
-    
-        // Shuffle the images
-        const shuffledImages = shuffleArray(imagesWithPrompt);
-    
-        // Set the bottomRightImages state with the updated data
-        setBottomRightImages(shuffledImages);
+        setImagesState(imagesWithImage);
       } catch (error) {
-        console.error('Failed to fetch bottom-right images:', error);
+        console.error(`Failed to fetch images: ${error}`);
       }
     };
 
-    // Initial fetch of images
-    fetchBottomLeftImages();
-    fetchBottomRightImages();
+    fetchImages('http://localhost:3001/qol/main', setBottomLeftImages);
+    fetchImages('http://localhost:3001/qol/main2', setBottomRightImages);
+  }, []);
+
+
+  useEffect(() => {
+    
 
     // Set interval to refresh images every 7 seconds
     const intervalId = setInterval(() => {
@@ -93,14 +45,20 @@ const QOL2 = () => {
 
   // Function to slice images for display based on current index
   const getDisplayImages = (images, index) => {
-    if (images.length === 0) return [];
+    // Ensure images array is not empty
+    if (!images || images.length === 0) return [];
+
     const slicedImages = [];
     for (let i = 0; i < 16; i++) {
       const imageIndex = (index + i) % images.length;
-      slicedImages.push(images[imageIndex]);
+      // Safely push images that exist and have imageData
+      if (images[imageIndex] && images[imageIndex].imageData) {
+        slicedImages.push(images[imageIndex]);
+      }
     }
-    return slicedImages.filter(image => image.imageData); // Filter out images with undefined imageData
+    return slicedImages;
   };
+
 
   // Function to handle opening popup and setting selected image
   const handleImageClick = (imageData, imageName) => {

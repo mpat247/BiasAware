@@ -212,7 +212,7 @@
 /*POPUP CODE*/
 .activities-popup-title {
     font-family: "Crimson Text", serif;
-    color: White;
+    color: #0B0533;
     font-weight: 700;
     font-style: normal;
 }
@@ -225,7 +225,7 @@
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
-    color: white
+    color: #0B0533
 }
 
 .activities-popup-overlay {
