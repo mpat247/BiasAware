@@ -134,13 +134,14 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%; /* Adjust as needed */
-  height: 95%; /* Adjust as needed */
+  height: 95%; 
   text-align: center;
   display: flex;
   flex-direction: column; /* Stack children vertically */
   justify-content: space-around;
   align-items: center;
-  overflow: hidden; /* Ensures no overflow */
+  overflow-y: auto; /* Add scroll if content is too long */
+
 }
 
 .professions-popup-header, .professions-popup-body, .professions-popup-footer {
