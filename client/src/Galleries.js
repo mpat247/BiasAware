@@ -24,8 +24,8 @@ const Galleries = () => {
         <div>
             <div className="gallery">
                 {images.map((src, index) => (
-                    <article key={index} className="gallery-item">
-                        <a className="gallery-link" onClick={() => openModal(src)}>
+                    <article key={index} className="gallery-item" onClick={() => openModal(src)}>
+                        <a className="gallery-link">
                             <figure className="gallery-image">
                                 <img src={src} alt={`Gallery Image ${index}`} />
                                 <figcaption>Photo caption</figcaption>
