@@ -10,41 +10,125 @@ import tennis from './images/image 12.png';
 
 // Define the categories and their colors
 const categories = [
-  { name: 'Business', color: '#FFD600' },
-  { name: 'Healthcare', color: '#D9822A' },
-  { name: 'Maintenance', color: '#BE5C43' },
-  { name: 'Education', color: '#A33862' },
-  { name: 'Technology', color: '#6A2774' }
+{ 
+  name: 'Business', 
+  color: '#FFD600', 
+  images: [
+    basketball, 
+    basketball,
+    basketball, 
+    basketball,
+    basketball, 
+    basketball,
+    basketball, 
+    basketball,
+    basketball,
+    basketball 
+    // ... other business images
+  ]
+},
+{ 
+  name: 'Healthcare', 
+  color: '#D9822A', 
+  images: [
+    cricket, 
+    cricket,
+    cricket, 
+    cricket,
+    cricket, 
+    cricket,
+    cricket, 
+    cricket,
+    cricket, 
+    cricket 
+    // ... other healthcare images
+  ]
+},
+{ 
+  name: 'Maintenance', 
+  color: '#BE5C43', 
+  images: [
+    volleyball, 
+    volleyball,
+    volleyball, 
+    volleyball,
+    volleyball, 
+    volleyball,
+    volleyball, 
+    volleyball,
+    volleyball, 
+    volleyball    // ... other business images
+  ]
+},
+{ 
+  name: 'Education', 
+  color: '#A33862', 
+  images: [
+    hockey, 
+    hockey, 
+    hockey, 
+    hockey, 
+    hockey, 
+    hockey, 
+    hockey, 
+    hockey, 
+    hockey, 
+    hockey
+    // ... other business images
+  ]
+},
+{ 
+  name: 'Technology', 
+  color: '#6A2774', 
+  images: [
+    bingo, 
+    bingo,
+    bingo, 
+    bingo,
+    bingo, 
+    bingo,
+    bingo, 
+    bingo,
+    bingo, 
+    bingo 
+    // ... other business images
+  ]
+},
+  // { name: 'Business', color: '#FFD600' },
+  // { name: 'Healthcare', color: '#D9822A' },
+  // { name: 'Maintenance', color: '#BE5C43' },
+  // { name: 'Education', color: '#A33862' },
+  // { name: 'Technology', color: '#6A2774' }
 ];
 
 
-const ProfCarousel = () => {
-    const [selected, setSelected] = useState(0);
+const ProfCarousel = ({ images }) => {
+  const [selected, setSelected] = useState(0);
     // Use URLs for your desired images here; I'm keeping placeholders for demonstration:
-    const slideImages = [
-        basketball,
-        cricket,
-        volleyball,
-        hockey,
-        bingo, 
-        tennis
-    ];
+    // const images = [
+    //     basketball,
+    //     cricket,
+    //     volleyball,
+    //     hockey,
+    //     bingo, 
+    //     tennis
+    // ];
 
     // This effect sets up an interval to change the slide every 3 seconds (3000ms)
     useEffect(() => {
         const interval = setInterval(() => {
-            setSelected(prevSelected => (prevSelected + 1) % slideImages.length);
+            setSelected(prevSelected => (prevSelected + 1) % images.length);
         }, 3000); // Change 3000 to however many milliseconds you want
 
         // Clear the interval when the component is unmounted
         return () => clearInterval(interval);
-    }, [slideImages.length]); // Only re-run the effect if slideImages.length changes
+    }, [images.length]); // Only re-run the effect if images.length changes
 
     const moveToSelected = (element) => {
         if (element === "next") {
-            setSelected((prevSelected) => (prevSelected + 1) % slideImages.length);
+            setSelected((prevSelected) => (prevSelected + 1) % images.length);
         } else if (element === "prev") {
-            setSelected((prevSelected) => (prevSelected - 1 + slideImages.length) % slideImages.length);
+            setSelected((prevSelected) => (prevSelected - 1 + images.length) % images.length);
         } else {
             setSelected(element);
         }
@@ -54,13 +138,13 @@ const ProfCarousel = () => {
         let className = '';
         if (index === selected) {
             className = 'selected';
-        } else if (index === (selected + 1) % slideImages.length) {
+        } else if (index === (selected + 1) % images.length) {
             className = 'next';
-        } else if (index === (selected + 2) % slideImages.length) {
+        } else if (index === (selected + 2) % images.length) {
             className = 'nextSecond';
-        } else if (index === (selected - 1 + slideImages.length) % slideImages.length) {
+        } else if (index === (selected - 1 + images.length) % images.length) {
             className = 'prev';
-        } else if (index === (selected - 2 + slideImages.length) % slideImages.length) {
+        } else if (index === (selected - 2 + images.length) % images.length) {
             className = 'prevSecond';
         } else if (index < selected) {
             className = 'hideLeft';
@@ -95,7 +179,7 @@ const ProfCarousel = () => {
             <div id="carousel">
 
             {/* // Inside your JSX map function for rendering slides */}
-            {slideImages.map((src, index) => (
+            {images.map((src, index) => (
             <a key={index} className={getClassNames(index)} onClick={() => moveToSelected(index)} href="javascript:void(0);">
                 <div className="slideContainer">
                     {/* Render the banner only for the selected slide */}
@@ -127,7 +211,7 @@ const ProfCarousel = () => {
 
 
 // Popup component
-const Popup = ({ onClose, bgColor, categoryName }) => {
+const Popup = ({ onClose, bgColor, categoryName, images }) => {
   return (
     <div className="professions-popup-overlay" onClick={onClose}>
          <div className="professions-popup-content" onClick={e => e.stopPropagation()}>
@@ -139,7 +223,7 @@ const Popup = ({ onClose, bgColor, categoryName }) => {
                     <div className="professions-popup-slide" style={{ backgroundColor: bgColor }}>
                        {/* ProfCarousel component will go here */}
                         {/* <div><ProfCarousel /></div> */}
-                        <ProfCarousel />
+                        <ProfCarousel images={images}/>
                         {/* <img src={basketball} alt="basketball" className="professions-popup-image"/> */}
                     </div>
                     
@@ -188,6 +272,7 @@ const NewProfessions = () => {
           onClose={handleClosePopup}
           bgColor={selectedCategory.color}
           categoryName={selectedCategory.name}
+          images={selectedCategory.images} // Pass the images to the Popup
         />
       )}
       
