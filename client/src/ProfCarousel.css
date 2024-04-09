@@ -7,7 +7,7 @@
     --minFontSize: 10px;
     --maxFontSize: 32px;
     --scaler: 5vw;
-    --bannerHeight: 50px; /* Height of the caption banner */
+    --bannerHeight: 4vw; /* Height of the caption banner */
     font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
 }
 
@@ -22,15 +22,15 @@
 
 .captionBanner {
     position: absolute;
-    top: -var(--bannerHeight); /* Position it above the top edge of the carousel */
+    /* top: -var(--bannerHeight); Position it above the top edge of the carousel */
     bottom: 100%;
     left: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 10px;
+    /* padding: 10px; */
     text-align: center;
-    font-size: 1.2em; /* Adjust font size as needed */
+    font-size: 3vw; /* Adjust font size as needed */
     height: var(--bannerHeight); /* Use the banner height variable */
     box-sizing: border-box;
 }
