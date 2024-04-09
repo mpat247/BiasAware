@@ -1,6 +1,7 @@
 /* Base styles */
 * {
     box-sizing: border-box;
+    margin: 0; /* Reset default margin */
   }
   
   html {
@@ -11,13 +12,15 @@
   
   body {
     font-family: 'Montserrat', sans-serif;
+    background-color: #fff; /* Assuming you want a white background */
   }
   
   /* Gallery styles */
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0;
+    column-gap: 0;
+    row-gap: 0; /* This removes space between rows */
   }
   
   @media (min-width: 480px) {
@@ -40,16 +43,18 @@
   
   .gallery-item {
     position: relative;
-  }
-  
-  .gallery-item:hover figcaption {
-    opacity: 1;
+    overflow: hidden; /* Hide the overflow to maintain grid alignment */
   }
   
   .gallery-image img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+  }
+  
+  .gallery-item:hover img {
+    transform: scale(1.05); /* Slightly zoom in the image on hover */
   }
   
   figcaption {
@@ -61,8 +66,35 @@
     color: white;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 1em;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.3s ease; /* Smooth transition for fade effect */
     opacity: 0;
+  }
+  
+  .gallery-item:hover figcaption {
+    opacity: 1; /* Show the caption on hover */
+  }
+  
+  /* The ::before and ::after pseudo-elements create the border effect */
+  .gallery-item::before, .gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .gallery-item::before {
+    border: 16px solid rgba(0, 0, 0, 0.1); /* Light grey border */
+  }
+  
+  .gallery-item::after {
+    border: 16px solid transparent; /* Invisible border to keep consistent sizing */
+  }
+  
+  .gallery-item:hover::before, .gallery-item:hover::after {
+    border-color: rgba(0, 0, 0, 0.3); /* Darken border on hover */
   }
   
   /* Modal styles */

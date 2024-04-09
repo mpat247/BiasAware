@@ -41,12 +41,6 @@ const Galleries = () => {
                     <div className="caption">{selectedImage.alt}</div>
                 </div>
             )}
-            {/* <footer id="footer" role="contentinfo">
-                <div className="container">
-                    <a className="logo" href="https://codepen.io/collection/XRoxGR" rel="home">Calibration theme</a>
-                    <a className="copy" href="https://mobilemarkup.com" target="_blank" rel="noopener noreferrer">© mobileMarkup.com</a>
-                </div>
-            </footer> */}
         </div>
     );
 };
