@@ -46,9 +46,9 @@
     justify-content: center;
     position: relative;
     height: calc(var(--ImgSizeY) + var(--bannerHeight)); /* Updated to include the banner height */
-    background-color: pink;
+    /* background-color: pink; */
     padding-top: var(--bannerHeight); /* Pushes the images down by the banner's height */
-    margin-top: var(--bannerHeight); /* This may not be necessary if using padding-top */
+    /* margin-top: var(--bannerHeight); This may not be necessary if using padding-top */
 }
 
 #carousel a {
