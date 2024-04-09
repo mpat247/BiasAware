@@ -50,6 +50,7 @@
     width: 100%;
     height: auto;
     display: block;
+    transform: scale(1.05); /* Scaled up by 1.05 by default */
     transition: transform 0.3s ease; /* Smooth transition for zoom effect */
   }
   
@@ -90,7 +91,8 @@
   }
   
   .gallery-item::after {
-    border: 16px solid transparent; /* Invisible border to keep consistent sizing */
+    /* border: 16px solid transparent; Invisible border to keep consistent sizing */
+    border: 16px solid rgba(0, 0, 0, 0.1); /* Light grey border */
   }
   
   .gallery-item:hover::before, .gallery-item:hover::after {
