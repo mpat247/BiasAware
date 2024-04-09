@@ -110,8 +110,9 @@
   font-size: 0.75rem;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 200;
+  font-weight: 300;
   font-style: normal;
+  color: #0B0533;
 }
 
 .professions-popup-overlay {
@@ -148,7 +149,7 @@
 
 .professions-popup-header {
   /* Style as needed */
-  color: white;
+  background-color: white;
   /* background-color: orange; */
   margin-bottom: 20px;
 }
@@ -159,7 +160,7 @@
   flex-direction: column; /* Stack container and caption vertically */
   justify-content: flex-start; /* Start children at the top of the container */
   align-items: center; /* Center children horizontally */
-  /* background-color: pink; */
+  background-color: white;
   padding: 22px; /* Add some padding around the slides */
   border-radius: 10px;
   width: 95%;

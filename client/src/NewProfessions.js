@@ -15,17 +15,18 @@ const Popup = ({ onClose, bgColor, categoryName }) => {
   return (
     <div className="professions-popup-overlay" onClick={onClose}>
          <div className="professions-popup-content" onClick={e => e.stopPropagation()}>
-            <div className="professions-popup-header" style={{ backgroundColor: bgColor }}>
-                <h1 className="professions-popup-title">{categoryName}</h1>
+            <div className="professions-popup-header">
+                <h1 className="professions-popup-title" style={{ color: bgColor }}>{categoryName}</h1>
             </div>
-            <div className="professions-popup-body" style={{ backgroundColor: bgColor }}>
+            <div className="professions-popup-body">
                 <div className="professions-popup-slides-container">
-                    <div className="professions-popup-slide">
+                    <div className="professions-popup-slide" style={{ backgroundColor: bgColor }}>
                         {/* <img src={basketball} alt="basketball" className="professions-popup-image"/> */}
                     </div>
                     
                 </div>
                 <div className="professions-popup-slide-caption">
+                    {/* <p className="professions-popup-statistical-analysis" style={{ color: bgColor }}>The statistical analysis caption is going to go here.</p> */}
                     <p className="professions-popup-statistical-analysis">The statistical analysis caption is going to go here.</p>
                 </div>
                 </div>
