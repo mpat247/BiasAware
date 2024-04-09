@@ -2,10 +2,12 @@
     /* prev 50 */
     /* --ImgSizeX: 50vw; */
     --ImgSizeX: 45vw;
-    --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3);
+    /* --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3); */
+    --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3); /* Add banner height to the image height */
     --minFontSize: 10px;
     --maxFontSize: 32px;
     --scaler: 5vw;
+    --bannerHeight: 50px; /* Height of the caption banner */
     font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
 }
 
@@ -18,19 +20,30 @@
     align-items: center;
 }
 
+.captionBanner {
+    position: absolute;
+    top: -var(--bannerHeight); /* Position it above the top edge of the carousel */
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em; /* Adjust font size as needed */
+    height: var(--bannerHeight); /* Use the banner height variable */
+    box-sizing: border-box;
+}
+
 #carousel {
-    overflow: hidden; /* Add this line */
+    overflow: hidden;
     display: flex;
     justify-content: center;
     position: relative;
-    height: var(--ImgSizeY);
+    height: calc(var(--ImgSizeY) + var(--bannerHeight)); /* Updated to include the banner height */
     background-color: pink;
-
-
-    /* Other styles remain unchanged */
-    position: relative; /* This should be set to ensure child absolute positioning is relative to this container */
-    height: var(--ImgSizeY); /* Make sure this height is correct and does not collapse */
-    background-color: pink;
+    padding-top: var(--bannerHeight); /* Pushes the images down by the banner's height */
+    margin-top: var(--bannerHeight); /* This may not be necessary if using padding-top */
 }
 
 #carousel a {
@@ -113,3 +126,7 @@
 .arrows svg:hover {
     stroke: #0B0533; /* Change arrow color on hover */
 }
+
+
+
+

@@ -82,13 +82,19 @@ const ProfCarousel = () => {
     return (
         <main>
             <div id="carousel">
-                {slideImages.map((src, index) => (
-                    <a key={index} className={getClassNames(index)} onClick={() => moveToSelected(index)} href="javascript:void(0);">
-                        <div className="slideContainer">
-                            <img src={src} alt={`Slide ${index + 1}`} />
-                        </div>
-                    </a>
-                ))}
+
+            {/* // Inside your JSX map function for rendering slides */}
+            {slideImages.map((src, index) => (
+                <a key={index} className={getClassNames(index)} onClick={() => moveToSelected(index)} href="javascript:void(0);">
+                    <div className="slideContainer">
+                        {/* The captionBanner is now positioned above the slide */}
+                        <div className="captionBanner">{`Slide ${index + 1}`}</div>
+                        <img src={src} alt={`Slide ${index + 1}`} />
+                    </div>
+                </a>
+            ))}
+
+
                 <div className="arrows">
                 <span id="prev" style={arrowLeftStyle} onClick={() => moveToSelected('prev')}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
