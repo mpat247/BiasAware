@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import anychart from 'anychart'; // Import AnyChart
 import { Helmet } from 'react-helmet'; //Import Font
-import './Crime.css';
-import Slider from './Slider';
+//import './Crime.css';
+import CrimeStyling from "./CrimeStyling.module.css"; // Import CSS module
+
 
 
 
@@ -170,43 +171,42 @@ const Crime = () => {
   }, []);
 
   return (
-    <div className="crimes-body">
-      <h1 className="title">C R I M E</h1>
-      <div className="crime-rectangle-container">
+    <div className={CrimeStyling["crimes-body"]}>
+      <h1 className={CrimeStyling["title"]}>C R I M E</h1>
+      <div className={CrimeStyling["crime-rectangle-container"]}>
         {[...Array(3)].map((_, index) => (
-          <div key={index} className="crime-rectangle">{rectangleText[index]}</div>
+          <div key={index} className={CrimeStyling["crime-rectangle"]}>{rectangleText[index]}</div>
         ))}
       </div>
 
-      <div className="grid-container">
+      <div className={CrimeStyling["grid-container"]}>
         {[...Array(6).keys()].map((index) => (
-          <div key={index} id={`container${index + 1}`} className="heatmap-container" onClick={(e) => handleHeatmapClick(e, index)}></div>
+          <div key={index} id={`container${index + 1}`} className={CrimeStyling["heatmap-container"]} onClick={(e) => handleHeatmapClick(e, index)}></div>
         ))}
       </div>
 
-      <div className="crime-rectangle-container">
+      <div className={CrimeStyling["crime-rectangle-container"]}>
         {[...Array(3)].map((_, index) => (
-          <div key={index + 3} className="crime-rectangle">{rectangleText[index + 3]}</div>
+          <div key={index + 3} className={CrimeStyling["crime-rectangle"]}>{rectangleText[index + 3]}</div>
         ))}
       </div>
 
-      <div className="grid-container">
+      <div className={CrimeStyling["grid-container"]}>
         {Array.from({ length: 6 }).map((_, index) => (
-          <div key={index + 6} id={`container${index + 7}`} className="heatmap-container" onClick={(e) => handleHeatmapClick(e, index)}></div>
-
+          <div key={index + 6} id={`container${index + 7}`} className={CrimeStyling["heatmap-container"]} onClick={(e) => handleHeatmapClick(e, index)}></div>
         ))}
       </div>
 
       {popupVisible && (
-            <>
-                <div className="popup-overlay"></div>
-                <div className="popup-crime" >
-                    <button onClick={handleClosePopup}>Close</button>
-                    {popupText}
-                    <div className="crime-popup-image"></div>
-                </div>
-            </>
-        )}
+        <>
+          <div className={CrimeStyling["popup-overlay"]}></div>
+          <div className={CrimeStyling["popup-crime"]}>
+            <button onClick={handleClosePopup}>Close</button>
+            {popupText}
+            <div className={CrimeStyling["crime-popup-image"]}></div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

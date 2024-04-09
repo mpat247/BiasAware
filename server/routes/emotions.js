@@ -45,7 +45,8 @@ router.get('/main', async (req, res) => {
           resolve({
             image: `data:${contentType};base64,${imgBase64}`,
             prompt: image.prompt, // Original prompt
-            emotion // New prompt field without 'A ', 'An ', and ' Individual'
+            emotion, // New prompt field without 'A ', 'An ', and ' Individual',
+            description: image.description
           });
           count ++;
           console.log('Image downloaded:', filename, 'Prompt:', image.prompt, 'Emotion:', emotion);

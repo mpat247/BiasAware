@@ -4,12 +4,10 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import NavigationBar from './NavigationBar2'; // Import the NavigationBar component
 import Addictions from './Addictions';
-import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
 import QOL2 from './QOL2'; // Import the QOL component
 import Crime from './Crime';
 import Emotions from './Emotions';
-import ProfessionsLanding from './ProfessionsLanding';
 import LandingPage from './LandingPage'; // Import the LandingPage component
 import NewActivities from './NewActivities'; // Import the LandingPage component
 
@@ -38,7 +36,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLandingPage(false);
-    }, 35000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -245,10 +243,7 @@ const Home = () => {
       
 
 
-      {/* Activities section */}
-      <div id="activities">
-        <Activities />
-      </div>
+     
 
       {/* Addictions section */}
       <div id="addictions">
@@ -257,17 +252,14 @@ const Home = () => {
             
       {/* Quality of Life section */}
       <div id="qol">
-        <QOL2 />
+        <QOL />
       </div>
       {/* Quality of Life section */}
       <div id="Emotions">
         <Emotions />
       </div>
 
-      {/* Quality of Life section */}
-      <div id="ProfessionsLanding">
-        <ProfessionsLanding />
-      </div>
+  
 
       <div id="Crime">
         <Crime />

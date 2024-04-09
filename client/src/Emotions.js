@@ -4,11 +4,11 @@ import React, { useState, useEffect } from 'react';
 import './Emotions.css';
 import axios from 'axios';
 
-const PopupCard = ({ onClose, retrievedImage, prompt, sideImages }) => {
+const PopupCard = ({ onClose, retrievedImage, prompt,description, sideImages }) => {
   return (
     <div className="popup-card-emotions">
       <div className="popup-content-emotions">
-        <button className="close-button-emotions" onClick={onClose}>Close</button>
+        <button className="close-button-emotions" onClick={onClose}>x</button>
         <div className="image-layout-emotions">
           <div className="side-images-emotions left">
             {sideImages.slice(0, 2).map((img, index) => (
@@ -16,8 +16,11 @@ const PopupCard = ({ onClose, retrievedImage, prompt, sideImages }) => {
             ))}
           </div>
           <div className="main-image-container-emotions">
+          {prompt && <div className="prompt-text-emotions">{prompt}</div>}
+
             {retrievedImage && <img src={retrievedImage} alt="retrieved-emotion" className="retrieved-image-centered-emotions" />}
-            {prompt && <div className="prompt-text-emotions">{prompt}</div>}
+            {description && <div className="description-text-emotions">{description}</div>}
+
           </div>
           <div className="side-images-emotions right">
             {sideImages.slice(2, 4).map((img, index) => (
@@ -60,6 +63,8 @@ const Emotions = () => {
   const [retrievedImage, setRetrievedImage] = useState('');
   const [PopUpPrompt, setPopUpPrompt] = useState('');
   const [displaySideImages, setDisplaySideImages] = useState([]);
+  const [PopUpDescription, setPopUpDescription] = useState('');
+
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -79,11 +84,12 @@ const Emotions = () => {
     fetchImages();
   }, []);
 
-  const handleClick = (emotion, prompt) => {
+  const handleClick = (emotion, prompt, description) => {
     const imageObj = retrievedImages.find(image => image.emotion?.toLowerCase().trim() === emotion.toLowerCase().trim());
     if (imageObj) {
       setRetrievedImage(imageObj.image);
       setPopUpPrompt(imageObj.prompt);
+      setPopUpDescription(imageObj.description);
 
       const relatedSideImages = sideImages.filter(img => img.emotion === imageObj.emotion);
       setDisplaySideImages(relatedSideImages);
@@ -96,12 +102,18 @@ const Emotions = () => {
     setShowPopup(false);
     setRetrievedImage('');
     setPopUpPrompt('');
+    setPopUpDescription('');
     setDisplaySideImages([]);
   };
 
   return (
     <div className="emotions-page">
-      <div className="rectangle2">
+      <div className="background-rectangle-top"></div>
+      <div className="emotion-top-rectangle">
+        <h1 className="emotion-title">I AM FEELING</h1>
+      </div>
+      <div className="background-rectangle-bottom"></div>
+      <div className="emotion-rectangle2">
         <div className="image-grid">
           {Object.keys(emotionMap).map((emotion, index) => (
             <button key={index} className="emotion-button" onClick={() => handleClick(emotion, emotionMap[emotion])}>
@@ -110,9 +122,11 @@ const Emotions = () => {
           ))}
         </div>
       </div>
-      {showPopup && <div className="overlay" onClick={handleClose}></div>}
-      {showPopup && <PopupCard onClose={handleClose} retrievedImage={retrievedImage} prompt={PopUpPrompt} sideImages={displaySideImages} />}
+      {showPopup && <div className="emotions-overlay" onClick={handleClose}></div>}
+      {showPopup && <PopupCard onClose={handleClose} retrievedImage={retrievedImage} prompt={PopUpPrompt} description={PopUpDescription} sideImages={displaySideImages} />}
     </div>
+  
+
   );
 };
 

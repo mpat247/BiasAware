@@ -1,3 +1,5 @@
+// Addictions.js
+
 import React, { useState, useEffect } from 'react';
 import NavigationBar from './NavigationBar';
 import './Addictions.css';
@@ -5,6 +7,7 @@ import ArrowLeftImage from "./Arrows/Arrow_Left_1.png";
 import ArrowRightImage from "./Arrows/Arrow_Right_1.png";
 import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
+import { Helmet } from 'react-helmet';
 
 const Addictions = () => {
   const [imagesData, setImagesData] = useState([]);
@@ -18,17 +21,27 @@ const Addictions = () => {
   const [popupDescription, setpopupDescription] = useState('');
 
 
+  const API = REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const mainResponse = await axios.get(`${REACT_APP_API_URL}/addictions/main-images`);
-        const sideResponse = await axios.get(`${REACT_APP_API_URL}/addictions/side-images`);
-        console.log(mainResponse.data);
-        console.log(sideResponse.data);
+        const mainResponse = await axios.get(`${API}/addictions/main-images`);
         setImagesData(mainResponse.data.images);
-        setSideImagesData(sideResponse.data.images);
         setLoading(false); // Set loading to false once images are fetched
+      } catch (error) {
+        console.error('Failed to fetch images:', error);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const sideResponse = await axios.get(`${API}/addictions/side-images`);
+        setSideImagesData(sideResponse.data.images);
       } catch (error) {
         console.error('Failed to fetch images:', error);
       }
@@ -47,7 +60,7 @@ const Addictions = () => {
     );
   };
 
-  const PopupCard = ({ image, prompt, sideImages, onClose, description }) => {
+  const PopupCard = ({ image, prompt, sideImages, onClose, retrievedImage, description }) => {
     const formattedPrompt = prompt => {
       const vowels = ['a', 'e', 'i', 'o', 'u'];
       const firstLetter = prompt.toLowerCase().charAt(0);
@@ -57,51 +70,57 @@ const Addictions = () => {
         return `A ${prompt} Dependent Individual`;
       }
     };
-    
+
     // Fill the sideImages array with empty strings if there are fewer than 4 side images
     const filledSideImages = [...sideImages, '', '', '', ''].slice(0, 4);
-  
+
     return (
-      <div className="popup-card">
-        <div className="popup-content">
-          <button className="close-button" onClick={onClose}>Close</button>
-          <div className="rectanglepop1"></div>
-          <div className="rectanglepop2"></div>
-          <div className="rectanglepop3">
-            <div><p className="popup-prompt" style={{ textAlign: 'center' }}>{formattedPrompt(prompt)}</p></div>
-            <div><p className="popup-description" style={{ textAlign: 'center' }}>{description}</p></div>
+      <div className="popup-card-addiction">
+        <div className="popup-content-addiction">
+          <button className="close-button-addiction" onClick={onClose}>x</button>
+          <div className="image-layout-addiction">
+          <div className="side-images-addictions left">
+            {filledSideImages.slice(0, 2).map((sideImage, index) => (
+              <div key={index} className={`side-image-addictions`}>
+              <img src={sideImage} alt={`sideImage${index + 1}`} className="side-image-addictions" />
+            </div>
+            ))}
+          </div>
+          <div className="main-image-container-addictions">
+            {image && <img src={image} alt="selected-addiction" className="retrieved-image-centered-addictions" />}
+            {prompt && <div className="prompt-text-addictions">{formattedPrompt(prompt)}</div>}
+            {description && <div className="description-text-addictions">{description}</div>}
 
           </div>
-          {filledSideImages.map((sideImage, index) => (
-            <div key={index} className={`image${index + 1}`}>
-              <img src={sideImage} alt={`sideImage${index + 1}`} className="popup-image" />
+          <div className="side-images-addictions right">
+            {filledSideImages.slice(2, 4).map((sideImage, index) => (
+              <div key={index} className={`side-image-addictions`}>
+              <img src={sideImage} alt={`sideImage${index + 1}`} className="side-image-addictions" />
             </div>
-          ))}
-
-<div className="image5"><img src={image} alt="selected-addiction" className="popup-image" /></div>
+            ))}
+          </div>
+        </div>
 
         </div>
       </div>
     );
   };
-  
+
 
   const openPopup = async (prompt, description) => {
     setShowPopup(true);
     document.body.style.overflow = 'hidden'; // Disable scrolling
     setPopupPrompt(prompt);
     setpopupDescription(description); // Correct this line to properly set the description
-  
+
     // Find the main image corresponding to the prompt
     const mainImage = imagesData.find(image => image.prompt === prompt)?.image;
     setPopUpMain([mainImage]);
-  
+
     // Find the side images corresponding to the prompt
     const sideImages = sideImagesData.filter(image => image.prompt === prompt).map(image => image.image);
     setPopUpSide(sideImages);
   };
-  
-  
 
   const closePopup = () => {
     setShowPopup(false);
@@ -121,23 +140,26 @@ const Addictions = () => {
   const ImageComponent = ({ src, alt, prompt, description }) => {
     return (
       <div className="image-component">
-        <img src={src} alt={alt} onClick={() => openPopup(prompt,description)} />
+        <img src={src} alt={alt} onClick={() => openPopup(prompt, description)} />
       </div>
     );
   };
 
   return (
     <div id="addictions" className="Addictions">
+      <Helmet>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+      </Helmet>
       <header className="App-header">
-        <NavigationBar />
-        {loading ? (
+        
+         {loading ? (
           <div>Loading...</div> // Show loading indicator while images are being fetched
         ) : (
           <div className="addictions-container">
-            <h1>
+            <h1 className="addictions-header">
               A D D I C T I O N S
             </h1>
-            <div className="images-container-addiction" style={{ display: 'flex' }}>
+            <div style={{ display: 'flex' }}>
               {getCurrentImages().map((image, index) => (
                 <ImageComponent
                   key={index}
@@ -157,7 +179,7 @@ const Addictions = () => {
           </div>
         )}
       </header>
-      {showPopup && <div className="overlay" onClick={closePopup}></div>}
+      {showPopup && <div className="overlay-addiction" onClick={closePopup}></div>}
       {showPopup && <PopupCard image={popUpMain[0]} prompt={popupPrompt} sideImages={popUpSide} onClose={closePopup} description={popupDescription} />}
     </div>
   );

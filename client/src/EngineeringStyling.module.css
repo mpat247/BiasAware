@@ -1,0 +1,145 @@
+/* Engineering.css */
+.Engineering {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0B0533;
+  padding-left: 5%; /* Add padding to the left */
+  padding-right: 5%; /* Add padding to the right */
+}
+
+.small-squares {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.above-title {
+  margin-top: 100px;
+}
+
+.below-title {
+  margin-top: 20px;
+}
+
+/* Engineering.css */
+.small-square {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 15vw;
+  height: 15vw;
+  max-width: 200px;
+  max-height: 200px;
+  background-color: #2B1451;
+  margin: 0 2vw;
+  border-radius: 8px;
+}
+
+.inner-box {
+  width: 60%;
+  height: 60%;
+  max-width: 150px;
+  max-height: 150px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+/* Keyframe animation for fading up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to the titles */
+.title {
+  text-align: center;
+  margin-top: 5px;
+  color: white;
+  font-size: 1em;
+  font-family: 'Plus Jakarta Sans';
+  font-weight: bold;
+  animation-name: fadeUp; /* Apply the fade-up animation */
+  animation-duration: 2s; /* Set the duration of the animation */
+  animation-fill-mode: forwards; /* Ensure the final state of the animation persists */
+  
+}
+.title a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Use the color defined in .title */
+}
+
+
+.content-container {
+  background-color: #f0f0f0;
+  padding: 5vw;
+  border-radius: 0px;
+  text-align: center;
+  width: 90%;
+  max-width: 860px;
+  animation-name: fadeUp; /* Apply the fade-up animation */
+  animation-duration: 2s; /* Set the duration of the animation */
+  animation-fill-mode: forwards; /* Ensure the final state of the animation persists */
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5em; /* Decrease font size */
+}
+
+
+
+/* Media Query for smaller screens */
+@media only screen and (max-width: 768px) {
+  h1 {
+    color: #333;
+    font-size: 1.8em; /* Decrease font size */
+  }
+  .small-square {
+    width: 20vw;
+    height: 20vw;
+    max-width: 150px;
+    max-height: 150px;
+    margin: 0 1vw;
+    
+  }
+
+  .inner-box {
+    width: 60%;
+    height: 60%;
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .Engineering{
+   
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #0B0533;
+      margin-left: -33px;
+    
+  }
+  .title {
+    text-align: center;
+    margin-top: 5px;
+    color: white;
+    font-size: 3vw;
+    font-family: 'Plus Jakarta Sans';
+    font-weight: bold;
+    animation-name: fadeUp; /* Apply the fade-up animation */
+    animation-duration: 2s; /* Set the duration of the animation */
+    animation-fill-mode: forwards; /* Ensure the final state of the animation persists */
+  }
+}

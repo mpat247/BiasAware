@@ -1,6 +1,7 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './NavigationBar2.css';
+import NavigationBar2Styling from './NavigationBar2Styling.module.css'; // Import CSS module
 
 const linkVariants = {
   hover: {
@@ -15,13 +16,12 @@ const linkVariants = {
 
 const NavigationBar2 = () => {
     return (
-    
-        <motion.nav className="navbar">
-          <div className="brand-container">
-            <div className="brand">Exploring the Dark Net</div>
+        <motion.nav className={NavigationBar2Styling["navbar"]}>
+          <div className={NavigationBar2Styling["brand-container"]}>
+            <div className={NavigationBar2Styling["brand"]}>Exploring the Dark Net</div>
           </div>
-          <motion.div className="nav-links-container">
-            <div className="nav-links">
+          <motion.div className={NavigationBar2Styling["nav-links-container"]}>
+            <div className={NavigationBar2Styling["nav-links"]}>
               <Link to="/">
                 <motion.a href="#" variants={linkVariants} whileHover="hover">Home</motion.a>
               </Link>
@@ -40,8 +40,7 @@ const NavigationBar2 = () => {
             </div>
           </motion.div>
         </motion.nav>
-    
-        
       );
 };
+
 export default NavigationBar2;
