@@ -6,6 +6,9 @@ import ArrowRightImage from "./Arrows/Arrow_Right_1.png";
 import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
 
+import AddictionsStyling from "./Addictions.module.css"; // Import CSS module
+
+
 const Addictions = () => {
   const [imagesData, setImagesData] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -61,30 +64,86 @@ const Addictions = () => {
     // Fill the sideImages array with empty strings if there are fewer than 4 side images
     const filledSideImages = [...sideImages, '', '', '', ''].slice(0, 4);
   
+   import AddictionsStyling from "./Addictions.module.css"; // Import CSS module
+
+const Addictions = () => {
+  const [imagesData, setImagesData] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [popupPrompt, setPopupPrompt] = useState('');
+  const [popUpMain, setPopUpMain] = useState([]);
+  const [sideImagesData, setSideImagesData] = useState([]);
+  const [popUpSide, setPopUpSide] = useState([]);
+  const [popupDescription, setpopupDescription] = useState('');
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const mainResponse = await axios.get(`${REACT_APP_API_URL}/addictions/main-images`);
+        const sideResponse = await axios.get(`${REACT_APP_API_URL}/addictions/side-images`);
+        console.log(mainResponse.data);
+        console.log(sideResponse.data);
+        setImagesData(mainResponse.data.images);
+        setSideImagesData(sideResponse.data.images);
+        console.log(imagesData);
+        setLoading(false); // Set loading to false once images are fetched
+      } catch (error) {
+        console.error('Failed to fetch images:', error);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesData.length);
+  };
+
+  const previousImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? imagesData.length - 1 : prevIndex - 1
+    );
+  };
+
+  const PopupCard = ({ image, prompt, sideImages, onClose, description }) => {
+    const formattedPrompt = prompt => {
+      const vowels = ['a', 'e', 'i', 'o', 'u'];
+      const firstLetter = prompt.toLowerCase().charAt(0);
+      if (vowels.includes(firstLetter)) {
+        return `An ${prompt} Dependent Individual`;
+      } else {
+        return `A ${prompt} Dependent Individual`;
+      }
+    };
+    
+    // Fill the sideImages array with empty strings if there are fewer than 4 side images
+    const filledSideImages = [...sideImages, '', '', '', ''].slice(0, 4);
+  
     return (
-      <div className="popup-card">
-        <div className="popup-content">
-          <button className="close-button" onClick={onClose}>Close</button>
-          <div className="rectanglepop1"></div>
-          <div className="rectanglepop2"></div>
-          <div className="rectanglepop3">
-            <div><p className="popup-prompt" style={{ textAlign: 'center' }}>{formattedPrompt(prompt)}</p></div>
-            <div><p className="popup-description" style={{ textAlign: 'center' }}>{description}</p></div>
+      <div className={AddictionsStyling["popup-card"]}> {/* Update class name */}
+        <div className={AddictionsStyling["popup-content"]}> {/* Update class name */}
+          <button className={AddictionsStyling["close-button"]} onClick={onClose}>Close</button> {/* Update class name */}
+          <div className={AddictionsStyling["rectanglepop1"]}></div> {/* Update class name */}
+          <div className={AddictionsStyling["rectanglepop2"]}></div> {/* Update class name */}
+          <div className={AddictionsStyling["rectanglepop3"]}>
+            <div><p className={AddictionsStyling["popup-prompt"]} style={{ textAlign: 'center' }}>{formattedPrompt(prompt)}</p></div> {/* Update class name */}
+            <div><p className={AddictionsStyling["popup-description"]} style={{ textAlign: 'center' }}>{description}</p></div>
 
           </div>
           {filledSideImages.map((sideImage, index) => (
             <div key={index} className={`image${index + 1}`}>
-              <img src={sideImage} alt={`sideImage${index + 1}`} className="popup-image" />
+              <img src={sideImage} alt={`sideImage${index + 1}`} className={AddictionsStyling["popup-image"]} />
             </div>
           ))}
 
-<div className="image5"><img src={image} alt="selected-addiction" className="popup-image" /></div>
+          <div className={AddictionsStyling["image5"]}><img src={image} alt="selected-addiction" className={AddictionsStyling["popup-image"]} /></div>
 
         </div>
       </div>
     );
   };
-  
+
 
   const openPopup = async (prompt, description) => {
     setShowPopup(true);
@@ -120,47 +179,52 @@ const Addictions = () => {
 
   const ImageComponent = ({ src, alt, prompt, description }) => {
     return (
-      <div className="image-component">
-        <img src={src} alt={alt} onClick={() => openPopup(prompt,description)} />
+      <div className={AddictionsStyling["image-component"]}>
+        <img src={src} alt={alt} onClick={() => openPopup(prompt, description)} />
       </div>
     );
   };
 
   return (
-    <div id="addictions" className="Addictions">
-      <header className="App-header">
+    <div id="addictions" className={AddictionsStyling.Addictions}>
+      <header className={AddictionsStyling["App-header"]}>
         <NavigationBar />
         {loading ? (
           <div>Loading...</div> // Show loading indicator while images are being fetched
         ) : (
-          <div className="addictions-container">
+          <div className={AddictionsStyling["addictions-container"]}>
             <h1>
               A D D I C T I O N S
             </h1>
-            <div className="images-container-addiction" style={{ display: 'flex' }}>
+            <div className={AddictionsStyling["images-container-addiction"]} style={{ display: 'flex' }}>
               {getCurrentImages().map((image, index) => (
                 <ImageComponent
                   key={index}
                   src={image.image}
-                  alt={`Addictions Illustration ${currentImageIndex + index - 2}`}
+                  alt={`Addictions Image ${index}`}
                   prompt={image.prompt}
                   description={image.description}
                 />
               ))}
             </div>
-            <button className="arrow-button arrow-button-left" onClick={previousImage}>
-              <img src={ArrowLeftImage} alt="Left Arrow" />
-            </button>
-            <button className="arrow-button arrow-button-right" onClick={nextImage}>
-              <img src={ArrowRightImage} alt="Right Arrow" />
-            </button>
+            {showPopup && (
+              <PopupCard
+                image={popUpMain[0]}
+                prompt={popupPrompt}
+                sideImages={popUpSide}
+                onClose={closePopup}
+                description={popupDescription}
+              />
+            )}
+            <div className={AddictionsStyling["arrow-container-addiction"]}>
+              <img src={ArrowLeftImage} alt="left-arrow" className={AddictionsStyling["arrow"]} onClick={previousImage} />
+              <img src={ArrowRightImage} alt="right-arrow" className={AddictionsStyling["arrow"]} onClick={nextImage} />
+            </div>
           </div>
         )}
       </header>
-      {showPopup && <div className="overlay" onClick={closePopup}></div>}
-      {showPopup && <PopupCard image={popUpMain[0]} prompt={popupPrompt} sideImages={popUpSide} onClose={closePopup} description={popupDescription} />}
     </div>
   );
-};
+}
 
 export default Addictions;

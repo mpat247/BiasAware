@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Statistics from './Statistics';
-import Activities from './Activities';
 import ProfCarousel from './ProfCarousel';
 import ProfCarousel2 from './ProfCarousel2';
 import QOL from './QOL';
@@ -29,7 +28,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Addictions" element={<Addictions />} />
         <Route path="/Statistics" element={<Statistics />} />
-        <Route path="/Activities" element={<Activities />} />
         <Route path="/ProfCarousel" element={<ProfCarousel />} />
         <Route path="/ProfCarousel2" element={<ProfCarousel2 />} />
         <Route path="/QOL" element={<QOL />} />
