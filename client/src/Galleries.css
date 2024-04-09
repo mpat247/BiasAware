@@ -55,7 +55,7 @@
   }
   
   .gallery-item:hover img {
-    transform: scale(1.05); /* Slightly zoom in the image on hover */
+    transform: scale(1.1); /* Slightly zoom in the image on hover */
   }
   
   figcaption {
