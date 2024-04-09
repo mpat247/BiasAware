@@ -26,13 +26,18 @@
     bottom: 100%;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    /* padding: 10px; */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* color: white; */
+    /* padding: 0px; */
     text-align: center;
     font-size: 3vw; /* Adjust font size as needed */
     height: var(--bannerHeight); /* Use the banner height variable */
     box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    color:  #0B0533;
 }
 
 #carousel {
