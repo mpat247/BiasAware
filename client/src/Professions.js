@@ -1,5 +1,4 @@
 import React from 'react';
-import BoxProfessions from './BoxProfessions'; // Adjust the path if necessary to where your BoxProfessions.js file is located
 import ProfCarousel from './ProfCarousel'; // Make sure the path is correct
 
 const Professions = () => {

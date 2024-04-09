@@ -133,7 +133,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 65%; /* Adjust as needed */
+  width: 100%; /* Adjust as needed */
   height: 95%; /* Adjust as needed */
   text-align: center;
   display: flex;
@@ -180,8 +180,8 @@
 .professions-popup-slide {
   width: 100%; /* Each slide takes up 32% of the popup-body width */
   height: 100%; /* Adjust the height as needed */
-  background-color: white;
-  display: flex;
+  /* background-color: white; */
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   border-radius: 10px;
