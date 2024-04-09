@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Galleries.scss';
+// import './Galleries.scss';
+import './Galleries.css';
 
 const Galleries = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);

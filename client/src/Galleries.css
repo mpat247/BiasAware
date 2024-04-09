@@ -1,0 +1,111 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Gallery styles */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0;
+  }
+  
+  @media (min-width: 480px) {
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .gallery {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .gallery {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  
+  .gallery-item {
+    position: relative;
+  }
+  
+  .gallery-item:hover figcaption {
+    opacity: 1;
+  }
+  
+  .gallery-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1em;
+    transition: opacity 0.2s ease;
+    opacity: 0;
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center; /* centers horizontally */
+    align-items: center; /* centers vertically */
+    padding: 20px; /* Add some padding to ensure content isn't touching the edges */
+  }
+  
+  .modal-content {
+    max-width: 90%; /* Adjust this value as needed */
+    max-height: 80vh; /* Limit the height of the image */
+    display: block;
+  }
+  
+  img.modal-content {
+    width: auto; /* Use auto to maintain aspect ratio */
+    height: auto; /* Use auto to maintain aspect ratio */
+    max-height: 100%; /* Ensure it doesn't exceed the modal container */
+    max-width: 100%; /* Ensure it doesn't exceed the modal container */
+  }
+  
+  .close {
+    position: absolute;
+    top: 1rem; /* Adjust as needed */
+    right: 1rem; /* Adjust as needed */
+    color: #fff;
+    font-size: 2rem; /* Adjust as needed */
+    cursor: pointer;
+  }
+  
+  .caption {
+    color: #ccc;
+    text-align: center;
+    padding-top: 1rem; /* Add some space above the caption */
+  }
+  
