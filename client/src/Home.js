@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import NavigationBar from './NavigationBar2'; // Import the NavigationBar component
 import Addictions from './Addictions';
-import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
 import QOL2 from './QOL2'; // Import the QOL component
 import Crime from './Crime';
@@ -245,10 +244,7 @@ const Home = () => {
       
 
 
-      {/* Activities section */}
-      <div id="activities">
-        <Activities />
-      </div>
+     
 
       {/* Addictions section */}
       <div id="addictions">
