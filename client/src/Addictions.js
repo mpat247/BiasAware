@@ -1,71 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import NavigationBar from './NavigationBar';
-import './Addictions.css';
 import ArrowLeftImage from "./Arrows/Arrow_Left_1.png";
 import ArrowRightImage from "./Arrows/Arrow_Right_1.png";
 import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
-
 import AddictionsStyling from "./Addictions.module.css"; // Import CSS module
 
-
-const Addictions = () => {
-  const [imagesData, setImagesData] = useState([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [showPopup, setShowPopup] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [popupPrompt, setPopupPrompt] = useState('');
-  const [popUpMain, setPopUpMain] = useState([]);
-  const [sideImagesData, setSideImagesData] = useState([]);
-  const [popUpSide, setPopUpSide] = useState([]);
-  const [popupDescription, setpopupDescription] = useState('');
-
-
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const mainResponse = await axios.get(`${REACT_APP_API_URL}/addictions/main-images`);
-        const sideResponse = await axios.get(`${REACT_APP_API_URL}/addictions/side-images`);
-        console.log(mainResponse.data);
-        console.log(sideResponse.data);
-        setImagesData(mainResponse.data.images);
-        setSideImagesData(sideResponse.data.images);
-        setLoading(false); // Set loading to false once images are fetched
-      } catch (error) {
-        console.error('Failed to fetch images:', error);
-      }
-    };
-
-    fetchImages();
-  }, []);
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesData.length);
-  };
-
-  const previousImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? imagesData.length - 1 : prevIndex - 1
-    );
-  };
-
-  const PopupCard = ({ image, prompt, sideImages, onClose, description }) => {
-    const formattedPrompt = prompt => {
-      const vowels = ['a', 'e', 'i', 'o', 'u'];
-      const firstLetter = prompt.toLowerCase().charAt(0);
-      if (vowels.includes(firstLetter)) {
-        return `An ${prompt} Dependent Individual`;
-      } else {
-        return `A ${prompt} Dependent Individual`;
-      }
-    };
-    
-    // Fill the sideImages array with empty strings if there are fewer than 4 side images
-    const filledSideImages = [...sideImages, '', '', '', ''].slice(0, 4);
-  
-   import AddictionsStyling from "./Addictions.module.css"; // Import CSS module
-
 const Addictions = () => {
   const [imagesData, setImagesData] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -86,7 +26,6 @@ const Addictions = () => {
         console.log(sideResponse.data);
         setImagesData(mainResponse.data.images);
         setSideImagesData(sideResponse.data.images);
-        console.log(imagesData);
         setLoading(false); // Set loading to false once images are fetched
       } catch (error) {
         console.error('Failed to fetch images:', error);
@@ -129,21 +68,17 @@ const Addictions = () => {
           <div className={AddictionsStyling["rectanglepop3"]}>
             <div><p className={AddictionsStyling["popup-prompt"]} style={{ textAlign: 'center' }}>{formattedPrompt(prompt)}</p></div> {/* Update class name */}
             <div><p className={AddictionsStyling["popup-description"]} style={{ textAlign: 'center' }}>{description}</p></div>
-
           </div>
           {filledSideImages.map((sideImage, index) => (
             <div key={index} className={`image${index + 1}`}>
               <img src={sideImage} alt={`sideImage${index + 1}`} className={AddictionsStyling["popup-image"]} />
             </div>
           ))}
-
           <div className={AddictionsStyling["image5"]}><img src={image} alt="selected-addiction" className={AddictionsStyling["popup-image"]} /></div>
-
         </div>
       </div>
     );
   };
-
 
   const openPopup = async (prompt, description) => {
     setShowPopup(true);
@@ -159,8 +94,6 @@ const Addictions = () => {
     const sideImages = sideImagesData.filter(image => image.prompt === prompt).map(image => image.image);
     setPopUpSide(sideImages);
   };
-  
-  
 
   const closePopup = () => {
     setShowPopup(false);
@@ -225,6 +158,6 @@ const Addictions = () => {
       </header>
     </div>
   );
-}
+};
 
 export default Addictions;
