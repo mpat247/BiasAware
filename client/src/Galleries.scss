@@ -55,7 +55,6 @@
     opacity: 0;
   }
   
-  /* Modal styles */
   .modal {
     display: flex;
     position: fixed;
@@ -66,59 +65,37 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
+    justify-content: center; // centers horizontally
+    align-items: center; // centers vertically
+    padding: 20px; // Add some padding to ensure content isn't touching the edges
   }
   
   .modal-content {
-    margin: auto;
+    // Remove margin: auto; as it's not needed with flexbox centering
+    max-width: 90%; // Adjust this value as needed
+    max-height: 80vh; // Limit the height of the image
     display: block;
-    width: 80%;
-    max-width: 700px;
+  }
+  
+  img.modal-content {
+    width: auto; // Use auto to maintain aspect ratio
+    height: auto; // Use auto to maintain aspect ratio
+    max-height: 100%; // Ensure it doesn't exceed the modal container
+    max-width: 100%; // Ensure it doesn't exceed the modal container
   }
   
   .close {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 1rem; // Adjust as needed
+    right: 1rem; // Adjust as needed
     color: #fff;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 2rem; // Adjust as needed
     cursor: pointer;
   }
   
   .caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
     color: #ccc;
-    padding: 10px 0;
-    height: 150px;
-  }
-  
-  /* Footer styles */
-  #footer {
-    margin-top: 10vh;
-    padding: 10vh 0;
     text-align: center;
-    .container {
-      position: relative;
-    }
-    a.logo, a.copy {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-    a.logo {
-      font-weight: 600;
-      font-size: 1.5em;
-    }
-    a.copy {
-      text-transform: uppercase;
-      font-size: .75em;
-      font-weight: 600;
-    }
+    padding-top: 1rem; // Add some space above the caption
   }
   
