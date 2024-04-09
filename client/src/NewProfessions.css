@@ -126,6 +126,8 @@
   justify-content: center;
   align-items: center;
   z-index: 1000; /* Make sure it's above other content */
+  /* max-height: 95vh; */
+  /* overflow-y: auto; */
 }
 
 .professions-popup-content {
@@ -134,13 +136,14 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%; /* Adjust as needed */
-  height: 95%; 
+  /* height: 70%; */
+  max-height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column; /* Stack children vertically */
   justify-content: space-around;
   align-items: center;
-  overflow-y: auto; /* Add scroll if content is too long */
+  overflow-y: auto;
 
 }
 
@@ -164,8 +167,9 @@
   background-color: white;
   padding: 22px; /* Add some padding around the slides */
   border-radius: 10px;
-  width: 95%;
+  /* width: 95%; */
   /* height: 200px; */
+  overflow: hidden;
 }
 
 .professions-popup-slides-container {
@@ -174,26 +178,19 @@
   display: flex; /* Use flexbox to arrange children in a row */
   justify-content: space-between; /* Space out children */
   width: 100%; /* Take the full width to align the slides in a row */
-  height: calc(100% - 10px); /* Adjust height based on the caption and padding */
+  height: calc(100% - 10px); 
   margin-bottom: 10px;
 }
 
 .professions-popup-slide {
   width: 100%; /* Each slide takes up 32% of the popup-body width */
-  height: 100%; /* Adjust the height as needed */
+  /* height: 100%;  */
   /* background-color: white; */
   /* display: flex; */
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  overflow: hidden;
-}
-
-.professions-popup-image {
-  width: 100%; /* Full width of the parent */
-  height: 100%; /* Full height of the parent */
-  object-fit: fill; /* Cover the whole area without losing aspect ratio */
-  border-radius: 10px;
+  /* overflow: hidden; */
 }
 
 
