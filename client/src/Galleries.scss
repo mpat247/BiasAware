@@ -11,67 +11,50 @@
   
   body {
     font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #fff;
   }
   
   /* Gallery styles */
   .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -8px; // Compensate for the padding on the gallery items
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    // gap: 16px;
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
   }
   
   .gallery-item {
     position: relative;
-    flex-grow: 1;
-    flex-basis: calc(33.333% - 16px); // Adjust for 3 columns at base level
-    padding: 8px; // Creates gap between items
-    overflow: hidden;
-    cursor: pointer;
-  
     &:hover figcaption {
-      transform: translate(-50%, -50%) scale(1);
       opacity: 1;
     }
-    
-    img {
-      width: 100%;
-      transition: transform 0.3s ease-in-out;
-    }
-    
-    &:hover img {
-      transform: scale(1.1);
-    }
+  }
   
-    @media (min-width: 480px) {
-      flex-basis: calc(25% - 16px); // Adjust for 4 columns on larger screens
-    }
-  
-    @media (min-width: 768px) {
-      flex-basis: calc(20% - 16px); // Adjust for 5 columns on larger screens
-    }
-    
-    @media (min-width: 1024px) {
-      flex-basis: calc(16.666% - 16px); // Adjust for 6 columns on largest screens
-    }
+  .gallery-image img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
   
   figcaption {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%);
     font-size: 14px;
     color: white;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 1em;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: opacity 0.2s ease;
     opacity: 0;
   }
   
-  /* Modal styles */
   .modal {
     display: flex;
     position: fixed;
@@ -82,60 +65,37 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    justify-content: center; // centers horizontally
+    align-items: center; // centers vertically
+    padding: 20px; // Add some padding to ensure content isn't touching the edges
   }
   
   .modal-content {
-    max-width: 90%;
-    max-height: 80vh;
+    // Remove margin: auto; as it's not needed with flexbox centering
+    max-width: 90%; // Adjust this value as needed
+    max-height: 80vh; // Limit the height of the image
     display: block;
   }
   
   img.modal-content {
-    width: auto;
-    height: auto;
-    max-height: 100%;
-    max-width: 100%;
+    width: auto; // Use auto to maintain aspect ratio
+    height: auto; // Use auto to maintain aspect ratio
+    max-height: 100%; // Ensure it doesn't exceed the modal container
+    max-width: 100%; // Ensure it doesn't exceed the modal container
   }
   
   .close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 1rem; // Adjust as needed
+    right: 1rem; // Adjust as needed
     color: #fff;
-    font-size: 2rem;
+    font-size: 2rem; // Adjust as needed
     cursor: pointer;
   }
   
   .caption {
     color: #ccc;
     text-align: center;
-    padding-top: 1rem;
-  }
-  
-  /* Footer styles */
-  #footer {
-    margin-top: 10vh;
-    padding: 10vh 0;
-    text-align: center;
-    .container {
-      position: relative;
-    }
-    a.logo, a.copy {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-    a.logo {
-      font-weight: 600;
-      font-size: 1.5em;
-    }
-    a.copy {
-      text-transform: uppercase;
-      font-size: .75em;
-      font-weight: 600;
-    }
+    padding-top: 1rem; // Add some space above the caption
   }
   
