@@ -57,10 +57,10 @@ const ProfessionsLanding = () => {
       <div className="professions-landing-page-title">
         <h1 className="professions-landing-page-header">PROFESSIONS</h1>
       </div>
-      <div className="category">
+      <div className="professions-category">
         {categories.map((category, index) => (
-          <div key={index} className="category-item" onClick={() => handleCategoryClick(category)} style={{ backgroundColor: category.color }}>
-            <span className="category-item-title">{category.name}</span>
+          <div key={index} className="professions-category-item" onClick={() => handleCategoryClick(category)} style={{ backgroundColor: category.color }}>
+            <span className="professions-category-item-title">{category.name}</span>
           </div>
         ))}
       </div>

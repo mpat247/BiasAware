@@ -4,11 +4,11 @@
     --ImgSizeX: 45vw;
     /* --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3); */
     --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3); /* Add banner height to the image height */
-    --minFontSize: 10px;
-    --maxFontSize: 32px;
-    --scaler: 5vw;
+    /* --minFontSize: 10px; */
+    /* --maxFontSize: 32px; */
+    /* --scaler: 5vw; */
     --bannerHeight: 4vw; /* Height of the caption banner */
-    font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
+    /* font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize)); */
 }
 
 .slideContainer {

@@ -28,7 +28,7 @@
   overflow-wrap: break-word; /* Ensures the text breaks to prevent overflow */
 }
 
-.category {
+.professions-category {
   max-width: 1170px;
   width: 100%; /* Ensure it doesn't exceed its parent's width */
   box-sizing: border-box; /* Include padding in the element's total width and height */
@@ -45,7 +45,7 @@
 /* Other styles remain unchanged */
 
 
-.category-item {
+.professions-category-item {
 	position: relative;
 	min-width: 370px;
 	height: 200px;
@@ -62,13 +62,13 @@
   align-items: center;
 }
 
-.category-item:hover {
+.professions-category-item:hover {
 	border: 1px solid #fff0;
 	box-shadow: 3px 3px 20px rgba(255, 255, 255, 0.507);
 	border-radius: 3px;
 }
 
-.category-item-title {
+.professions-category-item-title {
 	font-style: normal;
 	font-weight: 700;
 	font-size: 23px;
@@ -83,12 +83,12 @@
 /* 	padding-top: 20px; */
 }
 
-.category-item:hover>.category-item-title {
+.professions-category-item:hover>.category-item-title {
 	color: white;
   /* color: #0B0533; */
 }
 
-.category-item-img {
+.professions-category-item-img {
 	position: absolute;
 	right: 37px;
 	top: 22px
