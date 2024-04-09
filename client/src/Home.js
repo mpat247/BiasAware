@@ -37,7 +37,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLandingPage(false);
-    }, 35000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -253,7 +253,7 @@ const Home = () => {
             
       {/* Quality of Life section */}
       <div id="qol">
-        <QOL2 />
+        <QOL />
       </div>
       {/* Quality of Life section */}
       <div id="Emotions">

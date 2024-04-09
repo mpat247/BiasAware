@@ -1,8 +1,7 @@
-// NavigationBar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './NavigationBar.css';
+import NavigationBarStyling from './NavigationBarStyling.module.css'; // Import CSS module
 
 const linkVariants = {
   hover: {
@@ -17,12 +16,12 @@ const linkVariants = {
 
 const NavigationBar = () => {
   return (
-    <motion.nav className="navbar">
-      <div className="brand-container">
-        <div className="brand">Exploring the Dark Net</div>
+    <motion.nav className={NavigationBarStyling["navbar"]}>
+      <div className={NavigationBarStyling["brand-container"]}>
+        <div className={NavigationBarStyling["brand"]}>Exploring the Dark Net</div>
       </div>
-      <motion.div className="nav-links-container">
-        <div className="nav-links">
+      <motion.div className={NavigationBarStyling["nav-links-container"]}>
+        <div className={NavigationBarStyling["nav-links"]}>
           <Link to="/">
             <motion.a href="#" variants={linkVariants} whileHover="hover">Home</motion.a>
           </Link>
@@ -35,9 +34,9 @@ const NavigationBar = () => {
           <Link to="/Gallery">
             <motion.a href="#" variants={linkVariants} whileHover="hover">Gallery</motion.a>
           </Link>
-          <Link to="/Neighborhood"> {/* Add this line */}
-            <motion.a href="#" variants={linkVariants} whileHover="hover">Neighborhood</motion.a> {/* Add this line */}
-          </Link> {/* Add this line */}
+          <Link to="/Neighborhood">
+            <motion.a href="#" variants={linkVariants} whileHover="hover">Neighborhood</motion.a>
+          </Link>
         </div>
       </motion.div>
     </motion.nav>

@@ -3,15 +3,17 @@
   margin: 0;
   padding: 0;
 }
-
-body, html {
-  height: 100%;
-  overflow:auto; 
+.landing-page {
   background: linear-gradient(-45deg, #0c062f, #140C46, #3e3671);
-  background-size: 800% 800%;
-  animation: gradient 20s ease infinite;
-height: 100vh;
+  /* Replace #ff8a65 and #ffd54f with your desired colors */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  animation: gradient 15s ease infinite;
+  align-items: center;
+  background-size: 400% 400%; /* Added background-size */
 }
+
 .no-scroll {
   overflow: hidden;
 }
@@ -33,28 +35,34 @@ height: 100vh;
   padding-left: 20px; /* Adjust left padding for spacing */
   padding-right: 20px;
 }
-
-h1, h2 {
+h1{
   animation-name: fadeUp;
   animation-duration: 2s;
   font-size: 80px;
+  color: #F5A720 ;
+  align-items: center; /* Align items to the left */
+  justify-content: center; /* Center horizontally */
+  text-align: center;
+}
+
+h2 {
+  animation-name: fadeUp;
+  animation-duration: 2s;
+  font-size: 60px !important;
   color: #F5A720;
   align-items: center; /* Align items to the left */
   justify-content: center; /* Center horizontally */
-}
-h2 {
-  font-size: 70px;
-  color: #F5A720;
+  text-align: center;
 }
 p {
   animation-name: fadeUp;
   animation-duration: 2s;
   font-size: 40px;
   color: #F5A720;
-  align-items: center; /* Align items to the left */
   justify-content: center; /* Center horizontally */
   padding-left: 20px; /* Adjust left padding for spacing */
   padding-right: 20px;
+  text-align:center;
 }
 p2 {
   font-size: 20px;
@@ -121,6 +129,20 @@ p2 {
 
 #right {
   animation-name: fadeFromRight;
+  animation-duration: 2s;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
+}
+
+#left-second {
+  animation-name: fadeToLeft;
+  animation-duration: 2s;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
+}
+
+#right-second {
+  animation-name: fadeToRight;
   animation-duration: 2s;
   animation-delay: 1.2s;
   animation-fill-mode: forwards;
@@ -202,16 +224,25 @@ p2 {
   }
 }
 
+
+@keyframes fadeIcons {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 /* Responsive CSS */
 @media only screen and (max-width: 768px) {
   .h1 {
-    font-size: 20px;
+    font-size: 20px !important;
   }
   h2 {
-    font-size: 24px;
+    font-size: 24px !important;
   }
-  .new-header{
-    font-size: 24px;
+  p{
+    font-size: 24px !important;
   }
   .new-sentence{
     font-size: 18px;

@@ -1,29 +1,30 @@
 // Emotions.js
 
 import React, { useState, useEffect } from 'react';
-//import './Emotions.css';
+import './Emotions.css';
 import axios from 'axios';
-import emotionsStyling from "./Emotions.module.css";
 
-const PopupCard = ({ onClose, retrievedImage, prompt, description, sideImages }) => {
+const PopupCard = ({ onClose, retrievedImage, prompt,description, sideImages }) => {
   return (
-    <div className={emotionsStyling['popup-card-emotions']}>
-      <div className={emotionsStyling['popup-content-emotions']}>
-        <button className={emotionsStyling['close-button-emotions']} onClick={onClose}>x</button>
-        <div className={emotionsStyling['image-layout-emotions']}>
-          <div className={`${emotionsStyling['side-images-emotions']} ${emotionsStyling.left}`}>
+    <div className="popup-card-emotions">
+      <div className="popup-content-emotions">
+        <button className="close-button-emotions" onClick={onClose}>x</button>
+        <div className="image-layout-emotions">
+          <div className="side-images-emotions left">
             {sideImages.slice(0, 2).map((img, index) => (
-              <img key={index} src={img.image} alt={`side-emotion-left-${index}`} className={emotionsStyling['side-image-emotions']} />
+              <img key={index} src={img.image} alt={`side-emotion-left-${index}`} className="side-image-emotions" />
             ))}
           </div>
-          <div className={emotionsStyling['main-image-container-emotions']}>
-            {prompt && <div className={emotionsStyling['prompt-text-emotions']}>{prompt}</div>}
-            {retrievedImage && <img src={retrievedImage} alt="retrieved-emotion" className={emotionsStyling['retrieved-image-centered-emotions']} />}
-            {description && <div className={emotionsStyling['description-text-emotions']}>{description}</div>}
+          <div className="main-image-container-emotions">
+          {prompt && <div className="prompt-text-emotions">{prompt}</div>}
+
+            {retrievedImage && <img src={retrievedImage} alt="retrieved-emotion" className="retrieved-image-centered-emotions" />}
+            {description && <div className="description-text-emotions">{description}</div>}
+
           </div>
-          <div className={`${emotionsStyling['side-images-emotions']} ${emotionsStyling.right}`}>
+          <div className="side-images-emotions right">
             {sideImages.slice(2, 4).map((img, index) => (
-              <img key={index} src={img.image} alt={`side-emotion-right-${index}`} className={emotionsStyling['side-image-emotions']} />
+              <img key={index} src={img.image} alt={`side-emotion-right-${index}`} className="side-image-emotions" />
             ))}
           </div>
         </div>
@@ -106,24 +107,26 @@ const Emotions = () => {
   };
 
   return (
-    <div className={emotionsStyling['emotions-page']}>
-      <div className={emotionsStyling['background-rectangle-top']}></div>
-      <div className={emotionsStyling['emotion-top-rectangle']}>
-        <h1 className={emotionsStyling['emotion-title']}>I AM FEELING</h1>
+    <div className="emotions-page">
+      <div className="background-rectangle-top"></div>
+      <div className="emotion-top-rectangle">
+        <h1 className="emotion-title">I AM FEELING</h1>
       </div>
-      <div className={emotionsStyling['background-rectangle-bottom']}></div>
-      <div className={emotionsStyling['emotion-rectangle2']}>
-        <div className={emotionsStyling['image-grid']}>
+      <div className="background-rectangle-bottom"></div>
+      <div className="emotion-rectangle2">
+        <div className="image-grid">
           {Object.keys(emotionMap).map((emotion, index) => (
-            <button key={index} className={emotionsStyling['emotion-button']} onClick={() => handleClick(emotion, emotionMap[emotion])}>
-              <img src={emotionMap[emotion]} alt={`emotion-${index}`} className={emotionsStyling['emotion-image']} />
+            <button key={index} className="emotion-button" onClick={() => handleClick(emotion, emotionMap[emotion])}>
+              <img src={emotionMap[emotion]} alt={`emotion-${index}`} className="emotion-image" />
             </button>
           ))}
         </div>
       </div>
-      {showPopup && <div className={emotionsStyling['emotions-overlay']} onClick={handleClose}></div>}
+      {showPopup && <div className="emotions-overlay" onClick={handleClose}></div>}
       {showPopup && <PopupCard onClose={handleClose} retrievedImage={retrievedImage} prompt={PopUpPrompt} description={PopUpDescription} sideImages={displaySideImages} />}
     </div>
+  
+
   );
 };
 
