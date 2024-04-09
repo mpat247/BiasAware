@@ -12,15 +12,18 @@
   
   body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #fff; /* Assuming you want a white background */
+    background-color: aqua;
+    /* background-color: #fff; Assuming you want a white background */
   }
   
   /* Gallery styles */
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    column-gap: 0;
-    row-gap: 0; /* This removes space between rows */
+    /* column-gap: 0;
+    row-gap: 0; */
+    gap: 0;
+
   }
   
   @media (min-width: 480px) {
@@ -41,35 +44,38 @@
     }
   }
   
+
+
+
   .gallery-item {
     position: relative;
     overflow: hidden; /* Hide the overflow to maintain grid alignment */
-  }
-  
-  .gallery-image img {
-    width: 100%;
+    border: 16px solid transparent; /* Add a transparent border */
+    box-sizing: border-box; /* Include border in the element's box model */
+    transition: border-color 0.3s ease; /* Smooth transition for the border */
+}
+
+.gallery-item:hover {
+    border-color: rgba(0, 0, 0, 0.3); /* Border becomes visible on hover */
+}
+
+.gallery-image img {
+    width: calc(100% - 32px); /* Adjust width to account for the border */
     height: auto;
     display: block;
-    transform: scale(1.05); /* Scaled up by 1.05 by default */
+    object-fit: cover;
     transition: transform 0.3s ease; /* Smooth transition for zoom effect */
-  }
-  
-  .gallery-item:hover img {
+    margin: 16px; /* Add margin to push the image inside to match the border */
+}
+
+.gallery-item:hover img {
     transform: scale(1.1); /* Slightly zoom in the image on hover */
-  }
+    margin: 0; /* Remove margin on hover to allow the image to fill the border */
+}
+
+
+
   
-  figcaption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 14px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 1em;
-    transition: opacity 0.3s ease; /* Smooth transition for fade effect */
-    opacity: 0;
-  }
   
   .gallery-item:hover figcaption {
     opacity: 1; /* Show the caption on hover */
@@ -98,7 +104,23 @@
   .gallery-item:hover::before, .gallery-item:hover::after {
     border-color: rgba(0, 0, 0, 0.3); /* Darken border on hover */
   }
+
   
+  figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1em;
+    transition: opacity 0.3s ease; /* Smooth transition for fade effect */
+    opacity: 0;
+  }
+  
+
+
   /* Modal styles */
   .modal {
     display: flex;
