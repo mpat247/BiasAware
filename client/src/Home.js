@@ -8,7 +8,6 @@ import QOL from './QOL'; // Import the QOL component
 import QOL2 from './QOL2'; // Import the QOL component
 import Crime from './Crime';
 import Emotions from './Emotions';
-import ProfessionsLanding from './ProfessionsLanding';
 import LandingPage from './LandingPage'; // Import the LandingPage component
 import NewActivities from './NewActivities'; // Import the LandingPage component
 
@@ -260,10 +259,7 @@ const Home = () => {
         <Emotions />
       </div>
 
-      {/* Quality of Life section */}
-      <div id="ProfessionsLanding">
-        <ProfessionsLanding />
-      </div>
+  
 
       <div id="Crime">
         <Crime />

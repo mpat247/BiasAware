@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Statistics from './Statistics';
-import ProfCarousel from './ProfCarousel';
-import ProfCarousel2 from './ProfCarousel2';
 import QOL from './QOL';
 import Engineering from './Engineering';
 import Emotions from './Emotions';
@@ -14,6 +12,7 @@ import LandingPage from './LandingPage';
 import Addictions from './Addictions';
 import NewActivities from './NewActivities'
 import Aerospace from './Aerospace'
+import NewProfessions from './NewProfessions'
 
 
 //import Test from './Test'; // Import the test2 component
@@ -29,8 +28,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Addictions" element={<Addictions />} />
         <Route path="/Statistics" element={<Statistics />} />
-        <Route path="/ProfCarousel" element={<ProfCarousel />} />
-        <Route path="/ProfCarousel2" element={<ProfCarousel2 />} />
+        <Route path="/NewProfessions" element={<NewProfessions />} />
+
+      
         <Route path="/QOL" element={<QOL />} />
         <Route path="/Engineering" element={<Engineering />} />
         <Route path="/Emotions" element={<Emotions />} />
