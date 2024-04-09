@@ -83,7 +83,7 @@
 /* 	padding-top: 20px; */
 }
 
-.professions-category-item:hover>.category-item-title {
+.professions-category-item:hover>.professions-category-item-title {
 	color: white;
   /* color: #0B0533; */
 }
