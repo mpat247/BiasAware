@@ -8,7 +8,7 @@ import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
 import Crime from './Crime';
 import Emotions from './Emotions';
-import ProfessionsLanding from './ProfessionsLanding';
+// import ProfessionsLanding from './ProfessionsLanding';
 
 
 
@@ -248,9 +248,9 @@ const Home = () => {
       </div>
 
       {/* Quality of Life section */}
-      <div id="ProfessionsLanding">
+      {/* <div id="ProfessionsLanding">
         <ProfessionsLanding />
-      </div>
+      </div> */}
 
       <div id="Crime">
         <Crime />

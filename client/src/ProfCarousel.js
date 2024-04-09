@@ -80,7 +80,7 @@ const ProfCarousel = () => {
     };
 
     return (
-        <main>
+        // <main>
             <div id="carousel">
 
             {/* // Inside your JSX map function for rendering slides */}
@@ -110,7 +110,7 @@ const ProfCarousel = () => {
             </div>
             </div>
             
-        </main>
+        // </main>
     );
 };
 
