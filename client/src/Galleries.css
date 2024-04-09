@@ -2,111 +2,69 @@
 * {
     box-sizing: border-box;
     margin: 0; /* Reset default margin */
-  }
-  
-  html {
+}
+
+html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-  }
-  
-  body {
+}
+
+body {
     font-family: 'Montserrat', sans-serif;
-    background-color: aqua;
-    /* background-color: #fff; Assuming you want a white background */
-  }
-  
-  /* Gallery styles */
-  .gallery {
+    background-color: #fff; /* Assuming you want a white background */
+    margin: 0;
+    padding: 0;
+}
+
+/* Gallery styles */
+.gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    /* column-gap: 0;
-    row-gap: 0; */
-    gap: 0;
+    gap: 0; /* This removes space between rows and columns */
+}
 
-  }
-  
-  @media (min-width: 480px) {
+@media (min-width: 480px) {
     .gallery {
-      grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
-  }
-  
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
     .gallery {
-      grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
-  }
-  
-  @media (min-width: 1024px) {
+}
+
+@media (min-width: 1024px) {
     .gallery {
-      grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
-  }
-  
+}
 
-
-
-  .gallery-item {
+.gallery-item {
     position: relative;
     overflow: hidden; /* Hide the overflow to maintain grid alignment */
-    border: 16px solid transparent; /* Add a transparent border */
-    box-sizing: border-box; /* Include border in the element's box model */
-    transition: border-color 0.3s ease; /* Smooth transition for the border */
+    cursor: pointer; /* Indicates clickable items */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
 }
 
 .gallery-item:hover {
-    border-color: rgba(0, 0, 0, 0.3); /* Border becomes visible on hover */
+    /* transform: scale(1.05); Slightly zoom in the item on hover */
 }
 
 .gallery-image img {
-    width: calc(100% - 32px); /* Adjust width to account for the border */
-    height: auto;
     display: block;
-    object-fit: cover;
-    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
-    margin: 16px; /* Add margin to push the image inside to match the border */
+    width: 100%; /* Adjust width to cover the space */
+    height: 100%; /* Adjust height to cover the space */
+    object-fit: cover; /* Cover the space without distorting aspect ratio */
 }
 
-.gallery-item:hover img {
-    transform: scale(1.1); /* Slightly zoom in the image on hover */
-    margin: 0; /* Remove margin on hover to allow the image to fill the border */
-}
-
-
-
-  
-  
-  .gallery-item:hover figcaption {
-    opacity: 1; /* Show the caption on hover */
-  }
-  
-  /* The ::before and ::after pseudo-elements create the border effect */
-  .gallery-item::before, .gallery-item::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: all 0.3s ease;
-  }
-  
-  .gallery-item::before {
-    border: 16px solid rgba(0, 0, 0, 0.1); /* Light grey border */
-  }
-  
-  .gallery-item::after {
-    /* border: 16px solid transparent; Invisible border to keep consistent sizing */
-    border: 16px solid rgba(0, 0, 0, 0.1); /* Light grey border */
-  }
-  
-  .gallery-item:hover::before, .gallery-item:hover::after {
-    border-color: rgba(0, 0, 0, 0.3); /* Darken border on hover */
-  }
-
-  
-  figcaption {
+figcaption {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -117,12 +75,15 @@
     padding: 1em;
     transition: opacity 0.3s ease; /* Smooth transition for fade effect */
     opacity: 0;
-  }
-  
+    cursor: default; /* The caption text is not clickable */
+}
 
+.gallery-item:hover figcaption {
+    opacity: 1; /* Show the caption on hover */
+}
 
-  /* Modal styles */
-  .modal {
+/* Modal styles */
+.modal {
     display: flex;
     position: fixed;
     z-index: 1000;
@@ -132,36 +93,35 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.9);
-    justify-content: center; /* centers horizontally */
-    align-items: center; /* centers vertically */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
     padding: 20px; /* Add some padding to ensure content isn't touching the edges */
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     max-width: 90%; /* Adjust this value as needed */
     max-height: 80vh; /* Limit the height of the image */
     display: block;
-  }
-  
-  img.modal-content {
+}
+
+img.modal-content {
     width: auto; /* Use auto to maintain aspect ratio */
     height: auto; /* Use auto to maintain aspect ratio */
     max-height: 100%; /* Ensure it doesn't exceed the modal container */
     max-width: 100%; /* Ensure it doesn't exceed the modal container */
-  }
-  
-  .close {
+}
+
+.close {
     position: absolute;
     top: 1rem; /* Adjust as needed */
     right: 1rem; /* Adjust as needed */
     color: #fff;
     font-size: 2rem; /* Adjust as needed */
     cursor: pointer;
-  }
-  
-  .caption {
+}
+
+.caption {
     color: #ccc;
     text-align: center;
     padding-top: 1rem; /* Add some space above the caption */
-  }
-  
+}
