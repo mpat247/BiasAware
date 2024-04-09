@@ -2,69 +2,81 @@
 * {
     box-sizing: border-box;
     margin: 0; /* Reset default margin */
-}
-
-html {
+  }
+  
+  html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-}
-
-body {
+  }
+  
+  body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #fff; /* Assuming you want a white background */
+    background-color: #fff; /* White background */
     margin: 0;
     padding: 0;
-}
-
-/* Gallery styles */
-.gallery {
+  }
+  
+  /* Gallery styles */
+  .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 0; /* This removes space between rows and columns */
-}
-
-@media (min-width: 480px) {
+  }
+  
+  @media (min-width: 480px) {
     .gallery {
-        grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
-}
-
-@media (min-width: 768px) {
+  }
+  
+  @media (min-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
-}
-
-@media (min-width: 1024px) {
+  }
+  
+  @media (min-width: 1024px) {
     .gallery {
-        grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
-}
-
-.gallery-item {
+  }
+  
+  .gallery-item {
     position: relative;
     overflow: hidden; /* Hide the overflow to maintain grid alignment */
     cursor: pointer; /* Indicates clickable items */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
-    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
-}
-
-.gallery-item:hover {
-    /* transform: scale(1.05); Slightly zoom in the item on hover */
-}
-
-.gallery-image img {
+  }
+  
+  .gallery-item::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 16px solid transparent; /* Initial border color */
+    border-color: rgba(0, 0, 0, 0.3); /* Border color on hover */
+    transition: border-color 0.3s ease;
+    pointer-events: none; /* Ignore pointer events on the pseudo-element */
+  }
+  
+  .gallery-item:hover::before {
+    border-color: #8d01ff4d; /* Border color on hover */
+  }
+  
+  .gallery-image img {
     display: block;
     width: 100%; /* Adjust width to cover the space */
-    height: 100%; /* Adjust height to cover the space */
+    height: auto; /* Adjust height to maintain aspect ratio */
     object-fit: cover; /* Cover the space without distorting aspect ratio */
-}
-
-figcaption {
+  }
+  
+  figcaption {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -76,14 +88,14 @@ figcaption {
     transition: opacity 0.3s ease; /* Smooth transition for fade effect */
     opacity: 0;
     cursor: default; /* The caption text is not clickable */
-}
-
-.gallery-item:hover figcaption {
+  }
+  
+  .gallery-item:hover figcaption {
     opacity: 1; /* Show the caption on hover */
-}
-
-/* Modal styles */
-.modal {
+  }
+  
+  /* Modal styles */
+  .modal {
     display: flex;
     position: fixed;
     z-index: 1000;
@@ -96,32 +108,33 @@ figcaption {
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
     padding: 20px; /* Add some padding to ensure content isn't touching the edges */
-}
-
-.modal-content {
+  }
+  
+  .modal-content {
     max-width: 90%; /* Adjust this value as needed */
     max-height: 80vh; /* Limit the height of the image */
     display: block;
-}
-
-img.modal-content {
+  }
+  
+  img.modal-content {
     width: auto; /* Use auto to maintain aspect ratio */
     height: auto; /* Use auto to maintain aspect ratio */
     max-height: 100%; /* Ensure it doesn't exceed the modal container */
     max-width: 100%; /* Ensure it doesn't exceed the modal container */
-}
-
-.close {
+  }
+  
+  .close {
     position: absolute;
     top: 1rem; /* Adjust as needed */
     right: 1rem; /* Adjust as needed */
     color: #fff;
     font-size: 2rem; /* Adjust as needed */
     cursor: pointer;
-}
-
-.caption {
+  }
+  
+  .caption {
     color: #ccc;
     text-align: center;
     padding-top: 1rem; /* Add some space above the caption */
-}
+  }
+  
