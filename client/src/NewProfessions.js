@@ -8,7 +8,6 @@ import hockey from './images/image 10.png';
 import bingo from './images/image 11.png';
 import tennis from './images/image 12.png';
 
-// Define the categories and their colors
 const categories = [
 { 
   name: 'Business', 
@@ -24,7 +23,6 @@ const categories = [
     basketball,
     basketball,
     basketball 
-    // ... other business images
   ]
 },
 { 
@@ -41,7 +39,6 @@ const categories = [
     cricket,
     cricket, 
     cricket 
-    // ... other healthcare images
   ]
 },
 { 
@@ -57,7 +54,7 @@ const categories = [
     volleyball, 
     volleyball,
     volleyball, 
-    volleyball    // ... other business images
+    volleyball
   ]
 },
 { 
@@ -74,7 +71,6 @@ const categories = [
     hockey, 
     hockey, 
     hockey
-    // ... other business images
   ]
 },
 { 
@@ -222,9 +218,7 @@ const Popup = ({ onClose, bgColor, categoryName, images }) => {
                 <div className="professions-popup-slides-container">
                     <div className="professions-popup-slide" style={{ backgroundColor: bgColor }}>
                        {/* ProfCarousel component will go here */}
-                        {/* <div><ProfCarousel /></div> */}
                         <ProfCarousel images={images}/>
-                        {/* <img src={basketball} alt="basketball" className="professions-popup-image"/> */}
                     </div>
                     
                 </div>
