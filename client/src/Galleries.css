@@ -35,7 +35,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 16px solid; /* Initial border color */
+    border: 0.5em solid; /* Initial border color */
     border-color: rgba(0, 0, 0, 0.3); 
     /* border-color: #0B05334d; Border color on hover */
     transition: border-color 0.3s ease;

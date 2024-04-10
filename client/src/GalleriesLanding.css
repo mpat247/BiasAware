@@ -14,13 +14,18 @@
   }
 
   .galleries-landing-individual-titles {
-    text-align: center;
+    /* text-align: center;
     font-family: "Crimson Text", serif;
-    /* color: #DD9313; */
     color: white;
     font-weight: 700;
     font-style: normal;
-    font-size: 4vw; /* Responsively size the font */
+    font-size: 4vw;  */
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: white;
+    font-size: 3vw;
   }
   
   .galleries-landing-all-three-container {
