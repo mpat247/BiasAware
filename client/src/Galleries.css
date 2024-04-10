@@ -35,9 +35,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 0.5em solid; /* Initial border color */
-    border-color: rgba(0, 0, 0, 0.3); 
-    /* border-color: #0B05334d; Border color on hover */
+    border: 0.5em solid; 
+    /* border-color: rgba(0, 0, 0, 0.3); */
+    /* border: 0.5em solid transparent;  */
+    border-color: #0B05334d; /*Border color on hover*/
     transition: border-color 0.3s ease;
     pointer-events: none; /* Ignore pointer events on the pseudo-element */
   }
