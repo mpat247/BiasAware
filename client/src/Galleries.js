@@ -1,24 +1,11 @@
 import React, { useState } from 'react';
 import './Galleries.css';
 
-const Galleries = () => {
+const Galleries = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const images = [
-    1081, 1014, 267, 266, 634, 923, 682, 173, 943, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1001,
-    1081, 1014, 267, 266, 634, 923, 682, 173, 943, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1001,
-    1081, 1014, 267, 266, 634, 923, 682, 173, 943, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1001,
-    1081, 1014, 267, 266, 634, 923, 682, 173, 943, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1001,
-    1081, 1014, 267, 266, 634, 923, 682, 173, 943, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1001
-
-  ].map(i => {
-    const size = 200 * [5, 6, 7, 8][Math.floor(Math.random() * 4)];
-    return {
-      src: `https://unsplash.it/${size}/${size}?image=${i}`,
-      alt: `Gallery image ${i}`,
-    };
-  });
+  const { images } = props;
 
   const openModal = (image) => {
     setSelectedImage(image);
