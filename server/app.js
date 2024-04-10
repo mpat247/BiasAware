@@ -180,8 +180,8 @@ app.use('/emotions', emotionsRoute);
 const qolRoute = require('./routes/qol');
 app.use('/qol', qolRoute);
 
-const crimeRoutes = require('./routes/crime');
-app.use('/crime', crimeRoutes);
+const crimeRoutes = require('./routes/crimes');
+app.use('/crimes', crimeRoutes);
 
 const professionsRoute = require('./routes/professions');
 app.use('/professions', professionsRoute);

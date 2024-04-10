@@ -3,6 +3,9 @@ import anychart from 'anychart'; // Import AnyChart
 import { Helmet } from 'react-helmet'; //Import Font
 //import './Crime.css';
 import CrimeStyling from "./CrimeStyling.module.css"; // Import CSS module
+import axios from 'axios';
+import REACT_APP_API_URL from './config';
+import placeholderImage from './placeholder-image.png'; // Make sure this is the correct path
 
 
 
@@ -13,6 +16,8 @@ const Crime = () => {
     const [popupText, setPopupText] = useState("");
     const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
     //const [showSlider, setShowSlider] = useState(false);
+  const [popupImages, setPopupImages] = useState([]);
+  const [loading, setLoading] = useState(false);
 
     const handleClosePopup = () => {
         setPopupVisible(false);
@@ -24,14 +29,34 @@ const Crime = () => {
     const chartsCreated = useRef(false);
 
 
-    const handleHeatmapClick = (e, squareId) => {
-        const rect = e.target.getBoundingClientRect();
-        setPopupPosition({ x: rect.left, y: rect.top });
-        setPopupVisible(true);
-        setPopupText(`Clicked on square ${squareId}`);
-        console.log("Popup visible:", popupVisible);
-        // Additional logic for when a square is clicked...
-    };
+  const handleHeatmapClick = async (e, squareId) => {
+    const rect = e.target.getBoundingClientRect();
+    setPopupPosition({ x: rect.left, y: rect.top });
+    setPopupText(`Fetching images for square ${squareId}...`);
+    setLoading(true);
+    setPopupVisible(true);
+
+    try {
+      const response = await axios.get(`${REACT_APP_API_URL}/crimes/fetchedCrime?crimeId=${squareId}`);
+      // Directly using the objects returned by the API, filling missing entries with placeholders
+      const fullImagesData = response.data.images.map(imageObj => ({
+        ...imageObj,
+        image: imageObj.image || placeholderImage // Using the placeholder if no image URL is provided
+      }));
+
+      // If the API returns fewer than 9 images, fill the rest with placeholder objects
+      const imagesWithPlaceholders = Array.from({ length: 9 }).map((_, index) => fullImagesData[index] || {
+        image: placeholderImage, prompt: 'Placeholder', description: 'No description'
+      });
+
+      setPopupImages(imagesWithPlaceholders);
+      setPopupText(`Images for crime ID ${squareId}`);
+    } catch (error) {
+      console.error('Error fetching images:', error);
+      setPopupText(`Failed to fetch images for crime ID ${squareId}`);
+    }
+    setLoading(false);
+  };
 
       /*const handleHeatmapClick = (e, index) => {
         const rect = e.target.getBoundingClientRect();
@@ -202,14 +227,29 @@ const Crime = () => {
 
       {popupVisible && (
         <>
-          <div className={CrimeStyling["popup-overlay"]}></div>
+          <div className={CrimeStyling["popup-overlay"]} onClick={handleClosePopup}></div>
           <div className={CrimeStyling["popup-crime"]}>
             <button onClick={handleClosePopup}>Close</button>
-            {popupText}
-            <div className={CrimeStyling["crime-popup-image"]}></div>
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              <div className={CrimeStyling["grid-popup"]}>
+                  {popupImages.map((imageObj, index) => (
+                    <div key={index} className={CrimeStyling["grid-square"]}>
+                      <img src={imageObj.image} alt={`Crime Image ${index}`} className={CrimeStyling["square-image"]} />
+                      {/* Optionally wrap texts in a container for better control */}
+                      <div className={CrimeStyling["text-container"]}>
+                        <p>{imageObj.prompt}</p> {/* Displaying the prompt */}
+                        <p>{imageObj.description}</p> {/* Displaying the description */}
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            )}
           </div>
         </>
       )}
+
     </div>
   );
 };
