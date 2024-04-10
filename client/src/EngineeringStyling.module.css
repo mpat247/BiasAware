@@ -91,7 +91,7 @@
   animation-fill-mode: forwards; /* Ensure the final state of the animation persists */
 }
 
-h1 {
+.engineering-title{
   color: #333;
   font-size: 2.5em; /* Decrease font size */
 }

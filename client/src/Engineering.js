@@ -37,7 +37,7 @@ const Engineering = () => {
         </div>
       </div>
       <div className={EngineeringStyling["content-container"]}>
-        <h1>E N G I N E E R I N G</h1>
+        <h1 className="engineering-title">E N G I N E E R I N G</h1>
         {/* Add other content as needed */}
       </div>
       <div className={`${EngineeringStyling["small-squares"]} ${EngineeringStyling["below-title"]}`}>
