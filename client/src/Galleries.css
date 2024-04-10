@@ -54,7 +54,7 @@
     display: block;
     width: 100%; /* Adjust width to cover the space */
     height: auto; /* Adjust height to maintain aspect ratio */
-    object-fit:contain; /* Cover the space without distorting aspect ratio */
+    object-fit: cover; /* Cover the space without distorting aspect ratio */
   }
   
   figcaption {
