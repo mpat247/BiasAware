@@ -266,13 +266,6 @@ const Home = () => {
         <Crime />
       </div>
 
-      <div id="Engineering">
-        <ProfessionsLanding />
-      </div>
-
-      <div id="Neighborhood">
-        <ProfessionsLanding />
-      </div>
 
       </>
       )}
