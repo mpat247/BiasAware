@@ -252,7 +252,7 @@ const Home = () => {
             
       {/* Quality of Life section */}
       <div id="qol">
-        <QOL />
+        <QOL2 />
       </div>
       {/* Quality of Life section */}
       <div id="Emotions">

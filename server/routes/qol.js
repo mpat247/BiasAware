@@ -41,7 +41,8 @@ router.get('/main', async (req, res) => {
             const imgBase64 = Buffer.concat(data).toString('base64');
             resolve({
               imageData: `data:${contentType};base64,${imgBase64}`,
-              prompt: image.prompt // Include the prompt field
+              prompt: image.prompt, // Include the prompt field
+              description: image.description
             });
           });
         });
@@ -89,7 +90,8 @@ router.get('/main', async (req, res) => {
                     const imgBase64 = Buffer.concat(data).toString('base64');
                     resolve({
                         imageData: `data:${contentType};base64,${imgBase64}`,
-                        prompt: image.prompt // Include prompt field in response
+                        prompt: image.prompt, // Include prompt field in response
+                        description: image.description
                     });
                 });
             })

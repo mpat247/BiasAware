@@ -24,13 +24,14 @@ const Crime = () => {
     const chartsCreated = useRef(false);
 
 
-    const handleHeatmapClick = (e, index) => {
+    const handleHeatmapClick = (e, squareId) => {
         const rect = e.target.getBoundingClientRect();
-        //setPopupText(`Clicked on heatmap ${index + 1}`);
         setPopupPosition({ x: rect.left, y: rect.top });
         setPopupVisible(true);
+        setPopupText(`Clicked on square ${squareId}`);
         console.log("Popup visible:", popupVisible);
-      };
+        // Additional logic for when a square is clicked...
+    };
 
       /*const handleHeatmapClick = (e, index) => {
         const rect = e.target.getBoundingClientRect();
@@ -51,6 +52,7 @@ const Crime = () => {
   useEffect(() => {
     const renderCharts = async () => {
       // Define 12 datasets for 12 different heatmaps
+      let idCounter = 1;
       const allData = [
         // Dataset for heatmap 1
         [{ x: 1, y: 1, heat: 0.202 }, { x: 2, y: 1, heat: 0.202 }, { x: 3, y: 1, heat: 0.202 },
@@ -112,7 +114,8 @@ const Crime = () => {
         { x: 1, y: 2, heat: 0.802 }, { x: 2, y: 2, heat: 0.802 }, { x: 3, y: 2, heat: 0.802 },
         { x: 1, y: 3, heat: 0.802 }, { x: 2, y: 3, heat: 0.802 }, { x: 3, y: 3, heat: 0.802 }],
 
-      ];
+      ].map(dataset => dataset.map(item => ({ ...item, id: idCounter++ })));;
+
       for (var i = 0; i < 12; i++) {
         // Create the chart and set the data
         const chart = anychart.heatMap(allData[i]);

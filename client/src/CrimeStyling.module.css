@@ -88,6 +88,32 @@
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
   border-radius: 10px; /* Round the corners */
+  /* position: relative; Added to position the close button absolutely within the popup */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-crime button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  /* ... other button styles ... */
+}
+
+.grid-popup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
+  grid-template-rows: repeat(3, 1fr); /* Creates 3 rows */
+  gap: 10px; /* Adjust the gap between squares */
+  margin: 20px 0; /* Space above and below the grid */
+}
+
+.grid-square {
+  width: 50px; /* Adjust the size of squares */
+  height: 50px;
+  background-color: #ddd; /* Placeholder color */
+  border: 1px solid #ccc; /* A subtle border */
 }
 
 
@@ -119,6 +145,8 @@
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+
 
 
 @media screen and (max-width: 768px) {
@@ -166,8 +194,5 @@
       }
   }
 
-
-  
- 
 
   

@@ -7,98 +7,20 @@ import volleyball from './images/image 9.png';
 import hockey from './images/image 10.png';
 import bingo from './images/image 11.png';
 import tennis from './images/image 12.png';
+import axios from 'axios';
+import REACT_APP_API_URL from './config';
 
-const categories = [
-{ 
-  name: 'Business', 
-  color: '#FFD600', 
-  images: [
-    basketball, 
-    basketball,
-    basketball, 
-    basketball,
-    basketball, 
-    basketball,
-    basketball, 
-    basketball,
-    basketball,
-    basketball 
-  ]
-},
-{ 
-  name: 'Healthcare', 
-  color: '#D9822A', 
-  images: [
-    cricket, 
-    cricket,
-    cricket, 
-    cricket,
-    cricket, 
-    cricket,
-    cricket, 
-    cricket,
-    cricket, 
-    cricket 
-  ]
-},
-{ 
-  name: 'Maintenance', 
-  color: '#BE5C43', 
-  images: [
-    volleyball, 
-    volleyball,
-    volleyball, 
-    volleyball,
-    volleyball, 
-    volleyball,
-    volleyball, 
-    volleyball,
-    volleyball, 
-    volleyball
-  ]
-},
-{ 
-  name: 'Education', 
-  color: '#A33862', 
-  images: [
-    hockey, 
-    hockey, 
-    hockey, 
-    hockey, 
-    hockey, 
-    hockey, 
-    hockey, 
-    hockey, 
-    hockey, 
-    hockey
-  ]
-},
-{ 
-  name: 'Technology', 
-  color: '#6A2774', 
-  images: [
-    bingo, 
-    bingo,
-    bingo, 
-    bingo,
-    bingo, 
-    bingo,
-    bingo, 
-    bingo,
-    bingo, 
-    bingo 
-    // ... other business images
-  ]
-},
-  // { name: 'Business', color: '#FFD600' },
-  // { name: 'Healthcare', color: '#D9822A' },
-  // { name: 'Maintenance', color: '#BE5C43' },
-  // { name: 'Education', color: '#A33862' },
-  // { name: 'Technology', color: '#6A2774' }
+const initialCategories = [
+  { name: 'Business', color: '#FFD600', images: [] },
+  { name: 'Healthcare', color: '#D9822A', images: [] },
+  { name: 'Maintenance', color: '#BE5C43', images: [] },
+  { name: 'Education', color: '#A33862', images: [] },
+  { name: 'Labour', color: '#6A2774', images: [] },
 ];
 
 
-const ProfCarousel = ({ images }) => {
+const ProfCarousel = ({ images, category, categoryImages }) => {
+  console.log(`Prof carousel images: ${images}`)
   const [selected, setSelected] = useState(0);
     // Use URLs for your desired images here; I'm keeping placeholders for demonstration:
     // const images = [
@@ -112,12 +34,13 @@ const ProfCarousel = ({ images }) => {
 
     // This effect sets up an interval to change the slide every 3 seconds (3000ms)
     useEffect(() => {
-        const interval = setInterval(() => {
-            setSelected(prevSelected => (prevSelected + 1) % images.length);
-        }, 3000); // Change 3000 to however many milliseconds you want
-
-        // Clear the interval when the component is unmounted
-        return () => clearInterval(interval);
+      const interval = setInterval(() => {
+        if (images.length > 0) { // Ensure there are images before attempting to change the selected index
+          setSelected(prevSelected => (prevSelected + 1) % images.length);
+        }
+      }, 3000);
+  
+      return () => clearInterval(interval);
     }, [images.length]); // Only re-run the effect if images.length changes
 
     const moveToSelected = (element) => {
@@ -171,19 +94,16 @@ const ProfCarousel = ({ images }) => {
     };
 
     return (
-        <main>
-            <div id="carousel">
-
-            {/* // Inside your JSX map function for rendering slides */}
-            {images.map((src, index) => (
-            <a key={index} className={getClassNames(index)} onClick={() => moveToSelected(index)} href="javascript:void(0);">
-                <div className="slideContainer">
-                    {/* Render the banner only for the selected slide */}
-                    {index === selected && (
-                        <div className="captionBanner">{`Slide ${index + 1}`}</div>
-                    )}
-                    <img src={src} alt={`Slide ${index + 1}`} />
-                </div>
+      <main>
+        <div id="carousel">
+          {images.map((image, index) => (
+            <a key={index} className={getClassNames(index)} onClick={() => setSelected(index)} href="#!">
+              <div className="slideContainer">
+                {index === selected && (
+                  <div className="captionBanner">{image.prompt}</div> // Use image.prompt here
+                )}
+                <img src={image.src} alt={image.prompt} />
+              </div>
             </a>
             ))}
 
@@ -207,24 +127,25 @@ const ProfCarousel = ({ images }) => {
 
 
 // Popup component
-const Popup = ({ onClose, bgColor, categoryName, images }) => {
+const Popup = ({ onClose, bgColor, category, images, categoryImages }) => {
+  console.log('Popup: '+ category.images[0].description)
   return (
     <div className="professions-popup-overlay" onClick={onClose}>
          <div className="professions-popup-content" onClick={e => e.stopPropagation()}>
             <div className="professions-popup-header">
-                <h1 className="professions-popup-title" style={{ color: bgColor }}>{categoryName}</h1>
+                <h1 className="professions-popup-title" style={{ color: bgColor }}>{category.name}</h1>
             </div>
             <div className="professions-popup-body">
                 <div className="professions-popup-slides-container">
                     <div className="professions-popup-slide" style={{ backgroundColor: bgColor }}>
                        {/* ProfCarousel component will go here */}
-                        <ProfCarousel images={images}/>
+                        <ProfCarousel images={category.images} category={category} categoryImages={categoryImages}/>
                     </div>
                     
                 </div>
                 <div className="professions-popup-slide-caption">
                     {/* <p className="professions-popup-statistical-analysis" style={{ color: bgColor }}>The statistical analysis caption is going to go here.</p> */}
-                    <p className="professions-popup-statistical-analysis">The statistical analysis caption is going to go here.</p>
+                    <p className="professions-popup-statistical-analysis">{category.images[0].description}</p>
                 </div>
                 </div>
             <div className="professions-popup-footer">
@@ -239,8 +160,43 @@ const Popup = ({ onClose, bgColor, categoryName, images }) => {
 const NewProfessions = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [displayImages, setDisplayImages] = useState([]);
+  const [displayTitle, setDisplayTitle] = useState('');
+  const [categories, setCategories] = useState(initialCategories);
+  const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState('');
+  const [selectedImageDb, setSelectedImageDb] = useState(null);
+
+  useEffect(() => {
+    setIsFetching(true);
+    axios.get(`${REACT_APP_API_URL}/professions`)
+      .then(response => {
+        const fetchedImages = response.data.images;
+        // Create a new categories array with updated images
+        const updatedCategories = initialCategories.map(category => ({
+          ...category,
+          images: fetchedImages
+            .filter(image => image.profession_type === category.name)
+           .map(image => ({
+              src: image.image, // Assuming 'image' contains the full image URL or data URL
+              prompt: image.prompt, // Text prompt for the image
+              description: image.description // Description of the image, if available
+            })) // Assuming 'image' contains the full image URL
+        }));
+        setCategories(updatedCategories);
+      })
+      .catch(err => {
+        setError('Failed to fetch images: ' + err.message);
+      })
+      .finally(() => {
+        setIsFetching(false);
+      });
+  }, []);
 
   const handleCategoryClick = (category) => {
+    const srcList = category.images.map(image => image.src);
+    setDisplayImages(srcList);
+
     setSelectedCategory(category);
     setPopupVisible(true);
   };
@@ -248,6 +204,8 @@ const NewProfessions = () => {
   const handleClosePopup = () => {
     setPopupVisible(false);
   };
+  if (isFetching) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div className="professions-landing-page-container">
@@ -257,6 +215,8 @@ const NewProfessions = () => {
       <div className="professions-category">
         {categories.map((category, index) => (
           <div key={index} className="professions-category-item" onClick={() => handleCategoryClick(category)} style={{ backgroundColor: category.color }}>
+                      {console.log(category)}
+
             <span className="professions-category-item-title">{category.name}</span>
           </div>
         ))}
@@ -265,8 +225,9 @@ const NewProfessions = () => {
         <Popup
           onClose={handleClosePopup}
           bgColor={selectedCategory.color}
-          categoryName={selectedCategory.name}
-          images={selectedCategory.images} // Pass the images to the Popup
+          category={selectedCategory}
+          images={displayImages} // Pass the images to the Popup
+          categoryImages={selectedCategory.Images}
         />
       )}
       

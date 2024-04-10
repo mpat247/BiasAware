@@ -1,75 +1,100 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import REACT_APP_API_URL from './config';
 
 const QOL = () => {
   const [bottomLeftSquares, setBottomLeftSquares] = useState([]);
   const [bottomRightSquares, setBottomRightSquares] = useState([]);
   const [selectedBox, setSelectedBox] = useState(null);
+  const [bottomLeftImages, setBottomLeftImages] = useState([]);
+  const [bottomRightImages, setBottomRightImages] = useState([]);
+  const [toShowLeft, setToShowLeft] = useState([]);
+  const [toShowRight, setToShowRight] = useState([]);
+
+  const API_URL = REACT_APP_API_URL;
 
   useEffect(() => {
-    const getRandomColor = () => {
-      const letters = '0123456789ABCDEF';
-      let color = '#';
-      for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+    const fetchLeftImages = async () => {
+      try {
+        console.log(API_URL)
+          const response = await axios.get(`${API_URL}/qol/main`);
+
+          const fetchedLeftImages = response.data.images.filter(image => image.ImageData && image.prompt && image.description);
+
+          console.log("Response:", response.data.images);
+          console.log("Filtered Images:", fetchedLeftImages);
+
+          const imagesToSave = fetchedLeftImages.map(image => ({
+              imageData: image.ImageData,
+              prompt: image.prompt,
+              description: image.description
+
+          }));
+
+          console.log("Images to save:", imagesToSave);
+
+          setBottomLeftImages(response.data.images); // Save the filtered images in state
+      } catch (error) {
+          console.error('Failed to fetch main images:', error);
       }
-      return color;
-    };
-
-    const generateSquares = () => {
-      const bottomLeftSet = Array.from({ length: 2 }, (_, rowIndex) => (
-        <div key={rowIndex} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          {Array.from({ length: 2 }, (_, colIndex) => (
-            <div
-              key={`${rowIndex}-${colIndex}`}
-              style={{
-                width: '13vw',
-                height: '13vw',
-                backgroundColor: getRandomColor(),
-                margin: '5px',
-                cursor: 'pointer', // Added cursor pointer
-              }}
-              onClick={() => handleBoxClick('bottomLeft', rowIndex, colIndex)} // Added click handler
-            ></div>
-          ))}
-        </div>
-      ));
-
-      const bottomRightSet = Array.from({ length: 2 }, (_, rowIndex) => (
-        <div key={rowIndex} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          {Array.from({ length: 2 }, (_, colIndex) => (
-            <div
-              key={`${rowIndex}-${colIndex}`}
-              style={{
-                width: '13vw',
-                height: '13vw',
-                backgroundColor: getRandomColor(),
-                margin: '5px',
-                cursor: 'pointer', // Added cursor pointer
-              }}
-              onClick={() => handleBoxClick('bottomRight', rowIndex, colIndex)} // Added click handler
-            ></div>
-          ))}
-        </div>
-      ));
-
-      setBottomLeftSquares(bottomLeftSet);
-      setBottomRightSquares(bottomRightSet);
-    };
-
-    generateSquares();
-
-    const intervalId = setInterval(() => {
-      generateSquares();
-    }, 10000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const handleBoxClick = (section, row, col) => {
-    setSelectedBox({ section, row, col });
-    // Disable scrolling when the popup is open
-    document.body.style.overflow = 'hidden';
   };
+
+  const fetchRightImages = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/qol/main2`);
+
+        const fetchedRightImages = response.data.images.filter(image => image.ImageData && image.prompt && image.description);
+
+        console.log("Response:", response);
+        console.log("Filtered Images:", fetchedRightImages);
+
+        const imagesToSave = fetchedRightImages.map(image => ({
+            imageData: image.ImageData,
+            prompt: image.prompt,
+            description: image.description
+        }));
+
+        console.log("Images to save:", imagesToSave);
+
+        setBottomRightImages(response.data.images); // Save the filtered images in state
+    } catch (error) {
+        console.error('Failed to fetch main images:', error);
+    }
+};
+
+    fetchLeftImages();
+    fetchRightImages();
+
+}, []); 
+
+
+    
+// Function to select 4 random images
+const getRandomImages = (images) => {
+  const shuffled = [...images].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 4);
+};
+
+useEffect(() => {
+  // Initially set random images to display
+  setToShowLeft(getRandomImages(bottomLeftImages));
+  setToShowRight(getRandomImages(bottomRightImages));
+
+  // Update displayed images every 7 seconds
+  const intervalId = setInterval(() => {
+    setToShowLeft(getRandomImages(bottomLeftImages));
+    setToShowRight(getRandomImages(bottomRightImages));
+  }, 7000);
+
+  return () => clearInterval(intervalId);
+}, [bottomLeftImages, bottomRightImages]);
+
+
+const handleBoxClick = (image) => {
+  setSelectedBox(image); // Set the clicked image details for the popup
+  document.body.style.overflow = 'hidden'; // Disable scrolling when the popup is open
+};
+
 
   const closePopup = () => {
     setSelectedBox(null);
@@ -79,51 +104,30 @@ const QOL = () => {
 
   return (
     <div style={{ backgroundColor: '#0B0533', position: 'relative' }}>
-<h1 style={{
-  color: '#DD9313',
-  fontFamily: 'Abhaya Libre ExtraBold',
-  fontSize: '7vw',
-  textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
-  textAlign: 'center',
-  padding: '50px 0',
-}}>
-  Q U A L I T Y&nbsp;&nbsp;&nbsp;O F&nbsp;&nbsp;&nbsp;L I F E
-  <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: '20px auto', width:'60vw'}}>
-        <div style={{ display: 'flex'}}>
-          <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px' }}></div>
-          <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px' }}></div>
-        </div>
+      <h1 style={{
+        color: '#DD9313',
+        fontFamily: 'Abhaya Libre ExtraBold',
+        fontSize: '7vw',
+        textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
+        textAlign: 'center',
+        padding: '50px 0',
+      }}>
+        QUALITY OF LIFE
+      </h1>
+      <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: '20px auto', width: '60vw' }}>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          
           <div style={{ width: '28vw', height: '30vw', backgroundColor: '#BFBFBF', margin: 'auto' }}>
-            {bottomLeftSquares}
-          
+            {toShowLeft.map((image, index) => (
+              <img key={index} src={image.imageData} alt={image.prompt} onClick={() => handleBoxClick(image)} style={{ width: '13vw', height: '13vw', margin: '5px', objectFit: 'cover', cursor: 'pointer' }}/>
+            ))}
           </div>
-          
           <div style={{ width: '28vw', height: '30vw', backgroundColor: '#BFBFBF', margin: 'auto' }}>
-            {bottomRightSquares}
-            
+            {toShowRight.map((image, index) => (
+              <img key={index} src={image.imageData} alt={image.prompt} onClick={() => handleBoxClick(image)} style={{ width: '13vw', height: '13vw', margin: '5px', objectFit: 'cover', cursor: 'pointer' }}/>
+            ))}
           </div>
         </div>
-  </div>
-</h1>
-
-      
-
-      {/* Semi-transparent overlay */}
-      {selectedBox && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent black overlay
-            zIndex: 9998, // Behind the popup
-          }}
-        />
-      )}
+      </div>
 
       {/* Popup */}
       {selectedBox && (
@@ -134,28 +138,21 @@ const QOL = () => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             backgroundColor: '#080328',
-            padding: '30px', // Increased padding for a larger size
-            borderRadius: '10px', // Increased border radius for a smoother look
+            padding: '30px',
+            borderRadius: '10px',
             boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)',
             zIndex: 9999,
-            width: '600px', // Increased width
+            width: '600px',
             height: '500px',
           }}
         >
-          {/* Title Box */}
-    <div style={{ textAlign: 'center', marginBottom: '30px', padding: '10px', borderRadius: '5px', backgroundColor: '#B3BBC8', width: '400px', margin: '0 auto' }}>
-      <h2 style={{ margin: 0 }}>Title</h2>
-    </div>
-
-    {/* Additional Box 1 */}
-    <div style={{ backgroundColor: '#B3BBC8', padding: '20px', borderRadius: '10px', margin: '20px auto 0 auto', width: '350px', height: '300px' }}>
-      {/* Content of the additional box */}
-    </div>
-
-    {/* Additional Box 2 */}
-    <div style={{ backgroundColor: '#B3BBC8', padding: '20px', borderRadius: '10px', margin: '20px auto 0 auto', width: '350px', height: '50px' }}>
-      {/* Content of the additional box */}
-    </div>
+          <div style={{ textAlign: 'center', marginBottom: '30px', padding: '10px', borderRadius: '5px', backgroundColor: '#B3BBC8', width: '400px', margin: '0 auto' }}>
+            <h2 style={{ margin: 0 }}>{selectedBox.prompt}</h2>
+          </div>
+          <img src={selectedBox.imageData} alt={selectedBox.prompt} style={{ width: '100%', height: 'auto' }}/>
+          <div style={{ textAlign: 'center', marginBottom: '30px', padding: '10px', borderRadius: '5px', backgroundColor: '#B3BBC8', width: '400px', margin: '0 auto' }}>
+            <h2 style={{ margin: 0 }}>{selectedBox.description}</h2>
+          </div>
           <button
             onClick={closePopup}
             style={{ position: 'absolute', top: '10px', right: '10px', cursor: 'pointer', background: 'none', border: 'none', color: 'white' }}
