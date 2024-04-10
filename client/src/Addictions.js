@@ -38,7 +38,7 @@ const Addictions = () => {
   }, []);
 
   useEffect(() => {
-    const fetchImages = async () => {
+    const fetchImages2 = async () => {
       try {
         const sideResponse = await axios.get(`${API}/addictions/side-images`);
         setSideImagesData(sideResponse.data.images);
@@ -47,7 +47,7 @@ const Addictions = () => {
       }
     };
 
-    fetchImages();
+    fetchImages2();
   }, []);
 
   const nextImage = () => {
