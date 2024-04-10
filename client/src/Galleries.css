@@ -7,7 +7,7 @@
     /* max-width: 1200px; Maximum width of the container */
     margin: 0 auto; /*Center the container*/
     /* padding: 20px; Padding around the container */
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     height: 100vh;
   }
   
@@ -40,7 +40,7 @@
     right: 0;
     bottom: 0;
     border: 5px solid; /* Initial border color */
-    border-color: rgba(0, 0, 0, 0.3); 
+    border-color: #DD93134d; 
     /* border-color: #0B05334d; Border color on hover */
     transition: border-color 0.3s ease;
     pointer-events: none; /* Ignore pointer events on the pseudo-element */
@@ -54,7 +54,7 @@
     display: block;
     width: 100%; /* Adjust width to cover the space */
     height: auto; /* Adjust height to maintain aspect ratio */
-    object-fit: cover; /* Cover the space without distorting aspect ratio */
+    object-fit:contain; /* Cover the space without distorting aspect ratio */
   }
   
   figcaption {
