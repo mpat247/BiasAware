@@ -37,7 +37,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLandingPage(false);
-    }, 5000);
+    }, 40000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -85,21 +85,21 @@ const Home = () => {
               </ul>
              <div class="ring">
              <a href="#activities" className="acc-prompt2">
-            <h2>A Skater</h2>
+            <h2>Skater</h2>
             </a>
             <a href="#qol" className="qol-prompt1">
-              <h2>A Person in</h2>
+              <h2>Person in</h2>
             </a>
             <a href="#qol" className="qol-prompt2">
-            <h2>Designer Attire</h2>
+            <h2 >Designer Attire</h2>
           </a>
-          <a href="#emotions" className="pro2">
-            <h2>A Family Doctor</h2>
+          <a href="#ProfessionsLanding" className="pro2">
+            <h2>Family Doctor</h2>
           </a>
-          <a href="#emotions" className="hood2">
+          <a href="#Neighborhood" className="hood2">
             <h2>An Apartment in</h2>
           </a>
-          <a href="#emotions" className="hoods2">
+          <a href="#Neighborhood" className="hoods2">
             <h2>Forest Hill</h2>
           </a>
              </div>
@@ -120,34 +120,37 @@ const Home = () => {
                 <li class="tooth"></li>
               </ul>
              <div class="ring2">
-             <a href="#emotions" className="eng3">
-              <h2>A Shoplifter</h2>
+             <a href="#Crime" className="eng3">
+              <h2>Shoplifter</h2>
             </a>
-            <a href="#emotions" className="emotions1">
-              <h2>A Proud Individual</h2>
+            <a href="#Emotions" className="emotions1">
+              <h2>Proud Individual</h2>
             </a>
-            <a href="#emotions" className="eng1">
+            <a href="#Engineering" className="eng1">
               <h2>Engineering</h2>
             </a>
             <a href="#addictions" className="addiction-prompt">
-              <h2>A Plastic Surgery Dependant Individual</h2>
+              <h2>Plastic Surgery Dependant Individual</h2>
             </a>
-            <a href="#emotions" className="eng">
-              <h2>A Computer Engineer</h2>
+            <a href="#Engineering" className="eng">
+              <h2>Computer Engineer</h2>
             </a>
-            <a href="#emotions" className="eng4">
-              <h2>A Smuggler</h2>
+            <a href="#Crime" className="eng4">
+              <h2>Smuggler</h2>
             </a>
-            <a href="#emotions" className="pro3">
-              <h2>An Accountant</h2>
+            <a href="#ProfessionsLanding" className="pro3">
+              <h2>Accountant</h2>
             </a>
             <a href="#addictions" className="addiction-prompt2">
-              <h2>A Tattoo Dependant</h2>
+              <h2>Tattoo Dependant Individual</h2>
+            </a>
+            <a href="#activities" className="new1">
+              <h2>Weightlifter</h2>
+            </a>
+            <a href="#qol" className="new2">
+              <h2>Traveler</h2>
             </a>
 
-            <a href="#addictions" className="addiction-promptss3">
-              <h2>Individual</h2>
-            </a>
              </div>
           </div>
           <div class="gear-container3">
@@ -165,19 +168,22 @@ const Home = () => {
               </ul>
              <div class="ring3">
              <a href="#qol" className="qol-prompt3">
-              <h2>A Person Living</h2>
+              <h2>Person Living</h2>
             </a>
             <a href="#qol" className="qol-prompt4">
               <h2>in an Unhygienic Place</h2>
             </a>
             <a href="#activities" className="acc-prompt1">
-              <h2>A Basketball Player</h2>
+              <h2>Basketball Player</h2>
             </a>
-            <a href="#emotions" className="qol-prompt5">
-              <h2>A Sad Individual</h2>
+            <a href="#Emotions" className="qol-prompt5">
+              <h2>Sad Individual</h2>
             </a>
-            <a href="#emotions" className="cri1">
-              <h2>A Hijacker</h2>
+            <a href="#Crime" className="cri1">
+              <h2>Hijacker</h2>
+            </a>
+            <a href="#Crime" className="crinew1">
+              <h2>Gang Leader</h2>
             </a>
             
              </div>
@@ -196,20 +202,20 @@ const Home = () => {
                 <li class="tooth"></li>
               </ul>
              <div class="ring4">
-             <a href="#emotions" className="hood1">
-              <h2>A House in</h2>
+             <a href="#Neighborhood" className="hood1">
+              <h2>House in</h2>
             </a>
-            <a href="#emotions" className="hoods1">
+            <a href="#Neighborhood" className="hoods1">
               <h2>Jane & Finch</h2>
             </a>
-            <a href="#emotions" className="eng2">
-              <h2>A Biomedical Engineer</h2>
+            <a href="#Engineering" className="eng2">
+              <h2>Biomedical Engineer</h2>
             </a>
-            <a href="#emotions" className="qol-prompt6">
-              <h2>A Happy Individual</h2>
+            <a href="#Emotions" className="qol-prompt6">
+              <h2>Happy Individual</h2>
             </a>
-            <a href="#emotions" className="pro1">
-              <h2>A CEO</h2>
+            <a href="#ProfessionsLanding" className="pro1">
+              <h2>CEO</h2>
             </a>
              </div>
           </div>
@@ -241,11 +247,6 @@ const Home = () => {
 <div id="activities">
         <NewActivities />
       </div>
-      
-
-
-     
-
       {/* Addictions section */}
       <div id="addictions">
               <Addictions />
@@ -268,6 +269,15 @@ const Home = () => {
       <div id="Crime">
         <Crime />
       </div>
+
+      <div id="Engineering">
+        <ProfessionsLanding />
+      </div>
+
+      <div id="Neighborhood">
+        <ProfessionsLanding />
+      </div>
+
       </>
       )}
     </div>
