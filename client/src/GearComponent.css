@@ -3,7 +3,8 @@
 
   }
 body {
-    
+  font-family:'Plus Jakarta Sans', sans-serif;
+
     
   }
   .main-body{
@@ -229,45 +230,49 @@ body {
     border: solid 1.5em #F5A720;
   }
   .ring .acc-prompt2 {
-    color: white;
+    color: white !important;
     text-decoration: none;
     font-family: 'Abhaya Libre Medium';
-    font-size: 0.75em; /* Adjust the font size as needed */
+    font-size: 1.2em; /* Adjust the font size as needed */
     z-index: 8;
     position: absolute;
-    top: 32.3%; /* Adjust the top position as needed */
-    left: 10.5%; /* Adjust the left position as needed */
-    margin-left:1em;
+    top: 23%; /* Adjust the top position as needed */
+    left: 10%; /* Adjust the left position as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+
   }
   .acc-prompt2 h2 {
     font-size: 1.5em !important; /* Adjust the font size as needed */
+    font-weight: bolder;
   }
 
   .ring .qol-prompt1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.75em; /* Adjust the font size as needed */
+    font-size: 1.2em; /* Adjust the font size as needed */
     z-index: 8;
     position: absolute;
-    top: 10.3%; /* Adjust the top position as needed */
-    left: 12.5%; /* Adjust the left position as needed */
+    top: 5%; /* Adjust the top position as needed */
+    left: 14%; /* Adjust the left position as needed */
     margin-left:1em;
+    font-family:'Plus Jakarta Sans', sans-serif;
+
   }
   .qol-prompt1 h2 {
-    font-size: 1em !important; /* Adjust the font size as needed */
+    font-size: 0.5em ; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+
   }
 
   .ring .qol-prompt2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.75em; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    position: absolute;
+    font-size: 0.6em; /* Adjust the font size as needed */
     z-index: 8;
-
-    top: 20.3%; /* Adjust the top position as needed */
-    left: 12.5%; /* Adjust the left position as needed */
-    margin-left:4em;
+    top: 16% !important; /* Adjust the top position as needed */
+    left: 6%; /* Adjust the left position as needed */
   }
   .qol-prompt2 h2 {
     font-size: 1em !important; /* Adjust the font size as needed */
@@ -276,310 +281,391 @@ body {
   .ring .pro2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
-    top: 40.6%; /* Adjust the top position as needed */
-    left: 33.6%; /* Adjust the left position as needed */
+    position: absolute;
+    top: 50%; /* Adjust the top position as needed */
+    left: 9% !important; /* Adjust the left position as needed */
+    
   }
 
   .pro2 h2 {
     font-size: 1.08em !important; /* Adjust the font size as needed */
-    margin-top: 1.25em; /* Adjust the top position as needed */
-    margin-left:0.5em;
+    /*margin-top: 1.25em; /* Adjust the top position as needed */
+    /*margin-left:0.5em;*/
+    font-weight: bolder;
   }
   .ring .hood2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 63%; /* Adjust the top position as needed */
-    left: 20.5%; /* Adjust the left position as needed */
+    top: 67%; /* Adjust the top position as needed */
+    left: 16%; /* Adjust the left position as needed */
   }
 
   .ring .hoods2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 75.4%; /* Adjust the top position as needed */
-    left: 33.5%; /* Adjust the left position as needed */
+    top: 80%; /* Adjust the top position as needed */
+    left: 30%; /* Adjust the left position as needed */
   }
   .ring4 .hood1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 10%; /* Adjust the top position as needed */
-    left: 20%; /* Adjust the left position as needed */
+    top: 9%; /* Adjust the top position as needed */
+    left: 24%; /* Adjust the left position as needed */
   }
   .hood1 h2 {
     font-size: 1.2em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
   }
   .hoods1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 25%; /* Adjust the top position as needed */
-    left: 15.1%; /* Adjust the left position as needed */
+    top: 22%; /* Adjust the top position as needed */
+    left: 10.5%; /* Adjust the left position as needed */
   }
   .hoods1 h2 {
     font-size: 1.2em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
   }
     .hoods2 h2 {
     font-size: .8em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
   }
   .ring4 .eng2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 42%; /* Adjust the top position as needed */
-    left: 10%; /* Adjust the left position as needed */
+    top: 38%; /* Adjust the top position as needed */
+    left: 2.9%; /* Adjust the left position as needed */
+    
   }
 
   .eng2 h2 {
-    font-size: 0.8em !important; /* Adjust the font size as needed */
+    font-size: 0.84em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight: bolder;
   }
 
   .ring4 .qol-prompt6 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.6em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 55%; /* Adjust the top position as needed */
-    left: 10%; /* Adjust the left position as needed */
+    top: 50%; /* Adjust the top position as needed */
+    left: 5%; /* Adjust the left position as needed */
   }
 
   .qol-prompt6 h2 {
-    font-size: .9em !important; /* Adjust the font size as needed */
+    font-size: 1.34em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
   }
 
   .ring4 .pro1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 70%; /* Adjust the top position as needed */
-    left: 25%; /* Adjust the left position as needed */
+    top: 59.5%; /* Adjust the top position as needed */
+    left: 18%; /* Adjust the left position as needed */
   }
 
   .pro1 h2 {
-    font-size: 1.7em !important; /* Adjust the font size as needed */
+    font-size: 2.3em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight: bolder;
   }
   .ring2 .eng3 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 13.5%; /* Adjust the top position as needed */
-    left: 51.6%; /* Adjust the left position as needed */
+    top: 64.2%; /* Adjust the top position as needed */
+    left: 78.9%; /* Adjust the left position as needed */
     transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
   }
 
   .eng3 h2 {
     font-size: 1em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
   }
   .ring2 .emotions1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 15.5%; /* Adjust the top position as needed */
-    left: 20%; /* Adjust the left position as needed */
+    top: 14%; /* Adjust the top position as needed */
+    left: 25%; /* Adjust the left position as needed */
   }
 
   .emotions1 h2 {
-    font-size: 1.1em !important; /* Adjust the font size as needed */
+    font-size: .9em !important; /* Adjust the font size as needed */
   }
 
   .ring2 .eng1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.86em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 35%; /* Adjust the top position as needed */
-    left: 51.8%; /* Adjust the left position as needed */
+    top: 49%; /* Adjust the top position as needed */
+    left: 50%; /* Adjust the left position as needed */
     transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
   }
 
   .eng1 h2 {
-    font-size: 2.1em !important; /* Adjust the font size as needed */
+    font-size: 2.12em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight:bolder;
   }
 
   .ring2 .addiction-prompt {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.5em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.44em !important; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 40.9%; /* Adjust the top position as needed */
-    left: 5.7%; /* Adjust the left position as needed */
+    top: 32.5%; /* Adjust the top position as needed */
+    left: 7%; /* Adjust the left position as needed */
   }
 
   .addiction-prompt h2 {
     font-size: 1.25em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
   }
 
   .ring2 .eng {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 48%; /* Adjust the top position as needed */
-    left: 12.7%; /* Adjust the left position as needed */
+    top: 21%; /* Adjust the top position as needed */
+    left: 12%; /* Adjust the left position as needed */
   }
 
   .eng h2 {
-    font-size: 1.25em !important; /* Adjust the font size as needed */
+    font-size: 1em !important; /* Adjust the font size as needed */
+    font-weight:bolder;
   }
   .ring2 .eng4 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.63em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 57.5%; /* Adjust the top position as needed */
-    left: 15.9%; /* Adjust the left position as needed */
+    top: 87%; /* Adjust the top position as needed */
+    left: 34%; /* Adjust the left position as needed */
   }
   
   .eng4 h2 {
-    font-size: 1.9em !important; /* Adjust the font size as needed */
+    font-size: 1.3em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
   }
 
   .ring2 .pro3 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 82%; /* Adjust the top position as needed */
-    left: 51.8%; /* Adjust the left position as needed */
+    top: 63%; /* Adjust the top position as needed */
+    left: 32%; /* Adjust the left position as needed */
+    transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
+  }
+
+  .new1 h2 {
+    font-size: 4em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight: bolder;
+    
+  }
+
+  .ring2 .new1{
+    color: white;
+    text-decoration: none;
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.30em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 84%; /* Adjust the top position as needed */
+    left: 51%; /* Adjust the left position as needed */
+    transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
+  }
+
+  .new2 h2 {
+    font-size: 3em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight: bolder;
+    
+  }
+
+  .ring2 .new2{
+    color: white;
+    text-decoration: none;
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.30em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 12%; /* Adjust the top position as needed */
+    left: 51%; /* Adjust the left position as needed */
     transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
   }
   
   .pro3 h2 {
-    font-size: 1em !important; /* Adjust the font size as needed */
+    font-size: 1.3em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
   }
 
   .ring3 .qol-prompt3 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 10%; /* Adjust the top position as needed */
-    left: 25%; /* Adjust the left position as needed */
+    top: 9%; /* Adjust the top position as needed */
+    left: 29%; /* Adjust the left position as needed */
   }
   
   .qol-prompt3 h2 {
-    font-size: 0.7em !important; /* Adjust the font size as needed */
+    font-size: 0.6em !important; /* Adjust the font size as needed */
   }
 
   .qol-prompt4 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 20%; /* Adjust the top position as needed */
+    top: 19%; /* Adjust the top position as needed */
     left: 15%; /* Adjust the left position as needed */
   }
   
   .qol-prompt4 h2 {
-    font-size: .7em !important; /* Adjust the font size as needed */
+    font-size: .6em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
   }
   .acc-prompt1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
     top: 30%; /* Adjust the top position as needed */
-    left: 8%; /* Adjust the left position as needed */
+    left: 9%; /* Adjust the left position as needed */
   }
   
   .acc-prompt1 h2 {
     font-size: 1em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight: bold;
   }
 
   .ring3 .qol-prompt5 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.8em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 45%; /* Adjust the top position as needed */
-    left:5%; /* Adjust the left position as needed */
+    top: 44%; /* Adjust the top position as needed */
+    left:4%; /* Adjust the left position as needed */
   }
   
   .qol-prompt5 h2 {
     font-size: 1.2em !important; /* Adjust the font size as needed */
+    font-weight: bolder;
   }
 
   .ring3 .cri1 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.8em; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.65em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 60%; /* Adjust the top position as needed */
-    left: 15%; /* Adjust the left position as needed */
+    top: 78%; /* Adjust the top position as needed */
+    left: 27%; /* Adjust the left position as needed */
+  }
+  
+  .crinew1 h2 {
+    font-size: 1em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+  }
+
+  .ring3 .crinew1 {
+    color: white;
+    text-decoration: none;
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9em; /* Adjust the font size as needed */
+    z-index: 10;
+    position: absolute;
+    top: 61.5%; /* Adjust the top position as needed */
+    left: 12%; /* Adjust the left position as needed */
   }
   
   .cri1 h2 {
-    font-size: 1.5em !important; /* Adjust the font size as needed */
+    font-size: 1.3em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight: bolder;
   }
 
   .ring2 .addiction-prompt2 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
-    font-size: 0.7em; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
-    top: 85%; /* Adjust the top position as needed */
-    left: 30%; /* Adjust the left position as needed */
+    top: 67%; /* Adjust the top position as needed */
+    left: 8%; /* Adjust the left position as needed */
   }
   
   .addiction-prompt2 h2 {
     font-size: 0.9em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight: bold;
   }
   .ring2 .addiction-promptss3 {
     color: white;
     text-decoration: none;
-    font-family: 'Abhaya Libre Medium';
+    font-family:'Plus Jakarta Sans', sans-serif;
     font-size: 0.7em; /* Adjust the font size as needed */
     z-index: 10;
     position: absolute;
@@ -589,6 +675,7 @@ body {
   
   .addiction-promptss3 h2 {
     font-size: .9em !important; /* Adjust the font size as needed */
+    font-family:'Plus Jakarta Sans', sans-serif;
   }
   
   @media only screen and (max-width: 768px) {

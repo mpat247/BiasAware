@@ -206,11 +206,8 @@
   align-items: center;
   margin-top: 40px;
   background-size: 400% 400% ;  /* Added background-size */
+
 }
-
-
-
-
 
 .close-button-addiction {
   /*align-self: flex-end;*/ /* Positions the close button to the right */
@@ -224,7 +221,7 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  margin-bottom: 20px; /* Space below the close button */
+  margin-bottom: 10px; /* Space below the close button */
 }
 /* Styling for the side images in the popup */
 .side-images-addictions > .side-image-addictions {
@@ -392,14 +389,14 @@
 /* Style for the prompt text in the popup */
 .prompt-text-addictions {
   position: absolute;
-  bottom: 100%; /* This will move it to the top edge of the .main-image-container-emotions */
+  bottom: 60%; /* This will move it to the top edge of the .main-image-container-emotions */
   width: 100%; /* This will make sure it spans the full width */
   text-align: center;
   font-size: 1rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight:bolder;
   color: #ffffff;
-  transform: translateY(-100%); /* This will shift it upwards by its own height */
+  transform: translateY(-150%); /* This will shift it upwards by its own height */
   /*background-color: rgba(0, 0, 0, 0.5);*/ /* Optional: Adds a semi-transparent background */
   padding: 1px; /* Optional: Adds some padding */
   bottom: 78%;
