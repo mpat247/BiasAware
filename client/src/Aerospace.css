@@ -1,4 +1,15 @@
 /* Aerospace.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
 .sidebar {
     position: fixed;
     top: 0;
@@ -8,6 +19,9 @@
     background-color: #333;
     padding: 20px;
     color: #fff;
+    flex-direction: column;
+  align-items: center;
+  z-index: 2; /* Keeps sidebar above the main content */
   }
   
   .sidebar-icons {
@@ -18,17 +32,14 @@
     top: 20px; /* Adjust the top position as needed */
     left: 20px; /* Adjust the left position as needed */
   }
-  
-  .expanded-window {
-    position: fixed;
-    top: 0;
-    left: 80px; /* Width of the sidebar */
-    width: calc(100% - 80px); /* Adjust the width as needed */
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: none; /* Initially hidden */
-    z-index: 999; /* Ensure the window appears above other content */
+  .sidebar img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 5px;
+    cursor: pointer;
   }
+  
+  
   
   .sidebar-icons > * {
     margin-bottom: 25px;
@@ -48,3 +59,310 @@
   .expanded-window.active {
     display: block; /* Show the expanded window when active */
   }
+  .sidebar-icons a {
+    color: inherit; /* Maintain the default color */
+    text-decoration: none; /* Remove underline */
+    display: flex; /* This will make sure the anchor tag behaves like a flex container */
+    margin-bottom: 10px; /* Reduced margin-bottom to 5px */
+  }
+  
+  
+  
+
+.sidebar-icons > img {
+  margin-bottom: 20px;
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+}
+
+/* Styling for icons */
+.sidebar-icons > img {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+/* Main content styles */
+.main-content {
+  margin-left: 80px; /* Width of sidebar */
+  overflow: auto; /* Allows scrolling if content overflows */
+  height: calc(100vh - 20px); /* 100% of viewport height minus any top margin/padding */
+  padding: 20px;
+}
+
+.main-content .title-aerospace {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+}
+/* Individual grid items */
+.grid-item .item-large {
+  grid-area: large; /* This should match the name in grid-template-areas */
+  /* Additional styling */
+}
+
+.grid-item .item-medium {
+  grid-area: medium; /* This should match the name in grid-template-areas */
+  /* Additional styling */
+}
+
+.grid-item .item-small {
+  grid-area: small; /* This should match the name in grid-template-areas */
+  height: 100px; /* Fixed height for small items */
+  /* Additional styling */
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto 1fr 1fr; /* Adjust row sizes as needed */
+  gap: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  grid-template-areas:
+    "large large medium medium"
+    "large large medium medium"
+    "long-prop small2 small3 long-mat"
+    "long-prop small6 small7 long-mat";
+}
+/* New style for the combined long box */
+.item-long-prop {
+  grid-area: long-prop; /* This area spans all 4 columns */
+}
+.item-long-mat {
+  grid-area: long-mat; /* This area spans all 4 columns */
+}
+
+/* Individual grid items */
+.item-large {
+  grid-area: large;
+
+}
+
+.item-medium {
+  grid-area: medium;
+}
+
+/* Now we define each small item's area explicitly */
+.item-small1 {
+  grid-area: small1;
+}
+
+.item-small2 {
+  grid-area: small2;
+  height: 50px;
+}
+
+/* ... Continue for each small item ... */
+.item-small3 {
+  grid-area: small3;
+}
+.item-small4 {
+  grid-area: small4;
+}
+.item-small5 {
+  grid-area: small5;
+}
+.item-small6 {
+  grid-area: small6;
+}
+.item-small7 {
+  grid-area: small7;
+}
+.item-small8 {
+  grid-area: small8;
+}
+
+/* Grid item styles */
+.grid-item {
+  background-color: #ddd;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 1rem;
+  text-align: center;
+  height: 150px; /* Increased height for all items */
+  height: auto; /* Height auto for flexible sizing */
+  min-height: 250px; /* Set a minimum height */
+}
+
+/* Assigning grid areas */
+.item-large {
+  grid-area: large;
+}
+
+.item-medium {
+  grid-area: medium;
+}
+
+.item-small {
+  grid-area: small;
+  height: 50px; /* Fixed height for small items */
+}
+.item-small2 img {
+  max-width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 8px; /* Optional: If you want rounded corners */
+  object-fit: contain; /* Ensures the image is scaled correctly without being cropped */
+  
+}
+.item-small3 img {
+  max-width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 8px; /* Optional: If you want rounded corners */
+}
+.item-small6 img {
+  max-width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 8px; /* Optional: If you want rounded corners */
+}
+.item-small7 img {
+  max-width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 8px; /* Optional: If you want rounded corners */
+}
+.item-small2, .item-small3 {
+  /* Set the desired fixed height for the small grid items */
+  height: 100px; /* Example fixed height */
+  /* Ensure the content fits */
+  
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevents any overflow from the image */
+
+}
+
+/* Styles for images within .item-small2 and .item-small3 */
+.item-small2 img, .item-small3 img {
+  max-width: 100%; /* Ensure the image is not wider than the container */
+  max-height: 100%; /* Ensure the image is not taller than the container */
+  object-fit: cover; /* The image will be scaled to be as large as possible without being cropped or stretched */
+  
+}
+.item-small6, .item-small7 {
+  /* Set the desired fixed height for the small grid items */
+  height: 100px; /* Example fixed height */
+  /* Ensure the content fits */
+  
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevents any overflow from the image */
+
+}
+
+/* Styles for images within .item-small2 and .item-small3 */
+.item-small6 img, .item-small7 img {
+  max-width: 100%; /* Ensure the image is not wider than the container */
+  max-height: 100%; /* Ensure the image is not taller than the container */
+  object-fit: cover; /* The image will be scaled to be as large as possible without being cropped or stretched */
+  
+}
+/* Styles for the small grid items */
+.item-small2, .item-small3 {
+  /* Remove fixed height to allow the container to size with the image */
+  display: block; /* default display for divs, ensures it takes the full width available */
+  position: relative; /* for potential absolute positioning inside */
+  /* Remove padding if you want the image to be the exact size of the grid item */
+  padding: 0;
+}
+
+/* Styles for images within .item-small2 and .item-small3 */
+.item-small2 img, .item-small3 img {
+  width: 100%; /* Image will scale to the width of its container */
+  height: auto; /* Height will adjust to maintain the image's aspect ratio */
+  display: block; /* Remove any default inline spacing */
+}
+.item-small6, .item-small7 {
+  /* Remove fixed height to allow the container to size with the image */
+  display: block; /* default display for divs, ensures it takes the full width available */
+  position: relative; /* for potential absolute positioning inside */
+  /* Remove padding if you want the image to be the exact size of the grid item */
+  padding: 0;
+}
+
+/* Styles for images within .item-small2 and .item-small3 */
+.item-small6 img, .item-small7 img {
+  width: 100%; /* Image will scale to the width of its container */
+  height: auto; /* Height will adjust to maintain the image's aspect ratio */
+  display: block; /* Remove any default inline spacing */
+}
+
+/* Styles for images within .item-small2 and .item-small3 */
+.item-long-prop img {
+  max-width: 100%; /* Ensure the image is not wider than the container */
+  max-height: 100%; /* Ensure the image is not taller than the container */
+  object-fit: cover; /* The image will be scaled to be as large as possible without being cropped or stretched */
+  
+}
+/* Styles for the small grid items */
+.item-long-prop {
+  /* Remove fixed height to allow the container to size with the image */
+  display: block; /* default display for divs, ensures it takes the full width available */
+  position: relative; /* for potential absolute positioning inside */
+  /* Remove padding if you want the image to be the exact size of the grid item */
+  padding: 0;
+}
+
+/* Styles for images within .item-small2 and .item-small3 */
+.item-long-prop {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  overflow: hidden; /* Hide any overflow */
+  /* Remove padding if you want the image to be the exact size of the grid item */
+  padding: 0;
+  /* Set a specific height if necessary, or use height: auto to make it flexible */
+  height: auto;
+
+}
+
+/* Styles for images within .item-small2 and .item-small3 */
+.item-long-mat img {
+  max-width: 100%; /* Ensure the image is not wider than the container */
+  max-height: 100%; /* Ensure the image is not taller than the container */
+  object-fit: cover; /* The image will be scaled to be as large as possible without being cropped or stretched */
+  
+}
+/* Styles for the small grid items */
+.item-long-mat {
+  /* Remove fixed height to allow the container to size with the image */
+  display: block; /* default display for divs, ensures it takes the full width available */
+  position: relative; /* for potential absolute positioning inside */
+  /* Remove padding if you want the image to be the exact size of the grid item */
+  padding: 0;
+}
+
+/* Styles for images within .item-small2 and .item-small3 */
+.item-long-mat {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  overflow: hidden; /* Hide any overflow */
+  /* Remove padding if you want the image to be the exact size of the grid item */
+  padding: 0;
+  /* Set a specific height if necessary, or use height: auto to make it flexible */
+  height: auto;
+
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  
+  
+  .main-content {
+    margin-left: 60px;
+    padding: 10px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      'large',
+      'small2';
+  }
+  
+  
+}

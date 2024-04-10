@@ -14,8 +14,13 @@ import LandingPage from './LandingPage';
 import Addictions from './Addictions';
 import NewActivities from './NewActivities'
 import Aerospace from './Aerospace'
-
-
+import Biomedical from './Biomedical'
+import Chemical from './Chemical'
+import Civil from './Civil'
+import Computer from './Computer'
+import Electrical from './Electrical'
+import Industrial from './Industrial'
+import Mechanical from './Mechanical'
 //import Test from './Test'; // Import the test2 component
 
 import './App.css';
@@ -43,8 +48,13 @@ function App() {
         <Route path="/Crime" element={<Crime />} /> {/* Define the route for Crime page */}
         <Route path="/QOL2" element={<QOL2 />} /> {/* Define the route for Crime page */}
         <Route path="/Aerospace" element={<Aerospace />} /> {/* Define the route for Crime page */}
-
-
+        <Route path="/Biomedical" element={<Biomedical />} /> {/* Define the route for Crime page */}
+        <Route path="/Chemical" element={<Chemical />} /> {/* Define the route for Crime page */}
+        <Route path="/Civil" element={<Civil />} /> {/* Define the route for Crime page */}
+        <Route path="/Computer" element={<Computer />} /> {/* Define the route for Crime page */}
+        <Route path="/Electrical" element={<Electrical />} /> {/* Define the route for Crime page */}
+        <Route path="/Industrial" element={<Industrial />} /> {/* Define the route for Crime page */}
+        <Route path="/Mechanical" element={<Mechanical />} /> {/* Define the route for Crime page */}
         <Route path="/Addictions" element={<Addictions />} /> {/* Define the route for Crime page */}
         <Route path="/NewActivities" element={<NewActivities />} /> 
       </Routes>
