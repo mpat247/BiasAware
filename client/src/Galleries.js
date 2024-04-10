@@ -1,49 +1,49 @@
 import React, { useState } from 'react';
 import './Galleries.css';
-import basketball from './images/image 7.png';
-import cricket from './images/image 8.png';
-import volleyball from './images/image 9.png';
-import hockey from './images/image 10.png';
-import bingo from './images/image 11.png';
-import tennis from './images/image 12.png';
+// import basketball from './images/image 7.png';
+// import cricket from './images/image 8.png';
+// import volleyball from './images/image 9.png';
+// import hockey from './images/image 10.png';
+// import bingo from './images/image 11.png';
+// import tennis from './images/image 12.png';
 
-const Galleries = () => {
+const Galleries = ( {images} ) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
   // Array of image objects
-  const images = [
-    { src: basketball, alt: "Basketball" },
-    { src: cricket, alt: "Cricket" },
-    { src: volleyball, alt: "Volleyball" },
-    { src: hockey, alt: "Hockey" },
-    { src: bingo, alt: "Bingo" },
-    { src: tennis, alt: "Tennis" },
-    { src: basketball, alt: "Basketball" },
-    { src: cricket, alt: "Cricket" },
-    { src: volleyball, alt: "Volleyball" },
-    { src: hockey, alt: "Hockey" },
-    { src: bingo, alt: "Bingo" },
-    { src: tennis, alt: "Tennis" },
-    { src: basketball, alt: "Basketball" },
-    { src: cricket, alt: "Cricket" },
-    { src: volleyball, alt: "Volleyball" },
-    { src: hockey, alt: "Hockey" },
-    { src: bingo, alt: "Bingo" },
-    { src: tennis, alt: "Tennis" },
-    { src: basketball, alt: "Basketball" },
-    { src: cricket, alt: "Cricket" },
-    { src: volleyball, alt: "Volleyball" },
-    { src: hockey, alt: "Hockey" },
-    { src: bingo, alt: "Bingo" },
-    { src: tennis, alt: "Tennis" },
-    { src: basketball, alt: "Basketball" },
-    { src: cricket, alt: "Cricket" },
-    { src: volleyball, alt: "Volleyball" },
-    { src: hockey, alt: "Hockey" },
-    { src: bingo, alt: "Bingo" },
-    { src: tennis, alt: "Tennis" },
-  ];
+  // const images = [
+  //   { src: basketball, alt: "Basketball" },
+  //   { src: cricket, alt: "Cricket" },
+  //   { src: volleyball, alt: "Volleyball" },
+  //   { src: hockey, alt: "Hockey" },
+  //   { src: bingo, alt: "Bingo" },
+  //   { src: tennis, alt: "Tennis" },
+  //   { src: basketball, alt: "Basketball" },
+  //   { src: cricket, alt: "Cricket" },
+  //   { src: volleyball, alt: "Volleyball" },
+  //   { src: hockey, alt: "Hockey" },
+  //   { src: bingo, alt: "Bingo" },
+  //   { src: tennis, alt: "Tennis" },
+  //   { src: basketball, alt: "Basketball" },
+  //   { src: cricket, alt: "Cricket" },
+  //   { src: volleyball, alt: "Volleyball" },
+  //   { src: hockey, alt: "Hockey" },
+  //   { src: bingo, alt: "Bingo" },
+  //   { src: tennis, alt: "Tennis" },
+  //   { src: basketball, alt: "Basketball" },
+  //   { src: cricket, alt: "Cricket" },
+  //   { src: volleyball, alt: "Volleyball" },
+  //   { src: hockey, alt: "Hockey" },
+  //   { src: bingo, alt: "Bingo" },
+  //   { src: tennis, alt: "Tennis" },
+  //   { src: basketball, alt: "Basketball" },
+  //   { src: cricket, alt: "Cricket" },
+  //   { src: volleyball, alt: "Volleyball" },
+  //   { src: hockey, alt: "Hockey" },
+  //   { src: bingo, alt: "Bingo" },
+  //   { src: tennis, alt: "Tennis" },
+  // ];
 
 //   const images = [
 //     1081, 1014, 267, 266, 634, 923, 682, 173, 943, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1001,
