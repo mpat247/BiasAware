@@ -1,48 +1,23 @@
-/* Base styles */
-* {
-    box-sizing: border-box;
-    margin: 0; /* Reset default margin */
-  }
-  
-  html {
+
+  .galleries-gallery-container {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* max-width: 1200px; Maximum width of the container */
+    /* margin: 0 auto; Center the container */
+    /* padding: 20px; Padding around the container */
   }
   
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #fff; /* White background */
-    margin: 0;
-    padding: 0;
-  }
   
   /* Gallery styles */
-  .gallery {
+  .galleries-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 0; /* This removes space between rows and columns */
   }
   
-  @media (min-width: 480px) {
-    .gallery {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
   
-  @media (min-width: 768px) {
-    .gallery {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .gallery {
-      grid-template-columns: repeat(5, 1fr);
-    }
-  }
-  
-  .gallery-item {
+  .galleries-gallery-item {
     position: relative;
     overflow: hidden; /* Hide the overflow to maintain grid alignment */
     cursor: pointer; /* Indicates clickable items */
@@ -51,7 +26,7 @@
     justify-content: center;
   }
   
-  .gallery-item::before {
+  .galleries-gallery-item::before {
     content: '';
     display: block;
     position: absolute;
@@ -66,11 +41,11 @@
     pointer-events: none; /* Ignore pointer events on the pseudo-element */
   }
   
-  .gallery-item:hover::before {
+  .galleries-gallery-item:hover::before {
     border-color: #230eaf63; /* Border color on hover */
   }
   
-  .gallery-image img {
+  .galleries-gallery-image img {
     display: block;
     width: 100%; /* Adjust width to cover the space */
     height: auto; /* Adjust height to maintain aspect ratio */
@@ -91,12 +66,12 @@
     cursor: default; /* The caption text is not clickable */
   }
   
-  .gallery-item:hover figcaption {
+  .galleries-gallery-item:hover figcaption {
     opacity: 1; /* Show the caption on hover */
   }
   
   /* Modal styles */
-  .modal {
+  .galleries-modal {
     display: flex;
     position: fixed;
     z-index: 1000;
@@ -111,31 +86,78 @@
     padding: 20px; /* Add some padding to ensure content isn't touching the edges */
   }
   
-  .modal-content {
+  .galleries-modal-content {
     max-width: 90%; /* Adjust this value as needed */
     max-height: 80vh; /* Limit the height of the image */
     display: block;
   }
   
-  img.modal-content {
+  img.galleries-modal-content {
     width: auto; /* Use auto to maintain aspect ratio */
     height: auto; /* Use auto to maintain aspect ratio */
     max-height: 100%; /* Ensure it doesn't exceed the modal container */
     max-width: 100%; /* Ensure it doesn't exceed the modal container */
   }
   
-  .close {
+  .galleries-close {
     position: absolute;
-    top: 1rem; /* Adjust as needed */
-    right: 1rem; /* Adjust as needed */
+    top: 2rem; /* Adjust as needed */
+    right: 3rem; /* Adjust as needed */
     color: #fff;
     font-size: 2rem; /* Adjust as needed */
     cursor: pointer;
+    z-index: 10;
   }
   
-  .caption {
+  .galleries-caption {
     color: #ccc;
     text-align: center;
     padding-top: 1rem; /* Add some space above the caption */
+  }
+  
+  
+  .galleries-gallery-title {
+    text-align: center;
+    font-family: "Crimson Text", serif;
+    /* color: white; */
+    color: #DD9313;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 6vw; /* Responsively size the font */
+    max-width: 100%; /* Ensure it doesn't exceed the container width */
+    overflow-wrap: break-word; /* Ensures the text breaks to prevent overflow */
+  }
+  
+  @media (min-width: 480px) {
+    .galleries-gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .galleries-gallery {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .galleries-gallery {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  
+
+
+  /* Responsive typography for the title */
+  @media (max-width: 768px) {
+    .galleries-gallery-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .galleries-gallery-title {
+      font-size: 1.25rem;
+    }
   }
   

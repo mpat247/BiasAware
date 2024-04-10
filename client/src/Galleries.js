@@ -23,11 +23,12 @@ const Galleries = () => {
   };
 
   return (
-    <div>
-      <div className="gallery">
+    <div className="galleries-gallery-container">
+        <h1 className="galleries-gallery-title">GALLERY</h1>
+      <div className="galleries-gallery">
         {images.map((image, index) => (
-          <div key={index} className="gallery-item" onClick={() => openModal(image)}>
-            <div className="gallery-image">
+          <div key={index} className="galleries-gallery-item" onClick={() => openModal(image)}>
+            <div className="galleries-gallery-image">
               <img src={image.src} alt={image.alt} />
               <figcaption>Photo caption</figcaption>
             </div>
@@ -35,10 +36,10 @@ const Galleries = () => {
         ))}
       </div>
       {modalIsOpen && (
-        <div className="modal" onClick={closeModal}>
-          <span className="close">&times;</span>
-          <img className="modal-content" src={selectedImage.src} alt={selectedImage.alt} />
-          <div className="caption"></div>
+        <div className="galleries-modal" onClick={closeModal}>
+          <span className="galleries-close">&times;</span>
+          <img className="galleries-modal-content" src={selectedImage.src} alt={selectedImage.alt} />
+          <div className="galleries-caption"></div>
         </div>
       )}
     </div>
