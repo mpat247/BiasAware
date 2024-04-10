@@ -12,18 +12,28 @@
     font-style: normal;
     font-size: 6vw; /* Responsively size the font */
   }
+
+  .galleries-landing-individual-titles {
+    text-align: center;
+    font-family: "Crimson Text", serif;
+    /* color: #DD9313; */
+    color: white;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 4vw; /* Responsively size the font */
+  }
   
   .galleries-landing-all-three-container {
     display: flex;
     justify-content: space-around; /* This will space your galleries evenly */
     flex-wrap: wrap; /* This allows the items to wrap onto the next line on smaller screens */
-    background-color: #DD9313;
+    /* background-color: #DD9313; */
     /* height: 100vh;  */
   }
   
   .galleries-landing-individual-container {
-    flex-basis: 32%; /* Each gallery will take roughly 30% of the container's width */
-    background-color: aqua;
+    flex-basis: 32.5%; /* Each gallery will take roughly 30% of the container's width */
+    /* background-color: aqua; */
     /* height: 100%;  */
   }
   
