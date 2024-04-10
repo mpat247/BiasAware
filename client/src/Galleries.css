@@ -23,7 +23,7 @@
     overflow: hidden; /* Hide the overflow to maintain grid alignment */
     cursor: pointer; /* Indicates clickable items */
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
   }
   
@@ -50,7 +50,7 @@
   .galleries-gallery-image img {
     display: block;
     width: 100%; /* Adjust width to cover the space */
-    height: auto; /* Adjust height to maintain aspect ratio */
+    height: 100%; /* Adjust height to maintain aspect ratio */
     object-fit: cover; /* Cover the space without distorting aspect ratio */
   }
   
