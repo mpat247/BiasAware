@@ -4,12 +4,12 @@
   padding: 0;
 }
 .landing-page {
-  background: linear-gradient(-45deg, #0c062f, #140C46, #3e3671);
+  background: linear-gradient(-45deg, #0c062f, #1a106c, #3e328e, #0c062f);
   /* Replace #ff8a65 and #ffd54f with your desired colors */
   height: 100vh;
   display: flex;
   justify-content: center;
-  animation: gradient 15s ease infinite;
+  animation: gradient 20s ease infinite;
   align-items: center;
   background-size: 400% 400%; /* Added background-size */
 }
@@ -35,50 +35,75 @@
   padding-left: 20px; /* Adjust left padding for spacing */
   padding-right: 20px;
 }
-h1{
+.mainTitle{
   animation-name: fadeUp;
   animation-duration: 2s;
   font-size: 80px;
-  color: #F5A720 ;
+  color: white;
   align-items: center; /* Align items to the left */
   justify-content: center; /* Center horizontally */
   text-align: center;
+  font-family:'Plus Jakarta Sans', sans-serif;
+  font-weight: bold;
+  line-height: 1;
 }
 
-h2 {
+.highlight{
+  color: #F5A720;
+}
+
+.secondPage {
   animation-name: fadeUp;
   animation-duration: 2s;
   font-size: 60px !important;
-  color: #F5A720;
+  color: white !important;
   align-items: center; /* Align items to the left */
   justify-content: center; /* Center horizontally */
   text-align: center;
+  font-family:'Plus Jakarta Sans', sans-serif;
+  font-weight: bold;
 }
+
+.AITitle {
+  font-weight: bold;
+  font-size: 80px;
+  color: #F5A720;
+  line-height: 1.8;
+}
+
 p {
   animation-name: fadeUp;
   animation-duration: 2s;
   font-size: 40px;
-  color: #F5A720;
+  color: white;
   justify-content: center; /* Center horizontally */
   padding-left: 20px; /* Adjust left padding for spacing */
   padding-right: 20px;
   text-align:center;
+  font-family:'Plus Jakarta Sans', sans-serif;
+  font-weight: bold;
 }
+
+.slideThree{
+  color: #F5A720;
+  line-height: 2;
+}
+
 p2 {
   font-size: 20px;
-  color: #F5A720;
+  color: white;
   align-items: center; /* Align items to the left */
   justify-content: center; /* Center horizontally */
 }
 .new-header {
-  color: #F5A720;
+  color: white;
   font-size: 60px;
   text-align: center; /* Center text horizontally */
   position: absolute;
   
 }
 .new-sentence {
-  color: #F5A720;
+  color: white;
   font-size: 40px;
   text-align: center; /* Center text horizontally */
   position: absolute;
@@ -235,12 +260,21 @@ p2 {
 }
 /* Responsive CSS */
 @media only screen and (max-width: 768px) {
-  .h1 {
+  .mainTitle {
+    font-size: 30px !important;
+  }
+  .secondPage {
     font-size: 20px !important;
   }
-  h2 {
-    font-size: 24px !important;
+  
+  .AITitle {
+    font-size: 24px;
   }
+
+  .slideThree{
+    line-height: 1;
+  }
+
   p{
     font-size: 24px !important;
   }

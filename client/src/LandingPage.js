@@ -47,11 +47,10 @@ const LandingPage = () => {
     <div className="landing-page">
       <div className="container">
         <div className="main">
-          {!showFourthSentence && !showThirdSentence && !showSecondTitle && <h1>Exploring the <br /> Dark Side of Net</h1>}
-          {showSecondTitle && !showFourthSentence && !showThirdSentence && <h2>AI Image Generators: Catalysts for Creativity or Harbingers of Ethical Dilemmas?</h2>}
+          {!showFourthSentence && !showThirdSentence && !showSecondTitle && <h1 className = "mainTitle"><span className="highlight">Dark Side of the Net </span><br /> Exploring Social Biases in <br />AI Image Generators</h1>}
+          {showSecondTitle && !showFourthSentence && !showThirdSentence && <h2 className = "secondPage"><span className="AITitle">AI Image Generators </span><br /> Catalysts for Creativity <br /> or <br /> Harbingers of Ethical Dilemmas?</h2>}
           {showThirdSentence && !showFourthSentence && (
-            <p>With our increased reliance on generative tools like Stable Diffusion and NightCafe, we must question: Might these tools inadvertently perpetuate societal biases lurking within their datasets, subtly influencing the content they generate?</p>
-          )}
+            <p><span className="slideThree">With our increased reliance on generative tools, we must question: </span><br/> Could these tools unintentionally reinforce existing biases in their generated content?</p>          )}
           {showFourthSentence && (
             <p>{fourthSentence.substring(0, typedCharacters)}</p>
           )}
