@@ -14,6 +14,7 @@ import NewActivities from './NewActivities'
 import Aerospace from './Aerospace'
 import NewProfessions from './NewProfessions'
 import Galleries from './Galleries'
+import GalleriesLanding from './GalleriesLanding';
 
 
 //import Test from './Test'; // Import the test2 component
@@ -48,7 +49,8 @@ function App() {
 
         <Route path="/Addictions" element={<Addictions />} /> {/* Define the route for Crime page */}
         <Route path="/NewActivities" element={<NewActivities />} /> 
-        <Route path="/Galleries" element={<Galleries />} /> 
+        <Route path="/Galleries" element={<Galleries />} />
+        <Route path="/GalleriesLanding" element={<GalleriesLanding />} /> 
       </Routes>
     </Router>
   );

@@ -24,7 +24,7 @@ const Galleries = () => {
 
   return (
     <div className="galleries-gallery-container">
-        <h1 className="galleries-gallery-title">GALLERY</h1>
+        {/* <h1 className="galleries-gallery-title">GALLERY</h1> */}
       <div className="galleries-gallery">
         {images.map((image, index) => (
           <div key={index} className="galleries-gallery-item" onClick={() => openModal(image)}>

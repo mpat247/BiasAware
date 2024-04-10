@@ -1,0 +1,16 @@
+.galleries-landing-container {
+    background-color: #0B0533;
+}
+
+.galleries-landing-title {
+    text-align: center;
+    font-family: "Crimson Text", serif;
+    /* color: white; */
+    color: #DD9313;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 6vw; /* Responsively size the font */
+    max-width: 100%; /* Ensure it doesn't exceed the container width */
+    overflow-wrap: break-word; /* Ensures the text breaks to prevent overflow */
+    
+}
