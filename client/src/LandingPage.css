@@ -71,7 +71,8 @@
   line-height: 1.8;
 }
 
-p {
+.landing-page-ptag {
+/* p { */
   animation-name: fadeUp;
   animation-duration: 2s;
   font-size: 40px;

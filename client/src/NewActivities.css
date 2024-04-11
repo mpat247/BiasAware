@@ -68,10 +68,10 @@
     /* Make sure it's above the image */
     transition: opacity 0.3s ease;
     /* Smooth transition for hover effect */
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 200;
+    font-weight: bolder;
     font-style: normal;
 }
 
@@ -230,20 +230,20 @@
 
 /*POPUP CODE*/
 .activities-popup-title {
-    font-family: "Crimson Text", serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
-    font-weight: 700;
-    font-style: normal;
+    font-weight: bolder;
+    /* font-style: normal; */
 }
 
-.activities-popup-statistical-analysis {
+.p .activities-popup-statistical-analysis {
     margin-bottom: 0rem;
     line-height: normal;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 200;
-    font-style: normal;
+    /* font-weight: 200; */
+    /* font-style: normal; */
     color: white;
 }
 
@@ -255,6 +255,7 @@
     height: 100%;
     /* background-color: rgba(0, 0, 0, 0.75);  */
     background-color: #0B0533;
+    /* background-color: yellow; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -269,7 +270,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 65%;
     /* Adjust as needed */
-    height: 95%;
+    height: 65%;
     /* Adjust as needed */
     text-align: center;
     display: flex;
@@ -277,7 +278,8 @@
     /* Stack children vertically */
     justify-content: space-around;
     align-items: center;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow: auto;
     /* Ensures no overflow */
 }
 
@@ -379,12 +381,14 @@
 }
 
 .activities-popup-button-text {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 200;
+    /* font-weight: 200; */
     font-style: normal;
     color: white;
+    /* color: rgba(255, 255, 255, 0.55); */
+    border-radius: 5px;
 }
 
 .activities-popup-footer button {
@@ -393,6 +397,7 @@
     border: none;
     cursor: pointer;
     border: 1px solid transparent;
+    justify-content: right;
 }
 
 .activities-popup-footer button:hover {
@@ -400,6 +405,36 @@
     /* Semi-transparent grey overlay */
     border: 1px solid;
 }
+
+/* This styles the scrollbar track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color of the tracking area */
+    border-radius: 10px; /* roundness of the track */
+}
+
+/* This styles the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background: #888; /* color of the scroll thumb */
+    border-radius: 10px; /* roundness of the thumb */
+    border: 3px solid #f1f1f1; /* creates a border around the thumb */
+}
+
+/* This styles the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555555; /* color of the scroll thumb when hovered over */
+}
+
+/* This styles the scrollbar itself (width, etc.) */
+::-webkit-scrollbar {
+    width: 12px; /* width of the entire scrollbar */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #231b52 #f1f1f1; /* thumb and track color */
+}
+
 
 @media (min-width: 1280px) {
     .activities-PostSlide .activities-innerContainer .activities-slider {
