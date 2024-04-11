@@ -276,7 +276,8 @@ p2 {
     line-height: 1;
   }
 
-  p{
+  .landing-page-ptag {
+  /* p{ */
     font-size: 24px !important;
   }
   .new-sentence{

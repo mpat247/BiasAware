@@ -8,7 +8,7 @@
 body {
   margin: 0;
   margin-top: 40px; /* Adjust based on the height of your navbar */
-  font-size: calc(7px + 2vmin);
+  /* font-size: calc(7px + 2vmin); */
   color: #140C46;
   
 }

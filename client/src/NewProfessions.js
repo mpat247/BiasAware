@@ -11,13 +11,15 @@ import axios from 'axios';
 import REACT_APP_API_URL from './config';
 
 const initialCategories = [
-  { name: 'Business', color: '#FFD600', images: [] },
-  { name: 'Healthcare', color: '#D9822A', images: [] },
-  { name: 'Maintenance', color: '#BE5C43', images: [] },
-  { name: 'Education', color: '#A33862', images: [] },
-  { name: 'Labour', color: '#6A2774', images: [] },
+  { name: 'Business', color: '#DCAD18', images: [] },
+  { name: 'Healthcare', color: '#DD9313', images: [] },
+  { name: 'Maintenance', color: '#C5680A', images: [] },
+  { name: 'Education', color: '#C15416', images: [] },
+  { name: 'Labour', color: '#C34219', images: [] },
 ];
 
+
+// const colors = ["#DCAD18", "#DD9313", "#C5680A", "#C15416"];
 
 const ProfCarousel = ({ images, category, categoryImages }) => {
   console.log(`Prof carousel images: ${images}`)
@@ -149,7 +151,7 @@ const Popup = ({ onClose, bgColor, category, images, categoryImages }) => {
           </div>
         </div>
         <div className="professions-popup-footer">
-          <button className="professions-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>Close</button>
+          <button className="professions-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>x</button>
         </div>
       </div>
     </div>

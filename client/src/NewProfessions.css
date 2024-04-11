@@ -21,9 +21,9 @@
     font-family: "Crimson Text", serif;
     /* color: white; */
     color: #DD9313;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 6vw; /* Responsively size the font */
+    font-weight: bolder;
+    /* font-style: normal; */
+    font-size: 7vw; /* Responsively size the font */
     max-width: 100%; /* Ensure it doesn't exceed the container width */
     overflow-wrap: break-word; /* Ensures the text breaks to prevent overflow */
   }
@@ -70,22 +70,21 @@
   
   .professions-category-item-title {
       font-style: normal;
-      font-weight: 700;
-      font-size: 23px;
+      font-weight: bolder;
+      font-size: 1.8rem;
       line-height: 28px;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
     font-style: normal;
-    color:  #0B0533;
-      /* color: white; */
+    /* color:  #0B0533; */
+      color: white;
   /* 	padding-left: 20px; */
   /* 	padding-top: 20px; */
   }
   
   .professions-category-item:hover>.professions-category-item-title {
-      color: white;
-    /* color: #0B0533; */
+      /* color: white; */
+    color: #0B0533;
   }
   
   .professions-category-item-img {
@@ -98,20 +97,22 @@
   
   /*POPUP CODE*/
   .professions-popup-title {
-    font-family: "Crimson Text", serif;
+    /* font-family: "Crimson Text", serif; */
     color: white;
-    font-weight: 700;
-    font-style: normal;
+    /* font-weight: 700; */
+    font-weight: bolder;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    /* font-style: normal; */
   }
   
   .professions-popup-statistical-analysis {
     margin-bottom: 0rem;
     line-height: normal;
-    font-size: 1.3rem;
+    font-size: 0.9rem;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
+    /* font-weight: 300; */
+    /* font-style: normal; */
     color: #0B0533;
   }
   
@@ -217,12 +218,13 @@
   }
   
   .professions-popup-button-text {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 200;
+    /* font-weight: 200; */
     font-style: normal;
     color: white;
+    border-radius: 5px;
   }
   
   .professions-popup-footer button {
