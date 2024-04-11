@@ -425,7 +425,7 @@
 
 /* This styles the scrollbar itself (width, etc.) */
 ::-webkit-scrollbar {
-    width: 12px; /* width of the entire scrollbar */
+    width: 1px; /* width of the entire scrollbar */
 }
 
 /* For Firefox */
