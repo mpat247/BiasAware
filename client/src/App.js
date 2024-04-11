@@ -12,6 +12,8 @@ import Addictions from './Addictions';
 import NewActivities from './NewActivities'
 import Aerospace from './Aerospace'
 import NewProfessions from './NewProfessions'
+import Addictions2 from './Addictions2';
+import GearLoader from './GearLoader'
 
 
 import Biomedical from './Biomedical'
@@ -32,11 +34,12 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Addictions" element={<Addictions />} />
         <Route path="/Statistics" element={<Statistics />} />
         <Route path="/NewProfessions" element={<NewProfessions />} />
+        <Route path="/Addictions2" element={<Addictions2 />} /> {/* Define the route for Crime page */}
 
-      
+        <Route path="/GearLoader" element={<GearLoader />} /> {/* Define the route for Crime page */}
+
         <Route path="/QOL" element={<QOL />} />
         <Route path="/Engineering" element={<Engineering />} />
         <Route path="/Emotions" element={<Emotions />} />

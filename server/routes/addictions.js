@@ -60,11 +60,11 @@ router.get('/main-images', async (req, res) => {
 
 router.get('/side-images', async (req, res) => {
   try {
-    // Fetch main images
-    const mainImages = await Image.find({ bias_name: "Addiction", prompt: /Main_/i });
+    // Receive prompt via query
+    const { prompt: queryPrompt } = req.query;
 
-    if (!mainImages.length) {
-      return res.status(404).send({ message: 'No main images found' });
+    if (!queryPrompt) {
+      return res.status(400).send({ message: 'Prompt is required' });
     }
 
     const bucket = new GridFSBucket(mongoose.connection.db, {
@@ -73,41 +73,48 @@ router.get('/side-images', async (req, res) => {
 
     let sideImagesData = [];
 
-    // Iterate through main images to fetch side images
-    for (const mainImage of mainImages) {
-      // Format the prompt
-      const formattedPrompt = mainImage.prompt.substring(5).replace(/_/g, ' ');
+    // Fetch images with bias_name "Addiction", excluding prompts starting with "Main_"
+    // and ensuring the document's prompt contains the queryPrompt.
+    const regexForExcludingMain = new RegExp(`^(?!Main_).+${queryPrompt}`, 'i');
+    const sideImages = await Image.find({
+      bias_name: "Addiction",
+      prompt: { $regex: regexForExcludingMain }
+    });
+var count = 0
+    // Map and fetch image data
+    for (const sideImage of sideImages) {
+      const filename = sideImage.name;
+      const downloadStream = bucket.openDownloadStreamByName(filename);
 
-      // Fetch side images for the formatted prompt
-      const sideImages = await Image.find({ bias_name: "Addiction", prompt: { $regex: new RegExp(formattedPrompt, 'i'), $not: /Main_/i } });
-
-      // Map side images to the formatted prompt and fetch image data
-      for (const sideImage of sideImages) {
-        const filename = sideImage.name;
-        const downloadStream = bucket.openDownloadStreamByName(filename);
-
-        let imageData = await new Promise((resolve, reject) => {
-          let chunks = [];
-          downloadStream.on('data', (chunk) => {
-            chunks.push(chunk);
-          });
-          downloadStream.on('end', () => {
-            const buffer = Buffer.concat(chunks);
-            const imgBase64 = buffer.toString('base64');
-            const contentType = sideImage.contentType || 'image/jpeg'; // Default to JPEG if contentType not set
-            resolve({
-              image: `data:${contentType};base64,${imgBase64}`,
-              prompt: formattedPrompt
-            });
-          });
-          downloadStream.on('error', (error) => {
-            console.error(`Error downloading ${filename}:`, error);
-            reject(error);
+      let imageData = await new Promise((resolve, reject) => {
+        let chunks = [];
+        downloadStream.on('data', (chunk) => {
+          chunks.push(chunk);
+        });
+        downloadStream.on('end', () => {
+          const buffer = Buffer.concat(chunks);
+          const imgBase64 = buffer.toString('base64');
+          const contentType = sideImage.contentType || 'image/jpeg'; // Default to JPEG if contentType not set
+          resolve({
+            image: `data:${contentType};base64,${imgBase64}`,
+            prompt: sideImage.prompt,
+            description: sideImage.description // Add the description field here
           });
         });
+        console.log(count++)
+        downloadStream.on('error', (error) => {
+          console.error(`Error downloading ${filename}:`, error);
+          reject(error);
+        });
+      });
 
-        sideImagesData.push(imageData);
-      }
+      sideImagesData.push(imageData);
+
+
+    }
+
+    if (!sideImagesData.length) {
+      return res.status(404).send({ message: 'No side images found' });
     }
 
     res.status(200).json({ images: sideImagesData });
@@ -116,6 +123,7 @@ router.get('/side-images', async (req, res) => {
     res.status(500).send({ message: 'Failed to fetch side images', error: error.message });
   }
 });
+
 
 module.exports = router;
 

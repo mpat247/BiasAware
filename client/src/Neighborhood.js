@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, useMap, Polygon, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'; // Ensure you have this line to import Leaflet's CSS
-
+import './Neighborhoodnew.css'; // Import the CSS file
 const canadaCoords = [62.437413, -102.6959393];
 const ontarioCoords = [43.8994482, -79.9580261];
 const torontoCoords = [43.7241123, -79.4935225];
@@ -102,18 +102,60 @@ const InfoCard = ({ show, onClose }) => {
   return (
     <div style={overlayStyles}>
       <div style={cardStyles}>
-        <button onClick={onClose} style={closeButtonStyles}>Close</button>
-        <h2>Jane & Finch</h2>
-        <div className="card-item">HOUSES</div>
-        <div className="card-item">STAT</div>
-        <div className="card-item">STAT</div>
-        <div className="card-item">APP</div>
+        <button onClick={onClose} style={closeButtonStyles}>x</button>
+        <div className="popup-content-compare">
+        <div className="titles-container">
+        <h2 className="popup-title-left">JANE & FINCH</h2>
+        <h2 className="popup-title-right">FOREST HILL</h2>
+      </div>
+            <div className="grid-container-compare">
+              <div className="grid-item-house-compare">
+              <ImageShuffler folderName="Janeandfinchhouse" />
+              </div>
+              <div className="grid-item-house-compare">
+              <ImageShuffler folderName="foresthillhouse" />
+              </div>
+              <div className="grid-item-apart-compare">
+              <ImageShuffler folderName="Janeandfinchapartment" />
+              </div>
+              <div className="grid-item-apart-compare">
+              <ImageShuffler folderName="foresthillapartment" />
+              </div>
+            </div>
+            </div>
       </div>
     </div>
   );
 };
+const ImageShuffler = ({ folderName }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Assuming the images are stored in the `public` directory and named in a sequence
+  // You should adjust the base path and image names as needed
+  const images = [
+    `${process.env.PUBLIC_URL}/neighborhood/${folderName}/Image1.jpg`,
+    `${process.env.PUBLIC_URL}/neighborhood/${folderName}/Image2.jpg`,
+    `${process.env.PUBLIC_URL}/neighborhood/${folderName}/Image3.jpg`,
+    `${process.env.PUBLIC_URL}/neighborhood/${folderName}/Image4.jpg`,
+    `${process.env.PUBLIC_URL}/neighborhood/${folderName}/Image5.jpg`,
+  ];
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(intervalId);
+  }, [images.length]);
+
+  // No need to check for images.length === 0 since we know the images array length
+  return <img src={images[currentIndex]} alt="Shuffling" style={{ maxWidth: '100%', height: 'auto' }} />;
+};
+
+// Helper function to import all images from a directory
+function importAll(r) {
+  return r.keys().map(r);
+}
 
 const HighlightNeighborhoods = ({ show }) => {
   const onNeighborhoodClick = (name) => {
@@ -126,19 +168,43 @@ const HighlightNeighborhoods = ({ show }) => {
     <>
       <Polygon pathOptions={{ color: 'blue' }} positions={ForestHillCoords}>
         <Popup>
-          <div className="popup-content">
-            <h2>Forest Hill</h2>
-            <p>Details about Forest Hill...</p>
-            {/* Your popup content here, you can style it as you need */}
+        <div className="popup-content">
+            <h2 className = "popup-title">FOREST HILL</h2>
+            <div className="grid-container-neighborhood">
+              <div className="grid-item-houses">
+              <ImageShuffler folderName="foresthillhouse" />
+              </div>
+              <div className="grid-item-stats">
+              <img src="/neighborhood/foresthillhousehold.gif" alt="aero4" />
+              </div>
+              <div className="grid-item-stats">
+              <img src="/neighborhood/forestcrime.gif" alt="aero4" />
+              </div>
+              <div className="grid-item-apartment">
+              <ImageShuffler folderName="foresthillapartment" />
+              </div>
+            </div>
           </div>
         </Popup>
       </Polygon>
       <Polygon pathOptions={{ color: 'red' }} positions={JaneAndFinchCoordinates}>
         <Popup>
           <div className="popup-content">
-            <h2>Jane and Finch</h2>
-            <p>Details about Jane and Finch...</p>
-            {/* Your popup content here, you can style it as you need */}
+            <h2 className = "popup-title">JANE & FINCH</h2>
+            <div className="grid-container-neighborhood">
+              <div className="grid-item-houses">
+              <ImageShuffler folderName="Janeandfinchhouse" />
+              </div>
+              <div className="grid-item-stats">
+              <img src="/neighborhood/janehousehold.gif" alt="aero4" />
+              </div>
+              <div className="grid-item-stats">
+              <img src="/neighborhood/janecrime.gif" alt="aero4" />
+              </div>
+              <div className="grid-item-apartment">
+              <ImageShuffler folderName="Janeandfinchapartment" />
+              </div>
+            </div>
           </div>
         </Popup>
       </Polygon>
@@ -155,7 +221,8 @@ const MapView = () => {
 
   return (
     <>
-      <div style={{ height: '80vh', width: '80%', margin: 'auto' }}>
+<div className="neighborhood-title-container">
+                            <h1 className="neighborhood-landing-title">NEIGHBOURHOOD</h1>      <div style={{ height: '80vh', width: '80%', margin: 'auto' }}>
         <MapContainer
           center={canadaCoords}
           zoom={4}
@@ -163,7 +230,7 @@ const MapView = () => {
           doubleClickZoom={transitionsCompleted}
           zoomControl={transitionsCompleted}
           dragging={transitionsCompleted}
-          style={{ height: '100%', width: '100%' }}
+          style={{ height: '85%', width: '100%', borderRadius: '15px' }}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -198,9 +265,9 @@ const MapView = () => {
           zIndex: 10
         }}
       >
-        Show Info
+        COMPARE
       </button>
-    </>
+    </div></>
   );
 };
 

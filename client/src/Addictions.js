@@ -1,7 +1,7 @@
 // Addictions.js
 
 import React, { useState, useEffect } from 'react';
-import NavigationBar from './NavigationBar';
+import Loader from './GearLoader.js';
 import './Addictions.css';
 import ArrowLeftImage from "./Arrows/Arrow_Left_1.png";
 import ArrowRightImage from "./Arrows/Arrow_Right_1.png";
@@ -19,6 +19,8 @@ const Addictions = () => {
   const [sideImagesData, setSideImagesData] = useState([]);
   const [popUpSide, setPopUpSide] = useState([]);
   const [popupDescription, setpopupDescription] = useState('');
+  const [sideImagesLoading, setSideImagesLoading] = useState(false);
+
 
 
   const API = REACT_APP_API_URL;
@@ -37,18 +39,7 @@ const Addictions = () => {
     fetchImages();
   }, []);
 
-  useEffect(() => {
-    const fetchImages2 = async () => {
-      try {
-        const sideResponse = await axios.get(`${API}/addictions/side-images`);
-        setSideImagesData(sideResponse.data.images);
-      } catch (error) {
-        console.error('Failed to fetch images:', error);
-      }
-    };
-
-    fetchImages2();
-  }, []);
+  
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesData.length);
@@ -60,7 +51,9 @@ const Addictions = () => {
     );
   };
 
-  const PopupCard = ({ image, prompt, sideImages, onClose, retrievedImage, description }) => {
+  const PopupCard = ({ image, prompt, sideImages, onClose, retrievedImage, description, sideImagesLoading }) => {
+    console.log("Side Images: " + sideImages)
+
     const formattedPrompt = prompt => {
       const vowels = ['a', 'e', 'i', 'o', 'u'];
       const firstLetter = prompt.toLowerCase().charAt(0);
@@ -73,16 +66,22 @@ const Addictions = () => {
 
     // Fill the sideImages array with empty strings if there are fewer than 4 side images
     const filledSideImages = [...sideImages, '', '', '', ''].slice(0, 4);
+    console.log(filledSideImages)
 
     return (
+      
+      
+
       <div className="popup-card-addiction">
         <div className="popup-content-addiction">
           <button className="close-button-addiction" onClick={onClose}>x</button>
+
+         
           <div className="image-layout-addiction">
             <div className="side-images-addictions left">
               {filledSideImages.slice(0, 2).map((sideImage, index) => (
                 <div key={index} className={`side-image-addictions`}>
-                  <img src={sideImage} alt={`sideImage${index + 1}`} className="side-image-addictions" />
+                  <img src={sideImage.image} alt={`sideImage${index + 1}`} className="side-image-addictions" />
                 </div>
               ))}
             </div>
@@ -95,32 +94,61 @@ const Addictions = () => {
             <div className="side-images-addictions right">
               {filledSideImages.slice(2, 4).map((sideImage, index) => (
                 <div key={index} className={`side-image-addictions`}>
-                  <img src={sideImage} alt={`sideImage${index + 1}`} className="side-image-addictions" />
+                  <img src={sideImage.image} alt={`sideImage${index + 1}`} className="side-image-addictions" />
                 </div>
               ))}
             </div>
           </div>
+          <a href="/Statistics" className="statistics-link-emotions">More Information Here</a>
+
+
+
 
         </div>
       </div>
-    );
+    
+  
+  );
   };
 
 
   const openPopup = async (prompt, description) => {
-    setShowPopup(true);
+    setSideImagesLoading(true); // Start loading side images
     document.body.style.overflow = 'hidden'; // Disable scrolling
     setPopupPrompt(prompt);
-    setpopupDescription(description); // Correct this line to properly set the description
-
+    setpopupDescription(description);
+  
     // Find the main image corresponding to the prompt
     const mainImage = imagesData.find(image => image.prompt === prompt)?.image;
     setPopUpMain([mainImage]);
+  
+      try {
+      const sideResponse = await axios.get(`${API}/addictions/side-images`, {
+        params: {
+          prompt: prompt // Make sure to pass the prompt as a query parameter
+        }
+      });
+      // Assuming the backend responds with an array of images under the 'images' key
+      const fetchedSideImages = sideResponse.data.images || [];
+  
+      // Ensure to only set the side images related to the current prompt, matching the backend structure
+      const sideImages = fetchedSideImages.map(img => ({
+        image: img.image,
+        prompt: img.prompt,
+        description: img.description
+      }));
+  
+      setPopUpSide(sideImages);
+    } catch (error) {
+      console.error('Failed to fetch side images:', error);
+      setPopUpSide([]); // Reset to an empty array in case of an error
+    } finally {
+      setSideImagesLoading(false); // Ensure loading indicator is removed after fetching
+      setShowPopup(true);
 
-    // Find the side images corresponding to the prompt
-    const sideImages = sideImagesData.filter(image => image.prompt === prompt).map(image => image.image);
-    setPopUpSide(sideImages);
-  };
+    }
+  };  
+  
 
   const closePopup = () => {
     setShowPopup(false);
@@ -153,7 +181,7 @@ const Addictions = () => {
       <header className="App-header">
 
         {loading ? (
-          <div>Loading...</div> // Show loading indicator while images are being fetched
+          <Loader/> // Show loading indicator while images are being fetched
         ) : (
           <div className="addictions-container">
             <h1 className="addictions-header">
@@ -180,7 +208,23 @@ const Addictions = () => {
         )}
       </header>
       {showPopup && <div className="overlay-addiction" onClick={closePopup}></div>}
-      {showPopup && <PopupCard image={popUpMain[0]} prompt={popupPrompt} sideImages={popUpSide} onClose={closePopup} description={popupDescription} />}
+      {showPopup && (
+        <PopupCard
+          image={popUpMain[0]}
+          prompt={popupPrompt}
+          sideImages={popUpSide}
+          onClose={closePopup}
+          description={popupDescription}
+          sideImagesLoading={sideImagesLoading}
+        />
+      )}
+      {sideImagesLoading && (
+        <div className="loader-overlay">
+          <div className="loader">
+            <Loader/> {/* Placeholder for a loading indicator */}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
