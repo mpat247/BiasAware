@@ -43,10 +43,13 @@ const LandingPage = () => {
     }
   }, [showFourthSentence]);
 
+ 
   return (
     <div className="landing-page">
       <div className="container">
+
         <div className="main">
+
           {!showFourthSentence && !showThirdSentence && !showSecondTitle && <h1 className = "mainTitle"><span className="highlight">Dark Side of the Net </span><br /> Exploring Social Biases in <br />AI Image Generators</h1>}
           {showSecondTitle && !showFourthSentence && !showThirdSentence && <h2 className = "secondPage"><span className="AITitle">AI Image Generators </span><br /> Catalysts for Creativity <br /> or <br /> Harbingers of Ethical Dilemmas?</h2>}
           {showThirdSentence && !showFourthSentence && (

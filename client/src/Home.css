@@ -37,6 +37,7 @@ body {
   pointer-events: none;
   z-index: 1; /* Ensure the gears are above other content */
 }
+
 /* Common styles for all gears */
 .gear-container {
  width: 80vw; /* Adjust the width as needed */
@@ -45,6 +46,7 @@ body {
   margin: auto;
   
 }
+
 
 
 /* Adjust sizes and positions for different screen widths */
@@ -275,11 +277,6 @@ body {
 .App-header .hood2 h2 {
   font-size: .8em !important; /* Adjust the font size as needed */
 }
-
-
-
-
-
 
 
 

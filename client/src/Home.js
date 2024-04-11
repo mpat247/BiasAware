@@ -41,16 +41,19 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  
+
+ 
 
   return (
     <div className="Home">
       {showLandingPage ? (
-        <LandingPage /> // Show LandingPage component for 10 seconds
+        <LandingPage  /> 
       ) : (
         <>
 
-      <header className="App-header">
-        {/* <NavigationBar /> Include the NavigationBar component */}
+            <header className="App-header" style={{ marginTop: '60px' }}>
+        <NavigationBar /> 
          {/* Add a link to scroll to the Addictions section */}
         
 
@@ -68,7 +71,7 @@ const Home = () => {
 {/* Addiction Prompts*/}
 
 
-<div class = "main-body">
+<div class = "main-body" style={{width: '100%'}}>
           <div class="gear-container">
               <ul class="center-circle">
                 <li class="tooth"></li>
@@ -243,9 +246,7 @@ const Home = () => {
 
 
 {/* Activities section */}
-<div id="activities">
-        <NewActivities />
-      </div>
+
       {/* Addictions section */}
       <div id="addictions">
               <Addictions />
@@ -265,6 +266,9 @@ const Home = () => {
       <div id="Crime">
         <Crime />
       </div>
+            <div id="activities">
+              <NewActivities />
+            </div>
 
             <div id="NewProfessions">
               <NewProfessions />

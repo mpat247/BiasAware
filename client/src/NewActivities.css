@@ -24,7 +24,7 @@
 .activities-slide-inner {
     position: relative;
     /* Positioning context for absolute children */
-    background-color: green;
+    background-color: #0B0533;
     width: 100%;
     /* Full width minus padding */
     height: 100%;

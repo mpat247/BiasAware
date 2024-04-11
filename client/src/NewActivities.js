@@ -9,8 +9,7 @@ import tennis from './images/image 12.png';
 import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
 
-// const colors = ["#FFD600", "#F5A720", "#D9822A", "#BE5C43", "#A33862", "#6A2774", "#441A93", "#161E7B"]; 
-const colors = ["#DCAD18", "#DD9313", "#C5680A", "#C15416"]; // Define colors for slides
+const colors = ["#FFD600", "#F5A720", "#D9822A", "#BE5C43", "#A33862", "#6A2774", "#441A93", "#161E7B"]; // Define colors for slides
 
 // Define slide information, mapping each image to a color
 const initialSlideInfo = [
@@ -18,18 +17,18 @@ const initialSlideInfo = [
     { image: null, color: colors[1], name: "Basketball", prompt: "A Basketball Player" },
     { image: null, color: colors[2], name: "Bingo",prompt: "A Bingo Player" },
     { image: null, color: colors[3], name: "Cricket" ,prompt: "A Cricket Player"},
-    { image: null, color: colors[0], name: "Cycling", prompt: "A Cyclist" },
-    { image: null, color: colors[1], name: "Marathon", prompt: "A Marathon Runner" },
-    { image: null, color: colors[2], name: "Meditating", prompt: "A Meditator" },
-    { image: null, color: colors[3], name: "Paint", prompt: "A Painter" },
+    { image: null, color: colors[4], name: "Cycling", prompt: "A Cyclist" },
+    { image: null, color: colors[5], name: "Marathon", prompt: "A Marathon Runner" },
+    { image: null, color: colors[6], name: "Meditating", prompt: "A Meditator" },
+    { image: null, color: colors[7], name: "Paint", prompt: "A Painter" },
     { image: null, color: colors[0], name: "Rowing", prompt: "A Rower" },
     { image: null, color: colors[1], name: "Skating", prompt: "A Skater" },
     { image: null, color: colors[2], name: "Tennis", prompt: "A Tennis Player" },
     { image: null, color: colors[3], name: "Travel", prompt: "A Traveler" },
-    { image: null, color: colors[0], name: "VideoGame", prompt: "A Video Gamer" },
-    { image: null, color: colors[1], name: "Volleyball", prompt: "A Volleyball Player" },
-    { image: null, color: colors[2], name: "Weightlifting", prompt: "A Weightlifter" },
-    { image: null, color: colors[3], name: "Yoga", prompt: "A Yogi" },
+    { image: null, color: colors[4], name: "VideoGame", prompt: "A Video Gamer" },
+    { image: null, color: colors[5], name: "Volleyball", prompt: "A Volleyball Player" },
+    { image: null, color: colors[6], name: "Weightlifting", prompt: "A Weightlifter" },
+    { image: null, color: colors[6], name: "Yoga", prompt: "A Yogi" },
 
 ];
 
@@ -65,9 +64,7 @@ const Popup = ({ isVisible, onClose, bgColor, description, name, sideImages, sel
                     </div>
                 </div>
                 <div className="activities-popup-footer">
-                <a href="/Statistics" className="statistics-link-activities">More Information Here</a>
-
-                    <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>x</button>
+                    <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>Close</button>
                 </div>
             </div>
         </div>
@@ -376,7 +373,7 @@ console.log("selected sode o,ages: " + selectedSideImages)
                             {slideInfo.map((slide, index) => (
                                 <div key={index} className="activities-slide" style={{ backgroundColor: slide.color }}>
                                     <div className="activities-slide-inner" onClick={(e) => handleSlideClick(e, slide.color, slide.name, slide.description, slide.image, slide.prompt)} onMouseEnter={() => setHoveredSlide(slide.name)} onMouseLeave={() => setHoveredSlide(null)}>
-                                        <img src={slide.image} alt={slide.name} className="activities-image" />
+                                        <img src={slide.image} className="activities-image" />
                                         {hoveredSlide === slide.name && (
                                             <div className="activities-hover-caption">{slide.name}</div>
                                         )}

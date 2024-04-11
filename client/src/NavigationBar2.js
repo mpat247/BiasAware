@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import NavigationBar2Styling from './NavigationBar2Styling.module.css'; // Import CSS module
+import NavigationBarStyling from './NavigationBarStyling.module.css'; // Import CSS module
 
 const linkVariants = {
   hover: {
@@ -14,33 +14,31 @@ const linkVariants = {
   },
 };
 
-const NavigationBar2 = () => {
-    return (
-        <motion.nav className={NavigationBar2Styling["navbar"]}>
-          <div className={NavigationBar2Styling["brand-container"]}>
-            <div className={NavigationBar2Styling["brand"]}>Exploring the Dark Net</div>
-          </div>
-          <motion.div className={NavigationBar2Styling["nav-links-container"]}>
-            <div className={NavigationBar2Styling["nav-links"]}>
-              <Link to="/">
-                <motion.a href="#" variants={linkVariants} whileHover="hover">Home</motion.a>
-              </Link>
-              <Link to="/Statistics">
-                <motion.a href="#" variants={linkVariants} whileHover="hover">Statistics</motion.a>
-              </Link>
-              <Link to="/Engineering">
-                <motion.a href="#" variants={linkVariants} whileHover="hover">Engineering</motion.a>
-              </Link>
-              <Link to="/Gallery">
-                <motion.a href="#" variants={linkVariants} whileHover="hover">Gallery</motion.a>
-              </Link>
-              <Link to="/Neighborhood">
-                <motion.a href="#" variants={linkVariants} whileHover="hover">Neighborhood</motion.a>
-              </Link>
-            </div>
-          </motion.div>
-        </motion.nav>
-      );
+const NavigationBar = () => {
+  return (
+    <motion.nav className={NavigationBarStyling["navbar"]}>
+      <div className={NavigationBarStyling["brand-container"]}>
+        <div className={NavigationBarStyling["brand"]}>Exploring the Dark Net</div>
+      </div>
+      <motion.div className={NavigationBarStyling["nav-links-container"]}>
+        <div className={NavigationBarStyling["nav-links"]}>
+          <Link to="/">
+            <motion.a href="#" variants={linkVariants} whileHover="hover">Home</motion.a>
+          </Link>
+          <Link to="/Statistics">
+            <motion.a href="#" variants={linkVariants} whileHover="hover">Statistics</motion.a>
+          </Link>
+          <Link to="/Engineering">
+            <motion.a href="#" variants={linkVariants} whileHover="hover">Engineering</motion.a>
+          </Link>
+
+          <Link to="/Neighborhood">
+            <motion.a href="#" variants={linkVariants} whileHover="hover">Neighborhood</motion.a>
+          </Link>
+        </div>
+      </motion.div>
+    </motion.nav>
+  );
 };
 
-export default NavigationBar2;
+export default NavigationBar;

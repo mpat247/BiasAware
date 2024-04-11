@@ -27,7 +27,10 @@ const PopupCard = ({ onClose, retrievedImage, prompt,description, sideImages }) 
               <img key={index} src={img.image} alt={`side-emotion-right-${index}`} className="side-image-emotions" />
             ))}
           </div>
+
         </div>
+        <a href="/Statistics" className="statistics-link-emotions">More Information Here</a>
+
       </div>
     </div>
   );

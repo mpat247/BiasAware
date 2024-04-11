@@ -31,9 +31,7 @@ const NavigationBar = () => {
           <Link to="/Engineering">
             <motion.a href="#" variants={linkVariants} whileHover="hover">Engineering</motion.a>
           </Link>
-          <Link to="/Gallery">
-            <motion.a href="#" variants={linkVariants} whileHover="hover">Gallery</motion.a>
-          </Link>
+          
           <Link to="/Neighborhood">
             <motion.a href="#" variants={linkVariants} whileHover="hover">Neighborhood</motion.a>
           </Link>

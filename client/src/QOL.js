@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import REACT_APP_API_URL from './config';
+import GearLoader from './GearLoader';
 
 const QOL = () => {
   const [bottomLeftSquares, setBottomLeftSquares] = useState([]);
@@ -10,60 +11,71 @@ const QOL = () => {
   const [bottomRightImages, setBottomRightImages] = useState([]);
   const [toShowLeft, setToShowLeft] = useState([]);
   const [toShowRight, setToShowRight] = useState([]);
+  const [isFetching, setIsFetching] = useState(true); // Add isFetching state
+
 
   const API_URL = REACT_APP_API_URL;
 
   useEffect(() => {
-    const fetchLeftImages = async () => {
-      try {
-        console.log(API_URL)
-        const response = await axios.get(`${API_URL}/qol/main`);
+    setIsFetching(true); // Set isFetching to true before fetching data
+function fetchImages() {
+  const fetchLeftImages = async () => {
+    try {
 
-        const fetchedLeftImages = response.data.images.filter(image => image.ImageData && image.prompt && image.description);
+      console.log(API_URL)
+      const response = await axios.get(`${API_URL}/qol/main`);
 
-        console.log("Response:", response.data.images);
-        console.log("Filtered Images:", fetchedLeftImages);
+      const fetchedLeftImages = response.data.images.filter(image => image.ImageData && image.prompt && image.description);
 
-        const imagesToSave = fetchedLeftImages.map(image => ({
-          imageData: image.ImageData,
-          prompt: image.prompt,
-          description: image.description
+      console.log("Response:", response.data.images);
+      console.log("Filtered Images:", fetchedLeftImages);
 
-        }));
+      const imagesToSave = fetchedLeftImages.map(image => ({
+        imageData: image.ImageData,
+        prompt: image.prompt,
+        description: image.description
 
-        console.log("Images to save:", imagesToSave);
+      }));
 
-        setBottomLeftImages(response.data.images); // Save the filtered images in state
-      } catch (error) {
-        console.error('Failed to fetch main images:', error);
-      }
-    };
+      console.log("Images to save:", imagesToSave);
 
-    const fetchRightImages = async () => {
-      try {
-        const response = await axios.get(`${API_URL}/qol/main2`);
+      setBottomLeftImages(response.data.images); // Save the filtered images in state
+    } catch (error) {
+      console.error('Failed to fetch main images:', error);
 
-        const fetchedRightImages = response.data.images.filter(image => image.ImageData && image.prompt && image.description);
+    }
+  };
 
-        console.log("Response:", response);
-        console.log("Filtered Images:", fetchedRightImages);
+  const fetchRightImages = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/qol/main2`);
 
-        const imagesToSave = fetchedRightImages.map(image => ({
-          imageData: image.ImageData,
-          prompt: image.prompt,
-          description: image.description
-        }));
+      const fetchedRightImages = response.data.images.filter(image => image.ImageData && image.prompt && image.description);
 
-        console.log("Images to save:", imagesToSave);
+      console.log("Response:", response);
+      console.log("Filtered Images:", fetchedRightImages);
 
-        setBottomRightImages(response.data.images); // Save the filtered images in state
-      } catch (error) {
-        console.error('Failed to fetch main images:', error);
-      }
-    };
+      const imagesToSave = fetchedRightImages.map(image => ({
+        imageData: image.ImageData,
+        prompt: image.prompt,
+        description: image.description
+      }));
 
-    fetchLeftImages();
-    fetchRightImages();
+      console.log("Images to save:", imagesToSave);
+
+      setBottomRightImages(response.data.images); // Save the filtered images in state
+    } catch (error) {
+      console.error('Failed to fetch main images:', error);
+    }
+  };
+  fetchLeftImages();
+  fetchRightImages();
+
+}
+fetchImages();
+setIsFetching(false); // Set isFetching to true before fetching data
+    
+
 
   }, []);
 
@@ -137,27 +149,58 @@ const QOL = () => {
       }}>
         QUALITY OF LIFE
       </h1>
-      <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: '20px auto', marginTop: '-10px', width: '60vw' }}>
-        <div style={{ display: 'flex' }}>
-          <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px', borderRadius: '10px' }}></div>
-          <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px', borderRadius: '10px' }}></div>
+      {/* Conditional rendering for the loading spinner */}
+      {isFetching ? (
+        <div
+          className="loader-container"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+            width: '100%',
+            backgroundColor: '#0B0533',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+          }}
+        >
+          <GearLoader />
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <div style={containerStyle}>
-            {toShowLeft.map((image, index) => (
-              <img key={index} src={image.imageData} alt={image.prompt} onClick={() => handleBoxClick(image)} style={imageStyle} />
-            ))}
+      ) : (
+        <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: '20px auto', marginTop: '-10px', width: '60vw' }}>
+          <div style={{ display: 'flex' }}>
+            <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px', borderRadius: '10px' }}></div>
+            <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px', borderRadius: '10px' }}></div>
           </div>
-          <div style={containerStyle}>
-            {toShowRight.map((image, index) => (
-              <img key={index} src={image.imageData} alt={image.prompt} onClick={() => handleBoxClick(image)} style={imageStyle} />
-            ))}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={containerStyle}>
+              {toShowLeft.map((image, index) => (
+                <img key={index} src={image.imageData} alt={image.prompt} onClick={() => handleBoxClick(image)} style={imageStyle} />
+              ))}
+            </div>
+            <div style={containerStyle}>
+              {toShowRight.map((image, index) => (
+                <img key={index} src={image.imageData} alt={image.prompt} onClick={() => handleBoxClick(image)} style={imageStyle} />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Popup */}
       {selectedBox && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            width: '100vw',
+            height: '100vh',
+            zIndex: 9998, // Ensure it's below the popup
+            backgroundColor: '#0B0533' // Semi-transparent black background
+          }}
+        >
         <div
           style={{
             position: 'fixed',
@@ -216,6 +259,23 @@ const QOL = () => {
               fontSize: '0.7rem',
 
             }}>{selectedBox.description}</h2>
+              <a
+                href="/Statistics"
+                className="statistics-link-qol"
+                style={{
+                  textDecoration: 'none',
+                  color: '#a3a0a9', // Choose a color that fits your design
+                  padding: '10px 20px',
+                  borderRadius: '5px',
+                  textAlign: 'center',
+                  display: 'grid', // Makes it a block element to fill the width
+                  marginTop: '0px', // Space from the content above
+                  fontSize: '0.8rem',
+                  transition: 'background-color 0.3s', // Smooth background color change on hover
+                }}
+              >
+                More Information Here
+              </a>
           </div>
           <button
             onClick={closePopup}
@@ -223,6 +283,7 @@ const QOL = () => {
           >
             x
           </button>
+          </div>
         </div>
       )}
     </div>

@@ -3,11 +3,13 @@
     /* --ImgSizeX: 50vw; */
     --ImgSizeX: 45vw;
     /* --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3); */
-    --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3); /* Add banner height to the image height */
+    --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3);
+    /* Add banner height to the image height */
     /* --minFontSize: 10px; */
     /* --maxFontSize: 32px; */
     /* --scaler: 5vw; */
-    --bannerHeight: 4vw; /* Height of the caption banner */
+    --bannerHeight: 3vw;
+    /* Height of the caption banner */
     /* font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize)); */
 }
 
@@ -30,14 +32,16 @@
     /* color: white; */
     /* padding: 0px; */
     text-align: center;
-    font-size: 3vw; /* Adjust font size as needed */
-    height: var(--bannerHeight); /* Use the banner height variable */
+    font-size: 2vw;
+    /* Adjust font size as needed */
+    height: var(--bannerHeight);
+    /* Use the banner height variable */
     box-sizing: border-box;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: bolder;
     font-style: normal;
-    color:  #0B0533;
+    color: #0B0533;
 }
 
 #carousel {
@@ -45,9 +49,11 @@
     display: flex;
     justify-content: center;
     position: relative;
-    height: calc(var(--ImgSizeY) + var(--bannerHeight)); /* Updated to include the banner height */
+    height: calc(var(--ImgSizeY) + var(--bannerHeight));
+    /* Updated to include the banner height */
     /* background-color: pink; */
-    padding-top: var(--bannerHeight); /* Pushes the images down by the banner's height */
+    padding-top: var(--bannerHeight);
+    /* Pushes the images down by the banner's height */
     /* margin-top: var(--bannerHeight); This may not be necessary if using padding-top */
 }
 
@@ -123,12 +129,15 @@
 
 
 .arrows svg {
-    fill: none; /* SVG path border color */
-    stroke: white; /* SVG path color */
-    stroke-width: 2px; /* SVG path border width */
+    fill: none;
+    /* SVG path border color */
+    stroke: white;
+    /* SVG path color */
+    stroke-width: 2px;
+    /* SVG path border width */
 }
 
 .arrows svg:hover {
-    stroke: #0B0533; /* Change arrow color on hover */
+    stroke: #0B0533;
+    /* Change arrow color on hover */
 }
-

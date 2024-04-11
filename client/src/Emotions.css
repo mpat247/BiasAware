@@ -290,3 +290,25 @@
   }
 
 }
+
+.statistics-link-emotions {
+  text-decoration: none;
+  color: #a3a0a9;
+  /* Choose a color that fits your design */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  display: grid;
+  /* Makes it a block element to fill the width */
+  margin-top: 0px;
+  /* Space from the content above */
+  font-size: 0.8rem;
+  transition: background-color 0.3s;
+  /* Smooth background color change on hover */
+}
+
+.statistics-link-emotions:hover {
+  /*background-color: transparent;  Color when hovered */
+  color: #aaa6b1;
+  /* Text color when hovered */
+}

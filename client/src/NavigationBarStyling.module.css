@@ -1,57 +1,69 @@
+/* NavigationBar.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* NavigationBar.css */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: #0e0930;
-  padding: 15px;
+  padding: 10px;
+  /* Reduced padding to make navbar thinner */
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
   z-index: 10000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Roboto', sans-serif;
-  
 }
 
 .brand {
-  font-size: 1.25em;
+  font-size: 1em;
+  /* Optionally adjust for smaller navbar */
   color: white;
   cursor: pointer;
   transition: color 0.3s ease;
+  white-space: nowrap;
+  /* Prevent text wrapping */
 }
 
 .brand:hover {
   color: #F5A720;
 }
 
-.brand-container {
-  /* For brand alignment */
-}
-
 .nav-links-container {
-  padding-right: 50px; /* Adjust this value to move the links to the right */
+  display: flex;
+  flex-direction: column;
+  /* Change to column layout on smaller screens */
+  align-items: center;
+  /* Center align the links */
+  padding: 10px 0;
+  /* Adjusted padding top and bottom */
 }
 
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 50px;
-}
+  flex-direction: row;
+  /* Change to column layout on smaller screens */
+  gap: 15px;
+  /* Add gap between links */
 
+
+}
 
 .nav-links a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  padding: 10px 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  padding: 5px 0;
+  /* Adjusted padding to reduce space */
   position: relative;
   transition: color 0.3s ease, transform 0.3s ease-out;
+  white-space: nowrap;
+  /* Prevent text wrapping */
 }
 
 .nav-links a::before {
@@ -73,4 +85,38 @@
 .nav-links a:hover::before {
   width: 100%;
   left: 0;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .nav-links-container {
+    flex-direction: column;
+    /* Display links in a column */
+    align-items: center;
+    /* Center align items */
+    overflow-x: hidden;
+    /* Hide horizontal overflow */
+    width: 100%;
+    /* Ensure full width */
+    margin-bottom: -5em;
+  }
+
+  .nav-links {
+    margin-top: -2px;
+    /* Add some space between title and links */
+    width: 100%;
+    /* Ensure full width */
+  }
+
+  .nav-links {
+    font-size: 12px;
+    /* Adjusted font size for thinner navbar */
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .nav-links-container {
+    justify-content: flex-end;
+    /* Align links to the right */
+  }
 }

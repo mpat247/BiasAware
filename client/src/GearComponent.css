@@ -784,3 +784,48 @@ body {
   /* For screens smaller than 768px (tablets and below) */
   
   
+    @media (max-width: 767px) {
+  
+      .main-body {
+        margin-left: 150px;
+      }
+  
+      .gear-container4 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10em;
+        height: 10em;
+        top: 19.0em;
+        right: 59.7em;
+      }
+  
+      .gear-container2 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20em;
+        height: 20em;
+        top: 10em;
+        right: 33.7em;
+      }
+  
+      .gear-container3 {
+        display: none;
+        /* Hide the container */
+      }
+  
+      .gear-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10em;
+        height: 10em;
+        top: 1.0em;
+        margin-right: 29.75em;
+  
+      }
+    }
