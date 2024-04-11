@@ -13,7 +13,7 @@ const Aerospace = () => {
   };
 
   return (
-    <div>
+    <div className = "engineering-background">
     <div className="sidebar">
       <div className="sidebar-icons">
       <Link to="/Engineering"> {/* Link to Engineering page */}

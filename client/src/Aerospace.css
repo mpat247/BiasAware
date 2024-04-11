@@ -5,18 +5,14 @@
   padding: 0;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
+
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 80px; /* Adjust the width as needed */
-    background-color: #333;
+    background-color:#140C46;
     padding: 20px;
     color: #fff;
     flex-direction: column;
@@ -92,9 +88,11 @@ html, body {
 
 .main-content .title-aerospace {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #333;
+  margin-bottom: -5px;
+  font-size: 5vw;
+  color: #140C46;
+  font-family: "Crimson Text";
+  font-weight: bolder;
 }
 /* Individual grid items */
 .grid-item .item-large {
@@ -320,14 +318,14 @@ html, body {
 }
 
 /* Styles for images within .item-small2 and .item-small3 */
-.item-long-mat img {
+.item-long-mat img, .item-large img, .item-medium img {
   max-width: 100%; /* Ensure the image is not wider than the container */
   max-height: 100%; /* Ensure the image is not taller than the container */
   object-fit: cover; /* The image will be scaled to be as large as possible without being cropped or stretched */
   
 }
 /* Styles for the small grid items */
-.item-long-mat {
+.item-long-mat, .item-large, .item-medium {
   /* Remove fixed height to allow the container to size with the image */
   display: block; /* default display for divs, ensures it takes the full width available */
   position: relative; /* for potential absolute positioning inside */
@@ -336,7 +334,7 @@ html, body {
 }
 
 /* Styles for images within .item-small2 and .item-small3 */
-.item-long-mat {
+.item-long-mat, .item-large, .item-medium {
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
@@ -353,15 +351,57 @@ html, body {
   
   
   .main-content {
-    margin-left: 60px;
-    padding: 10px;
+    margin-left: 60px; /* Match the new sidebar width */
+    padding: 10px; /* Reduce padding for more screen space */
   }
 
   .grid-container {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr; /* Stack all grid items in one column */
     grid-template-areas:
-      'large',
-      'small2';
+      "large"
+      "medium"
+      "small2"
+      "small3"
+      "small6"
+      "small7"
+      "small8"
+      "long-prop"
+      "long-mat";
+    gap: 10px; /* Optionally reduce the gap to save space */
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  /* Ensure all item classes behave consistently */
+  .item-large, .item-medium, .item-small, .item-long-prop, .item-long-mat {
+    display: block;
+    width: 100%; /* Ensure full width utilization */
+    height: auto; /* Auto height for dynamic adjustment */
+    padding: 5px; /* Reduced padding */
+    min-height: 150px; /* Provide a minimum height for visibility */
+  }
+
+  /* Adjust image styles for responsiveness in smaller items */
+  .item-small img, .item-long-prop img, .item-long-mat img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  /* Adjust size for large and medium items */
+  .item-large, .item-medium {
+    min-height: 75px; /* Adjusted minimum height for large/medium items */
+    padding: 5px; /* Reduced padding */
+  }
+  /* Adjustments specific to smaller items if necessary */
+  .item-small1, .item-small2, .item-small3, .item-small4, .item-small5, .item-small6, .item-small7, .item-small8 {
+    min-height: 100px; /* Slightly reduce min-height for small grid items */
+  }
+  /* Adjust image styles for responsiveness in smaller items */
+  .item-small2 img, .item-small3 img, .item-small6 img, .item-small7 img {
+    object-fit: cover;
+  object-position: center 20%;
+  width: 100%;
+height: 100%;
   }
   
   

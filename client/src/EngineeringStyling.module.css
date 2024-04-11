@@ -13,6 +13,7 @@
 .small-squares {
   display: flex;
   margin-bottom: 20px;
+  
 }
 
 .above-title {
@@ -34,18 +35,19 @@
   height: 15vw;
   max-width: 200px;
   max-height: 200px;
-  background-color: #2B1451;
+  background-color: #DD9313;
   margin: 0 2vw;
   border-radius: 8px;
 }
 
 .inner-box {
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   max-width: 150px;
   max-height: 150px;
-  background-color: #ffffff;
+  background-color: #DD9313;
   border-radius: 8px;
+  margin-top:5px;
 }
 
 /* Keyframe animation for fading up */
@@ -91,18 +93,22 @@
   animation-fill-mode: forwards; /* Ensure the final state of the animation persists */
 }
 
-h1 {
-  color: #333;
-  font-size: 2.5em; /* Decrease font size */
+.engineering-title {
+  color: #140C46;
+  font-size: 3.3em; /* Decrease font size */
+  font-family: "Crimson Text";
+  font-weight: bolder;
 }
 
 
 
 /* Media Query for smaller screens */
 @media only screen and (max-width: 768px) {
-  h1 {
-    color: #333;
-    font-size: 1.8em; /* Decrease font size */
+  .engineering-title {
+    color: #140C46;
+    font-size: 2.5em; /* Decrease font size */
+    font-family: "Crimson Text";
+  font-weight: bolder;
   }
   .small-square {
     width: 20vw;
@@ -114,10 +120,12 @@ h1 {
   }
 
   .inner-box {
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: 90%;
     max-width: 100px;
     max-height: 100px;
+    background-color: #DD9313;
+    margin-left: 4px;
   }
 
   .Engineering{
