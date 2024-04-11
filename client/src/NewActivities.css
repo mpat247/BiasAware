@@ -407,20 +407,20 @@
 
 /* This styles the scrollbar track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* color of the tracking area */
+    /* background: #f1f1f1; color of the tracking area */
     border-radius: 10px; /* roundness of the track */
 }
 
 /* This styles the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
-    background: #888; /* color of the scroll thumb */
+    /* background: #888; color of the scroll thumb */
     border-radius: 10px; /* roundness of the thumb */
-    border: 3px solid #f1f1f1; /* creates a border around the thumb */
+    /* border: 3px solid #f1f1f1; creates a border around the thumb */
 }
 
 /* This styles the scrollbar thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555555; /* color of the scroll thumb when hovered over */
+    background: transparent; /* color of the scroll thumb when hovered over */
 }
 
 /* This styles the scrollbar itself (width, etc.) */
@@ -431,7 +431,7 @@
 /* For Firefox */
 * {
     scrollbar-width: thin; /* "auto" or "thin" */
-    scrollbar-color: #231b52 #f1f1f1; /* thumb and track color */
+    scrollbar-color: #0B0533 #231b52; /* thumb and track color */
 }
 
 
