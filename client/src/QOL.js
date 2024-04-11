@@ -138,7 +138,7 @@ setIsFetching(false); // Set isFetching to true before fetching data
   };
 
   return (
-    <div style={{ backgroundColor: '#0B0533', position: 'relative' }}>
+    <div style={{ backgroundColor: '#0B0533', position: 'relative', height: '110vh' }}>
       <h1 style={{
         color: '#DD9313',
         fontFamily: 'Crimson Text',
