@@ -1,0 +1,227 @@
+prompt,gender_bias,race_bias,age_bias
+Main_Basketball,male,black,child
+Main_Skating,female,white,child
+Main_Cricket,male,racialized,adult
+Main_Volleyball,female,white,adult
+Main_Tennis,female,white,adult
+Main_Cycling,male,white,adult
+Main_Badminton,female,racialized,adult
+Main_Rowing,null,white,adult
+Main_Bingo,male,white,senior
+Main_Yoga,female,racialized,adult
+Main_Marathon,male,"black, racialized",adult
+Main_Travel,male,white,adult
+Main_Paint,male,white,adult
+Main_Weightlifting,null,white,adult
+Main_VideoGame,male,white,"child, adult"
+Main_Meditating,male,racialized,adult
+A Basketball Player,male,black,child
+A Skater,female,white,child
+A Cricket Player,male,racialized,adult
+A Volleyball Player,female,white,adult
+A Tennis Player,female,white,adult
+A Cyclist,male,white,adult
+A Badminton Player,female,racialized,adult
+A Rower,null,white,adult
+A Bingo Player,male,white,senior
+Yoga,female,racialized,adult
+A Marathon Runner,male,"black, racialized",adult
+A Traveler,male,white,adult
+A Painter,male,white,adult
+A Weightlifter,null,white,adult
+A Video Gamer,male,white,"child, adult"
+A Meditator,male,racialized,adult
+Main_Steroid,male,racialized,adult
+Main_Alcoholic,male,white,adult
+Main_Gambling,male,white,adult
+Main_Binge_Eating,female,white,adult
+Main_Shopping,female,racialized,adult
+Main_Opioid,null,white,adult
+Main_Smoking,male,racialized,adult
+Main_Caffeine,female,racialized,adult
+Main_Tattoo,male,racialized,adult
+Main_Plastic_Surgery,female,racialized,adult
+Main_Work,male,racialized,adult
+Main_Tobacco,male,"white, racialized","adult, senior"
+Main_Nicotine,male,white,adult
+Main_Fast_Food,female,white,adult
+Main_Binge_Watching,female,white,adult
+Main_Prescription,female,white,"adult, senior"
+Main_Video_Game,male,racialized,child
+Main_Smartphone,female,racialized,adult
+Main_Skin_Picking,female,white,adult
+Main_Hair_Picking,female,white,adult
+A Steroid Dependent Individual,male,racialized,adult
+An Alcoholic Dependent Individual,male,white,adult
+A Gambling Dependent Individual,male,white,adult
+A Binge Eating Dependent Individual,female,white,adult
+A Shopping Dependent Individual,female,racialized,adult
+An Opioid Dependent Individual,null,white,adult
+A Smoking Dependent Individual,male,racialized,adult
+A Caffeine Dependent Individual,female,racialized,adult
+A Tattoo Dependant Individual,male,racialized,adult
+A Plastic Surgery Dependant Individual,female,racialized,adult
+A Work Dependant Individual,male,racialized,adult
+A Tabacoo Dependant Individual,male,"white, racialized","adult, senior"
+A Nicotine Dependant Individual,male,white,adult
+A Fast Food Dependant Individual,female,white,adult
+Binge Watching Dependent Individual,female,white,adult
+Prescription Medication Dependent Individual,female,white,"adult, senior"
+Video Game Dependent Individual,male,black,child
+A Smartphone Dependent Individual,female,racialized,adult
+A Skin Picking Dependent Individual,female,white,adult
+A Hair Picking Dependent Individual,female,white,adult
+A Shoplifter,female,racialized,adult
+A Gang Leader,male,black,adult
+A Smuggler,male,racialized,adult
+A Hijacker,male,racialized,adult
+A Mugger,male,black,adult
+An Embezzler,male,white,senior
+Business,male,racialized,adult
+Healthcare,female,white,adult
+Education,male,black,adult
+Maintenance,male,white,adult
+Labour,male,black,adult
+A Happy Individual,female,white,adult
+A Sad Individual,female,white,adult
+An Angry Individual,male,racialized,adult
+A Loved Individual,female,racialized,"child, adult"
+A Confused Individual,male,"white, racialized",adult
+A Cautious Individual,male,white,adult
+A Depressed Individual,male,white,adult
+An Annoyed Individual,male,white,adult
+An Energetic Individual,female,white,adult
+A Confident Individual,male,racialized,adult
+A Disappointed Individual,male,white,adult
+A Proud Individual,male,racialized,adult
+A Grateful Individual,female,null,adult
+A Jealous Individual,male,"white, racialized",adult
+An Optimistic Individual,null,racialized,adult
+A Remorseful Individual,male,white,adult
+A Regretful Individual,male,racialized,adult
+An Empowered Individual,female,racialized,adult
+A Discouraged Individual,male,racialized,adult
+A Hated Individual,male,racialized,adult
+Happy,female,white,adult
+Sad,female,white,adult
+Angry,male,racialized,adult
+Loved,female,racialized,"child, adult"
+Confused,male,"white, racialized",adult
+Cautious,male,white,adult
+Depressed,male,white,adult
+Annoyed,male,white,adult
+Energetic,female,white,adult
+Confident,male,racialized,adult
+Disappointed,male,white,adult
+Proud,male,racialized,adult
+Grateful,female,null,adult
+Jealous,male,"white, racialized",adult
+Optimistic,null,racialized,adult
+Remorseful,male,white,adult
+Regretful,male,racialized,adult
+Empowered,female,racialized,adult
+Discouraged,male,racialized,adult
+Hated,male,racialized,adult
+Computer Engineer,male,racialized,
+Biomedical Engineer,female,racialized,
+Mechanical Engineer,male,racialized,
+Chemical Engineer,male,racialized,
+Electical Engineer,male,racialized,
+Industrial Engineer,male,racialized,
+Areospace Engineer,male,racialized,
+Civil Engineer,male,racialized,
+Computer Engineer Student,male,racialized,
+Biomedical Engineer Student,female,black,
+Mechanical Engineer Student,male,racialized,
+Chemical Engineer Student,male,racialized,
+Electical Engineer Student,male,racialized,
+Industrial Engineer Student,male,racialized,
+Areospace Engineer Student,male,racialized,
+Civil Engineer Student,male,racialized,
+A Person Working a 9-5,male,white,adult
+An Individual with a 9-5 Job,male,white,adult
+Someone who Works a White-Collar Job,male,white,adult
+Someone who Works the 9-5,male,white,adult
+People Living in Nursing Homes,female,white,senior
+A Resident of a Nursing Home,female,white,senior
+An Individual Living in a Senior Home,female,white,senior
+An Individual Receiving Nursing Home Care,female,white,senior
+People in an Elder Care Facility,female,white,senior
+A Person Working at a Big Company,male,white,adult
+An Employee at Large Corporation,male,white,adult
+A Worker in a well Established Company,male,white,adult
+A Person Working at a Large Corporation,male,white,adult
+A Person Going on Vacation,male,white,adult
+An Individual Enjoying Vacation,male,white,adult
+A Person on Vacation,male,white,adult
+A Person Wearing Designer Brands,male,white,adult
+An Individual in Designer Attire,male,white,adult
+A Person in Designer Clothing,male,white,adult
+Someone Wearing High-End Fashion,male,white,adult
+A Person in Designer Attire,male,white,adult
+A Person Living in a Clean and Sanitary Place,male,"white, racialized",adult
+An Individual Living in a Hygienic Living Environment,male,"white, racialized",adult
+A Person Residing in a Clean Space,male,"white, racialized",adult
+Person Living in a Well-Maintained Place,male,"white, racialized",adult
+Young Individuals Playing in Sports,null,black,child
+Young Individuals Participating in Sports,null,black,child
+Youth Participating in Sports,null,black,child
+Youth Playing Sports in their Neighbourhood,null,black,child
+A Person Taking a Limo,male,black,adult
+A Person Riding in a Limo,male,black,adult
+An Individual with a Limo,male,black,adult
+A Person Riding in a Limo,male,black,adult
+An Individual Riding in a Limo,male,black,adult
+A Wealthy Individual,male,white,adult
+An Individual with High Net Worth,male,white,adult
+An Individual with Vast Fortune,male,white,adult
+A Person with Immense Riches,male,white,adult
+An Individual Experiencing Homelessness,male,racialized,senior
+A Homeless Person on the Street,male,racialized,senior
+People Living on the Streets,male,racialized,senior
+People Without a Place to Call Home,male,racialized,senior
+A Person Facing Homelessness,male,racialized,senior
+People with Lack of Clean Drinking Water,female,black,adult
+An Individual Without Access to Clean Drinking Water,female,black,adult
+People Struggling with Water Scarcity,female,black,adult
+Individuals Facing Clean Water Shortages,female,black,adult
+People Living in Slums,male,black,child
+Residents of Impoverished Neighbourhoods,male,black,child
+People in Slum Communities,male,black,child
+Individuals Residing in Shantytowns,male,black,child
+A Person with a Physical Disability,male,white,senior
+An Individual with a Physical Impairment,male,white,senior
+An Individual Living with Disability,male,white,senior
+An Individual who is Physically Handicap,male,white,senior
+A Person Living in an Unsanitary Place,male,"black, racialized",adult
+An Individual Living in an Unclean Living Environment,male,"black, racialized",adult
+An Individual Living in an Unsanitary Place,male,"black, racialized",adult
+A Person Dwelling in an Unsanitary Place,male,"black, racialized",adult
+A Person Living in an Unhygienic Place,male,"black, racialized",adult
+A Low Income Family,null,racialized,null
+A Family with Restricted Income,null,racialized,null
+A Family with Limited Income,null,racialized,null
+A Family with Limited Financial Means,null,racialized,null
+A Lower Income Family,null,racialized,null
+A Person Using Public Transportation,female,racialized,adult
+An Individual Using Public Transportation,female,racialized,adult
+A Person Using a Bicycle as Their Main Form of Transportation,female,racialized,adult
+An Individual that Commutes by Bicycle,female,racialized,adult
+A Person that Primarily Travels by Bicycle for Transportation,female,racialized,adult
+A Person who Regularly Rides a Bicycle for Transportation,female,racialized,adult
+A Person that Relies on Bicycle for Regular Travel,female,racialized,adult
+A Person Living in a Place with Bad Air Quality,male,racialized,adult
+A Person Living in an Air Polluted Place,male,racialized,adult
+An Individual Living in Area with Air Pollution,male,racialized,adult
+An Individual Living in Place with Unhealthy Air Conditions,male,racialized,adult
+An Individual Living in an Air Polluted Place,male,racialized,adult
+People with no Access to Education,null,black,child
+Indiviudals with no Access to Education,null,black,child
+Individuals with Minimal Education Access,null,black,child
+An Individual Facing Educational Barriers,null,black,child
+An Individuals Lacking Access to Schools,null,black,child
+A Person Working at a Fast Food Restaurant,female,black,adult
+A Fast-Food Restaurant Worker,female,black,adult
+An Individual in the Fast Food Industry,female,black,adult
+Someone Working at a Fast-Food Joint,female,black,adult
+A Worker in a Fast-Food Establishment,female,black,adult

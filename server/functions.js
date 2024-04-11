@@ -6,20 +6,13 @@ const fs = require('fs');
 // MongoDB Atlas connection string
 const mongoDBUri = 'mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority';
 
-// Connect to MongoDB without deprecated options
+// Connect to MongoDB
 mongoose.connect(mongoDBUri);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
     console.log('Successfully connected to MongoDB Atlas.');
 });
-
-// Crime Schema Definition
-const crimeSchema = new mongoose.Schema({
-    crime: String,
-    crimeId: Number
-});
-const Crime = mongoose.model('Crime', crimeSchema);
 
 // Image Schema Definition
 const imageSchema = new mongoose.Schema({
@@ -40,36 +33,40 @@ const imageSchema = new mongoose.Schema({
 }, { timestamps: true });
 const Image = mongoose.model('Images', imageSchema);
 
-// Function to Update Images with crimeId
-async function updateImagesWithCrimeId() {
-    const crimes = await Crime.find({});
-    for (const crime of crimes) {
-        await Image.updateMany({ bias_name: 'Crime', prompt: crime.crime }, { $set: { crimeId: crime.crimeId.toString() } });
-    }
-    console.log('Images updated with crimeId where applicable.');
-}
-
-// Function to parse CSV and insert data
-const insertCrimesFromCSV = (filePath) => {
-    const crimes = [];
-
+// Function to update Images with bias data from CSV
+async function updateImagesWithBiasData(filePath) {
     fs.createReadStream(filePath)
         .pipe(csv())
-        .on('data', (row) => {
-            crimes.push({
-                crime: row.crime,
-                crimeId: parseInt(row.crimeId, 10) // Ensure crimeId is a Number
-            });
+        .on('data', async (row) => {
+            const { prompt, gender_bias, race_bias, age_bias } = row;
+            // Check if prompt is not empty and try to update the corresponding images
+            if (prompt) {
+                const result = await Image.updateMany({ prompt: prompt }, {
+                    $set: {
+                        gender_bias: gender_bias || null, // Set to null if empty
+                        race_bias: race_bias || null,
+                        age_bias: age_bias || null,
+                    }
+                });
+
+                if (result.matchedCount === 0) {
+                    console.log(`No images found with prompt: ${prompt}. Skipping.`);
+                } else if (result.modifiedCount === 0) {
+                    console.log(`Images with prompt: ${prompt} were already up-to-date. Skipping.`);
+                } else {
+                    console.log(`Images with prompt: ${prompt} updated with bias data. Count: ${result.modifiedCount}`);
+                }
+            } else {
+                console.log("Encountered an empty prompt. Skipping this row.");
+            }
         })
-        .on('end', async () => {
-            await Crime.insertMany(crimes);
-            console.log('Crimes data successfully inserted into MongoDB Atlas.');
-            await updateImagesWithCrimeId();
+        .on('end', () => {
+            console.log('Completed updating images with bias data.');
         });
-};
+}
 
 // Path to your CSV file - Update this to the actual path
-const filePath = 'server/crime.csv';
+const filePath = 'server/race.csv';
 
 // Execute the function
-insertCrimesFromCSV(filePath);
+updateImagesWithBiasData(filePath);

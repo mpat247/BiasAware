@@ -79,27 +79,27 @@ const Addictions = () => {
         <div className="popup-content-addiction">
           <button className="close-button-addiction" onClick={onClose}>x</button>
           <div className="image-layout-addiction">
-          <div className="side-images-addictions left">
-            {filledSideImages.slice(0, 2).map((sideImage, index) => (
-              <div key={index} className={`side-image-addictions`}>
-              <img src={sideImage} alt={`sideImage${index + 1}`} className="side-image-addictions" />
+            <div className="side-images-addictions left">
+              {filledSideImages.slice(0, 2).map((sideImage, index) => (
+                <div key={index} className={`side-image-addictions`}>
+                  <img src={sideImage} alt={`sideImage${index + 1}`} className="side-image-addictions" />
+                </div>
+              ))}
             </div>
-            ))}
-          </div>
-          <div className="main-image-container-addictions">
-            {image && <img src={image} alt="selected-addiction" className="retrieved-image-centered-addictions" />}
-            {prompt && <div className="prompt-text-addictions">{formattedPrompt(prompt)}</div>}
-            {description && <div className="description-text-addictions">{description}</div>}
+            <div className="main-image-container-addictions">
+              {image && <img src={image} alt="selected-addiction" className="retrieved-image-centered-addictions" />}
+              {prompt && <div className="prompt-text-addictions">{formattedPrompt(prompt)}</div>}
+              {description && <div className="description-text-addictions">{description}</div>}
 
-          </div>
-          <div className="side-images-addictions right">
-            {filledSideImages.slice(2, 4).map((sideImage, index) => (
-              <div key={index} className={`side-image-addictions`}>
-              <img src={sideImage} alt={`sideImage${index + 1}`} className="side-image-addictions" />
             </div>
-            ))}
+            <div className="side-images-addictions right">
+              {filledSideImages.slice(2, 4).map((sideImage, index) => (
+                <div key={index} className={`side-image-addictions`}>
+                  <img src={sideImage} alt={`sideImage${index + 1}`} className="side-image-addictions" />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
         </div>
       </div>
@@ -151,13 +151,13 @@ const Addictions = () => {
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
       </Helmet>
       <header className="App-header">
-        
-         {loading ? (
+
+        {loading ? (
           <div>Loading...</div> // Show loading indicator while images are being fetched
         ) : (
           <div className="addictions-container">
             <h1 className="addictions-header">
-              A D D I C T I O N S
+              ADDICTIONS
             </h1>
             <div style={{ display: 'flex' }}>
               {getCurrentImages().map((image, index) => (

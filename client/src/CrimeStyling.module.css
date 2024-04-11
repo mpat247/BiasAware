@@ -288,3 +288,19 @@
   }
 }
 
+
+.crime-prompt {
+  font-size: 1.2rem; /* Set the font size */
+  color: #333; /* Set the text color */
+  font-weight: bold; /* Set the font weight */
+  text-align: center; /* Set the text alignment */
+  margin-top: 20px; /* Add margin to separate from the grid */
+}
+
+.crime-description {
+  font-size: 1.2rem; /* Set the font size */
+  color: #333; /* Set the text color */
+  font-weight: bold; /* Set the font weight */
+  text-align: center; /* Set the text alignment */
+  margin-top: 20px; /* Add margin to separate from the grid */
+}

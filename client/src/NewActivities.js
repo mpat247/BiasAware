@@ -6,49 +6,49 @@ import volleyball from './images/image 9.png';
 import hockey from './images/image 10.png';
 import bingo from './images/image 11.png';
 import tennis from './images/image 12.png';
-import axios from 'axios'; 
+import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
 
 const colors = ["#FFD600", "#F5A720", "#D9822A", "#BE5C43", "#A33862", "#6A2774", "#441A93", "#161E7B"]; // Define colors for slides
 
 // Define slide information, mapping each image to a color
 const initialSlideInfo = [
-    { image: null, color: colors[0], name: "Badminton" },
-    { image: null, color: colors[1], name: "Basketball" },
-    { image: null, color: colors[2], name: "Bingo" },
-    { image: null, color: colors[3], name: "Cricket" },
-    { image: null, color: colors[4], name: "Cycling" },
-    { image: null, color: colors[5], name: "Marathon" },
-    { image: null, color: colors[6], name: "Meditating" },
-    { image: null, color: colors[7], name: "Paint" },
-    { image: null, color: colors[0], name: "Rowing" },
-    { image: null, color: colors[1], name: "Skating" },
-    { image: null, color: colors[2], name: "Tennis" },
-    { image: null, color: colors[3], name: "Travel" },
-    { image: null, color: colors[4], name: "VideoGame" },
-    { image: null, color: colors[5], name: "Volleyball" },
-    { image: null, color: colors[6], name: "Weightlifting" },
-    { image: null, color: colors[6], name: "Yoga" },
+    { image: null, color: colors[0], name: "Badminton", prompt: "A Badminton Player" },
+    { image: null, color: colors[1], name: "Basketball", prompt: "A Basketball Player" },
+    { image: null, color: colors[2], name: "Bingo",prompt: "A Bingo Player" },
+    { image: null, color: colors[3], name: "Cricket" ,prompt: "A Cricket Player"},
+    { image: null, color: colors[4], name: "Cycling", prompt: "A Cyclist" },
+    { image: null, color: colors[5], name: "Marathon", prompt: "A Marathon Runner" },
+    { image: null, color: colors[6], name: "Meditating", prompt: "A Meditator" },
+    { image: null, color: colors[7], name: "Paint", prompt: "A Painter" },
+    { image: null, color: colors[0], name: "Rowing", prompt: "A Rower" },
+    { image: null, color: colors[1], name: "Skating", prompt: "A Skater" },
+    { image: null, color: colors[2], name: "Tennis", prompt: "A Tennis Player" },
+    { image: null, color: colors[3], name: "Travel", prompt: "A Traveler" },
+    { image: null, color: colors[4], name: "VideoGame", prompt: "A Video Gamer" },
+    { image: null, color: colors[5], name: "Volleyball", prompt: "A Volleyball Player" },
+    { image: null, color: colors[6], name: "Weightlifting", prompt: "A Weightlifter" },
+    { image: null, color: colors[6], name: "Yoga", prompt: "A Yogi" },
 
 ];
 
 
-const Popup = ({ isVisible, onClose, bgColor,description, name, sideImages, selectedImage }) => {
+const Popup = ({ isVisible, onClose, bgColor, description, name, sideImages, selectedImage, prompt }) => {
 
     useEffect(() => {
         console.log("Popup bgColor prop:", bgColor);
     }, [bgColor]); // Only re-run the effect if bgColor changes
 
-
+    console.log("Popup side image :", + sideImages);   
 
     if (!isVisible) return null;
     // console.log("Popup color:", bgColor);
 
     return (
         <div className="activities-popup-overlay" onClick={onClose}>
-             <div className="activities-popup-content" onClick={e => e.stopPropagation()}>
+            <div className="activities-popup-content" onClick={e => e.stopPropagation()}>
                 <div className="activities-popup-header" style={{ backgroundColor: bgColor }}>
-                    <h1 className="activities-popup-title">{name}</h1>
+                    <h1 className="activities-popup-title">{prompt}</h1>
                 </div>
                 <div className="activities-popup-body" style={{ backgroundColor: bgColor }}>
                     <div className="activities-popup-slides-container">
@@ -57,14 +57,14 @@ const Popup = ({ isVisible, onClose, bgColor,description, name, sideImages, sele
                                 <img src={img.image} alt={`Side image ${index + 1}`} className="activities-popup-image" />
                             </div>
                         ))}
-                        
+
                     </div>
                     <div className="activities-popup-slide-caption">
                         <p className="activities-popup-statistical-analysis">{description}</p>
                     </div>
-                    </div>
+                </div>
                 <div className="activities-popup-footer">
-                <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}></button>
+                    <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>Close</button>
                 </div>
             </div>
         </div>
@@ -82,12 +82,13 @@ const NewActivities = () => {
     const [selectedImageDescription, setSelectedImageDescription] = useState(''); // State variable for selected image description
     const [selectedImageName, setSelectedImageName] = useState(''); // State variable for selected image name
     const [selectedImage, setSelectedImage] = useState(''); // State variable for selected image name
+    const [selectedImagePrompt, setSelectedImagePrompt] = useState(''); // State variable for selected image name
 
 
     useEffect(() => {
         const fetchMainImages = async () => {
             const API_URL = REACT_APP_API_URL;
-            console.log(API_URL);             
+            console.log(API_URL);
             try {
                 const response = await axios.get(`${API_URL}/activities`);
                 const sideResponse = await axios.get(`${API_URL}/activities/side`);
@@ -112,9 +113,9 @@ const NewActivities = () => {
         };
 
         fetchMainImages();
-    }, []); 
+    }, []);
 
-    const handleSlideClick = (event, color, name, description, image) => {
+    const handleSlideClick = (event, color, name, description, image, prompt2) => {
         // This check ensures that only clicks directly on `activities-slide-inner`
         // or its descendants can trigger the popup.
         if (!event.currentTarget.classList.contains('activities-slide-inner')) {
@@ -122,10 +123,10 @@ const NewActivities = () => {
         }
 
         console.log(color, name, description, image)
-        
+
         setSelectedImage(image);
         console.log(image)
-        const name2 = name.substring(0, 4);
+        const name2 = name.substring(0, 3);
         const filteredSideImages = fetchedSideImages.filter(image => image.filterer === name2);
 
         // Safely accessing properties with optional chaining
@@ -138,26 +139,26 @@ const NewActivities = () => {
         if (filteredSideImages.length > 0) {
             filteredSideImages.splice(1, 0, objectToInsert);
         }
-
         console.log(filteredSideImages)
+        setSelectedImagePrompt(prompt2);
         setSelectedImageDescription(description);
         setSelectedImageName(name);
         setSelectedSideImages(filteredSideImages); // Set the filtered side images
         // Finally, show the popup
         setPopupVisible(true);
+console.log("selected sode o,ages: " + selectedSideImages)
 
-        
         console.log('Setting color to:', color);
-        setPopupColor(color); 
+        setPopupColor(color);
         setPopupVisible(true);
         event.stopPropagation(); // Prevent the event from bubbling further.
     };
-    
-    
-      // This useEffect will log whenever popupColor changes
-      useEffect(() => {
+
+
+    // This useEffect will log whenever popupColor changes
+    useEffect(() => {
         console.log('popupColor state updated to:', popupColor);
-      }, [popupColor]);
+    }, [popupColor]);
 
 
     useEffect(() => {
@@ -190,7 +191,7 @@ const NewActivities = () => {
                     event.stopPropagation();
                     this.prevSlider();
                 });
-                
+
                 this.nextBtn.addEventListener('click', (event) => {
                     event.stopPropagation();
                     this.nextSlider();
@@ -352,9 +353,9 @@ const NewActivities = () => {
         // <>
         <div className="activities-page-container">
             <div className="activities-PostSlide-wrapper">
-            <div className="activities-title-container">
-                <h1 className="activities-landing-title">ACTIVITIES</h1>
-            </div>
+                <div className="activities-title-container">
+                    <h1 className="activities-landing-title">ACTIVITIES</h1>
+                </div>
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">
 
@@ -368,18 +369,18 @@ const NewActivities = () => {
                             ))}
                         </div> */}
 
-                <div className="activities-slider">
-                {slideInfo.map((slide, index) => (
-                    <div key={index} className="activities-slide" style={{ backgroundColor: slide.color }}>
-                    <div className="activities-slide-inner" onClick={(e) => handleSlideClick(e, slide.color, slide.name, slide.description, slide.image)} onMouseEnter={() => setHoveredSlide(slide.name)} onMouseLeave={() => setHoveredSlide(null)}>
-                        <img src={slide.image} alt={slide.name} className="activities-image" />
-                        {hoveredSlide === slide.name && (
-                        <div className="activities-hover-caption">{slide.name}</div>
-                        )}
-                    </div>
-                    </div>
-                ))}
-            </div>
+                        <div className="activities-slider">
+                            {slideInfo.map((slide, index) => (
+                                <div key={index} className="activities-slide" style={{ backgroundColor: slide.color }}>
+                                    <div className="activities-slide-inner" onClick={(e) => handleSlideClick(e, slide.color, slide.name, slide.description, slide.image, slide.prompt)} onMouseEnter={() => setHoveredSlide(slide.name)} onMouseLeave={() => setHoveredSlide(null)}>
+                                        <img src={slide.image} alt={slide.name} className="activities-image" />
+                                        {hoveredSlide === slide.name && (
+                                            <div className="activities-hover-caption">{slide.name}</div>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
 
                         <div className="activities-handles">
                             <span className="activities-prev">
@@ -400,14 +401,15 @@ const NewActivities = () => {
                     </div>
                 </div>
             </div>
-            <Popup 
-            isVisible={isPopupVisible} 
-            onClose={() => setPopupVisible(false)} 
-            bgColor={popupColor} // Here you're using popupColor correctly
+            <Popup
+                isVisible={isPopupVisible}
+                onClose={() => setPopupVisible(false)}
+                bgColor={popupColor} // Here you're using popupColor correctly
                 description={selectedImageDescription}
                 name={selectedImageName}
-                sideImages={selectedSideImages} 
+                sideImages={selectedSideImages}
                 selectedImage={selectedImage}
+                prompt={selectedImagePrompt}
 
             />
         </div>

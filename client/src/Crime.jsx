@@ -73,7 +73,7 @@ const Crime = () => {
 
     
 
-  const rectangleText = ["A Shoplifter", "A Gang Leader", "A Smuggler", "A Hijacker", "A Mugger", "An Embezzler"];
+  const rectangleText = ["A Shoplifter", "A Gang Leader", "A Mugger", "A Hijacker", "A Smuggler", "An Embezzler"];
   useEffect(() => {
     const renderCharts = async () => {
       // Define 12 datasets for 12 different heatmaps
@@ -239,8 +239,8 @@ const Crime = () => {
                       <img src={imageObj.image} alt={`Crime Image ${index}`} className={CrimeStyling["square-image"]} />
                       {/* Optionally wrap texts in a container for better control */}
                       <div className={CrimeStyling["text-container"]}>
-                        <p>{imageObj.prompt}</p> {/* Displaying the prompt */}
-                        <p>{imageObj.description}</p> {/* Displaying the description */}
+                        <p className='crime-prompt'>{imageObj.prompt}</p> {/* Displaying the prompt */}
+                        <p className='crime-description'>{imageObj.description}</p> {/* Displaying the description */}
                       </div>
                     </div>
                   ))}

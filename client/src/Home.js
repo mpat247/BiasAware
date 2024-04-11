@@ -5,11 +5,11 @@ import './Home.css';
 import NavigationBar from './NavigationBar2'; // Import the NavigationBar component
 import Addictions from './Addictions';
 import QOL from './QOL'; // Import the QOL component
-import QOL2 from './QOL2'; // Import the QOL component
 import Crime from './Crime';
 import Emotions from './Emotions';
 import LandingPage from './LandingPage'; // Import the LandingPage component
 import NewActivities from './NewActivities'; // Import the LandingPage component
+import NewProfessions from './NewProfessions';
 
 import './GearComponent.css';
 
@@ -50,7 +50,7 @@ const Home = () => {
         <>
 
       <header className="App-header">
-        <NavigationBar /> {/* Include the NavigationBar component */}
+        {/* <NavigationBar /> Include the NavigationBar component */}
          {/* Add a link to scroll to the Addictions section */}
         
 
@@ -125,7 +125,7 @@ const Home = () => {
             <a href="#Emotions" className="emotions1">
               <h2>Proud Individual</h2>
             </a>
-            <a href="#Engineering" className="eng1">
+            <a href="/Engineering" className="eng1">
               <h2>Engineering</h2>
             </a>
             <a href="#addictions" className="addiction-prompt">
@@ -213,7 +213,7 @@ const Home = () => {
             <a href="#Emotions" className="qol-prompt6">
               <h2>Happy Individual</h2>
             </a>
-            <a href="#ProfessionsLanding" className="pro1">
+            <a href="#NewProfessions" className="pro1">
               <h2>CEO</h2>
             </a>
              </div>
@@ -265,6 +265,10 @@ const Home = () => {
       <div id="Crime">
         <Crime />
       </div>
+
+            <div id="NewProfessions">
+              <NewProfessions />
+            </div>
 
 
       </>

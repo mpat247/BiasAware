@@ -6,13 +6,16 @@
   align-items: center;
   min-height: 100vh;
   background-color: #0B0533;
-  padding-left: 5%; /* Add padding to the left */
-  padding-right: 5%; /* Add padding to the right */
+  padding-left: 5%;
+  /* Add padding to the left */
+  padding-right: 5%;
+  /* Add padding to the right */
 }
 
 .small-squares {
   display: flex;
   margin-bottom: 20px;
+
 }
 
 .above-title {
@@ -34,18 +37,19 @@
   height: 15vw;
   max-width: 200px;
   max-height: 200px;
-  background-color: #2B1451;
+  background-color: #DD9313;
   margin: 0 2vw;
   border-radius: 8px;
 }
 
 .inner-box {
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   max-width: 150px;
   max-height: 150px;
-  background-color: #ffffff;
+  background-color: #DD9313;
   border-radius: 8px;
+  margin-top: 5px;
 }
 
 /* Keyframe animation for fading up */
@@ -54,6 +58,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -68,14 +73,20 @@
   font-size: 1em;
   font-family: 'Plus Jakarta Sans';
   font-weight: bold;
-  animation-name: fadeUp; /* Apply the fade-up animation */
-  animation-duration: 2s; /* Set the duration of the animation */
-  animation-fill-mode: forwards; /* Ensure the final state of the animation persists */
-  
+  animation-name: fadeUp;
+  /* Apply the fade-up animation */
+  animation-duration: 2s;
+  /* Set the duration of the animation */
+  animation-fill-mode: forwards;
+  /* Ensure the final state of the animation persists */
+
 }
+
 .title a {
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Use the color defined in .title */
+  text-decoration: none;
+  /* Remove underline */
+  color: inherit;
+  /* Use the color defined in .title */
 }
 
 
@@ -86,51 +97,64 @@
   text-align: center;
   width: 90%;
   max-width: 860px;
-  animation-name: fadeUp; /* Apply the fade-up animation */
-  animation-duration: 2s; /* Set the duration of the animation */
-  animation-fill-mode: forwards; /* Ensure the final state of the animation persists */
+  animation-name: fadeUp;
+  /* Apply the fade-up animation */
+  animation-duration: 2s;
+  /* Set the duration of the animation */
+  animation-fill-mode: forwards;
+  /* Ensure the final state of the animation persists */
 }
 
-h1 {
-  color: #333;
-  font-size: 2.5em; /* Decrease font size */
+.engineering-title {
+  color: #140C46;
+  font-size: 3.3em;
+  /* Decrease font size */
+  font-family: "Crimson Text";
+  font-weight: bolder;
 }
 
 
 
 /* Media Query for smaller screens */
 @media only screen and (max-width: 768px) {
-  h1 {
-    color: #333;
-    font-size: 1.8em; /* Decrease font size */
+  .engineering-title {
+    color: #140C46;
+    font-size: 2.5em;
+    /* Decrease font size */
+    font-family: "Crimson Text";
+    font-weight: bolder;
   }
+
   .small-square {
     width: 20vw;
     height: 20vw;
     max-width: 150px;
     max-height: 150px;
     margin: 0 1vw;
-    
+
   }
 
   .inner-box {
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: 90%;
     max-width: 100px;
     max-height: 100px;
+    background-color: #DD9313;
+    margin-left: 4px;
   }
 
-  .Engineering{
-   
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #0B0533;
-      margin-left: -33px;
-    
+  .Engineering {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0B0533;
+    margin-left: -33px;
+
   }
+
   .title {
     text-align: center;
     margin-top: 5px;
@@ -138,8 +162,11 @@ h1 {
     font-size: 3vw;
     font-family: 'Plus Jakarta Sans';
     font-weight: bold;
-    animation-name: fadeUp; /* Apply the fade-up animation */
-    animation-duration: 2s; /* Set the duration of the animation */
-    animation-fill-mode: forwards; /* Ensure the final state of the animation persists */
+    animation-name: fadeUp;
+    /* Apply the fade-up animation */
+    animation-duration: 2s;
+    /* Set the duration of the animation */
+    animation-fill-mode: forwards;
+    /* Ensure the final state of the animation persists */
   }
 }

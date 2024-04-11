@@ -93,7 +93,7 @@ router.get('/side', async (req, res) => {
         downloadStream.on('end', () => {
           const imgBase64 = Buffer.concat(data).toString('base64');
           
-          const filterer = image.prompt.replace(/^A\s/, '').substring(0, 4);
+          const filterer = image.prompt.replace(/^A\s/, '').substring(0, 3);
           // Include the description in the resolved object
           resolve({
             image: `data:${contentType};base64,${imgBase64}`,

@@ -1,20 +1,22 @@
 * {
-  
+
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-#addictions {
+#addictions.Addictions {
   /* Add any global styles for the 'addictions' ID here */
+
 }
 
 .Addictions {
   /* Add any global styles for the 'Addictions' class here */
+  background-color: #140C46;
 }
 
 .App-header {
-  
+  background-color: #0B0533;
 }
 
 .addictions-container {
@@ -23,47 +25,59 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  
+
 }
 
 .addictions-container .addictions-header {
   color: #DD9313;
-  font-family: 'Noto Seriff';
-  font-size: 6vw;
-  text-shadow: 2px 2px 4px rgba(168, 108, 6, 1);
+  font-family: "Crimson Text", serif;
+  font-size: 7vw;
+  font-weight: bolder;
+
   margin-top: 20px;
   margin-bottom: -30px;
   animation: fadeIn 1s ease-in-out;
-  
+  font-style: normal;
+
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .addictions-container div {
   display: flex;
-  margin-right: 20px; /* Add 10px margin between images */
+  margin-right: 20px;
+  /* Add 10px margin between images */
 }
 
 /* Styling for the image divs */
-.addictions-container div > div {
+.addictions-container div>div {
   position: relative;
   width: 20vw;
   height: 35vw;
   overflow: hidden;
 }
-.addictions-container div  {
-  
+
+.addictions-container div {
+
   position: relative;
-  width: 80vw; /* 50% of the parent element's width */
-  height: 35vw; /* 75% of the parent element's height */
+  width: 80vw;
+  /* 50% of the parent element's width */
+  height: 35vw;
+  /* 75% of the parent element's height */
   overflow: hidden;
   justify-content: center;
   align-items: center;
 }
-.addictions-container div > div:nth-child(1) {
+
+.addictions-container div>div:nth-child(1) {
   position: relative;
   width: 15vw;
   height: 35vw;
@@ -71,42 +85,44 @@
 }
 
 /* Styling for the images */
-.addictions-container div > div img {
+.addictions-container div>div img {
   width: 12vw;
   height: 20vw;
-  
+
   object-fit: cover;
 }
 
 /* Styling for the first image (index 1) */
-.addictions-container div > div:nth-child(1) img {
+.addictions-container div>div:nth-child(1) img {
   position: relative;
   opacity: 0.5;
-  
+
   width: 12vw;
   height: 20vw;
   margin-top: 50px;
 }
 
 /* Styling for the second image (index 2) */
-.addictions-container div > div:nth-child(2) img {
+.addictions-container div>div:nth-child(2) img {
   position: relative;
   width: 15vw;
   height: 25vw;
 }
 
 /* Styling for the third image (index 3) */
-.addictions-container div > div:nth-child(3) img {
+.addictions-container div>div:nth-child(3) img {
   position: relative;
   width: 15vw;
   height: 25vw;
 }
+
 /* Styling for the third image (index 3) */
-.addictions-container div > div:nth-child(4) img {
+.addictions-container div>div:nth-child(4) img {
   position: relative;
   width: 15vw;
   height: 25vw;
 }
+
 /* Adjust the styling for the last image's div */
 .addictions-container div:last-child {
   overflow: hidden;
@@ -141,7 +157,8 @@
 /* Styling for the image divs */
 .addictions-container .image-component {
   transition: transform 0.3s ease-in-out;
-  margin: 0 10px; /* Add margin between images */
+  margin: 0 10px;
+  /* Add margin between images */
 }
 
 /* Hover effect */
@@ -195,22 +212,27 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centers the popup card */
+  transform: translate(-50%, -50%);
+  /* Centers the popup card */
   background-color: #2B1451;
   border-radius: 10px;
   padding: 10px;
-  box-sizing: border-box; /* Includes padding in the element's total width and height */
-  z-index: 1001; /* Ensures the popup is above the overlay */
+  box-sizing: border-box;
+  /* Includes padding in the element's total width and height */
+  z-index: 1001;
+  /* Ensures the popup is above the overlay */
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
-  background-size: 400% 400% ;  /* Added background-size */
+  background-size: 400% 400%;
+  /* Added background-size */
 
 }
 
 .close-button-addiction {
-  /*align-self: flex-end;*/ /* Positions the close button to the right */
+  /*align-self: flex-end;*/
+  /* Positions the close button to the right */
   position: absolute;
   top: 10px;
   right: 10px;
@@ -221,34 +243,44 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  margin-bottom: 10px; /* Space below the close button */
+  margin-bottom: 10px;
+  /* Space below the close button */
 }
+
 /* Styling for the side images in the popup */
-.side-images-addictions > .side-image-addictions {
+.side-images-addictions>.side-image-addictions {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 0 10px; /* Spacing around side images */
-  width: 160px; /* Fixed width for side images */
-  height: 300px; /* Fixed height for side images, adjust as needed */
+  margin: 0 10px;
+  /* Spacing around side images */
+  width: 160px;
+  /* Fixed width for side images */
+  height: 300px;
+  /* Fixed height for side images, adjust as needed */
   margin-top: -80px;
   border-radius: 10px;
   margin-bottom: -30px;
 }
 
 /* Styling for individual side images */
-.side-images-addictions > .side-image-addictions img {
-  width: 100%; /* Make side images fill their container */
-  height: auto; /* Maintain aspect ratio */
-  margin-bottom: 15px; /* Adjust margin as needed */
+.side-images-addictions>.side-image-addictions img {
+  width: 100%;
+  /* Make side images fill their container */
+  height: auto;
+  /* Maintain aspect ratio */
+  margin-bottom: 15px;
+  /* Adjust margin as needed */
   border-radius: 10px;
 }
+
 .close-button:hover {
   background-color: #1e0940;
 }
 
 .popup-active {
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
+  /* Prevent scrolling */
 }
 
 .overlay-addiction {
@@ -257,8 +289,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #0B0533; /* Semi-transparent overlay */
-  z-index: 1000; /* Ensures the overlay is above other content but below the popup */
+  background-color: #0B0533;
+  /* Semi-transparent overlay */
+  z-index: 1000;
+  /* Ensures the overlay is above other content but below the popup */
 }
 
 .rectanglepop1-addiction {
@@ -302,54 +336,84 @@
 
 .image1-addiction {
   position: absolute;
-  top: 114px; /* Adjust the top position to place it inside the popup */
-  left: 15px; /* Adjust the left position to place it inside the popup */
-  width: 8.2vw; /* Adjust the width as needed */
-  height: 6.5vw; /* Adjust the height as needed */
-  background-color: #ffffff; /* Set a background color */
-  z-index: 999; /* Ensure it's above other elements in the popup */
+  top: 114px;
+  /* Adjust the top position to place it inside the popup */
+  left: 15px;
+  /* Adjust the left position to place it inside the popup */
+  width: 8.2vw;
+  /* Adjust the width as needed */
+  height: 6.5vw;
+  /* Adjust the height as needed */
+  background-color: #ffffff;
+  /* Set a background color */
+  z-index: 999;
+  /* Ensure it's above other elements in the popup */
 }
 
 .image2-addiction {
   position: absolute;
-  top: 247px; /* Adjust the top position to place it inside the popup */
-  left: 15px; /* Adjust the left position to place it inside the popup */
-  width: 150px; /* Adjust the width as needed */
-  height: 120px; /* Adjust the height as needed */
-  background-color: #ffffff; /* Set a background color */
-  z-index: 999; /* Ensure it's above other elements in the popup */
+  top: 247px;
+  /* Adjust the top position to place it inside the popup */
+  left: 15px;
+  /* Adjust the left position to place it inside the popup */
+  width: 150px;
+  /* Adjust the width as needed */
+  height: 120px;
+  /* Adjust the height as needed */
+  background-color: #ffffff;
+  /* Set a background color */
+  z-index: 999;
+  /* Ensure it's above other elements in the popup */
 }
 
 
 .image4-addiction {
   position: absolute;
-  top: 115px; /* Adjust the top position to place it inside the popup */
-  right: 15px; /* Adjust the left position to place it inside the popup */
-  width: 150px; /* Adjust the width as needed */
-  height: 120px; /* Adjust the height as needed */
-  background-color: #ffffff; /* Set a background color */
-  z-index: 999; /* Ensure it's above other elements in the popup */
+  top: 115px;
+  /* Adjust the top position to place it inside the popup */
+  right: 15px;
+  /* Adjust the left position to place it inside the popup */
+  width: 150px;
+  /* Adjust the width as needed */
+  height: 120px;
+  /* Adjust the height as needed */
+  background-color: #ffffff;
+  /* Set a background color */
+  z-index: 999;
+  /* Ensure it's above other elements in the popup */
 }
 
 
 .image3-addiction {
   position: absolute;
-  top: 247px; /* Adjust the top position to place it inside the popup */
-  right: 16px; /* Adjust the left position to place it inside the popup */
-  width: 150px; /* Adjust the width as needed */
-  height: 120px; /* Adjust the height as needed */
-  background-color: #ffffff; /* Set a background color */
-  z-index: 999; /* Ensure it's above other elements in the popup */
+  top: 247px;
+  /* Adjust the top position to place it inside the popup */
+  right: 16px;
+  /* Adjust the left position to place it inside the popup */
+  width: 150px;
+  /* Adjust the width as needed */
+  height: 120px;
+  /* Adjust the height as needed */
+  background-color: #ffffff;
+  /* Set a background color */
+  z-index: 999;
+  /* Ensure it's above other elements in the popup */
 }
 
 .image5-addiction {
   position: absolute;
-  top:98px; /* Adjust the top position to place it inside the popup */
-  left: px; /* Adjust the left position to place it inside the popup */
-  width: 330px; /* Adjust the width as needed */
-  height: 280px; /* Adjust the height as needed */
-  background-color: #ffffff; /* Set a background color */
-  z-index: 999; /* Ensure it's above other elements in the popup */
+  top: 98px;
+  /* Adjust the top position to place it inside the popup */
+  left: px;
+  /* Adjust the left position to place it inside the popup */
+  width: 330px;
+  /* Adjust the width as needed */
+  height: 280px;
+  /* Adjust the height as needed */
+  background-color: #ffffff;
+  /* Set a background color */
+  z-index: 999;
+  /* Ensure it's above other elements in the popup */
 }
 
 /* Layout for the images within the popup */
@@ -360,17 +424,22 @@
   width: 100%;
   margin-top: 40px;
 }
+
 /* Style for the side images in the popup */
 .side-images-addiction {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 0 10px; /* Spacing around side images */
-  width: 160px; /* Fixed width for side images */
-  height: 300px; /* Fixed height for side images, adjust as needed */
+  margin: 0 10px;
+  /* Spacing around side images */
+  width: 160px;
+  /* Fixed width for side images */
+  height: 300px;
+  /* Fixed height for side images, adjust as needed */
   margin-top: -60px;
 
 }
+
 /* Style for the main image container in the popup */
 .main-image-container-addictions {
   display: flex;
@@ -378,29 +447,39 @@
   align-items: center;
   flex-direction: column;
 }
+
 /* Style for the main image in the popup */
 .retrieved-image-centered-addictions {
-  max-width: 350px; /* Restricts the main image size for balance */
-  margin-bottom: 10px; /* Space below the main image */
+  max-width: 350px;
+  /* Restricts the main image size for balance */
+  margin-bottom: 10px;
+  /* Space below the main image */
   border-radius: 10px;
-  margin-left:30px;
-  margin-right:30px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
+
 /* Style for the prompt text in the popup */
 .prompt-text-addictions {
   position: absolute;
-  bottom: 60%; /* This will move it to the top edge of the .main-image-container-emotions */
-  width: 100%; /* This will make sure it spans the full width */
+  bottom: 60%;
+  /* This will move it to the top edge of the .main-image-container-emotions */
+  width: 100%;
+  /* This will make sure it spans the full width */
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight:bolder;
+  font-weight: bolder;
   color: #ffffff;
-  transform: translateY(-150%); /* This will shift it upwards by its own height */
-  /*background-color: rgba(0, 0, 0, 0.5);*/ /* Optional: Adds a semi-transparent background */
-  padding: 1px; /* Optional: Adds some padding */
-  bottom: 78%;
-  box-sizing: border-box; /* Ensures padding is included in width and height */
+  transform: translateY(-150%);
+  /* This will shift it upwards by its own height */
+  /*background-color: rgba(0, 0, 0, 0.5);*/
+  /* Optional: Adds a semi-transparent background */
+  padding: 1px;
+  /* Optional: Adds some padding */
+  bottom: 82%;
+  box-sizing: border-box;
+  /* Ensures padding is included in width and height */
   margin-top: 10px
 }
 
@@ -409,18 +488,22 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 0 20px; /* Spacing around side images */
+  margin: 0 20px;
+  /* Spacing around side images */
   margin-top: -50px;
 }
 
 .description-text-addictions {
   color: #fff;
   text-align: center;
-  font-size: 0.7rem; /* Larger font size for readability */
-  margin-bottom: 0px; /* Decrease or remove the bottom margin to move the text up */
-  padding-bottom:20px;
+  font-size: 0.7rem;
+  /* Larger font size for readability */
+  margin-bottom: 0px;
+  /* Decrease or remove the bottom margin to move the text up */
+  padding-bottom: 20px;
   margin-top: 20px;
 }
+
 /* Adjustments for smaller screens */
 @media screen and (max-width: 768px) {
   .addictions-container h1 {
@@ -431,164 +514,186 @@
     margin-bottom: 20px;
     animation: fadeIn 1s ease-in-out;
   }
-/* Styling for the image divs */
-.addictions-container div > div {
-  position: relative;
-  width: 25vw;
-  height: 45vw;
-  overflow: hidden;
-}
-.addictions-container div  {
-  position: relative;
-  width: 80vw; /* 50% of the parent element's width */
-  height: 55vw; /* 75% of the parent element's height */
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-}
-.addictions-container div > div:nth-child(1) {
-  position: relative;
-  width: 70vw;
-  height: 45vw;
-  overflow: hidden;
-  margin-bottom: 50px;
-}
 
-/* Styling for the images */
-.addictions-container div > div img {
-  width: 12vw;
-  height: 20vw;
-  
-  object-fit: cover;
-}
+  /* Styling for the image divs */
+  .addictions-container div>div {
+    position: relative;
+    width: 25vw;
+    height: 45vw;
+    overflow: hidden;
+  }
 
-/* Styling for the first image (index 1) */
-.addictions-container div > div:nth-child(1) img {
-  position: relative;
-  opacity: 0.5;
-  
-  width: 12vw;
-  height: 20vw;
-  margin-top: 50px;
-}
+  .addictions-container div {
+    position: relative;
+    width: 80vw;
+    /* 50% of the parent element's width */
+    height: 55vw;
+    /* 75% of the parent element's height */
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+  }
 
-/* Styling for the second image (index 2) */
-.addictions-container div > div:nth-child(2) img {
-  position: relative;
-  width: 15vw;
-  height: 25vw;
-}
-/* Styling for the second image (index 2) */
-.addictions-container div > div:nth-child(2) {
-  position: relative;
-  width: 130vw;
-  height: 25vw;
-}
+  .addictions-container div>div:nth-child(1) {
+    position: relative;
+    width: 70vw;
+    height: 45vw;
+    overflow: hidden;
+    margin-bottom: 50px;
+  }
 
-/* Styling for the second image (index 2) */
-.addictions-container div > div:nth-child(3) {
-  position: relative;
-  width: 130vw;
-  height: 25vw;
-}
+  /* Styling for the images */
+  .addictions-container div>div img {
+    width: 12vw;
+    height: 20vw;
 
-/* Styling for the second image (index 2) */
-.addictions-container div > div:nth-child(4) {
-  position: relative;
-  width: 130vw;
-  height: 25vw;
-}
-/* Styling for the third image (index 3) */
-.addictions-container div > div:nth-child(3) img {
-  position: relative;
-  width: 15vw;
-  height: 25vw;
-}
+    object-fit: cover;
+  }
 
-/* Styling for the third image (index 3) */
-.addictions-container div > div:nth-child(4) img {
-  position: relative;
-  width: 15vw;
-  height: 25vw;
-}
-/* Adjust the styling for the last image's div */
-.addictions-container div:last-child {
-  overflow: hidden;
-  position: relative;
-  width: 80vw;
-  height: 45vw;
-  justify-content: center;
-  margin-bottom: 50px;
-  margin-right: 0;
-  
-}
+  /* Styling for the first image (index 1) */
+  .addictions-container div>div:nth-child(1) img {
+    position: relative;
+    opacity: 0.5;
 
-/* Styling for the image inside the last div */
-.addictions-container div:last-child img {
-  width: 12vw;
-  height: 20vw;
-  object-fit: cover;
-  position: relative;
-  opacity: 0.5;
- 
-}
-.arrow-button {
-  margin-top: 20px;
-  background: none;
-  border: none;
-  font-size: 3vw;
-  color: #DD9313;
-  cursor: pointer;
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
-  z-index: 100;
-  align-items: center;
-  justify-content: center;
-}
+    width: 12vw;
+    height: 20vw;
+    margin-top: 50px;
+  }
 
-.arrow-button-left {
-  left: -7vw;
-  align-items: center;
-  justify-content: center;
-}
+  /* Styling for the second image (index 2) */
+  .addictions-container div>div:nth-child(2) img {
+    position: relative;
+    width: 15vw;
+    height: 25vw;
+  }
 
-.arrow-button-right {
-  right: -4vw;
-  align-items: center;
-  justify-content: center;
-}
-.arrow-button img {
-  transform: scale(0.4); /* You can adjust the scale factor as needed */
-}
+  /* Styling for the second image (index 2) */
+  .addictions-container div>div:nth-child(2) {
+    position: relative;
+    width: 130vw;
+    height: 25vw;
+  }
 
-.side-images-addictions.left, .side-images-addictions.right {
-  display: none; /* Hide side images on smaller screens */
-}
+  /* Styling for the second image (index 2) */
+  .addictions-container div>div:nth-child(3) {
+    position: relative;
+    width: 130vw;
+    height: 25vw;
+  }
 
-.retrieved-image-centered-addictions {
-  max-width: 80%; /* Allows the main image to take more space on smaller screens */
-}
+  /* Styling for the second image (index 2) */
+  .addictions-container div>div:nth-child(4) {
+    position: relative;
+    width: 130vw;
+    height: 25vw;
+  }
 
-.popup-card-addiction {
-  width: 90%;
-  max-width: 90%; /* Make the popup card fill the screen more on small devices */
-}
-.prompt-text-addictions {
-  position: absolute;
-  bottom: 100%; /* This will move it to the top edge of the .main-image-container-emotions */
-  width: 100%; /* This will make sure it spans the full width */
-  text-align: center;
-  font-size: 1rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight:bolder;
-  color: #ffffff;
-  transform: translateY(-100%); /* This will shift it upwards by its own height */
-  /*background-color: rgba(0, 0, 0, 0.5);*/ /* Optional: Adds a semi-transparent background */
-  padding: 1px; /* Optional: Adds some padding */
-  bottom: 70%;
-  box-sizing: border-box; /* Ensures padding is included in width and height */
-  margin-top: 10px;
-}
+  /* Styling for the third image (index 3) */
+  .addictions-container div>div:nth-child(3) img {
+    position: relative;
+    width: 15vw;
+    height: 25vw;
+  }
+
+  /* Styling for the third image (index 3) */
+  .addictions-container div>div:nth-child(4) img {
+    position: relative;
+    width: 15vw;
+    height: 25vw;
+  }
+
+  /* Adjust the styling for the last image's div */
+  .addictions-container div:last-child {
+    overflow: hidden;
+    position: relative;
+    width: 80vw;
+    height: 45vw;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-right: 0;
+
+  }
+
+  /* Styling for the image inside the last div */
+  .addictions-container div:last-child img {
+    width: 12vw;
+    height: 20vw;
+    object-fit: cover;
+    position: relative;
+    opacity: 0.5;
+
+  }
+
+  .arrow-button {
+    margin-top: 20px;
+    background: none;
+    border: none;
+    font-size: 3vw;
+    color: #DD9313;
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrow-button-left {
+    left: -7vw;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrow-button-right {
+    right: -4vw;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrow-button img {
+    transform: scale(0.4);
+    /* You can adjust the scale factor as needed */
+  }
+
+  .side-images-addictions.left,
+  .side-images-addictions.right {
+    display: none;
+    /* Hide side images on smaller screens */
+  }
+
+  .retrieved-image-centered-addictions {
+    max-width: 80%;
+    /* Allows the main image to take more space on smaller screens */
+  }
+
+  .popup-card-addiction {
+    width: 90%;
+    max-width: 90%;
+    /* Make the popup card fill the screen more on small devices */
+  }
+
+  .prompt-text-addictions {
+    position: absolute;
+    bottom: 100%;
+    /* This will move it to the top edge of the .main-image-container-emotions */
+    width: 100%;
+    /* This will make sure it spans the full width */
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: bolder;
+    color: #ffffff;
+    transform: translateY(-100%);
+    /* This will shift it upwards by its own height */
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    /* Optional: Adds a semi-transparent background */
+    padding: 1px;
+    /* Optional: Adds some padding */
+    bottom: 70%;
+    box-sizing: border-box;
+    /* Ensures padding is included in width and height */
+    margin-top: 10px;
+  }
 
 }

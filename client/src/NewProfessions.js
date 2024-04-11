@@ -22,138 +22,138 @@ const initialCategories = [
 const ProfCarousel = ({ images, category, categoryImages }) => {
   console.log(`Prof carousel images: ${images}`)
   const [selected, setSelected] = useState(0);
-    // Use URLs for your desired images here; I'm keeping placeholders for demonstration:
-    // const images = [
-    //     basketball,
-    //     cricket,
-    //     volleyball,
-    //     hockey,
-    //     bingo, 
-    //     tennis
-    // ];
+  // Use URLs for your desired images here; I'm keeping placeholders for demonstration:
+  // const images = [
+  //     basketball,
+  //     cricket,
+  //     volleyball,
+  //     hockey,
+  //     bingo, 
+  //     tennis
+  // ];
 
-    // This effect sets up an interval to change the slide every 3 seconds (3000ms)
-    useEffect(() => {
-      const interval = setInterval(() => {
-        if (images.length > 0) { // Ensure there are images before attempting to change the selected index
-          setSelected(prevSelected => (prevSelected + 1) % images.length);
-        }
-      }, 3000);
-  
-      return () => clearInterval(interval);
-    }, [images.length]); // Only re-run the effect if images.length changes
+  // This effect sets up an interval to change the slide every 3 seconds (3000ms)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (images.length > 0) { // Ensure there are images before attempting to change the selected index
+        setSelected(prevSelected => (prevSelected + 1) % images.length);
+      }
+    }, 3000);
 
-    const moveToSelected = (element) => {
-        if (element === "next") {
-            setSelected((prevSelected) => (prevSelected + 1) % images.length);
-        } else if (element === "prev") {
-            setSelected((prevSelected) => (prevSelected - 1 + images.length) % images.length);
-        } else {
-            setSelected(element);
-        }
-    };
+    return () => clearInterval(interval);
+  }, [images.length]); // Only re-run the effect if images.length changes
 
-    const getClassNames = (index) => {
-        let className = '';
-        if (index === selected) {
-            className = 'selected';
-        } else if (index === (selected + 1) % images.length) {
-            className = 'next';
-        } else if (index === (selected + 2) % images.length) {
-            className = 'nextSecond';
-        } else if (index === (selected - 1 + images.length) % images.length) {
-            className = 'prev';
-        } else if (index === (selected - 2 + images.length) % images.length) {
-            className = 'prevSecond';
-        } else if (index < selected) {
-            className = 'hideLeft';
-        } else {
-            className = 'hideRight';
-        }
-        return className;
-    };
+  const moveToSelected = (element) => {
+    if (element === "next") {
+      setSelected((prevSelected) => (prevSelected + 1) % images.length);
+    } else if (element === "prev") {
+      setSelected((prevSelected) => (prevSelected - 1 + images.length) % images.length);
+    } else {
+      setSelected(element);
+    }
+  };
+
+  const getClassNames = (index) => {
+    let className = '';
+    if (index === selected) {
+      className = 'selected';
+    } else if (index === (selected + 1) % images.length) {
+      className = 'next';
+    } else if (index === (selected + 2) % images.length) {
+      className = 'nextSecond';
+    } else if (index === (selected - 1 + images.length) % images.length) {
+      className = 'prev';
+    } else if (index === (selected - 2 + images.length) % images.length) {
+      className = 'prevSecond';
+    } else if (index < selected) {
+      className = 'hideLeft';
+    } else {
+      className = 'hideRight';
+    }
+    return className;
+  };
 
 
-    const arrowStyle = {
-        cursor: 'pointer',
-        position: 'absolute',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        zIndex: 1000,
-    };
+  const arrowStyle = {
+    cursor: 'pointer',
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    zIndex: 1000,
+  };
 
-        // Inside your return function before the main tag
-    const arrowLeftStyle = {
-        ...arrowStyle,
-        left: '0%', // Use a percentage value or `vw` units here
-    };
+  // Inside your return function before the main tag
+  const arrowLeftStyle = {
+    ...arrowStyle,
+    left: '0%', // Use a percentage value or `vw` units here
+  };
 
-    const arrowRightStyle = {
-        ...arrowStyle,
-        right: '0%', // Use a percentage value or `vw` units here
-    };
+  const arrowRightStyle = {
+    ...arrowStyle,
+    right: '0%', // Use a percentage value or `vw` units here
+  };
 
-    return (
-      <main>
-        <div id="carousel">
-          {images.map((image, index) => (
-            <a key={index} className={getClassNames(index)} onClick={() => setSelected(index)} href="#!">
-              <div className="slideContainer">
-                {index === selected && (
-                  <div className="captionBanner">{image.prompt}</div> // Use image.prompt here
-                )}
-                <img src={image.src} alt={image.prompt} />
-              </div>
-            </a>
-            ))}
-
-                <div className="arrows">
-                <span id="prev" style={arrowLeftStyle} onClick={() => moveToSelected('prev')}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 19l-6-6 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                </span>
-                <span id="next" style={arrowRightStyle} onClick={() => moveToSelected('next')}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 5l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                </span>
+  return (
+    <main>
+      <div id="carousel">
+        {images.map((image, index) => (
+          <a key={index} className={getClassNames(index)} onClick={() => setSelected(index)} href="#!">
+            <div className="slideContainer">
+              {index === selected && (
+                <div className="captionBanner">{image.prompt}</div> // Use image.prompt here
+              )}
+              <img src={image.src} alt={image.prompt} />
             </div>
-            </div>
-            
-        </main>
-    );
+          </a>
+        ))}
+
+        <div className="arrows">
+          <span id="prev" style={arrowLeftStyle} onClick={() => moveToSelected('prev')}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 19l-6-6 6-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <span id="next" style={arrowRightStyle} onClick={() => moveToSelected('next')}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 5l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+    </main>
+  );
 };
 
 
 // Popup component
 const Popup = ({ onClose, bgColor, category, images, categoryImages }) => {
-  console.log('Popup: '+ category.images[0].description)
+  console.log('Popup: ' + category.images[0].description)
   return (
     <div className="professions-popup-overlay" onClick={onClose}>
-         <div className="professions-popup-content" onClick={e => e.stopPropagation()}>
-            <div className="professions-popup-header">
-                <h1 className="professions-popup-title" style={{ color: bgColor }}>{category.name}</h1>
-            </div>
-            <div className="professions-popup-body">
-                <div className="professions-popup-slides-container">
-                    <div className="professions-popup-slide" style={{ backgroundColor: bgColor }}>
-                       {/* ProfCarousel component will go here */}
-                        <ProfCarousel images={category.images} category={category} categoryImages={categoryImages}/>
-                    </div>
-                    
-                </div>
-                <div className="professions-popup-slide-caption">
-                    {/* <p className="professions-popup-statistical-analysis" style={{ color: bgColor }}>The statistical analysis caption is going to go here.</p> */}
-                    <p className="professions-popup-statistical-analysis">{category.images[0].description}</p>
-                </div>
-                </div>
-            <div className="professions-popup-footer">
-            <button className="professions-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>Close</button>
-            </div>
+      <div className="professions-popup-content" onClick={e => e.stopPropagation()}>
+        <div className="professions-popup-header">
+          <h1 className="professions-popup-title" style={{ color: bgColor }}>{category.name}</h1>
         </div>
+        <div className="professions-popup-body">
+          <div className="professions-popup-slides-container">
+            <div className="professions-popup-slide" style={{ backgroundColor: bgColor }}>
+              {/* ProfCarousel component will go here */}
+              <ProfCarousel images={category.images} category={category} categoryImages={categoryImages} />
+            </div>
+
+          </div>
+          <div className="professions-popup-slide-caption">
+            {/* <p className="professions-popup-statistical-analysis" style={{ color: bgColor }}>The statistical analysis caption is going to go here.</p> */}
+            <p className="professions-popup-statistical-analysis">{category.images[0].description}</p>
+          </div>
+        </div>
+        <div className="professions-popup-footer">
+          <button className="professions-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>Close</button>
+        </div>
+      </div>
     </div>
-);
+  );
 };
 
 // ProfessionsLanding component
@@ -177,7 +177,7 @@ const NewProfessions = () => {
           ...category,
           images: fetchedImages
             .filter(image => image.profession_type === category.name)
-           .map(image => ({
+            .map(image => ({
               src: image.image, // Assuming 'image' contains the full image URL or data URL
               prompt: image.prompt, // Text prompt for the image
               description: image.description // Description of the image, if available
@@ -215,7 +215,7 @@ const NewProfessions = () => {
       <div className="professions-category">
         {categories.map((category, index) => (
           <div key={index} className="professions-category-item" onClick={() => handleCategoryClick(category)} style={{ backgroundColor: category.color }}>
-                      {console.log(category)}
+            {console.log(category)}
 
             <span className="professions-category-item-title">{category.name}</span>
           </div>
@@ -230,7 +230,7 @@ const NewProfessions = () => {
           categoryImages={selectedCategory.Images}
         />
       )}
-      
+
     </div>
   );
 };
