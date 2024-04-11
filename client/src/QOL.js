@@ -106,15 +106,19 @@ const handleBoxClick = (image) => {
     <div style={{ backgroundColor: '#0B0533', position: 'relative' }}>
       <h1 style={{
         color: '#DD9313',
-        fontFamily: 'Abhaya Libre ExtraBold',
+        fontFamily: 'Crimson Text',
+        fontWeight: 'bolder',
         fontSize: '7vw',
-        textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
         textAlign: 'center',
         padding: '50px 0',
       }}>
         QUALITY OF LIFE
       </h1>
-      <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: '20px auto', width: '60vw' }}>
+      <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: '20px auto', marginTop: '-10px', width: '60vw' }}>
+        <div style={{ display: 'flex'}}>
+          <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px', borderRadius: '10px' }}></div>
+          <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px', borderRadius: '10px' }}></div>
+        </div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div style={{ width: '28vw', height: '30vw', backgroundColor: '#BFBFBF', margin: 'auto' }}>
             {toShowLeft.map((image, index) => (
@@ -137,27 +141,60 @@ const handleBoxClick = (image) => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            backgroundColor: '#080328',
+            backgroundColor: '#D9D9D9',
             padding: '30px',
             borderRadius: '10px',
             boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)',
             zIndex: 9999,
             width: '600px',
             height: '500px',
+            overlay: "#D9D9D9"
           }}
         >
-          <div style={{ textAlign: 'center', marginBottom: '30px', padding: '10px', borderRadius: '5px', backgroundColor: '#B3BBC8', width: '400px', margin: '0 auto' }}>
-            <h2 style={{ margin: 0 }}>{selectedBox.prompt}</h2>
+          <div style={{ 
+            textAlign: 'center', 
+            marginBottom: '30px',
+            fontFamily: 'Plus Jakarta Sans', 
+            fontWeight: 'bolder',
+            padding: '8px', 
+            borderRadius: '5px',  
+            width: '400px', 
+            margin: '0 auto' }}>
+            <h2 style={{ 
+              margin: 0,
+              fontSize: '1.5rem',
+              fontWeight: 'bolder'
+              
+              }}>{selectedBox.prompt}</h2>
           </div>
-          <img src={selectedBox.imageData} alt={selectedBox.prompt} style={{ width: '100%', height: 'auto' }}/>
-          <div style={{ textAlign: 'center', marginBottom: '30px', padding: '10px', borderRadius: '5px', backgroundColor: '#B3BBC8', width: '400px', margin: '0 auto' }}>
-            <h2 style={{ margin: 0 }}>{selectedBox.description}</h2>
+          <img src={selectedBox.imageData} alt={selectedBox.prompt} style={{ 
+            width: '100%', 
+            height: '25vw',
+            borderRadius: '20px',
+            objectFit: 'contain', // Ensure the image maintains its aspect ratio without stretching
+            display: 'block',  // Display block to avoid inline extra space
+            margin: 'auto'  // Center the image horizontally
+             }}/>
+          <div style={{ 
+            textAlign: 'center', 
+            marginBottom: '15px', 
+            padding: '10px', 
+            borderRadius: '5px', 
+            fontFamily: 'Plus Jakarta Sans',
+            
+            width: '400px', 
+            margin: '0 auto' }}>
+            <h2 style={{ 
+            margin: 0,
+            fontSize: '0.7rem',
+            
+            }}>{selectedBox.description}</h2>
           </div>
           <button
             onClick={closePopup}
-            style={{ position: 'absolute', top: '10px', right: '10px', cursor: 'pointer', background: 'none', border: 'none', color: 'white' }}
+            style={{ position: 'absolute', top: '10px', right: '10px', borderRadius: '5px', cursor: 'pointer', padding: '5px 10px', background: '#a8a8a8', border: 'none', color: 'white' }}
           >
-            Close
+            x
           </button>
         </div>
       )}

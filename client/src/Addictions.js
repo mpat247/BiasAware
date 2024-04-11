@@ -157,7 +157,7 @@ const Addictions = () => {
         ) : (
           <div className="addictions-container">
             <h1 className="addictions-header">
-              A D D I C T I O N S
+              ADDICTIONS
             </h1>
             <div style={{ display: 'flex' }}>
               {getCurrentImages().map((image, index) => (

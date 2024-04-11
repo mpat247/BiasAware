@@ -56,10 +56,10 @@
 .emotion-title {
   color: #E8C450; /* Choose a color that fits the design */
   text-align: center; /* Center the text horizontally */
-  font-size: 2rem; /* Set the size of the font */
-  font-weight: bold; /* Optional: makes the font bold */
+  font-size: 3.5em; /* Set the size of the font */
+  font-weight: bolder; /* Optional: makes the font bold */
   margin: 0; /* Removes any default margin */
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Crimson Text';
   width: 100%; /* Ensures the title stretches across the width of the rectangle */
 }
 
@@ -179,7 +179,7 @@
   /*bottom: 100%;  This will move it to the top edge of the .main-image-container-emotions */
   width: 100%; /* This will make sure it spans the full width */
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.7rem;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight:bolder;
   color: white;
@@ -194,7 +194,7 @@
 .description-text-emotions {
   color: #fff;
   text-align: center;
-  font-size: 0.5rem; /* Larger font size for readability */
+  font-size: 0.7rem; /* Larger font size for readability */
   margin-bottom: 0px; /* Decrease or remove the bottom margin to move the text up */
   padding-bottom: 20px; 
 }
