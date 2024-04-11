@@ -151,6 +151,7 @@ const Popup = ({ onClose, bgColor, category, images, categoryImages }) => {
           </div>
         </div>
         <div className="professions-popup-footer">
+          <a href="/Statistics" className="statistics-link-professions">More Information Here</a>
           <button className="professions-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>x</button>
         </div>
       </div>

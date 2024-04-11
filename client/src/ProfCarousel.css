@@ -7,7 +7,7 @@
     /* --minFontSize: 10px; */
     /* --maxFontSize: 32px; */
     /* --scaler: 5vw; */
-    --bannerHeight: 4vw; /* Height of the caption banner */
+    --bannerHeight: 3vw; /* Height of the caption banner */
     /* font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize)); */
 }
 
@@ -30,12 +30,12 @@
     /* color: white; */
     /* padding: 0px; */
     text-align: center;
-    font-size: 3vw; /* Adjust font size as needed */
+    font-size: 2vw; /* Adjust font size as needed */
     height: var(--bannerHeight); /* Use the banner height variable */
     box-sizing: border-box;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: bolder;
     font-style: normal;
     color:  #0B0533;
 }

@@ -225,30 +225,35 @@ const Crime = () => {
         ))}
       </div>
 
+          
       {popupVisible && (
-        <>
-          <div className={CrimeStyling["popup-overlay"]} onClick={handleClosePopup}></div>
-          <div className={CrimeStyling["popup-crime"]}>
-            <button onClick={handleClosePopup}>Close</button>
-            {loading ? (
-              <p>Loading...</p>
-            ) : (
-              <div className={CrimeStyling["grid-popup"]}>
-                  {popupImages.map((imageObj, index) => (
-                    <div key={index} className={CrimeStyling["grid-square"]}>
-                      <img src={imageObj.image} alt={`Crime Image ${index}`} className={CrimeStyling["square-image"]} />
-                      {/* Optionally wrap texts in a container for better control */}
-                      <div className={CrimeStyling["text-container"]}>
-                        <p className='crime-prompt'>{imageObj.prompt}</p> {/* Displaying the prompt */}
-                        <p className='crime-description'>{imageObj.description}</p> {/* Displaying the description */}
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            )}
-          </div>
-        </>
+  <>
+    <div className={CrimeStyling["popup-overlay"]} onClick={handleClosePopup}></div>
+    <div className={CrimeStyling["popup-crime"]}>
+      <button onClick={handleClosePopup}>Close</button>
+      {/* Conditionally render the title only if popupImages has elements */}
+      {popupImages.length > 0 && (
+        <div className={CrimeStyling["popup-title"]}>{popupImages[0].prompt}</div>
       )}
+      <div className={CrimeStyling["grid-popup"]}>
+        {popupImages.map((imageObj, index) => (
+          <div key={index} className={CrimeStyling["grid-square"]}>
+            <img src={imageObj.image} alt={`Crime Image ${index}`} className={CrimeStyling["square-image"]} />
+            {/* Optionally wrap texts in a container for better control */}
+            <div className={CrimeStyling["text-container"]}>
+              <p className='crime-prompt'>{imageObj.prompt}</p> {/* Displaying the prompt */}
+              <p className='crime-description'>{imageObj.description}</p> {/* Displaying the description */}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </>
+)}
+
+
+
+
 
     </div>
   );
