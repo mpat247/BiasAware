@@ -189,8 +189,8 @@ app.use('/professions', professionsRoute);
 const activitiesRoute = require('./routes/activities');
 app.use('/activities', activitiesRoute);
 
-const galleryRoute = require('./routes/gallery');
-app.use('/gallery', galleryRoute);
+// const galleryRoute = require('./routes/gallery');
+// app.use('/gallery', galleryRoute);
 
 async function main() {
   try {
