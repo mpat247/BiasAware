@@ -281,6 +281,8 @@ const MapView = () => {
           cursor: 'pointer',
           zIndex: 10,
           borderRadius: '10px'
+
+          
         }}
       >
         COMPARE
