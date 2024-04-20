@@ -675,26 +675,19 @@
 
   .prompt-text-addictions {
     position: absolute;
-    bottom: 100%;
-    /* This will move it to the top edge of the .main-image-container-emotions */
+    bottom: 85%;  /* Increase the percentage to move the text higher */
     width: 100%;
-    /* This will make sure it spans the full width */
     text-align: center;
     font-size: 1rem;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: bolder;
     color: #ffffff;
     transform: translateY(-100%);
-    /* This will shift it upwards by its own height */
-    /*background-color: rgba(0, 0, 0, 0.5);*/
-    /* Optional: Adds a semi-transparent background */
     padding: 1px;
-    /* Optional: Adds some padding */
-    bottom: 70%;
     box-sizing: border-box;
-    /* Ensures padding is included in width and height */
     margin-top: 10px;
-  }
+}
+
 
 }
 .loader-overlay {

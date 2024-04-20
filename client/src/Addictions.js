@@ -8,6 +8,9 @@ import ArrowRightImage from "./Arrows/Arrow_Right_1.png";
 import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
 import { Helmet } from 'react-helmet';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css'; // optional for blur effect
+
 
 const Addictions = () => {
   const [imagesData, setImagesData] = useState([]);
@@ -78,27 +81,47 @@ const Addictions = () => {
 
          
           <div className="image-layout-addiction">
-            <div className="side-images-addictions left">
-              {filledSideImages.slice(0, 2).map((sideImage, index) => (
-                <div key={index} className={`side-image-addictions`}>
-                  <img src={sideImage.image} alt={`sideImage${index + 1}`} className="side-image-addictions" />
-                </div>
-              ))}
-            </div>
-            <div className="main-image-container-addictions">
-              {image && <img src={image} alt="selected-addiction" className="retrieved-image-centered-addictions" />}
-              {prompt && <div className="prompt-text-addictions">{formattedPrompt(prompt)}</div>}
-              {description && <div className="description-text-addictions">{description}</div>}
+  <div className="side-images-addictions left">
+    {filledSideImages.slice(0, 2).map((sideImage, index) => (
+      <div key={index} className="side-image-addictions">
+        <LazyLoadImage
+          src={sideImage.image}
+          alt={`sideImage ${index + 1}`}
+          className="side-image-addictions"
+          effect="blur"
+          placeholderSrc="path_to_loading_placeholder.jpg"  // Optionally define a placeholder
+        />
+      </div>
+    ))}
+  </div>
+  <div className="main-image-container-addictions">
+    {image && (
+      <LazyLoadImage
+        src={image}
+        alt="Selected Addiction"
+        className="retrieved-image-centered-addictions"
+        effect="blur"
+        placeholderSrc="path_to_loading_placeholder.jpg"  // Optionally define a placeholder
+      />
+    )}
+    {prompt && <div className="prompt-text-addictions">{formattedPrompt(prompt)}</div>}
+    {description && <div className="description-text-addictions">{description}</div>}
+  </div>
+  <div className="side-images-addictions right">
+    {filledSideImages.slice(2, 4).map((sideImage, index) => (
+      <div key={index} className="side-image-addictions">
+        <LazyLoadImage
+          src={sideImage.image}
+          alt={`sideImage ${index + 1}`}
+          className="side-image-addictions"
+          effect="blur"
+          placeholderSrc="path_to_loading_placeholder.jpg"  // Optionally define a placeholder
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
-            </div>
-            <div className="side-images-addictions right">
-              {filledSideImages.slice(2, 4).map((sideImage, index) => (
-                <div key={index} className={`side-image-addictions`}>
-                  <img src={sideImage.image} alt={`sideImage${index + 1}`} className="side-image-addictions" />
-                </div>
-              ))}
-            </div>
-          </div>
           <a href="/Statistics" className="statistics-link-emotions">More Information Here</a>
 
 
@@ -165,13 +188,19 @@ const Addictions = () => {
     ];
   };
 
-  const ImageComponent = ({ src, alt, prompt, description }) => {
+  const ImageComponent = ({ src, alt, prompt, description, onClick }) => {
     return (
-      <div className="image-component">
-        <img src={src} alt={alt} onClick={() => openPopup(prompt, description)} />
-      </div>
+        <div className="image-component" onClick={() => onClick(prompt, description)}>
+            <LazyLoadImage
+                src={src}
+                alt={alt}
+            />
+        </div>
     );
-  };
+};
+
+
+
 
   return (
     <div id="addictions" className="Addictions">
@@ -189,13 +218,14 @@ const Addictions = () => {
             </h1>
             <div style={{ display: 'flex' }}>
               {getCurrentImages().map((image, index) => (
-                <ImageComponent
-                  key={index}
-                  src={image.image}
-                  alt={`Addictions Illustration ${currentImageIndex + index - 2}`}
-                  prompt={image.prompt}
-                  description={image.description}
-                />
+                 <ImageComponent
+                 key={index}
+                 src={image.image}
+                 alt={`Addictions Illustration ${currentImageIndex + index - 2}`}
+                 prompt={image.prompt}
+                 description={image.description}
+                 onClick={(prompt, description) => openPopup(prompt, description)} // Ensure openPopup function is correctly implemented
+               />
               ))}
             </div>
             <button className="arrow-button arrow-button-left" onClick={previousImage}>
