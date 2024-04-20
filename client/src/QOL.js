@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import REACT_APP_API_URL from './config';
 import GearLoader from './GearLoader';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 
 const QOL = () => {
   const [bottomLeftSquares, setBottomLeftSquares] = useState([]);
@@ -12,71 +15,40 @@ const QOL = () => {
   const [toShowLeft, setToShowLeft] = useState([]);
   const [toShowRight, setToShowRight] = useState([]);
   const [isFetching, setIsFetching] = useState(true); // Add isFetching state
+  const [currentPage, setCurrentPage] = useState(1);
 
 
   const API_URL = REACT_APP_API_URL;
 
   useEffect(() => {
-    setIsFetching(true); // Set isFetching to true before fetching data
-function fetchImages() {
-  const fetchLeftImages = async () => {
-    try {
+    async function fetchImages(page) {
+      setIsFetching(true);
+      try {
+        const [leftResponse, rightResponse] = await Promise.all([
+          axios.get(`${API_URL}/qol/main`, { params: { page, limit: 12 } }),
+          axios.get(`${API_URL}/qol/main2`, { params: { page, limit: 12 } })
+        ]);
 
-      console.log(API_URL)
-      const response = await axios.get(`${API_URL}/qol/main`);
-
-      const fetchedLeftImages = response.data.images.filter(image => image.ImageData && image.prompt && image.description);
-
-      console.log("Response:", response.data.images);
-      console.log("Filtered Images:", fetchedLeftImages);
-
-      const imagesToSave = fetchedLeftImages.map(image => ({
-        imageData: image.ImageData,
-        prompt: image.prompt,
-        description: image.description
-
-      }));
-
-      console.log("Images to save:", imagesToSave);
-
-      setBottomLeftImages(response.data.images); // Save the filtered images in state
-    } catch (error) {
-      console.error('Failed to fetch main images:', error);
-
+        // Update the state with the new images
+        setBottomLeftImages(leftResponse.data.images);
+        setBottomRightImages(rightResponse.data.images);
+      } catch (error) {
+        console.error('Failed to fetch images:', error);
+      } finally {
+        setIsFetching(false);
+      }
     }
-  };
 
-  const fetchRightImages = async () => {
-    try {
-      const response = await axios.get(`${API_URL}/qol/main2`);
+    fetchImages(currentPage);
+  }, [API_URL, currentPage]);  // Depend on currentPage to refetch when it changes
 
-      const fetchedRightImages = response.data.images.filter(image => image.ImageData && image.prompt && image.description);
+  // Example function to advance to the next page of images periodically or on an event
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentPage(currentPage => currentPage + 1);  // Increment page every set interval
+    }, 15000);  // Fetch new images every 30 seconds
 
-      console.log("Response:", response);
-      console.log("Filtered Images:", fetchedRightImages);
-
-      const imagesToSave = fetchedRightImages.map(image => ({
-        imageData: image.ImageData,
-        prompt: image.prompt,
-        description: image.description
-      }));
-
-      console.log("Images to save:", imagesToSave);
-
-      setBottomRightImages(response.data.images); // Save the filtered images in state
-    } catch (error) {
-      console.error('Failed to fetch main images:', error);
-    }
-  };
-  fetchLeftImages();
-  fetchRightImages();
-
-}
-fetchImages();
-setIsFetching(false); // Set isFetching to true before fetching data
-    
-
-
+    return () => clearInterval(intervalId);
   }, []);
 
 
@@ -137,6 +109,19 @@ setIsFetching(false); // Set isFetching to true before fetching data
     borderRadius: '20px',
   };
 
+  const overlayStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent overlay
+    zIndex: 100, // Ensure it's above other content
+  };
+
   return (
     <div style={{ backgroundColor: '#0B0533', position: 'relative', height: '110vh' }}>
       <h1 style={{
@@ -150,43 +135,48 @@ setIsFetching(false); // Set isFetching to true before fetching data
         QUALITY OF LIFE
       </h1>
       {/* Conditional rendering for the loading spinner */}
-      {isFetching ? (
-        <div
-          className="loader-container"
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100%',
-            width: '100%',
-            backgroundColor: '#0B0533',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-          }}
-        >
+      
+
+      {/* Overlay Loader */}
+      {/* {isFetching && (
+        <div style={overlayStyle}>
           <GearLoader />
         </div>
-      ) : (
+      )} */}
+
+
         <div style={{ backgroundColor: '#D9D9D9', padding: '20px', borderRadius: '10px', margin: '20px auto', marginTop: '-10px', width: '60vw' }}>
           <div style={{ display: 'flex' }}>
             <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px', borderRadius: '10px' }}></div>
             <div style={{ width: '30vw', height: '5vw', backgroundColor: '#B3BBC8', margin: '10px', borderRadius: '10px' }}></div>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={containerStyle}>
-              {toShowLeft.map((image, index) => (
-                <img key={index} src={image.imageData} alt={image.prompt} onClick={() => handleBoxClick(image)} style={imageStyle} />
-              ))}
+
+
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div style={containerStyle}>
+                {toShowLeft.map((image, index) => (
+                  <LazyLoadImage
+                    key={index}
+                    src={image.imageData}
+                    alt={image.prompt}
+                    onClick={() => handleBoxClick(image)}
+                    style={imageStyle}
+                  />
+                ))}
+              </div>
+              <div style={containerStyle}>
+                {toShowRight.map((image, index) => (
+                  <LazyLoadImage
+                    key={index}
+                    src={image.imageData}
+                    alt={image.prompt}
+                    onClick={() => handleBoxClick(image)}
+                    style={imageStyle}
+                  />
+                ))}
+              </div>
             </div>
-            <div style={containerStyle}>
-              {toShowRight.map((image, index) => (
-                <img key={index} src={image.imageData} alt={image.prompt} onClick={() => handleBoxClick(image)} style={imageStyle} />
-              ))}
-            </div>
-          </div>
         </div>
-      )}
 
       {/* Popup */}
       {selectedBox && (

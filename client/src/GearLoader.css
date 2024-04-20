@@ -3,14 +3,15 @@
   display: flex;
   justify-content: center; 
   align-items: center;
-  background: transparent; /* Explicitly set background to transparent */
 
+background-color: transparent;
   z-index: 10;
 }
 
 .gear-loader {
   color: orange; 
   animation: rotate-clockwise 3s infinite; 
+  
 
 }
 

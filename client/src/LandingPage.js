@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './LandingPage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const LandingPage = () => {
+
+const LandingPage = ({ closeLandingPage }) => {
   const [showSecondTitle, setShowSecondTitle] = useState(false);
   const [showThirdSentence, setShowThirdSentence] = useState(false);
   const [showFourthSentence, setShowFourthSentence] = useState(false);
@@ -47,6 +50,24 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <div className="container">
+        <button
+          onClick={closeLandingPage}
+          style={{
+            position: 'fixed', // Ensures the button is fixed relative to the viewport
+            top: '20px', // 20 pixels from the top
+            right: '20px', // 20 pixels from the right
+            padding: '10px', // Unified padding value
+            border: 'none',
+            borderRadius: '50%',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s ease',
+            zIndex: '100000',
+            background: 'linear-gradient(-45deg, #0c062f, #1a106c, #3e328e, #0c062f)', // Gradient background from light to dark purple
+            color: 'white', // Ensuring icon color is white
+          }}
+        >
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
 
         <div className="main">
 

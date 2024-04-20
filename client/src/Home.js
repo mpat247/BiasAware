@@ -42,35 +42,21 @@ const Home = () => {
   }, []);
 
   
-
+  const closeLandingPage = () => {
+    setShowLandingPage(false);  // This directly sets the landing page to not show
+  };
  
 
   return (
     <div className="Home">
       {showLandingPage ? (
-        <LandingPage  /> 
+        <LandingPage closeLandingPage={closeLandingPage} />
       ) : (
         <>
 
             <header className="App-header" style={{ marginTop: '60px' }}>
         <NavigationBar /> 
-         {/* Add a link to scroll to the Addictions section */}
-        
-
-        {/* <h1 style={{ 
-  color: '#DD9313',
-  fontFamily: 'Abhaya Libre ExtraBold', 
-  fontSize: '4em',
-  textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
-  textAlign: 'center', // Centers the text horizontally
-  margin: '0', // Removes any default margin
-  padding: '50px 0' // Adjust this padding to control spacing above and below the text
-}}>
-  A C T I V I T I E S
-</h1> */}
-{/* Addiction Prompts*/}
-
-
+     
 <div class = "main-body" style={{width: '100%'}}>
           <div class="gear-container">
               <ul class="center-circle">
@@ -228,26 +214,16 @@ const Home = () => {
 
       <main>
       
+              <button className="scroll-to-top-button" onClick={scrollToTop}>
+                <FaArrowUp />
+              </button>
        
-        {/* Add a link to scroll to the Addictions section
-        <tr><a href="#addictions" className="explore-addictions-link">
-          <h2>Explore Addictions</h2>
-        </a></tr>
-        <tr><a href="#activities" className="explore-activities-link">
-          <h2>Explore Activities</h2>
-        </a></tr> */}
 
- {/* Add the scroll-to-top button/icon */}
- <button className="scroll-to-top-button" onClick={scrollToTop}>
-          <FaArrowUp />
-        </button>
         
       </main>
 
 
-{/* Activities section */}
 
-      {/* Addictions section */}
       <div id="addictions">
               <Addictions />
       </div>
@@ -278,6 +254,7 @@ const Home = () => {
       </>
       )}
     </div>
+  
 
   );
 };

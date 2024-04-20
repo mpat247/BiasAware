@@ -147,6 +147,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  z-index: 100000;
 }
 
 .scroll-to-top-button:hover {
