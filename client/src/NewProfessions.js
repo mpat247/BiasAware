@@ -9,6 +9,7 @@ import bingo from './images/image 11.png';
 import tennis from './images/image 12.png';
 import axios from 'axios';
 import REACT_APP_API_URL from './config';
+import GearLoader from './GearLoader';
 
 const initialCategories = [
   { name: 'Business', color: '#FFD600', images: [] },
@@ -204,7 +205,7 @@ const NewProfessions = () => {
   const handleClosePopup = () => {
     setPopupVisible(false);
   };
-  if (isFetching) return <p>Loading...</p>;
+  if (isFetching) return <GearLoader />;
   if (error) return <p>{error}</p>;
 
   return (

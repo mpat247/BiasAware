@@ -7,6 +7,8 @@ import axios from 'axios';
 import REACT_APP_API_URL from './config';
 import placeholderImage from './placeholder-image.png'; // Make sure this is the correct path
 import GearLoader from './GearLoader'; // Import the GearLoader component
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -31,6 +33,54 @@ const Crime = () => {
 
 
   const handleHeatmapClick = async (e, squareId) => {
+    if (squareId === 0 || squareId === 1) {
+      squareId = 0;
+    } else if (squareId === 2 || squareId === 3) {
+      squareId = 1;
+    } else if (squareId === 4 || squareId === 5) {  
+      squareId = 2;
+    }
+
+    const rect = e.target.getBoundingClientRect();
+    setPopupPosition({ x: rect.left, y: rect.top });
+    setPopupText(`Fetching images for square ${squareId}...`);
+    console.log(squareId);
+    setLoading(true);
+    setPopupVisible(true);
+
+    try {
+      const response = await axios.get(`${REACT_APP_API_URL}/crimes/fetchedCrime?crimeId=${squareId}`);
+      // Directly using the objects returned by the API, filling missing entries with placeholders
+      const fullImagesData = response.data.images.map(imageObj => ({
+        ...imageObj,
+        image: imageObj.image || placeholderImage // Using the placeholder if no image URL is provided
+      }));
+
+      // If the API returns fewer than 9 images, fill the rest with placeholder objects
+      const imagesWithPlaceholders = Array.from({ length: 9 }).map((_, index) => fullImagesData[index] || {
+        image: placeholderImage, prompt: 'Placeholder', description: 'No description'
+      });
+
+      setPopupImages(imagesWithPlaceholders);
+      setPopupText(`Images for crime ID ${squareId}`);
+    } catch (error) {
+      console.error('Error fetching images:', error);
+      setPopupText(`Failed to fetch images for crime ID ${squareId}`);
+    }
+    setLoading(false);
+  };
+
+
+  const handleHeatmapClick2 = async (e, squareId) => {
+
+    if (squareId === 0 || squareId === 1) {
+      squareId = 3;
+    } else if (squareId === 2 || squareId === 3) {
+      squareId = 4;
+    } else if (squareId === 4 || squareId === 5) {  
+      squareId = 5;
+    }
+
     const rect = e.target.getBoundingClientRect();
     setPopupPosition({ x: rect.left, y: rect.top });
     setPopupText(`Fetching images for square ${squareId}...`);
@@ -75,7 +125,7 @@ const handleHeatmapClick = (e, index) => {
 
 
 
-  const rectangleText = ["A Shoplifter", "A Gang Leader", "A Mugger", "A Hijacker", "A Smuggler", "An Embezzler"];
+  const rectangleText = ["A Shoplifter", "A Gang Leader", "A Smuggler", "A Hijacker", "A Mugger", "An Embezzler"];
   useEffect(() => {
     const renderCharts = async () => {
       // Define 12 datasets for 12 different heatmaps
@@ -223,7 +273,7 @@ const handleHeatmapClick = (e, index) => {
 
       <div className={CrimeStyling["grid-container"]}>
         {Array.from({ length: 6 }).map((_, index) => (
-          <div key={index + 6} id={`container${index + 7}`} className={CrimeStyling["heatmap-container"]} onClick={(e) => handleHeatmapClick(e, index)}></div>
+          <div key={index + 6} id={`container${index + 7}`} className={CrimeStyling["heatmap-container"]} onClick={(e) => handleHeatmapClick2(e, index)}></div>
         ))}
       </div>
 
@@ -231,8 +281,23 @@ const handleHeatmapClick = (e, index) => {
         <>
           <div className={CrimeStyling["popup-overlay"]} onClick={handleClosePopup}></div>
           <div className={CrimeStyling["popup-crime"]}>
-            <button onClick={handleClosePopup}>x</button>
-            {loading ? (
+<button
+        onClick={handleClosePopup}
+        style={{
+          position: 'absolute',
+          top: '10px',
+          right: '10px',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          padding: '3px 8px',
+          background: '#a8a8a8',
+          border: 'none',
+          color: 'white',
+          zIndex: 1001 // Ensures button is above all other content
+        }}
+      >
+        <FontAwesomeIcon icon={faTimes} />
+      </button>            {loading ? (
               <GearLoader />
             ) : (
               <>

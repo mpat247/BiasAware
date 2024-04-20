@@ -224,7 +224,7 @@ const Home = () => {
                   bottom: '20px', // Positions the button 20 pixels from the bottom
                   right: '20px', // Positions the button 20 pixels from the right
                   background: 'transparent', // Gradient background as specified earlier
-                  color: 'white', // Text color for visibility
+                  color: '#DD9313', // Text color for visibility
                   fontSize: '16px', // Font size as specified
                   padding: '10px', // Padding for size of the button
                   border: 'none',

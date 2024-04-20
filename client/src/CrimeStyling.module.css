@@ -319,6 +319,7 @@ div[id^="container"] {
   width: 142px;
   /* Set the desired width */
   height: 142px;
+  border-radius: 10px;
   /* Set the desired height */
 }
 
@@ -394,3 +395,4 @@ div[id^="container"] {
   margin-top: 20px;
   /* Add margin to separate from the grid */
 }
+

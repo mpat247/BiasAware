@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, useMap, Polygon, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'; // Ensure you have this line to import Leaflet's CSS
 import './Neighborhoodnew.css'; // Import the CSS file
+import NavigationBar from './NavigationBar'; // Import the NavigationBar component
 const canadaCoords = [62.437413, -102.6959393];
 const ontarioCoords = [43.8994482, -79.9580261];
 const torontoCoords = [43.7241123, -79.4935225];
@@ -176,7 +177,7 @@ const HighlightNeighborhoods = ({ show }) => {
 
   return (
     <>
-      <Polygon pathOptions={{ color: 'blue' }} positions={ForestHillCoords}>
+      <Polygon pathOptions={{ color: '#DD9313' }} positions={ForestHillCoords}>
         <Popup>
         <div className="popup-content">
             <h2 className = "popup-title">FOREST HILL</h2>
@@ -197,7 +198,7 @@ const HighlightNeighborhoods = ({ show }) => {
           </div>
         </Popup>
       </Polygon>
-      <Polygon pathOptions={{ color: 'red' }} positions={JaneAndFinchCoordinates}>
+      <Polygon pathOptions={{ color: '#DD9313' }} positions={JaneAndFinchCoordinates}>
         <Popup>
           <div className="popup-content">
             <h2 className = "popup-title">JANE & FINCH</h2>
@@ -231,6 +232,8 @@ const MapView = () => {
 
   return (
     <div className="neighborhood-title-container">
+              <NavigationBar /> 
+
       <h1 className="neighborhood-landing-title">NEIGHBOURHOOD</h1>
       <div style={{ height: '80vh', width: '80%', margin: 'auto' }}>
         <MapContainer
@@ -268,15 +271,16 @@ const MapView = () => {
         onClick={() => setShowInfoCard(true)}
         style={{
           position: 'absolute',
-          bottom: '20px',
+          bottom: '50px',
           left: '50%',
           transform: 'translateX(-50%)',
           padding: '10px 20px',
-          backgroundColor: '#000',
+          backgroundColor: '#DD9313',
           color: '#fff',
           border: 'none',
           cursor: 'pointer',
-          zIndex: 10
+          zIndex: 10,
+          borderRadius: '10px'
         }}
       >
         COMPARE

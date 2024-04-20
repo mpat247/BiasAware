@@ -8,6 +8,7 @@ import bingo from './images/image 11.png';
 import tennis from './images/image 12.png';
 import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
+import GearLoader from './GearLoader';
 
 const colors = ["#FFD600", "#F5A720", "#D9822A", "#BE5C43", "#A33862", "#6A2774", "#441A93", "#161E7B"]; // Define colors for slides
 

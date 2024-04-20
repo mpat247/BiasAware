@@ -63,8 +63,17 @@ console.log(count)
 
 router.get('/side', async (req, res) => {
   try {
-    const images = await Image.find({ bias_name: "Emotions", prompt: { $not: /Individual/i }});
-
+    const emotion = req.query.emotion;  // Retrieve the emotion query parameter
+    if (!emotion) {
+      return res.status(400).send({ message: 'Missing emotion query parameter' });
+    }
+    const images = await Image.find({
+      bias_name: "Emotions",
+      prompt: { 
+        $regex: new RegExp('^' + emotion + '$', 'i'), // Matches the emotion exactly, case-insensitively
+        $not: /Individual/i
+      }
+    });
     if (!images.length) {
       return res.status(404).send({ message: 'No main images found' });
     }
