@@ -10,6 +10,9 @@ import Emotions from './Emotions';
 import LandingPage from './LandingPage'; // Import the LandingPage component
 import NewActivities from './NewActivities'; // Import the LandingPage component
 import NewProfessions from './NewProfessions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'; // Assuming the icon for scroll-to-top is an arrow
+
 
 import './GearComponent.css';
 
@@ -214,9 +217,27 @@ const Home = () => {
 
       <main>
       
-              <button className="scroll-to-top-button" onClick={scrollToTop}>
-                <FaArrowUp />
+              <button
+                onClick={scrollToTop} // Replace `scrollToTop` with your actual function to scroll to the top
+                style={{
+                  position: 'fixed', // Maintains the fixed position on the viewport
+                  bottom: '20px', // Positions the button 20 pixels from the bottom
+                  right: '20px', // Positions the button 20 pixels from the right
+                  background: 'transparent', // Gradient background as specified earlier
+                  color: 'white', // Text color for visibility
+                  fontSize: '16px', // Font size as specified
+                  padding: '10px', // Padding for size of the button
+                  border: 'none',
+                  borderRadius: '50%', // Rounded shape of the button
+                  cursor: 'pointer',
+                  transition: 'background-color 0.3s ease', // Smooth transition for hover effects
+                  zIndex: '100000', // High z-index to ensure it's on top
+                  pointerEvents: 'auto' // Ensures the button is clickable
+                }}
+              >
+                <FontAwesomeIcon icon={faArrowUp} /> {/* Using an arrow icon for scroll-to-top */}
               </button>
+
        
 
         

@@ -133,13 +133,12 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-/* Scroll-to-top button styles */
+/* 
 .scroll-to-top-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #140C46; /* Choose your desired background color */
+  background-color: #140C46;
   color: white;
   font-size: 16px;
   padding: 10px;
@@ -148,7 +147,8 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   z-index: 100000;
-}
+} 
+*/
 
 .scroll-to-top-button:hover {
   background-color: #140C46; /* Change color on hover */

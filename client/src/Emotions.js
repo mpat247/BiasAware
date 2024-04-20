@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import './Emotions.css';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const PopupCard = ({ onClose, retrievedImage, prompt,description, sideImages }) => {
   return (
     <div className="popup-card-emotions">
       <div className="popup-content-emotions">
-        <button className="close-button-emotions" onClick={onClose}>x</button>
+        <button className="close-button-emotions" onClick={onClose}> <FontAwesomeIcon icon={faTimes} /></button>
         <div className="image-layout-emotions">
           <div className="side-images-emotions left">
             {sideImages.slice(0, 2).map((img, index) => (

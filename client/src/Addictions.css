@@ -231,13 +231,13 @@
 }
 
 .close-button-addiction {
-  /*align-self: flex-end;*/
-  /* Positions the close button to the right */
   position: absolute;
-  top: 10px;
-  right: 10px;
-  /*align-self: flex-end;  Positions the close button to the right */
-  padding: 5px 10px;
+  top: 5px;
+  /* slightly moved up */
+  right: 5px;
+  /* slightly moved left */
+  padding: 3px 8px;
+  /* smaller padding for smaller size */
   background-color: #1e0940;
   color: rgba(255, 255, 255, 0.55);
   border: none;
@@ -245,6 +245,10 @@
   cursor: pointer;
   margin-bottom: 10px;
   /* Space below the close button */
+  z-index: 1000;
+  /* High z-index to ensure it is on top */
+  pointer-events: auto;
+  /* Ensures all parts of the button are clickable */
 }
 
 /* Styling for the side images in the popup */

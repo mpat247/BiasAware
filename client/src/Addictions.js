@@ -10,6 +10,8 @@ import REACT_APP_API_URL from './config.js';
 import { Helmet } from 'react-helmet';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css'; // optional for blur effect
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 const Addictions = () => {
@@ -77,7 +79,8 @@ const Addictions = () => {
 
       <div className="popup-card-addiction">
         <div className="popup-content-addiction">
-          <button className="close-button-addiction" onClick={onClose}>x</button>
+          <button className="close-button-addiction" onClick={onClose}>          <FontAwesomeIcon icon={faTimes} />
+</button>
 
          
           <div className="image-layout-addiction">

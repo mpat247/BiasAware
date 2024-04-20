@@ -53,21 +53,23 @@ const LandingPage = ({ closeLandingPage }) => {
         <button
           onClick={closeLandingPage}
           style={{
-            position: 'fixed', // Ensures the button is fixed relative to the viewport
-            top: '20px', // 20 pixels from the top
-            right: '20px', // 20 pixels from the right
-            padding: '10px', // Unified padding value
+            position: 'fixed', // Changed to fixed as per your original example
+            top: '5px', // Adjusted to slightly higher, similar to .close-button-emotions
+            right: '5px', // Adjusted to slightly to the left, similar to .close-button-emotions
+            padding: '3px 8px', // Smaller padding as per the .close-button-emotions
             border: 'none',
-            borderRadius: '50%',
+            borderRadius: '5px', // Adjusted to match .close-button-emotions
             cursor: 'pointer',
             transition: 'background-color 0.3s ease',
-            zIndex: '100000',
-            background: 'linear-gradient(-45deg, #0c062f, #1a106c, #3e328e, #0c062f)', // Gradient background from light to dark purple
-            color: 'white', // Ensuring icon color is white
+            zIndex: '100000', // Very high z-index to ensure it's on top
+            background: 'transparent', // Gradient background maintained
+            color: 'white', // Text color white to ensure visibility
+            pointerEvents: 'auto' // Ensure the button is clickable
           }}
         >
-          <FontAwesomeIcon icon={faTimes} />
+          <FontAwesomeIcon icon={faTimes} /> {/* FontAwesome icon used */}
         </button>
+
 
         <div className="main">
 

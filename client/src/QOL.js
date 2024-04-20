@@ -4,6 +4,9 @@ import REACT_APP_API_URL from './config';
 import GearLoader from './GearLoader';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
 
 
 const QOL = () => {
@@ -267,12 +270,24 @@ const QOL = () => {
                 More Information Here
               </a>
           </div>
-          <button
-            onClick={closePopup}
-            style={{ position: 'absolute', top: '10px', right: '10px', borderRadius: '5px', cursor: 'pointer', padding: '5px 10px', background: '#a8a8a8', border: 'none', color: 'white' }}
-          >
-            x
-          </button>
+            <button
+              onClick={closePopup}
+              style={{
+                position: 'absolute',
+                top: '5px', // Adjusted as per your `.close-button-addiction` CSS
+                right: '5px', // Adjusted as per your `.close-button-addiction` CSS
+                borderRadius: '5px',
+                cursor: 'pointer',
+                padding: '3px 8px', // Adjusted as per your `.close-button-addiction` CSS
+                background: '#a8a8a8', // Keeping your color as specified
+                border: 'none',
+                color: 'white',
+                zIndex: 1000, // Added from your previous CSS to ensure it's on top
+                pointerEvents: 'auto' // Ensure the button is clickable
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
           </div>
         </div>
       )}

@@ -135,16 +135,23 @@
 /* Style for the close button in the popup */
 .close-button-emotions {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  /*align-self: flex-end;  Positions the close button to the right */
-  padding: 4px 8px;
+  top: 5px;
+  /* adjusted to slightly higher based on previous instructions */
+  right: 5px;
+  /* adjusted to slightly to the left based on previous instructions */
+  padding: 3px 8px;
+  /* smaller padding for a slightly smaller button */
   background-color: #1e0940;
-  color: rgba(255, 255, 255, 0.55);
+  /* deep purple background as specified */
+  color: white;
+  /* making text color fully opaque for better readability */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
+  z-index: 1000;
+  /* ensuring it is on top of other elements */
+  pointer-events: auto;
+  /* ensuring all parts of the button are clickable */
 }
 
 /* Layout for the images within the popup */
