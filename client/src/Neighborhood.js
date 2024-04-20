@@ -43,26 +43,36 @@ const ZoomEffect = ({ setTransitionsCompleted }) => {
   const map = useMap();
 
   useEffect(() => {
-    // Zoom into Ontario after 5 seconds
-    setTimeout(() => {
-      map.flyTo(ontarioCoords, 7, { duration: 5 });
+    if (!map) return;  // Ensures operation starts only when the map is fully ready
+
+    const flyToOntario = setTimeout(() => {
+      map.flyTo(ontarioCoords, 7, { duration: 5, animate: true, noMoveStart: true })
+        .once('zoomend', () => {
+          map.flyTo(torontoCoords, 12.5, { duration: 5, animate: true, noMoveStart: true })
+            .once('zoomend', () => {
+              setTransitionsCompleted(true);
+              enableMapInteractions();
+            });
+        });
     }, 5000);
 
-    // Zoom into Toronto after another 5 seconds, then signal that transitions are complete
-    setTimeout(() => {
-      map.flyTo(torontoCoords, 12.5, { duration: 5 });
-      setTransitionsCompleted(true); // This should enable interactions as per your current logic
-
-      // Directly re-enable map interactions as a backup (should not be necessary but can help troubleshoot)
+    const enableMapInteractions = () => {
       map.dragging.enable();
       map.scrollWheelZoom.enable();
       map.doubleClickZoom.enable();
       map.touchZoom.enable();
-    }, 10000); // Start after the first timeout completes
-  }, [map, setTransitionsCompleted]);
+    };
+
+    return () => {
+      clearTimeout(flyToOntario);
+      map.off('zoomend');
+    };
+  }, [map, setTransitionsCompleted]);  // Ensure map instance is tracked for reactivity
 
   return null;
 };
+
+
 
 const InfoCard = ({ show, onClose }) => {
   if (!show) return null;
@@ -220,9 +230,9 @@ const MapView = () => {
   console.log("Transitions Completed:", transitionsCompleted);
 
   return (
-    <>
-<div className="neighborhood-title-container">
-                            <h1 className="neighborhood-landing-title">NEIGHBOURHOOD</h1>      <div style={{ height: '80vh', width: '80%', margin: 'auto' }}>
+    <div className="neighborhood-title-container">
+      <h1 className="neighborhood-landing-title">NEIGHBOURHOOD</h1>
+      <div style={{ height: '80vh', width: '80%', margin: 'auto' }}>
         <MapContainer
           center={canadaCoords}
           zoom={4}
@@ -231,11 +241,15 @@ const MapView = () => {
           zoomControl={transitionsCompleted}
           dragging={transitionsCompleted}
           style={{ height: '85%', width: '100%', borderRadius: '15px' }}
+          attributionControl={false}  // This disables the attribution control
+
         >
           <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://api.mapbox.com/styles/v1/mpat247/clv7muagn005401qlfz1y4h6k/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXBhdDI0NyIsImEiOiJjbHVqeTRjd3gwa2JiMmtvbGt2bWd3MWJyIn0.WLkzKPYKE4qqFTxxnR6SNw"
+            id="mpat247/clv7muagn005401qlfz1y4h6k"
+            accessToken="pk.eyJ1IjoibXBhdDI0NyIsImEiOiJjbHVqeTRjd3gwa2JiMmtvbGt2bWd3MWJyIn0.WLkzKPYKE4qqFTxxnR6SNw"
           />
+
           <ZoomEffect setTransitionsCompleted={setTransitionsCompleted} />
           <HighlightNeighborhoods show={transitionsCompleted} />
         </MapContainer>
@@ -267,7 +281,7 @@ const MapView = () => {
       >
         COMPARE
       </button>
-    </div></>
+    </div>
   );
 };
 
