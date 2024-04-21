@@ -2,7 +2,7 @@
 import { FaArrowUp } from 'react-icons/fa'; // Assuming you are using react-icons for icons
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-import NavigationBar from './NavigationBar2'; // Import the NavigationBar component
+import NavigationBar from './NavigationBar'; // Import the NavigationBar component
 import Addictions from './Addictions';
 import QOL from './QOL'; // Import the QOL component
 import Crime from './Crime';
@@ -217,26 +217,30 @@ const Home = () => {
 
       <main>
       
-              <button
-                onClick={scrollToTop} // Replace `scrollToTop` with your actual function to scroll to the top
-                style={{
-                  position: 'fixed', // Maintains the fixed position on the viewport
-                  bottom: '20px', // Positions the button 20 pixels from the bottom
-                  right: '20px', // Positions the button 20 pixels from the right
-                  background: 'transparent', // Gradient background as specified earlier
-                  color: '#DD9313', // Text color for visibility
-                  fontSize: '16px', // Font size as specified
-                  padding: '10px', // Padding for size of the button
-                  border: 'none',
-                  borderRadius: '50%', // Rounded shape of the button
-                  cursor: 'pointer',
-                  transition: 'background-color 0.3s ease', // Smooth transition for hover effects
-                  zIndex: '100000', // High z-index to ensure it's on top
-                  pointerEvents: 'auto' // Ensures the button is clickable
-                }}
-              >
-                <FontAwesomeIcon icon={faArrowUp} /> {/* Using an arrow icon for scroll-to-top */}
-              </button>
+      <button
+  onClick={scrollToTop} // Replace `scrollToTop` with your actual function to scroll to the top
+  style={{
+    position: 'fixed',
+    bottom: '20px',
+    right: '20px',
+    background: 'transparent',
+    color: '#DD9313',
+    fontSize: '16px',
+    padding: '10px',
+    border: 'none',
+    borderRadius: '50%',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+    zIndex: 1000, // Ensure this doesn't exceed z-index of modals/overlays
+    pointerEvents: 'auto',
+    margin: '0', // Add margin if needed
+    maxWidth: '100%', // Ensure it respects the viewport width
+    maxHeight: '100%', // Ensure it respects the viewport height
+  }}
+>
+  <FontAwesomeIcon icon={faArrowUp} /> {/* Using an arrow icon for scroll-to-top */}
+</button>
+
 
        
 

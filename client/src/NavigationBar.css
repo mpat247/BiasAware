@@ -1,0 +1,167 @@
+/* NavigationBar.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #0e0930;
+	padding: 10px;
+	/* Reduced padding to make navbar thinner */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+	z-index: 10000;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	font-family: 'Roboto', sans-serif;
+	width: 100%;
+	/* This ensures the navbar does not exceed the width of the viewport */
+	max-width: 100vw;
+	/* This ensures the navbar does not exceed the viewport width */
+	box-sizing: border-box;
+	/* This ensures padding does not add to the total width */
+}
+.brand {
+	font-size: 1.3em;
+	/* Optionally adjust for smaller navbar */
+	color: white;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	white-space: nowrap;
+	/* Prevent text wrapping */
+}
+.brand:hover {
+	color: #F5A720;
+}
+.nav-links-container {
+	display: flex;
+	flex-direction: column;
+	/* Change to column layout on smaller screens */
+	align-items: center;
+	/* Center align the links */
+	padding: 10px 0;
+	/* Adjusted padding top and bottom */
+}
+.nav-links {
+	display: flex;
+	flex-direction: row;
+	/* Change to column layout on smaller screens */
+	gap: 15px;
+	/* Add gap between links */
+}
+.nav-links a {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	font-family: "Plus Jakarta Sans", sans-serif;
+	padding: 5px 0;
+	/* Adjusted padding to reduce space */
+	position: relative;
+	transition: color 0.3s ease, transform 0.3s ease-out;
+	white-space: nowrap;
+	/* Prevent text wrapping */
+}
+.nav-links a::before {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 2px;
+	bottom: 0;
+	left: 50%;
+	background-color: #F5A720;
+	transition: width 0.2s ease, left 0.2s ease;
+}
+.nav-links a:hover {
+	color: #F5A720;
+	transform: translateY(-5px);
+}
+.nav-links a:hover::before {
+	width: 100%;
+	left: 0;
+}
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+	.nav-links-container {
+		flex-direction: column;
+		/* Display links in a column */
+		align-items: center;
+		/* Center align items */
+		overflow-x: hidden;
+		/* Hide horizontal overflow */
+		width: 100%;
+		/* Ensure full width */
+		margin-bottom: -5em;
+	}
+	.nav-links {
+		margin-top: -2px;
+		/* Add some space between title and links */
+		width: 100%;
+		/* Ensure full width */
+	}
+	.nav-links {
+		font-size: 12px;
+		/* Adjusted font size for thinner navbar */
+	}
+}
+@media screen and (min-width: 769px) {
+	.nav-links-container {
+		justify-content: flex-end;
+		/* Align links to the right */
+	}
+}
+@media screen and (max-width: 768px) {
+	.menu .ant-menu-item a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.menu .ant-menu-item a span {
+		display: none;
+		/* Hide text */
+	}
+	/* Mobile view adjustments */
+	.navbar {
+		flex-direction: column;
+		/* Stack brand and menu vertically */
+	}
+	.menu .ant-menu-horizontal {
+		width: 100%;
+		/* Full width to match the parent */
+		justify-content: center;
+		/* Center the menu items */
+	}
+}
+/* Show text labels on menu items for larger screens */
+@media screen and (min-width: 769px) {
+	.menu .ant-menu-item a {
+		display: inline-block;
+	}
+	.menu .ant-menu-item a span {
+		display: inline;
+		/* Show text */
+	}
+}
+/* Override background styles for menu items */
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item,.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover,.ant-menu-dark.ant-menu-horizontal > .ant-menu-item-active,.ant-menu-dark.ant-menu-horizontal > .ant-menu-item-selected {
+	background-color: transparent;
+	/* Set background to transparent or your desired color */
+}
+/* Override for the focused item */
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:focus {
+	background-color: transparent;
+}
+.menu-container {
+	display: flex;
+	justify-content: center;
+	/* Centers items horizontally */
+}
+.nav-menu-centered {
+	display: flex;
+	justify-content: center;
+	/* Centers items horizontally */
+	align-items: center;
+	/* Centers items vertically */
+}
+
