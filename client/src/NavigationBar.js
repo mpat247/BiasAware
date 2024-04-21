@@ -1,98 +1,63 @@
 // NavigationBar.js
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, Tooltip } from 'antd';
-import {
-  HomeOutlined,
-  BarChartOutlined,
-  SettingOutlined,
-  ClusterOutlined,
-  PictureOutlined,
-} from '@ant-design/icons';
+import { HomeOutlined, BarChartOutlined, SettingOutlined, ClusterOutlined, PictureOutlined } from '@ant-design/icons';
 
 import './NavigationBar.css';
 
-const linkVariants = {
-  hover: {
-    scale: 1.05,
-    color: '#F5A720',
-    transition: {
-      duration: 0.2,
-      yoyo: Infinity,
-    },
-  },
-};
-
 const Brand = ({ isCentered }) => (
-  <motion.div
-    id='brand-container'
-    className={`brand-container ${isCentered ? 'centered' : ''}`}
-  >
-    <div className='brand'>Exploring the Dark Net</div>
+  <motion.div id="brand-container" className={`brand-container ${isCentered ? 'centered' : ''}`}>
+    <div className="brand">Exploring the Dark Net</div>
   </motion.div>
 );
 
-const LinkItem = ({
-  to,
-  icon,
-  label,
-  isMobile,
-  iconStyle,
-  linkStyle,
-  tooltip,
-}) => (
+const LinkItem = ({ to, icon, label, isMobile, iconStyle, linkStyle, tooltip }) => (
   <Menu.Item key={to} icon={isMobile && icon}>
     <Tooltip
       title={tooltip || label}
       overlayInnerStyle={{
-        backgroundColor: '#0B0533',
-        color: '#DD9313',
-        fontFamily: '"Plus Jakarta Sans", sans-serif',
+        backgroundColor: "#0B0533", // Ensure tooltip styling is correct
+        color: "#DD9313",
+        fontFamily: '"Plus Jakarta Sans", sans-serif'
       }}
     >
-      <motion.div
-        as={NavLink}
-        to={to}
-        className={`nav-link ${isMobile ? 'mobile' : 'desktop'}`}
+      <Link 
+        to={to} 
+        className={`nav-link ${isMobile ? 'mobile' : 'desktop'}`} 
         style={isMobile ? iconStyle : linkStyle}
-        whileHover='hover'
-        variants={linkVariants}
       >
         {isMobile ? '' : label}
-      </motion.div>
+      </Link>
     </Tooltip>
   </Menu.Item>
 );
 
-const NavMenu = ({
-  current,
-  handleClick,
-  isMobile,
-  iconStyle,
-  linkStyle,
-  mobileStyle,
-}) => (
-  <motion.div id='navMenu' style={{ display: 'flex', alignItems: 'center' }}>
-    <Menu
-      onClick={handleClick}
-      selectedKeys={[current]}
-      mode='horizontal'
-      theme='dark'
-      className='menu'
-      style={{
-        backgroundColor: 'transparent',
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
-      }}
-    >
-      <LinkItem to="/" icon={<HomeOutlined />} label="Home" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="Go to Home Page" />
-      <LinkItem to="/Statistics" icon={<BarChartOutlined />} label="Statistics" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Statistics" />
-      <LinkItem to="/Engineering" icon={<SettingOutlined />} label="Engineering" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="Explore Engineering" />
-      <LinkItem to="/Neighborhood" icon={<ClusterOutlined />} label="Neighborhood" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Neighborhood" />
-      <LinkItem to="/Gallery" icon={<PictureOutlined />} label="Gallery" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Gallery" />
+
+
+
+const NavMenu = ({ current, handleClick, isMobile, iconStyle, linkStyle, mobileStyle }) => (
+  <motion.div id="navMenu" style={{ display: 'flex', alignItems: 'center' }}>
+<Menu
+  onClick={handleClick}
+  selectedKeys={[current]}
+  mode="horizontal"
+  theme="dark"
+  className="menu"
+  style={{ backgroundColor: "transparent", fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+  // overflowedIndicator={null}
+>      <LinkItem to="/" icon={<HomeOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Home" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="Go to Home Page" />
+      <LinkItem to="/Statistics" icon={<BarChartOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Statistics" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Statistics" />
+      <LinkItem to="/Engineering" icon={<SettingOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Engineering" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="Explore Engineering" />
+      <LinkItem to="/Neighborhood" icon={<ClusterOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Neighborhood" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Neighborhood" />
+      <LinkItem to="/" icon={<PictureOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Gallery" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Gallery" />
     </Menu>
   </motion.div>
 );
+
+
+
 
 const NavigationBar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -104,9 +69,9 @@ const NavigationBar = () => {
     const updateUI = () => {
       setIsSticky(window.scrollY > window.innerHeight);
       setIsMobile(window.innerWidth < 768);
-      const brandRect = document.getElementById("brand-container")?.getBoundingClientRect();
-      const navMenuRect = document.getElementById("navMenu")?.getBoundingClientRect();
-      setIsNavMenuUnderBrand(navMenuRect && brandRect && navMenuRect.top > brandRect.bottom);
+      const brandRect = document.getElementById("brand-container").getBoundingClientRect();
+      const navMenuRect = document.getElementById("navMenu").getBoundingClientRect();
+      setIsNavMenuUnderBrand(navMenuRect.top > brandRect.bottom);
     };
 
     window.addEventListener('scroll', updateUI);
@@ -130,19 +95,20 @@ const NavigationBar = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       style={isMobile ? { flexDirection: 'column' } : {}}
-    >
-      <Brand isCentered={isNavMenuUnderBrand} />
-      <NavMenu current={current} handleClick={handleClick} isMobile={isMobile} iconStyle={{ fontSize: '1.5rem' }} linkStyle={{
-          textDecoration: 'none',
-          color: 'white',
-          fontWeight: 'bold',
-          fontFamily: '"Plus Jakarta Sans", sans-serif',
-          position: 'relative',
-          transition: 'color 0.3s ease, transform 0.3s ease-out',
-          whiteSpace: 'nowrap',
-          fontSize: '1rem',
-        }} mobileStyle={{ fontSize: '1.2rem' }} />
-    </motion.nav>
+>
+    <Brand isCentered={isNavMenuUnderBrand} />
+    <NavMenu current={current} handleClick={handleClick} isMobile={isMobile} iconStyle={{ fontSize: '1.5rem' }} linkStyle={{
+        textDecoration: 'none',
+        color: 'white',
+        fontWeight: 'bold',
+        fontFamily: '"Plus Jakarta Sans", sans-serif',
+        position: 'relative',
+        transition: 'color 0.3s ease, transform 0.3s ease-out',
+        whiteSpace: 'nowrap',
+        fontSize: '1rem',
+      }} mobileStyle={{ fontSize: '1.2rem' }} />
+</motion.nav>
+
   );
 };
 

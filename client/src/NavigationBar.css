@@ -164,22 +164,3 @@
 	align-items: center;
 	/* Centers items vertically */
 }
-
-
-
-/* In your NavigationBar.css or a similar file */
-.menu .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item {
-	color: white !important; /* Text color */
-	font-weight: bold !important; /* Font weight */
-	background-color: transparent !important; /* Background color */
-  }
-  
-  .menu .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item:hover {
-	background-color: #F5A720 !important; /* Hover background color */
-  }
-  
-  /* If using `!important` does not solve the issue, you might have to increase the specificity even more */
-  .menu .ant-menu-dark .ant-menu-submenu-popup .ant-menu-item {
-	/* Your styles here */
-  }
-  
