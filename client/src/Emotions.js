@@ -20,20 +20,21 @@ const PopupCard = ({ onClose, retrievedImage, prompt, description, sideImages, s
         </button>
         <div className="image-layout-emotions">
           <div className="side-images-emotions left">
-            {sideImagesLoading ? (
-              <GearLoader /> // Display the loader while images are loading
-            ) : (
-              sideImages.slice(0, 2).map((img, index) => (
-                <LazyLoadImage
-                  key={index}
-                  src={img.image}
-                  alt={`side-emotion-left-${index}`}
-                  className="side-image-emotions"
-                  effect="blur"
-                />
-              ))
-            )}
-          </div>
+  {sideImagesLoading ? (
+    <GearLoader /> // Display the loader while images are loading
+  ) : (
+    sideImages.slice(0, 2).map((img, index) => (
+      <LazyLoadImage
+        key={index}
+        src={img.image}
+        alt={`side-emotion-left-${index}`}
+        className="side-image-emotions"
+        effect="blur"
+      />
+    ))
+  )}
+</div>
+
           <div className="main-image-container-emotions">
             {prompt && <div className="prompt-text-emotions">{prompt}</div>}
             {retrievedImage && <img src={retrievedImage} alt="retrieved-emotion" className="retrieved-image-centered-emotions" />}
@@ -60,6 +61,7 @@ const PopupCard = ({ onClose, retrievedImage, prompt, description, sideImages, s
     </div>
   );
 };
+
 
 const Emotions = () => {
   const emotionMap = {
@@ -94,6 +96,9 @@ const Emotions = () => {
   const [PopUpDescription, setPopUpDescription] = useState('');
   const [isLoadingMainImage, setIsLoadingMainImage] = useState(false);
   const [sideImagesLoading, setSideImagesLoading] = useState(false);
+  const [mainLoading, setMainLoading] = useState(true); // State to track main image loading
+
+
   let API = REACT_APP_API_URL;
 
   useEffect(() => {
@@ -102,6 +107,8 @@ const Emotions = () => {
         const responseMain = await axios.get(`${API}/emotions/main`);
         if (responseMain.data && responseMain.data.images) {
           setRetrievedImages(responseMain.data.images);
+          setMainLoading(false); // Set mainLoading to false once images are fetched
+
         }
        
       } catch (error) {
@@ -152,25 +159,40 @@ const Emotions = () => {
 
   return (
     <div className="emotions-page">
-      <div className="background-rectangle-top"></div>
-      <div className="emotion-top-rectangle">
-        <h1 className="emotion-title">I AM FEELING</h1>
-      </div>
-      <div className="background-rectangle-bottom"></div>
-      <div className="emotion-rectangle2">
-        <div className="image-grid">
-          {Object.keys(emotionMap).map((emotion, index) => (
-            <button key={index} className="emotion-button" onClick={() => handleClick(emotion, emotionMap[emotion])}>
-              <img src={emotionMap[emotion]} alt={`emotion-${index}`} className="emotion-image" />
-            </button>
-          ))}
+      {mainLoading ? (
+        <GearLoader /> // Display the main loader while main images are loading
+      ) : (
+        // Main content once images are fetched
+        <div>
+          <div className="background-rectangle-top"></div>
+          <div className="emotion-top-rectangle">
+            <h1 className="emotion-title">I AM FEELING</h1>
+          </div>
+          <div className="background-rectangle-bottom"></div>
+          <div className="emotion-rectangle2">
+            <div className="image-grid">
+              {Object.keys(emotionMap).map((emotion, index) => (
+                <button key={index} className="emotion-button" onClick={() => handleClick(emotion, emotionMap[emotion])}>
+                  <img src={emotionMap[emotion]} alt={`emotion-${index}`} className="emotion-image" />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-      {showPopup && <div className="emotions-overlay" onClick={handleClose}></div>}
-      {showPopup && <PopupCard onClose={handleClose} retrievedImage={retrievedImage} prompt={PopUpPrompt} description={PopUpDescription} sideImages={displaySideImages} />}
-    </div>
-  
+      )}
 
+      {showPopup && <div className="emotions-overlay" onClick={handleClose}></div>}
+      {showPopup && (
+        <PopupCard
+          onClose={handleClose}
+          retrievedImage={retrievedImage}
+          prompt={PopUpPrompt}
+          description={PopUpDescription}
+          sideImages={displaySideImages}
+          sideImagesLoading={sideImagesLoading}
+        />
+      )}
+    </div>
   );
 };
 

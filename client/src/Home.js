@@ -11,7 +11,8 @@ import LandingPage from './LandingPage'; // Import the LandingPage component
 import NewActivities from './NewActivities'; // Import the LandingPage component
 import NewProfessions from './NewProfessions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons'; // Assuming the icon for scroll-to-top is an arrow
+import { faArrowUp, faPlay } from '@fortawesome/free-solid-svg-icons'; // Assuming the icon for scroll-to-top is an arrow
+import { Tooltip } from 'antd'; // Ensure Tooltip is imported if not already
 
 
 import './GearComponent.css';
@@ -48,7 +49,9 @@ const Home = () => {
   const closeLandingPage = () => {
     setShowLandingPage(false);  // This directly sets the landing page to not show
   };
- 
+  const playIntro = () => {
+    setShowLandingPage(true);  // This directly sets the landing page to show
+  };
 
   return (
     <div className="Home">
@@ -214,32 +217,26 @@ const Home = () => {
 
         
       </header>
-
-      <main>
       
-      <button
-  onClick={scrollToTop} // Replace `scrollToTop` with your actual function to scroll to the top
-  style={{
-    position: 'fixed',
-    bottom: '20px',
-    right: '20px',
-    background: 'transparent',
-    color: '#DD9313',
-    fontSize: '16px',
-    padding: '10px',
-    border: 'none',
-    borderRadius: '50%',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-    zIndex: 1000, // Ensure this doesn't exceed z-index of modals/overlays
-    pointerEvents: 'auto',
-    margin: '0', // Add margin if needed
-    maxWidth: '100%', // Ensure it respects the viewport width
-    maxHeight: '100%', // Ensure it respects the viewport height
-  }}
->
-  <FontAwesomeIcon icon={faArrowUp} /> {/* Using an arrow icon for scroll-to-top */}
-</button>
+
+      <main style={{overflowX: "hidden"}}>
+      
+      <Tooltip title="Scroll to Top">
+              <button
+                onClick={scrollToTop}
+                className='scroll-to-top-button'
+              >
+                <FontAwesomeIcon icon={faArrowUp} />
+              </button>
+            </Tooltip>
+            <Tooltip title="Play Intro">
+              <button
+                onClick={playIntro}
+                className="playIntro"
+              >
+                <FontAwesomeIcon icon={faPlay} />
+              </button>
+            </Tooltip>
 
 
        

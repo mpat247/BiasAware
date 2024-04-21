@@ -105,7 +105,7 @@ const NavigationBar = () => {
         position: 'relative',
         transition: 'color 0.3s ease, transform 0.3s ease-out',
         whiteSpace: 'nowrap',
-        fontSize: '1.5rem',
+        fontSize: '1rem',
       }} mobileStyle={{ fontSize: '1.2rem' }} />
 </motion.nav>
 
