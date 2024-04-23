@@ -158,7 +158,7 @@ const Emotions = () => {
   };
 
   return (
-    <div className="emotions-page" style={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'space-between' }}>
+    <div className="emotions-page" >
       <div>
         <div className="background-rectangle-top"></div>
         <div className="emotion-top-rectangle">
@@ -171,7 +171,7 @@ const Emotions = () => {
           <GearLoader />
         </div>
       ) : (
-        <div className="emotion-rectangle2" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="emotion-rectangle2" >
           <div className="image-grid">
             {Object.keys(emotionMap).map((emotion, index) => (
               <button key={index} className="emotion-button" onClick={() => handleClick(emotion, emotionMap[emotion])}>
