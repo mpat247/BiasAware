@@ -158,28 +158,31 @@ const Emotions = () => {
   };
 
   return (
-    <div className="emotions-page">
+    <div className="emotions-page" style={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'space-between' }}>
+      <div>
+        <div className="background-rectangle-top"></div>
+        <div className="emotion-top-rectangle">
+          <h1 className="emotion-title">I AM FEELING</h1>
+        </div>
+      </div>
+
       {mainLoading ? (
-        <GearLoader /> // Display the main loader while main images are loading
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <GearLoader />
+        </div>
       ) : (
-        // Main content once images are fetched
-        <div>
-          <div className="background-rectangle-top"></div>
-          <div className="emotion-top-rectangle">
-            <h1 className="emotion-title">I AM FEELING</h1>
-          </div>
-          <div className="background-rectangle-bottom"></div>
-          <div className="emotion-rectangle2">
-            <div className="image-grid">
-              {Object.keys(emotionMap).map((emotion, index) => (
-                <button key={index} className="emotion-button" onClick={() => handleClick(emotion, emotionMap[emotion])}>
-                  <img src={emotionMap[emotion]} alt={`emotion-${index}`} className="emotion-image" />
-                </button>
-              ))}
-            </div>
+        <div className="emotion-rectangle2" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div className="image-grid">
+            {Object.keys(emotionMap).map((emotion, index) => (
+              <button key={index} className="emotion-button" onClick={() => handleClick(emotion, emotionMap[emotion])}>
+                <img src={emotionMap[emotion]} alt={`emotion-${index}`} className="emotion-image" />
+              </button>
+            ))}
           </div>
         </div>
       )}
+
+      <div className="background-rectangle-bottom"></div>
 
       {showPopup && <div className="emotions-overlay" onClick={handleClose}></div>}
       {showPopup && (

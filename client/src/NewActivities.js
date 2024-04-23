@@ -407,11 +407,11 @@ const NewActivities = () => {
                 </div>
 
 
-                {mainLoader ? (
-                    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <GearLoader />
-                    </div>
-                ) : (
+{/* {mainLoader ? (
+                <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <GearLoader />
+                </div>
+            ) : ( */}
 
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">
@@ -463,7 +463,7 @@ const NewActivities = () => {
                     </div>
                 </div>
 
-)};
+{/* )}; */}
 
             </div>
             <Popup
