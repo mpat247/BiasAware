@@ -167,7 +167,7 @@ const Emotions = () => {
       </div>
 
       {mainLoading ? (
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', height: '75vh' }}>
           <GearLoader />
         </div>
       ) : (
