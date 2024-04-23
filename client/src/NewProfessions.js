@@ -205,23 +205,28 @@ const NewProfessions = () => {
   const handleClosePopup = () => {
     setPopupVisible(false);
   };
-  if (isFetching) return <GearLoader />;
-  if (error) return <p>{error}</p>;
+  
 
   return (
-    <div className="professions-landing-page-container">
-      <div className="professions-landing-page-title">
+    <div className="professions-landing-page-container" style={{ position: 'relative', height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <div className="professions-landing-page-title" style={{ textAlign: 'center', marginTop: '20px' }}>
         <h1 className="professions-landing-page-header">PROFESSIONS</h1>
       </div>
-      <div className="professions-category">
-        {categories.map((category, index) => (
-          <div key={index} className="professions-category-item" onClick={() => handleCategoryClick(category)} style={{ backgroundColor: category.color }}>
-            {console.log(category)}
 
-            <span className="professions-category-item-title">{category.name}</span>
-          </div>
-        ))}
-      </div>
+      {isFetching ? (
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <GearLoader />
+        </div>
+      ) : (
+        <div className="professions-category" style={{ flex: 1 }}>
+          {categories.map((category, index) => (
+            <div key={index} className="professions-category-item" onClick={() => handleCategoryClick(category)} style={{ backgroundColor: category.color }}>
+              <span className="professions-category-item-title">{category.name}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
       {isPopupVisible && selectedCategory && (
         <Popup
           onClose={handleClosePopup}
@@ -231,9 +236,9 @@ const NewProfessions = () => {
           categoryImages={selectedCategory.Images}
         />
       )}
-
     </div>
   );
+
 };
 
 export default NewProfessions;

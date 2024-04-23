@@ -1,0 +1,208 @@
+.galleries-gallery-container {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* background-color: #0B0533; */
+    /* max-width: 1200px; Maximum width of the container */
+    /* margin: 0 auto; Center the container */
+    /* padding: 20px; Padding around the container */
+}
+
+
+/* Gallery styles */
+.galleries-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0;
+    /* This removes space between rows and columns */
+}
+
+
+.galleries-gallery-item {
+    position: relative;
+    overflow: hidden;
+    /* Hide the overflow to maintain grid alignment */
+    cursor: pointer;
+    /* Indicates clickable items */
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.galleries-gallery-item::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 0.5em solid;
+    /* border-color: rgba(0, 0, 0, 0.3); */
+    /* border: 0.5em solid transparent;  */
+    border-color: #0B05334d;
+    /*Border color on hover*/
+    transition: border-color 0.3s ease;
+    pointer-events: none;
+    /* Ignore pointer events on the pseudo-element */
+}
+
+.galleries-gallery-item:hover::before {
+    border-color: #230eaf63;
+    /* Border color on hover */
+}
+
+.galleries-gallery-image {
+    width: 100%;
+    /* This ensures the image container matches the item's width */
+    height: 100%;
+    /* Ensures the image container matches the item's height */
+    display: flex;
+    align-items: stretch;
+}
+
+
+.galleries-gallery-image img {
+    display: block;
+    width: 100%;
+    /* Adjust width to cover the space */
+    height: 100%;
+    /* Adjust height to maintain aspect ratio */
+    object-fit: cover;
+    /* Cover the space without distorting aspect ratio */
+}
+
+figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1em;
+    transition: opacity 0.3s ease;
+    /* Smooth transition for fade effect */
+    opacity: 0;
+    cursor: default;
+    /* The caption text is not clickable */
+}
+
+.galleries-gallery-item:hover figcaption {
+    opacity: 1;
+    /* Show the caption on hover */
+}
+
+/* Modal styles */
+.galleries-modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
+    padding: 20px;
+    /* Add some padding to ensure content isn't touching the edges */
+}
+
+.galleries-modal-content {
+    max-width: 90%;
+    /* Adjust this value as needed */
+    max-height: 80vh;
+    /* Limit the height of the image */
+    display: block;
+}
+
+img.galleries-modal-content {
+    width: auto;
+    /* Use auto to maintain aspect ratio */
+    height: auto;
+    /* Use auto to maintain aspect ratio */
+    max-height: 80%;
+    /* Ensure it doesn't exceed the modal container */
+    max-width: 80%;
+    /* Ensure it doesn't exceed the modal container */
+    border-radius: 10px;
+}
+
+.galleries-close {
+    position: absolute;
+    top: 2rem;
+    /* Adjust as needed */
+    right: 3rem;
+    /* Adjust as needed */
+    color: #fff;
+    font-size: 2rem;
+    /* Adjust as needed */
+    cursor: pointer;
+    z-index: 10;
+}
+
+.galleries-close:hover {
+    color: #DD9313;
+}
+
+.galleries-caption {
+    color: white;
+    text-align: center;
+    padding-top: 1rem;
+    /* Add some space above the caption */
+}
+
+
+.galleries-gallery-title {
+    text-align: center;
+    font-family: "Crimson Text", serif;
+    /* color: white; */
+    color: #DD9313;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 6vw;
+    /* Responsively size the font */
+    max-width: 100%;
+    /* Ensure it doesn't exceed the container width */
+    overflow-wrap: break-word;
+    /* Ensures the text breaks to prevent overflow */
+}
+
+@media (min-width: 480px) {
+    .galleries-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .galleries-gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .galleries-gallery {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+
+/* Responsive typography for the title */
+@media (max-width: 768px) {
+    .galleries-gallery-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .galleries-gallery-title {
+        font-size: 1.25rem;
+    }
+}

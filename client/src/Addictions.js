@@ -211,34 +211,37 @@ const Addictions = () => {
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
       </Helmet>
       <header className="App-header">
-
-        {loading ? (
-          <Loader/> // Show loading indicator while images are being fetched
-        ) : (
-          <div className="addictions-container">
-            <h1 className="addictions-header">
-              ADDICTIONS
-            </h1>
+        <div className="addictions-container">
+          <h1 className="addictions-header">
+            ADDICTIONS
+          </h1>
+          {loading ? (
+              <Loader /> 
+          ) : (
             <div style={{ display: 'flex' }}>
               {getCurrentImages().map((image, index) => (
-                 <ImageComponent
-                 key={index}
-                 src={image.image}
-                 alt={`Addictions Illustration ${currentImageIndex + index - 2}`}
-                 prompt={image.prompt}
-                 description={image.description}
-                 onClick={(prompt, description) => openPopup(prompt, description)} // Ensure openPopup function is correctly implemented
-               />
+                <ImageComponent
+                  key={index}
+                  src={image.image}
+                  alt={`Addictions Illustration ${currentImageIndex + index - 2}`}
+                  prompt={image.prompt}
+                  description={image.description}
+                  onClick={(prompt, description) => openPopup(prompt, description)} // Ensure openPopup function is correctly implemented
+                />
               ))}
             </div>
-            <button className="arrow-button arrow-button-left" onClick={previousImage}>
-              <img src={ArrowLeftImage} alt="Left Arrow" />
-            </button>
-            <button className="arrow-button arrow-button-right" onClick={nextImage}>
-              <img src={ArrowRightImage} alt="Right Arrow" />
-            </button>
-          </div>
-        )}
+          )}
+          {!loading && (
+            <>
+              <button className="arrow-button arrow-button-left" onClick={previousImage}>
+                <img src={ArrowLeftImage} alt="Left Arrow" />
+              </button>
+              <button className="arrow-button arrow-button-right" onClick={nextImage}>
+                <img src={ArrowRightImage} alt="Right Arrow" />
+              </button>
+            </>
+          )}
+        </div>
       </header>
       {showPopup && <div className="overlay-addiction" onClick={closePopup}></div>}
       {showPopup && (
@@ -250,13 +253,6 @@ const Addictions = () => {
           description={popupDescription}
           sideImagesLoading={sideImagesLoading}
         />
-      )}
-      {sideImagesLoading && (
-        <div className="loader-overlay">
-          <div className="loader">
-            <Loader/> {/* Placeholder for a loading indicator */}
-          </div>
-        </div>
       )}
     </div>
   );

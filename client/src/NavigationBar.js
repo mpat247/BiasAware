@@ -51,7 +51,7 @@ const NavMenu = ({ current, handleClick, isMobile, iconStyle, linkStyle, mobileS
       <LinkItem to="/Statistics" icon={<BarChartOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Statistics" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Statistics" />
       <LinkItem to="/Engineering" icon={<SettingOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Engineering" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="Explore Engineering" />
       <LinkItem to="/Neighborhood" icon={<ClusterOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Neighborhood" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Neighborhood" />
-      <LinkItem to="/" icon={<PictureOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Gallery" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Gallery" />
+      <LinkItem to="/GalleriesLanding" icon={<PictureOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Gallery" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Gallery" />
     </Menu>
   </motion.div>
 );
@@ -105,7 +105,7 @@ const NavigationBar = () => {
         position: 'relative',
         transition: 'color 0.3s ease, transform 0.3s ease-out',
         whiteSpace: 'nowrap',
-        fontSize: '1rem',
+        fontSize: '1.0rem',
       }} mobileStyle={{ fontSize: '1.2rem' }} />
 </motion.nav>
 

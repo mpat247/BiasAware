@@ -23,6 +23,9 @@ import Computer from './Computer'
 import Electrical from './Electrical'
 import Industrial from './Industrial'
 import Mechanical from './Mechanical'
+import Galleries from './Galleries'
+import GalleriesLanding from './GalleriesLanding';
+
 //import Test from './Test'; // Import the test2 component
 
 import './App.css';
@@ -58,6 +61,8 @@ function App() {
         <Route path="/Mechanical" element={<Mechanical />} /> {/* Define the route for Crime page */}
         <Route path="/Addictions" element={<Addictions />} /> {/* Define the route for Crime page */}
         <Route path="/NewActivities" element={<NewActivities />} /> 
+        <Route path="/Galleries" element={<Galleries />} />
+        <Route path="/GalleriesLanding" element={<GalleriesLanding />} /> 
       </Routes>
     </Router>
   );

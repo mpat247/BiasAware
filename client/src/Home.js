@@ -1,6 +1,6 @@
 // App.js
 import { FaArrowUp } from 'react-icons/fa'; // Assuming you are using react-icons for icons
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy  } from 'react';
 import './Home.css';
 import NavigationBar from './NavigationBar'; // Import the NavigationBar component
 import Addictions from './Addictions';
@@ -13,7 +13,7 @@ import NewProfessions from './NewProfessions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faPlay } from '@fortawesome/free-solid-svg-icons'; // Assuming the icon for scroll-to-top is an arrow
 import { Tooltip } from 'antd'; // Ensure Tooltip is imported if not already
-
+import GearLoader from './GearLoader';
 
 import './GearComponent.css';
 
@@ -244,33 +244,40 @@ const Home = () => {
         
       </main>
 
-
-
-      <div id="addictions">
-              <Addictions />
-      </div>
-            
-      {/* Quality of Life section */}
-      <div id="qol">
-        <QOL />
-      </div>
-      {/* Quality of Life section */}
-      <div id="Emotions">
-        <Emotions />
-      </div>
-
-  
-
-      <div id="Crime">
-        <Crime />
-      </div>
-            <div id="activities">
-              <NewActivities />
+            <div>
+              <Suspense fallback={<GearLoader />}>
+                <div id="addictions">
+                  <Addictions />
+                </div>
+              </Suspense>
+              <Suspense fallback={<GearLoader />}>
+                <div id="qol">
+                  <QOL />
+                </div>
+              </Suspense>
+              <Suspense fallback={<GearLoader />}>
+                <div id="Emotions">
+                  <Emotions />
+                </div>
+              </Suspense>
+              <Suspense fallback={<GearLoader />}>
+                <div id="Crime">
+                  <Crime />
+                </div>
+              </Suspense>
+              <Suspense fallback={<GearLoader />}>
+                <div id="activities">
+                  <NewActivities />
+                </div>
+              </Suspense>
+              <Suspense fallback={<GearLoader />}>
+                <div id="NewProfessions">
+                  <NewProfessions />
+                </div>
+              </Suspense>
             </div>
 
-            <div id="NewProfessions">
-              <NewProfessions />
-            </div>
+      
 
 
       </>

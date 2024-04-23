@@ -1,0 +1,66 @@
+.galleries-landing-container {
+    background-color: #0B0533;
+    padding: 20px;
+    /* Add padding for better spacing */
+    /* height: 100vh; */
+}
+
+.galleries-landing-title {
+    text-align: center;
+    font-family: "Crimson Text", serif;
+    color: #DD9313;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 6vw;
+    /* Responsively size the font */
+}
+
+.galleries-landing-individual-titles {
+    /* text-align: center;
+    font-family: "Crimson Text", serif;
+    color: white;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 4vw;  */
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color: white;
+    font-size: 3vw;
+    text-align: center;
+}
+
+.galleries-landing-all-three-container {
+    display: flex;
+    justify-content: space-around;
+    /* This will space your galleries evenly */
+    flex-wrap: wrap;
+    /* This allows the items to wrap onto the next line on smaller screens */
+    /* background-color: #DD9313; */
+    /* height: 100vh;  */
+}
+
+.galleries-landing-individual-container {
+    flex-basis: 32.5%;
+    /* Each gallery will take roughly 30% of the container's width */
+    /* background-color: aqua; */
+    /* height: 100%;  */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .galleries-landing-individual-container {
+        flex-basis: 45%;
+        /* Each gallery will take roughly 45% of the container's width on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .galleries-landing-individual-container {
+        flex-basis: 90%;
+        /* Each gallery will take almost the full width on very small screens */
+        margin: 10px auto;
+        /* Center galleries with automatic margins on the sides */
+    }
+}

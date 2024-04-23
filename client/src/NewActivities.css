@@ -175,9 +175,11 @@
 }
 .activities-PostSlide .activities-handles .activities-prev {
 	opacity: 1;
+	z-index: 10001
 }
 .activities-PostSlide .activities-handles .activities-next {
 	opacity: 1;
+		z-index: 10001
 }
 .activities-PostSlide .activities-handles * {
 	-webkit-user-select: none;

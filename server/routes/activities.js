@@ -59,12 +59,21 @@ router.get('/', async (req, res) => {
 
 
 router.get('/side', async (req, res) => {
+  const { name } = req.query; // Destructure 'name' from query parameters
+var count = 0;
   try {
-    // Fetch main images
-    const images = await Image.find({
+    // Extract the first 3 letters of the 'name' provided, if it exists
+    const name2 = name ? name.substring(0, 3) : null;
+
+    // Construct a query object
+    let query = {
       bias_name: "Activities",
-      prompt: { $ne: null, $not: /^Main_/ }
-    });
+      prompt: { $ne: null, $not: /^Main_/ },
+      ...(name2 && { 'prompt': { $regex: `^A\\s${name2}`, $options: 'i' } }) // Add regex to match prompts starting with "A " followed by 'name2'
+    };
+
+    // Fetch images based on the constructed query
+    const images = await Image.find(query);
 
     if (!images.length) {
       return res.status(404).send({ message: 'No main images found' });
@@ -92,19 +101,17 @@ router.get('/side', async (req, res) => {
 
         downloadStream.on('end', () => {
           const imgBase64 = Buffer.concat(data).toString('base64');
-          
           const filterer = image.prompt.replace(/^A\s/, '').substring(0, 3);
+          console.log(count++);
           // Include the description in the resolved object
           resolve({
             image: `data:${contentType};base64,${imgBase64}`,
             prompt: image.prompt,
-            filterer: filterer // Add the description field here
+            filterer: filterer // This is the field we're using to match the 'name2' logic
           });
         });
       });
     }));
-
-
 
     res.status(200).json({ images: imagesData });
   } catch (error) {

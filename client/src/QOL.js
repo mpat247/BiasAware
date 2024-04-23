@@ -79,17 +79,21 @@ const QOL = () => {
     return (
       <div className="qol-main-container">
         <h1 className="qol-title">QUALITY OF LIFE</h1>
+
+        {isFetching2 ? (
+          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+
+            <GearLoader />
+</div>
+        ) : (
+
         <div className="qol-image-container-wrapper">
           <div className="qol-flex-container">
             <div className="qol-flex-item"></div>
             <div className="qol-flex-item"></div>
           </div>
           <div className="qol-flex-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-  {isFetching2 ? (
-    <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <GearLoader />
-    </div>
-  ) : (
+  
     <div className="qol-image-container">
       {toShowLeft.map((image, index) => (
         <LazyLoadImage
@@ -101,12 +105,7 @@ const QOL = () => {
         />
       ))}
     </div>
-  )}
-  {isFetching2 ? (
-    <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <GearLoader />
-    </div>
-  ) : (
+  
     <div className="qol-image-container">
       {toShowRight.map((image, index) => (
         <LazyLoadImage
@@ -118,10 +117,12 @@ const QOL = () => {
         />
       ))}
     </div>
-  )}
 </div>
 
         </div>
+
+        )}
+
         {selectedBox && (
           <div className="qol-popup">
             <div className="qol-popup-container">

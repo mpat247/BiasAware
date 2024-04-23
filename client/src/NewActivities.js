@@ -9,6 +9,8 @@ import tennis from './images/image 12.png';
 import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
 import GearLoader from './GearLoader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const colors = ["#FFD600", "#F5A720", "#D9822A", "#BE5C43", "#A33862", "#6A2774", "#441A93", "#161E7B"]; // Define colors for slides
 
@@ -34,7 +36,7 @@ const initialSlideInfo = [
 ];
 
 
-const Popup = ({ isVisible, onClose, bgColor, description, name, sideImages, selectedImage, prompt }) => {
+const Popup = ({ isVisible, onClose, bgColor, description, name, sideImages, selectedImage, prompt, sideLoader }) => {
 
     useEffect(() => {
         console.log("Popup bgColor prop:", bgColor);
@@ -47,29 +49,50 @@ const Popup = ({ isVisible, onClose, bgColor, description, name, sideImages, sel
 
     return (
         <div className="activities-popup-overlay" onClick={onClose}>
-            <div className="activities-popup-content" onClick={e => e.stopPropagation()}>
-                <div className="activities-popup-header" style={{ backgroundColor: bgColor }}>
-                    <h1 className="activities-popup-title">{prompt}</h1>
-                </div>
-                <div className="activities-popup-body" style={{ backgroundColor: bgColor }}>
-                    <div className="activities-popup-slides-container">
-                        {sideImages.map((img, index) => (
-                            <div key={index} className="activities-popup-slide">
-                                <img src={img.image} alt={`Side image ${index + 1}`} className="activities-popup-image" />
+            <div className="activities-popup-content" onClick={e => e.stopPropagation()} style={{ position: 'relative' }}>
+                <button
+                    style={{
+                        position: 'absolute',
+                        top: '5px',
+                        right: '5px',
+                        padding: '3px 8px',
+                        backgroundColor: bgColor,
+                        color: 'rgba(255, 255, 255, 0.55)',
+                        border: '1px solid rgba(255, 255, 255, 0.55)',
+                        borderRadius: '10px',
+                        cursor: 'pointer',
+                        zIndex: 1000,
+                        pointerEvents: 'auto'
+                    }}
+                    onClick={onClose}
+                >
+                    <FontAwesomeIcon icon={faTimes} />
+                </button>
+                {sideLoader ? (
+                    <GearLoader /> // Display the loader while loading
+                ) : (
+                    <>
+                        <div className="activities-popup-header" style={{ backgroundColor: bgColor }}>
+                            <h1 className="activities-popup-title">{prompt}</h1>
+                        </div>
+                        <div className="activities-popup-body" style={{ backgroundColor: bgColor }}>
+                            <div className="activities-popup-slides-container">
+                                {sideImages.map((img, index) => (
+                                    <div key={index} className="activities-popup-slide">
+                                        <img src={img.image} alt={`Side image ${index + 1}`} className="activities-popup-image" />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-
-                    </div>
-                    <div className="activities-popup-slide-caption">
-                        <p className="activities-popup-statistical-analysis">{description}</p>
-                    </div>
-                </div>
-                <div className="activities-popup-footer">
-                    <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>Close</button>
-                </div>
+                            <div className="activities-popup-slide-caption">
+                                <p className="activities-popup-statistical-analysis">{description}</p>
+                            </div>
+                        </div>
+                    </>
+                )}
             </div>
         </div>
     );
+
 };
 
 const NewActivities = () => {
@@ -84,7 +107,8 @@ const NewActivities = () => {
     const [selectedImageName, setSelectedImageName] = useState(''); // State variable for selected image name
     const [selectedImage, setSelectedImage] = useState(''); // State variable for selected image name
     const [selectedImagePrompt, setSelectedImagePrompt] = useState(''); // State variable for selected image name
-
+    const [sideLoader, setSideLoader] = useState(false);
+    const [mainLoader, setMainLoader] = useState(true);
 
     useEffect(() => {
         const fetchMainImages = async () => {
@@ -110,50 +134,69 @@ const NewActivities = () => {
                 setFetchedSideImages(fetchedSideImages);
             } catch (error) {
                 console.error('Failed to fetch main images:', error);
+            } finally {
+                setMainLoader(false);
             }
         };
 
         fetchMainImages();
     }, []);
 
-    const handleSlideClick = (event, color, name, description, image, prompt2) => {
-        // This check ensures that only clicks directly on `activities-slide-inner`
-        // or its descendants can trigger the popup.
+    const handleSlideClick = async (event, color, name, description, image, prompt2) => {
+        // Ensure click was on the intended element
         if (!event.currentTarget.classList.contains('activities-slide-inner')) {
-            return; // Do nothing if the click is not on the target element.
+            return; // Exit if click was not on the correct element
         }
 
-        console.log(color, name, description, image)
+        setPopupColor('transparent')
 
-        setSelectedImage(image);
-        console.log(image)
-        const name2 = name.substring(0, 3);
-        const filteredSideImages = fetchedSideImages.filter(image => image.filterer === name2);
+        console.log("printing: ", name, description, prompt2);
+        console.log("Details: ", color, name, description, image);
 
-        // Safely accessing properties with optional chaining
-        let promptToAdd = filteredSideImages[0]?.prompt ?? 'Default Prompt';
-        let filteredToAdd = filteredSideImages[0]?.filterer ?? 'Default Filterer';
-
-        let objectToInsert = { image: image, prompt: promptToAdd, filterer: filteredToAdd };
-
-        // Consider conditionally adding objectToInsert based on whether filteredSideImages has items
-        if (filteredSideImages.length > 0) {
-            filteredSideImages.splice(1, 0, objectToInsert);
-        }
-        console.log(filteredSideImages)
-        setSelectedImagePrompt(prompt2);
-        setSelectedImageDescription(description);
-        setSelectedImageName(name);
-        setSelectedSideImages(filteredSideImages); // Set the filtered side images
-        // Finally, show the popup
+        // Immediately show the popup and activate the loader
         setPopupVisible(true);
-console.log("selected sode o,ages: " + selectedSideImages)
+        setSideLoader(true); // Set loading to true to show a spinner or loading indicator in the popup
 
-        console.log('Setting color to:', color);
+        try {
+            const API_URL = REACT_APP_API_URL;
+            const sideResponse = await axios.get(`${API_URL}/activities/side?name=${name.substring(0, 3)}`);
+            const fetchedSideImages = sideResponse.data.images;
+
+            console.log(fetchedSideImages);
+
+            // Append a specific object to the array of images
+            const name2 = name.substring(0, 3);
+            let filteredSideImages = fetchedSideImages.filter(image => image.filterer === name2);
+
+            let promptToAdd = fetchedSideImages[0]?.prompt ?? 'Default Prompt';
+            let filteredToAdd = fetchedSideImages[0]?.filterer ?? 'Default Filterer';
+            let objectToInsert = { image: image, prompt: promptToAdd, filterer: filteredToAdd };
+
+            if (fetchedSideImages.length > 0) {
+                fetchedSideImages.splice(1, 0, objectToInsert); // Insert object at the second position
+            }
+
+            // Set states for use in the popup
+            setSelectedImage(image);
+            setSelectedImagePrompt(prompt2);
+            setSelectedImageDescription(description);
+            setSelectedImageName(name);
+            setSelectedSideImages(fetchedSideImages); // Update the state with the modified image list
+            console.log("Selected side images: ", filteredSideImages);
+        } catch (error) {
+            console.error('Failed to fetch side images:', error);
+        } finally {
+            // Turn off the loader whether the fetch succeeded or failed
+            setSideLoader(false);
+        }
+
         setPopupColor(color);
-        setPopupVisible(true);
-        event.stopPropagation(); // Prevent the event from bubbling further.
+        console.log('Setting color to:', color);
+
+        // Stop further propagation of the click event
+        event.stopPropagation();
     };
+
 
 
     // This useEffect will log whenever popupColor changes
@@ -166,47 +209,51 @@ console.log("selected sode o,ages: " + selectedSideImages)
         var autoplayIntervalInSeconds = 1;
 
         class PostSlider {
-
             constructor(containerElement, autoplayIntervalInSeconds) {
                 this.container = containerElement;
                 if (!this.container) {
                     throw new Error(`Container not found.`);
                 }
 
-                this.slider = this.container.querySelector('.activities-slider');
-                this.prevBtn = this.container.querySelector('.activities-handles .activities-prev');
-                this.nextBtn = this.container.querySelector('.activities-handles .activities-next');
+                this.initSlider();
+                this.autoplayDelay = 8000;
+                this.startAutoplay();
+                this.container.addEventListener('mouseenter', () => this.pauseAutoplay());
+                this.container.addEventListener('mouseleave', () => this.startAutoplay());
+            }
 
+            initSlider() {
+                this.slider = this.container.querySelector('.activities-slider');
                 this.sLiderWidth = this.slider.clientWidth;
                 this.oneSLideWidth = this.container.querySelector('.activities-slide:nth-child(2)').clientWidth;
                 console.log(this.oneSLideWidth);
                 this.sildesPerPage = Math.trunc(this.sLiderWidth / this.oneSLideWidth);
-                // this.sildesPerPage = Math.min(Math.trunc(this.sLiderWidth / this.oneSLideWidth), 3);
                 this.slideMargin = ((this.sLiderWidth - (this.sildesPerPage * this.oneSLideWidth)) / (this.sildesPerPage * 2)).toFixed(5);
                 this.changeSlidesMargins();
-
                 this.makeSliderScrollable();
-
-                // Inside your PostSlider class constructor or the relevant method where you bind event listeners to the arrows
-                this.prevBtn.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    this.prevSlider();
-                });
-
-                this.nextBtn.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    this.nextSlider();
-                });
-
-                // this.autoplayInterval = null;
-                this.autoplayDelay = autoplayIntervalInSeconds * 1000;
-
-                this.startAutoplay()
-                this.container.addEventListener('mouseenter', () => this.pauseAutoplay());
-                this.container.addEventListener('mouseleave', () => this.startAutoplay());
-
-                return this;
+                this.bindButtons();
             }
+
+            bindButtons() {
+                this.prevBtn = this.container.querySelector('.activities-handles .activities-prev');
+                this.nextBtn = this.container.querySelector('.activities-handles .activities-next');
+
+                if (this.prevBtn && this.nextBtn) {
+                    this.prevBtn.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        this.prevSlider();
+                    });
+
+                    this.nextBtn.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        this.nextSlider();
+                    });
+                } else {
+                    // Retry binding buttons after 100 ms
+                    setTimeout(() => this.bindButtons(), 100);
+                }
+            }
+
             changeSlidesMargins() {
                 const slides = this.container.querySelectorAll('.activities-slide');
                 if (this.oneSLideWidth * 2 > this.sLiderWidth) {
@@ -257,19 +304,8 @@ console.log("selected sode o,ages: " + selectedSideImages)
                 let startPosition;
                 let startScrollPosition;
 
-                this.slider.addEventListener('mousedown', (event) => startDrag(event));
-                this.slider.addEventListener('touchstart', (event) => startDrag(event));
-
-                const startDrag = (event) => {
-                    isDragging = true;
-                    startPosition = event.clientX || event.touches[0].clientX;
-                    startScrollPosition = this.slider.scrollLeft;
-
-                    document.addEventListener('mousemove', drag);
-                    document.addEventListener('touchmove', drag);
-                    document.addEventListener('mouseup', endDrag);
-                    document.addEventListener('touchend', endDrag);
-                };
+                this.slider.addEventListener('mousedown', (event) => this.startDrag(event));
+                this.slider.addEventListener('touchstart', (event) => this.startDrag(event));
 
                 const drag = (event) => {
                     if (isDragging) {
@@ -295,6 +331,17 @@ console.log("selected sode o,ages: " + selectedSideImages)
                         document.removeEventListener('mouseup', endDrag);
                         document.removeEventListener('touchend', endDrag);
                     }
+                };
+
+                this.startDrag = (event) => {
+                    isDragging = true;
+                    startPosition = event.clientX || event.touches[0].clientX;
+                    startScrollPosition = this.slider.scrollLeft;
+
+                    document.addEventListener('mousemove', drag);
+                    document.addEventListener('touchmove', drag);
+                    document.addEventListener('mouseup', endDrag);
+                    document.addEventListener('touchend', endDrag);
                 };
             }
 
@@ -340,11 +387,12 @@ console.log("selected sode o,ages: " + selectedSideImages)
             }
         }
 
-        window.addEventListener('load', function () {
-            var container = document.querySelector('.activities-PostSlide .activities-innerContainer');
-            new PostSlider(container, 3);
-        })
+        const container = document.querySelector('.activities-PostSlide .activities-innerContainer');
+        if (container) {
+            new PostSlider(container, 1);
+        }
     }, []);
+
 
     // Inside NewActivities component, before the return statement
     console.log('Popup bgColor state:', popupColor);
@@ -357,6 +405,14 @@ console.log("selected sode o,ages: " + selectedSideImages)
                 <div className="activities-title-container">
                     <h1 className="activities-landing-title">ACTIVITIES</h1>
                 </div>
+
+
+                {mainLoader ? (
+                    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <GearLoader />
+                    </div>
+                ) : (
+
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">
 
@@ -372,8 +428,11 @@ console.log("selected sode o,ages: " + selectedSideImages)
 
                         <div className="activities-slider">
                             {slideInfo.map((slide, index) => (
-                                <div key={index} className="activities-slide" style={{ backgroundColor: slide.color }}>
-                                    <div className="activities-slide-inner" onClick={(e) => handleSlideClick(e, slide.color, slide.name, slide.description, slide.image, slide.prompt)} onMouseEnter={() => setHoveredSlide(slide.name)} onMouseLeave={() => setHoveredSlide(null)}>
+                                <div className="activities-slide" style={{ backgroundColor: slide.color }}>
+                                    <div className="activities-slide-inner"
+                                        onClick={(e) => handleSlideClick(e, slide.color, slide.name, slide.description, slide.image, slide.prompt)}
+                                        onMouseEnter={() => setHoveredSlide(slide.name)}
+                                        onMouseLeave={() => setHoveredSlide(null)}>
                                         <img src={slide.image} className="activities-image" />
                                         {hoveredSlide === slide.name && (
                                             <div className="activities-hover-caption">{slide.name}</div>
@@ -382,6 +441,8 @@ console.log("selected sode o,ages: " + selectedSideImages)
                                 </div>
                             ))}
                         </div>
+
+                        
 
                         <div className="activities-handles">
                             <span className="activities-prev">
@@ -401,17 +462,20 @@ console.log("selected sode o,ages: " + selectedSideImages)
                         </div>
                     </div>
                 </div>
+
+)};
+
             </div>
             <Popup
                 isVisible={isPopupVisible}
-                onClose={() => setPopupVisible(false)}
+                onClose={() => [setPopupVisible(false), setPopupColor(false)]}
                 bgColor={popupColor} // Here you're using popupColor correctly
                 description={selectedImageDescription}
                 name={selectedImageName}
                 sideImages={selectedSideImages}
                 selectedImage={selectedImage}
                 prompt={selectedImagePrompt}
-
+                sideLoader={sideLoader}
             />
         </div>
     );
