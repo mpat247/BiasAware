@@ -10,6 +10,8 @@ import tennis from './images/image 12.png';
 import axios from 'axios';
 import REACT_APP_API_URL from './config';
 import GearLoader from './GearLoader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const initialCategories = [
   { name: 'Business', color: '#FFD600', images: [] },
@@ -133,6 +135,27 @@ const Popup = ({ onClose, bgColor, category, images, categoryImages }) => {
   return (
     <div className="professions-popup-overlay" onClick={onClose}>
       <div className="professions-popup-content" onClick={e => e.stopPropagation()}>
+      <div style={{ position: 'relative' }}>
+      <button
+  style={{
+    position: 'absolute',
+    top: '5%', 
+    right: '-50%',
+    padding: '3px 8px',
+    backgroundColor: bgColor,
+    color: 'rgba(255, 255, 255, 0.55)',
+    border: '1px solid rgba(255, 255, 255, 0.55)',
+    borderRadius: '10px',
+    cursor: 'pointer',
+    zIndex: 1000,
+    pointerEvents: 'auto'
+  }}
+  onClick={onClose}
+>
+  <FontAwesomeIcon icon={faTimes} />
+</button>
+</div>
+        
         <div className="professions-popup-header">
           <h1 className="professions-popup-title" style={{ color: bgColor }}>{category.name}</h1>
         </div>
@@ -149,9 +172,9 @@ const Popup = ({ onClose, bgColor, category, images, categoryImages }) => {
             <p className="professions-popup-statistical-analysis">{category.images[0].description}</p>
           </div>
         </div>
-        <div className="professions-popup-footer">
+        {/* <div className="professions-popup-footer">
           <button className="professions-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>Close</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

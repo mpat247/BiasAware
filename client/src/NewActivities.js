@@ -109,6 +109,8 @@ const NewActivities = () => {
     const [selectedImagePrompt, setSelectedImagePrompt] = useState(''); // State variable for selected image name
     const [sideLoader, setSideLoader] = useState(false);
     const [mainLoader, setMainLoader] = useState(true);
+    const [key, setKey] = useState(0); // state to hold the key
+
 
     useEffect(() => {
         const fetchMainImages = async () => {
@@ -194,7 +196,7 @@ const NewActivities = () => {
         console.log('Setting color to:', color);
 
         // Stop further propagation of the click event
-        event.stopPropagation();
+        // event.stopPropagation();
     };
 
 
@@ -220,6 +222,7 @@ const NewActivities = () => {
                 this.startAutoplay();
                 this.container.addEventListener('mouseenter', () => this.pauseAutoplay());
                 this.container.addEventListener('mouseleave', () => this.startAutoplay());
+                this.bindButtons();
             }
 
             initSlider() {
@@ -385,14 +388,31 @@ const NewActivities = () => {
             pauseAutoplay() {
                 clearInterval(this.autoplayInterval);
             }
+            
+            destroy() {
+                if (this.autoplayInterval) {
+                    clearInterval(this.autoplayInterval);
+                }
+                this.container.removeEventListener('mouseenter', this.pauseAutoplay);
+                this.container.removeEventListener('mouseleave', this.startAutoplay);
+                // Remove other event listeners if there are any
+            }
+
         }
+        
+
+       
+
 
         const container = document.querySelector('.activities-PostSlide .activities-innerContainer');
         if (container) {
-            new PostSlider(container, 1);
+            const slider = new PostSlider(container, 1);
+            return () => slider.destroy(); // Assuming a destroy method that cleans up
+
         }
     }, []);
 
+    
 
     // Inside NewActivities component, before the return statement
     console.log('Popup bgColor state:', popupColor);
@@ -400,18 +420,16 @@ const NewActivities = () => {
 
     return (
         // <>
-        <div className="activities-page-container">
-            <div className="activities-PostSlide-wrapper">
-                <div className="activities-title-container">
-                    <h1 className="activities-landing-title">ACTIVITIES</h1>
-                </div>
-
-
-{/* {mainLoader ? (
-                <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <GearLoader />
-                </div>
-            ) : ( */}
+        <div className="activities-page-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', height: '100vh' }}>
+        <div className="activities-PostSlide-wrapper">
+          <div className="activities-title-container" style={{ width: '100%' }}>
+            <h1 className="activities-landing-title" style={{ textAlign: 'center', marginBottom: '20px' }}>ACTIVITIES</h1>
+          </div>
+          {mainLoader ? (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+              <GearLoader />
+            </div>
+          ) : (
 
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">
@@ -442,33 +460,34 @@ const NewActivities = () => {
                             ))}
                         </div>
 
-                        
+                        {!isPopupVisible && (
 
-                        <div className="activities-handles">
-                            <span className="activities-prev">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"><path
-                                        d="M15.0001 19.92L8.48009 13.4C7.71009 12.63 7.71009 11.37 8.48009 10.6L15.0001 4.07999"
-                                        stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10"
-                                        strokeLinecap="round" strokeLinejoin="round"></path></svg>
-                            </span>
-                            <span className="activities-next">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"><path
-                                        d="M8.99991 19.92L15.5199 13.4C16.2899 12.63 16.2899 11.37 15.5199 10.6L8.99991 4.07999"
-                                        stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10"
-                                        strokeLinecap="round" strokeLinejoin="round"></path></svg>
-                            </span>
-                        </div>
+
+<div className="activities-handles" style={{ position: 'relative', height: '50px' /* adjust height as needed */ }}>
+<span className="activities-prev" style={{ position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 10 }}>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.0001 19.92L8.48009 13.4C7.71009 12.63 7.71009 11.37 8.48009 10.6L15.0001 4.07999" stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"></path>
+    </svg>
+</span>
+<span className="activities-next" style={{ position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 10 }}>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.99991 19.92L15.5199 13.4C16.2899 12.63 16.2899 11.37 15.5199 10.6L8.99991 4.07999" stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"></path>
+    </svg>
+</span>
+</div>
+
+
+)}
+
                     </div>
                 </div>
 
-{/* )}; */}
+ )}
 
             </div>
             <Popup
                 isVisible={isPopupVisible}
-                onClose={() => [setPopupVisible(false), setPopupColor(false)]}
+                onClose={() => [setPopupVisible(false), setPopupColor(false),setKey(prevKey => prevKey + 1)]}
                 bgColor={popupColor} // Here you're using popupColor correctly
                 description={selectedImageDescription}
                 name={selectedImageName}

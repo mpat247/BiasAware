@@ -57,8 +57,8 @@ const Addictions = () => {
   };
 
   const PopupCard = ({ image, prompt, sideImages, onClose, retrievedImage, description, sideImagesLoading }) => {
-    console.log("Side Images: " + sideImages)
-
+    console.log("Side Images: ", sideImages);
+  
     const formattedPrompt = prompt => {
       const vowels = ['a', 'e', 'i', 'o', 'u'];
       const firstLetter = prompt.toLowerCase().charAt(0);
@@ -68,85 +68,85 @@ const Addictions = () => {
         return `A ${prompt} Dependent Individual`;
       }
     };
-
+  
     // Fill the sideImages array with empty strings if there are fewer than 4 side images
     const filledSideImages = [...sideImages, '', '', '', ''].slice(0, 4);
-    console.log(filledSideImages)
-
+    console.log("Filled Side Images: ", filledSideImages);
+  
     return (
-      
-      
-
       <div className="popup-card-addiction">
         <div className="popup-content-addiction">
-          <button className="close-button-addiction" onClick={onClose}>          <FontAwesomeIcon icon={faTimes} />
-</button>
-
-         
+          <button className="close-button-addiction" onClick={onClose}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+          
           <div className="image-layout-addiction">
-  <div className="side-images-addictions left">
-    {filledSideImages.slice(0, 2).map((sideImage, index) => (
-      <div key={index} className="side-image-addictions">
-        <LazyLoadImage
-          src={sideImage.image}
-          alt={`sideImage ${index + 1}`}
-          className="side-image-addictions"
-          effect="blur"
-          placeholderSrc="path_to_loading_placeholder.jpg"  // Optionally define a placeholder
-        />
-      </div>
-    ))}
-  </div>
-  <div className="main-image-container-addictions">
-    {image && (
-      <LazyLoadImage
-        src={image}
-        alt="Selected Addiction"
-        className="retrieved-image-centered-addictions"
-        effect="blur"
-        placeholderSrc="path_to_loading_placeholder.jpg"  // Optionally define a placeholder
-      />
-    )}
-    {prompt && <div className="prompt-text-addictions">{formattedPrompt(prompt)}</div>}
-    {description && <div className="description-text-addictions">{description}</div>}
-  </div>
-  <div className="side-images-addictions right">
-    {filledSideImages.slice(2, 4).map((sideImage, index) => (
-      <div key={index} className="side-image-addictions">
-        <LazyLoadImage
-          src={sideImage.image}
-          alt={`sideImage ${index + 1}`}
-          className="side-image-addictions"
-          effect="blur"
-          placeholderSrc="path_to_loading_placeholder.jpg"  // Optionally define a placeholder
-        />
-      </div>
-    ))}
-  </div>
-</div>
-
+            <div className="side-images-addictions left">
+              {sideImagesLoading ? (
+                <Loader /> 
+              ) : (
+                filledSideImages.slice(0, 2).map((sideImage, index) => (
+                  <div key={index} className="side-image-addictions">
+                    <LazyLoadImage
+                      src={sideImage.image}
+                      alt={`sideImage ${index + 1}`}
+                      className="side-image-addictions"
+                      effect="blur"
+                      placeholderSrc="path_to_loading_placeholder.jpg"
+                    />
+                  </div>
+                ))
+              )}
+            </div>
+            <div className="main-image-container-addictions">
+              {image && (
+                <LazyLoadImage
+                  src={image}
+                  alt="Selected Addiction"
+                  className="retrieved-image-centered-addictions"
+                  effect="blur"
+                  placeholderSrc="path_to_loading_placeholder.jpg"
+                />
+              )}
+              {prompt && <div className="prompt-text-addictions">{formattedPrompt(prompt)}</div>}
+              {description && <div className="description-text-addictions">{description}</div>}
+            </div>
+            <div className="side-images-addictions right">
+              {sideImagesLoading ? (
+                <Loader />
+              ) : (
+                filledSideImages.slice(2, 4).map((sideImage, index) => (
+                  <div key={index} className="side-image-addictions">
+                    <LazyLoadImage
+                      src={sideImage.image}
+                      alt={`sideImage ${index + 1}`}
+                      className="side-image-addictions"
+                      effect="blur"
+                      placeholderSrc="path_to_loading_placeholder.jpg"
+                    />
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+  
           <a href="/Statistics" className="statistics-link-emotions">More Information Here</a>
-
-
-
-
         </div>
       </div>
-    
-  
-  );
+    );
   };
 
 
   const openPopup = async (prompt, description) => {
-    setSideImagesLoading(true); // Start loading side images
     document.body.style.overflow = 'hidden'; // Disable scrolling
     setPopupPrompt(prompt);
     setpopupDescription(description);
-  
-    // Find the main image corresponding to the prompt
     const mainImage = imagesData.find(image => image.prompt === prompt)?.image;
     setPopUpMain([mainImage]);
+    setSideImagesLoading(true); // Start loading side images
+    setShowPopup(true);
+
+    // Find the main image corresponding to the prompt
   
       try {
       const sideResponse = await axios.get(`${API}/addictions/side-images`, {
@@ -170,7 +170,6 @@ const Addictions = () => {
       setPopUpSide([]); // Reset to an empty array in case of an error
     } finally {
       setSideImagesLoading(false); // Ensure loading indicator is removed after fetching
-      setShowPopup(true);
 
     }
   };  

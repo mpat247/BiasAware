@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, Tooltip } from 'antd';
-import { HomeOutlined, BarChartOutlined, SettingOutlined, ClusterOutlined, PictureOutlined } from '@ant-design/icons';
+import { HomeOutlined, BarChartOutlined, SettingOutlined, EnvironmentOutlined, PictureOutlined } from '@ant-design/icons';
 
 import './NavigationBar.css';
 
@@ -50,7 +50,7 @@ const NavMenu = ({ current, handleClick, isMobile, iconStyle, linkStyle, mobileS
 >      <LinkItem to="/" icon={<HomeOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Home" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="Go to Home Page" />
       <LinkItem to="/Statistics" icon={<BarChartOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Statistics" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Statistics" />
       <LinkItem to="/Engineering" icon={<SettingOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Engineering" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="Explore Engineering" />
-      <LinkItem to="/Neighborhood" icon={<ClusterOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Neighborhood" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Neighborhood" />
+      <LinkItem to="/Neighborhood" icon={<EnvironmentOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Neighborhood" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Neighborhood" />
       <LinkItem to="/GalleriesLanding" icon={<PictureOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Gallery" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Gallery" />
     </Menu>
   </motion.div>
