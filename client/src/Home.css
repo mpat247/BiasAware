@@ -16,6 +16,7 @@ body {
 	color: #140C46;
 	overflow-x: hidden;
 }
+
 /* Header styles */
 .App-header {
 	background-color: #140C46;
@@ -270,5 +271,25 @@ body {
 	.scroll-to-top-button {
 		bottom: 20px;
 		right: 2vh;
+	}
+}
+
+/* Home.css */
+@media (max-width: 768px) {
+
+	body,
+	html {
+		max-width: 100%;
+		overflow-x: hidden;
+		/* Prevents horizontal overflow on mobile */
+	}
+
+	
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		/* Ensures padding and border are included in the width */
 	}
 }

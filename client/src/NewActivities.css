@@ -456,3 +456,10 @@
 		margin-bottom: 0;
 	}
 }
+/* 
+@media (max-width: 768px) {
+
+	.activities-page-container {
+		padding-top: 80px;
+	}
+} */
