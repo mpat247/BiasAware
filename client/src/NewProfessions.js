@@ -9,6 +9,9 @@ import bingo from './images/image 11.png';
 import tennis from './images/image 12.png';
 import axios from 'axios';
 import REACT_APP_API_URL from './config';
+import GearLoader from './GearLoader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const initialCategories = [
   { name: 'Business', color: '#DCAD18', images: [] },
@@ -133,7 +136,7 @@ const Popup = ({ onClose, bgColor, category, images, categoryImages }) => {
   console.log('Popup: ' + category.images[0].description)
   return (
     <div className="professions-popup-overlay" onClick={onClose}>
-      <div className="professions-popup-content" onClick={e => e.stopPropagation()}>
+      <div className="professions-popup-content" onClick={e => e.stopPropagation()} style={{ position: 'relative' }}>
         <div className="professions-popup-header">
           <h1 className="professions-popup-title" style={{ color: bgColor }}>{category.name}</h1>
         </div>
@@ -143,21 +146,35 @@ const Popup = ({ onClose, bgColor, category, images, categoryImages }) => {
               {/* ProfCarousel component will go here */}
               <ProfCarousel images={category.images} category={category} categoryImages={categoryImages} />
             </div>
-
           </div>
           <div className="professions-popup-slide-caption">
-            {/* <p className="professions-popup-statistical-analysis" style={{ color: bgColor }}>The statistical analysis caption is going to go here.</p> */}
             <p className="professions-popup-statistical-analysis">{category.images[0].description}</p>
           </div>
         </div>
         <div className="professions-popup-footer">
           <a href="/Statistics" className="statistics-link-professions">More Information Here</a>
-          <button className="professions-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>x</button>
+          <button  onClick={onClose} style={{
+     position: 'absolute',
+     top: '5px',
+     right: '5px',
+     padding: '2px 6px',
+     backgroundColor: bgColor, // Deep purple background
+     color: 'white', // Fully opaque white text color
+     border: 'none',
+     borderRadius: '5px',
+     cursor: 'pointer',
+     zIndex: 1000,
+     pointerEvents: 'auto'
+  }}>
+  <FontAwesomeIcon icon={faTimes} />
+</button>
+
         </div>
       </div>
     </div>
   );
 };
+
 
 // ProfessionsLanding component
 const NewProfessions = () => {
@@ -207,14 +224,19 @@ const NewProfessions = () => {
   const handleClosePopup = () => {
     setPopupVisible(false);
   };
-  if (isFetching) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  // if (isFetching) return <p>Loading...</p>;
+  // if (error) return <p>{error}</p>;
 
   return (
     <div className="professions-landing-page-container">
       <div className="professions-landing-page-title">
         <h1 className="professions-landing-page-header">PROFESSIONS</h1>
       </div>
+      {isFetching ? (
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <GearLoader />
+        </div>
+      ) : (
       <div className="professions-category">
         {categories.map((category, index) => (
           <div key={index} className="professions-category-item" onClick={() => handleCategoryClick(category)} style={{ backgroundColor: category.color }}>
@@ -224,6 +246,8 @@ const NewProfessions = () => {
           </div>
         ))}
       </div>
+
+      )}
       {isPopupVisible && selectedCategory && (
         <Popup
           onClose={handleClosePopup}
