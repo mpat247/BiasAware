@@ -1,26 +1,79 @@
-import React from 'react';
-import Loader from './GearLoader'
+import React, { useState } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
+import NavigationBar from './NavigationBar';
+import './Statistics.css';
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+const PdfViewer = ({ fileUrl }) => {
+  const [numPages, setNumPages] = useState(null);
 
-const ComingSoon = () => {
-  // Ensure the body has no extra margin or padding that could disrupt the layout
-  document.body.style.margin = '0';
-  document.body.style.padding = '0';
+  const onDocumentLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+  };
 
   return (
-    // The outer div covers the entire screen
-    <div className="flex justify-center w-full h-full" style={{ position: 'fixed', inset: 0, backgroundColor: '#0B0533', alignItems :'center' }}>
-
-      <div className="flex items-center justify-center h-full">
-
-        <div className="text-center" style={{ fontFamily: 'Crimson Text', fontSize: '7vw', color: '#DD9313', fontWeight: "bolder", justifyContent: "center",  }}>
-          COMING SOON
-        </div>
-      </div>
-      <Loader/>
+    <div className="pdf-viewer-container">
+      <Document
+        file={fileUrl}
+        onLoadSuccess={onDocumentLoadSuccess}
+        className="document-container"
+      >
+        {Array.from(new Array(numPages), (el, index) => (
+          <Page
+            key={`page_${index + 1}`}
+            pageNumber={index + 1}
+            renderMode="canvas" // Set renderMode to 'canvas' to render only canvas elements
+            className={`page-${index + 1}`}
+          />
+        ))}
+      </Document>
     </div>
   );
 };
 
-export default ComingSoon;
+const ComingSoon = () => {
+  return (
+    <div className="app-container" style={{
+      paddingTop: '80px',
+      boxSizing: 'border-box',
+      width: '100%',
+      minHeight: '100vh',
+      backgroundColor: '#f8f8f8'
+    }}>
+      <NavigationBar />
+      <div className="content-container" style={{
+        width: '80%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        top: '20px'
+      }}>
+        <div className="header-container" style={{
+          marginBottom: '20px'
+        }}>
+          <h1 className="title" style={{
+            fontSize: '48px',
+            fontWeight: 'bold',
+            textAlign: 'center'
+          }}>STATISTICS</h1>
+        </div>
+        <div className="viewer-container" style={{
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <PdfViewer fileUrl="/Report.pdf" />
+        </div>
+      </div>
+    </div>
+  );
 
-<script src="https://cdn.tailwindcss.com"></script>
+};
+
+{/* <div className="flex items-center justify-center h-full" style={{ position: 'relative', top: '60px' }}> */}
+
+
+export default ComingSoon;

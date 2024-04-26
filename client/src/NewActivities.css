@@ -6,82 +6,71 @@
 	height: 100vh;
 	background-color: #0B0533;
 }
+
+
 .activities-landing-title {
 	font-family: "Crimson Text", serif;
 	color: #DD9313;
 	font-weight: bolder;
-	/* font-style: normal;
-	*/
+	/* font-style: normal; */
 	font-size: 7vw;
 }
-/* p {
-	margin-bottom: 0rem;
-	line-height: normal;
-}
-*/
+
 .activities-slide-inner {
 	position: relative;
-	/* Positioning context for absolute children */
 	background-color: #0B0533;
 	width: 100%;
-	/* Full width minus padding */
 	height: 100%;
-	/* Full height minus padding */
 	border-radius: 10px;
 	overflow: hidden;
-	/* Ensures no overflow */
 	z-index: 10;
 	cursor: pointer;
-	/* To indicate the slide is clickable */
 }
+
 .activities-slide-inner .activities-image {
 	position: absolute;
-	/* Positioned absolutely to its parent */
 	top: 0;
 	left: 0;
 	width: 100%;
-	/* Full width of the parent */
 	height: 100%;
-	/* Full height of the parent */
 	object-fit: fill;
-	/* Cover the whole area without losing aspect ratio */
 }
+
 .activities-hover-caption {
 	display: none;
-	/* Hide caption by default */
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	background: rgba(0, 0, 0, 0.85);
-	/* Semi-transparent grey overlay */
 	color: white;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	z-index: 20;
-	/* Make sure it's above the image */
 	transition: opacity 0.3s ease;
-	/* Smooth transition for hover effect */
 	font-size: 1.3rem;
 	font-family: "Plus Jakarta Sans", sans-serif;
 	font-optical-sizing: auto;
 	font-weight: bolder;
 	font-style: normal;
 }
+
+
 .activities-slide:hover .activities-hover-caption {
 	display: flex;
-	/* Show caption on hover */
 	opacity: 1;
 }
+
 .activities-slide:hover {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	/* Grey shadow on hover */
 }
+
 .activities-handles svg path {
 	stroke: #e2e2e2 !important;
 }
+
 .activities-PostSlide-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -91,44 +80,30 @@
 	margin: auto;
 	width: 100%;
 }
+
 .activities-title-container {
 	width: 100%;
-	/* Make it as wide as the .PostSlide container */
 	text-align: center;
 	margin-bottom: 20px;
-	/* Distance from the title to the .PostSlide */
-	/* Add more styling as needed */
-	/* background-color: plum;
-	*/
 	color: red;
 }
+
 .activities-PostSlide {
 	max-width: 1300px;
 	margin: 10px auto 40px;
-	/* background-color: aqua;
-	*/
 }
+
 .activities-PostSlide .activities-innerContainer .activities-slider {
 	display: flex;
 	width: 1280px;
 	overflow-x: hidden;
 	margin: auto;
-	/* background-color: pink;
-	*/
 	position: relative;
 	z-index: 2;
 	align-items: center;
 }
+
 .activities-PostSlide .activities-innerContainer .activities-slider .activities-slide {
-	/* display: block;
-	background-size: cover!important;
-	background-position: center center!important;
-	min-width: 280px;
-	height: 340px;
-	margin: 0 10px;
-	background-color: yellow;
-	border-radius: 10px;
-	*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -137,142 +112,121 @@
 	min-width: 280px;
 	height: 340px;
 	margin: 0 10px;
-	/* background-color: yellow;
-	*/
 	padding: 20px;
 	box-sizing: border-box;
 	border-radius: 10px;
 }
+
 .activities-PostSlide .activities-innerContainer .activities-handles {
 	display: flex;
 	justify-content: space-between;
 	position: relative;
-	/* top: -230px;
-	*/
 	top: -190px;
 	width: 103%;
 	cursor: pointer;
 	margin-right: -20px;
 	margin-left: -20px;
-	/* z-index:0;
-	*/
 }
-/* Add a transparent tap highlight color for other browsers */
+
 .activities-PostSlide .activities-innerContainer .activities-handles:focus-visible {
 	outline: none;
 }
+
 .activities-PostSlide .activities-slider * {
 	-webkit-user-drag: none;
 	-ms-user-select: none;
-	/* Move -ms-user-select above user-select */
 	-webkit-user-select: none;
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
 }
+
 .activities-PostSlide .activities-handles>span {
 	transition: opacity 0.3s;
 }
+
 .activities-PostSlide .activities-handles .activities-prev {
 	opacity: 1;
-	z-index: 10001
 }
+
 .activities-PostSlide .activities-handles .activities-next {
 	opacity: 1;
-		z-index: 10001
 }
+
 .activities-PostSlide .activities-handles * {
 	-webkit-user-select: none;
 	user-select: none;
 }
+
 .activities-PostSlide .activities-innerContainer .activities-slider .activities-slide {
 	display: flex !important;
 	flex-direction: column;
 	justify-content: space-between;
 }
-.activities-PostSlide .activities-innerContainer,.activities-PostSlide .activities-slider,.activities-PostSlide .activities-handles,.activities-PostSlide .activities-dots {
+
+
+
+.activities-PostSlide .activities-innerContainer,
+.activities-PostSlide .activities-slider,
+.activities-PostSlide .activities-handles,
+.activities-PostSlide .activities-dots {
 	direction: ltr;
 }
-/* .activities-PostSlide .activities-innerContainer .activities-slider .activities-slide>div {
-	display: block;
-	background-size: cover!important;
-	background-position: center center!important;
-	min-width: 100%;
-	height: 100%;
-	border-radius: 80px;
-}
-*/
-/* Existing styles for NewActivities component */
-/* ...Your existing CSS... */
+
 /*POPUP CODE*/
 .activities-popup-title {
 	font-family: "Plus Jakarta Sans", sans-serif;
 	color: white;
 	font-weight: bolder;
-	/* font-style: normal;
-	*/
 }
-.p .activities-popup-statistical-analysis {
+
+.activities-popup-statistical-analysis {
 	margin-bottom: 0rem;
 	line-height: normal;
 	font-size: 0.9rem;
 	font-family: "Plus Jakarta Sans", sans-serif;
 	font-optical-sizing: auto;
-	/* font-weight: 200;
-	*/
-	/* font-style: normal;
-	*/
 	color: white;
 }
+
 .activities-popup-overlay {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	/* background-color: rgba(0, 0, 0, 0.75);
-	*/
 	background-color: #0B0533;
-	/* background-color: yellow;
-	*/
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	z-index: 1000;
-	/* Make sure it's above other content */
 }
+
 .activities-popup-content {
 	background-color: #0B0533;
-	/* padding: 20px;
-	*/
 	border-radius: 10px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.651);
 	width: 65%;
-	/* Adjust as needed */
-	height: 65%;
-	/* Adjust as needed */
+	height: 75%;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	/* Stack children vertically */
 	justify-content: space-around;
 	align-items: center;
-	/* overflow: hidden;
-	*/
 	overflow: auto;
-	/* Ensures no overflow */
 }
-.activities-popup-header,.activities-popup-body,.activities-popup-footer {
+
+.activities-popup-header,
+.activities-popup-body,
+.activities-popup-footer {
 	width: 100%;
-	/* Take full width of the parent */
 }
+
 .activities-popup-header {
-	/* Style as needed */
 	color: white;
-	/* background-color: orange;
-	*/
 	margin-bottom: 20px;
 }
+
 .activities-popup-body {
 	flex-grow: 1;
 	/* Take available space */
@@ -284,19 +238,17 @@
 	/* Start children at the top of the container */
 	align-items: center;
 	/* Center children horizontally */
-	/* background-color: pink;
-	*/
+	/* background-color: pink; */
 	padding: 22px;
 	/* Add some padding around the slides */
 	border-radius: 10px;
 	width: 95%;
-	/* height: 200px;
-	*/
+	/* height: 200px; */
 }
+
 .activities-popup-slides-container {
 	align-items: center;
-	/* background-color: purple;
-	*/
+	/* background-color: purple; */
 	display: flex;
 	/* Use flexbox to arrange children in a row */
 	justify-content: space-between;
@@ -307,6 +259,7 @@
 	/* Adjust height based on the caption and padding */
 	margin-bottom: 10px;
 }
+
 .activities-popup-slide {
 	width: 32%;
 	/* Each slide takes up 32% of the popup-body width */
@@ -319,6 +272,7 @@
 	border-radius: 10px;
 	overflow: hidden;
 }
+
 .activities-popup-image {
 	width: 100%;
 	/* Full width of the parent */
@@ -328,12 +282,17 @@
 	/* Cover the whole area without losing aspect ratio */
 	border-radius: 10px;
 }
+
+
 /* Remove outer margins for the first and last slide */
-.activities-popup-slide:first-child,.activities-popup-slide:last-child {
+.activities-popup-slide:first-child,
+.activities-popup-slide:last-child {
 	margin-left: 0;
 	margin-right: 0;
 }
+
 .activities-popup-slide-caption {
+	margin-bottom: 0rem;
 	color: white;
 	/* Text color */
 	text-align: center;
@@ -341,29 +300,28 @@
 	width: 100%;
 	/* Take the full width of the body */
 	/* Add additional styling as needed */
-	/* background-color: lightgreen;
-	*/
+	/* background-color: lightgreen; */
 	padding-top: 10px;
 }
+
 .activities-popup-footer {
 	margin-top: 10px;
-	/* background-color: aqua;
-	*/
+	/* background-color: aqua; */
 	border-radius: 10px;
 	/* Style as needed */
 }
+
 .activities-popup-button-text {
 	font-size: 0.8rem;
 	font-family: "Plus Jakarta Sans", sans-serif;
 	font-optical-sizing: auto;
-	/* font-weight: 200;
-	*/
+	/* font-weight: 200; */
 	font-style: normal;
 	color: white;
-	/* color: rgba(255, 255, 255, 0.55);
-	*/
+	/* color: rgba(255, 255, 255, 0.55); */
 	border-radius: 5px;
 }
+
 .activities-popup-footer button {
 	margin: 10px 0;
 	padding: 5px 10px;
@@ -371,37 +329,40 @@
 	cursor: pointer;
 	border: 1px solid transparent;
 }
+
 .activities-popup-footer button:hover {
 	background: rgba(0, 0, 0, 0.85);
 	/* Semi-transparent grey overlay */
 	border: 1px solid;
 }
+
 /* This styles the scrollbar track */
 ::-webkit-scrollbar-track {
-	/* background: #f1f1f1;
-	color of the tracking area */
+	/* background: #f1f1f1; color of the tracking area */
 	border-radius: 10px;
 	/* roundness of the track */
 }
+
 /* This styles the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
-	/* background: #888;
-	color of the scroll thumb */
+	/* background: #888; color of the scroll thumb */
 	border-radius: 10px;
 	/* roundness of the thumb */
-	/* border: 3px solid #f1f1f1;
-	creates a border around the thumb */
+	/* border: 3px solid #f1f1f1; creates a border around the thumb */
 }
+
 /* This styles the scrollbar thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
 	background: transparent;
 	/* color of the scroll thumb when hovered over */
 }
+
 /* This styles the scrollbar itself (width, etc.) */
 ::-webkit-scrollbar {
 	width: 1px;
 	/* width of the entire scrollbar */
 }
+
 /* For Firefox */
 * {
 	scrollbar-width: thin;
@@ -409,12 +370,37 @@
 	scrollbar-color: #0B0533 #231b52;
 	/* thumb and track color */
 }
+
+
+.statistics-link-activities {
+	text-decoration: none;
+	color: #a3a0a9;
+	/* Choose a color that fits your design */
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-align: center;
+	display: grid;
+	/* Makes it a block element to fill the width */
+	margin-top: 0px;
+	/* Space from the content above */
+	font-size: 0.8rem;
+	transition: background-color 0.3s;
+	/* Smooth background color change on hover */
+}
+
+.statistics-link-activities:hover {
+	/*background-color: transparent;  Color when hovered */
+	color: #aaa6b1;
+	/* Text color when hovered */
+}
+
 @media (min-width: 1280px) {
 	.activities-PostSlide .activities-innerContainer .activities-slider {
 		width: 1200px !important;
 		margin: auto;
 	}
 }
+
 @media (max-width: 1280px) {
 	.activities-PostSlide .activities-innerContainer .activities-handles {
 		width: calc(100% + 30px) !important;
@@ -422,59 +408,51 @@
 		margin-right: -15px !important;
 	}
 }
+
 @media (min-width: 960px) and (max-width: 1280px) {
 	.activities-PostSlide .activities-innerContainer .activities-slider {
 		width: 960px !important;
 	}
 }
+
 @media (min-width: 960px) and (max-width: 1280px) {
 	.activities-PostSlide .activities-innerContainer .activities-slider {
 		width: 960px !important;
 	}
 }
+
 @media (min-width: 640px) and (max-width: 960px) {
 	.activities-PostSlide .activities-innerContainer .activities-slider {
 		width: 640px !important;
 	}
 }
+
 @media (max-width: 640px) {
 	.activities-PostSlide .activities-innerContainer .activities-slider {
 		width: 300px !important;
 	}
 }
+
 @media (max-width: 1100px) {
 	/* .activities-popup-image {
-		width: 100%;
-		height: 100%;
-	}
-	*/
+        width: 100%;
+        height: 100%;
+    } */
+
 	.activities-popup-slides-container {
 		flex-direction: column;
 		/* Stack slides vertically */
 	}
+
 	.activities-popup-slide {
 		width: 100%;
 		/* Each slide takes the full width of the popup-body */
 		margin-bottom: 10px;
 		/* Add space between slides */
 	}
+
 	/* Adjust the last-child to remove the margin at the bottom */
 	.activities-popup-slide:last-child {
 		margin-bottom: 0;
 	}
-}
-.statistics-link-activities {
-	text-decoration: none;
-	color: #a3a0a9;
-	padding: 10px 20px;
-	border-radius: 5px;
-	text-align: center;
-	display:grid;
-	margin-top: 0px;
-	font-size: 0.8rem;
-	transition: background-color 0.3s;
-}
-.statistics-link-activities:hover {
-	background-color: transparent;
-	color: #aaa6b1;
 }

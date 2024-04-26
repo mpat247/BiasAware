@@ -12,26 +12,26 @@ import GearLoader from './GearLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const colors = ["#FFD600", "#F5A720", "#D9822A", "#BE5C43", "#A33862", "#6A2774", "#441A93", "#161E7B"]; // Define colors for slides
+const colors = ["#DCAD18", "#DD9313", "#C5680A", "#C15416"]; // Define colors for slides
 
 // Define slide information, mapping each image to a color
 const initialSlideInfo = [
     { image: null, color: colors[0], name: "Badminton", prompt: "A Badminton Player" },
     { image: null, color: colors[1], name: "Basketball", prompt: "A Basketball Player" },
-    { image: null, color: colors[2], name: "Bingo",prompt: "A Bingo Player" },
-    { image: null, color: colors[3], name: "Cricket" ,prompt: "A Cricket Player"},
-    { image: null, color: colors[4], name: "Cycling", prompt: "A Cyclist" },
-    { image: null, color: colors[5], name: "Marathon", prompt: "A Marathon Runner" },
-    { image: null, color: colors[6], name: "Meditating", prompt: "A Meditator" },
-    { image: null, color: colors[7], name: "Paint", prompt: "A Painter" },
+    { image: null, color: colors[2], name: "Bingo", prompt: "A Bingo Player" },
+    { image: null, color: colors[3], name: "Cricket", prompt: "A Cricket Player" },
+    { image: null, color: colors[0], name: "Cycling", prompt: "A Cyclist" },
+    { image: null, color: colors[1], name: "Marathon", prompt: "A Marathon Runner" },
+    { image: null, color: colors[2], name: "Meditating", prompt: "A Meditator" },
+    { image: null, color: colors[3], name: "Paint", prompt: "A Painter" },
     { image: null, color: colors[0], name: "Rowing", prompt: "A Rower" },
     { image: null, color: colors[1], name: "Skating", prompt: "A Skater" },
     { image: null, color: colors[2], name: "Tennis", prompt: "A Tennis Player" },
     { image: null, color: colors[3], name: "Travel", prompt: "A Traveler" },
-    { image: null, color: colors[4], name: "VideoGame", prompt: "A Video Gamer" },
-    { image: null, color: colors[5], name: "Volleyball", prompt: "A Volleyball Player" },
-    { image: null, color: colors[6], name: "Weightlifting", prompt: "A Weightlifter" },
-    { image: null, color: colors[6], name: "Yoga", prompt: "A Yogi" },
+    { image: null, color: colors[0], name: "VideoGame", prompt: "A Video Gamer" },
+    { image: null, color: colors[1], name: "Volleyball", prompt: "A Volleyball Player" },
+    { image: null, color: colors[2], name: "Weightlifting", prompt: "A Weightlifter" },
+    { image: null, color: colors[3], name: "Yoga", prompt: "A Yogi" },
 
 ];
 
@@ -50,24 +50,7 @@ const Popup = ({ isVisible, onClose, bgColor, description, name, sideImages, sel
     return (
         <div className="activities-popup-overlay" onClick={onClose}>
             <div className="activities-popup-content" onClick={e => e.stopPropagation()} style={{ position: 'relative' }}>
-                <button
-                    style={{
-                        position: 'absolute',
-                        top: '5px',
-                        right: '5px',
-                        padding: '3px 8px',
-                        backgroundColor: bgColor,
-                        color: 'rgba(255, 255, 255, 0.55)',
-                        border: '1px solid rgba(255, 255, 255, 0.55)',
-                        borderRadius: '10px',
-                        cursor: 'pointer',
-                        zIndex: 1000,
-                        pointerEvents: 'auto'
-                    }}
-                    onClick={onClose}
-                >
-                    <FontAwesomeIcon icon={faTimes} />
-                </button>
+                
                 {sideLoader ? (
                     <GearLoader /> // Display the loader while loading
                 ) : (
@@ -87,6 +70,12 @@ const Popup = ({ isVisible, onClose, bgColor, description, name, sideImages, sel
                                 <p className="activities-popup-statistical-analysis">{description}</p>
                             </div>
                         </div>
+                            <div className="activities-popup-footer">
+                                <a href="/Statistics" className="statistics-link-activities">More Information Here</a>
+                                <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>
+                                    <FontAwesomeIcon icon={faTimes} />
+                                </button>
+                            </div>
                     </>
                 )}
             </div>

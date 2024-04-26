@@ -50,18 +50,21 @@ const Crime = () => {
 
     try {
       const response = await axios.get(`${REACT_APP_API_URL}/crimes/fetchedCrime?crimeId=${squareId}`);
+
       // Directly using the objects returned by the API, filling missing entries with placeholders
       const fullImagesData = response.data.images.map(imageObj => ({
         ...imageObj,
         image: imageObj.image || placeholderImage // Using the placeholder if no image URL is provided
       }));
 
-      // If the API returns fewer than 9 images, fill the rest with placeholder objects
-      const imagesWithPlaceholders = Array.from({ length: 9 }).map((_, index) => fullImagesData[index] || {
-        image: placeholderImage, prompt: 'Placeholder', description: 'No description'
+      // If the API returns fewer than 9 images, fill the rest with random images from fullImagesData
+      const imagesWithRandom = Array.from({ length: 9 }).map((_, index) => fullImagesData[index] || {
+        ...fullImagesData[Math.floor(Math.random() * fullImagesData.length)], // Selecting a random image from fullImagesData
+        prompt: 'Random Image',
+        description: 'Random description' // You can customize these placeholders
       });
 
-      setPopupImages(imagesWithPlaceholders);
+      setPopupImages(imagesWithRandom);
       setPopupText(`Images for crime ID ${squareId}`);
     } catch (error) {
       console.error('Error fetching images:', error);
@@ -90,18 +93,21 @@ const Crime = () => {
 
     try {
       const response = await axios.get(`${REACT_APP_API_URL}/crimes/fetchedCrime?crimeId=${squareId}`);
+
       // Directly using the objects returned by the API, filling missing entries with placeholders
       const fullImagesData = response.data.images.map(imageObj => ({
         ...imageObj,
         image: imageObj.image || placeholderImage // Using the placeholder if no image URL is provided
       }));
 
-      // If the API returns fewer than 9 images, fill the rest with placeholder objects
-      const imagesWithPlaceholders = Array.from({ length: 9 }).map((_, index) => fullImagesData[index] || {
-        image: placeholderImage, prompt: 'Placeholder', description: 'No description'
+      // If the API returns fewer than 9 images, fill the rest with random images from fullImagesData
+      const imagesWithRandom = Array.from({ length: 9 }).map((_, index) => fullImagesData[index] || {
+        ...fullImagesData[Math.floor(Math.random() * fullImagesData.length)], // Selecting a random image from fullImagesData
+        prompt: 'Random Image',
+        description: 'Random description' // You can customize these placeholders
       });
 
-      setPopupImages(imagesWithPlaceholders);
+      setPopupImages(imagesWithRandom);
       setPopupText(`Images for crime ID ${squareId}`);
     } catch (error) {
       console.error('Error fetching images:', error);
@@ -298,7 +304,9 @@ const handleHeatmapClick = (e, index) => {
       >
         <FontAwesomeIcon icon={faTimes} />
       </button>            {loading ? (
-              <GearLoader />
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <GearLoader />
+              </div>
             ) : (
               <>
                 {/* Conditionally render the title only if popupImages has elements */}
@@ -313,6 +321,10 @@ const handleHeatmapClick = (e, index) => {
                       <div className={CrimeStyling["text-container"]}>
                         <p className='crime-prompt'>{imageObj.prompt}</p> {/* Displaying the prompt */}
                         <p className='crime-description'>{imageObj.description}</p> {/* Displaying the description */}
+                        <a href="/Statistics" className={CrimeStyling["statistics-link-crimes"]}>
+                          More Information Here
+                        </a>
+
                       </div>
                     </div>
                   ))}

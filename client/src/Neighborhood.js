@@ -243,7 +243,7 @@ const MapView = () => {
           doubleClickZoom={transitionsCompleted}
           zoomControl={transitionsCompleted}
           dragging={transitionsCompleted}
-          style={{ height: '85%', width: '100%', borderRadius: '15px' }}
+          style={{ height: '80%', width: '100%', borderRadius: '15px' }}
           attributionControl={false}  // This disables the attribution control
 
         >

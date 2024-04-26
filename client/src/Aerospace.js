@@ -76,6 +76,7 @@ const Aerospace = () => {
           </div>
           {/* You can add more grid items here with the respective class names */}
         </div>
+        <a href="https://www.torontomu.ca/diversity-self-id/diversity-data-centre/student-diversity-data-centre/undergraduate-students-representation/" style={{ textDecoration: 'none', color: '#a3a0a9', padding: '10px 20px', borderRadius: '5px', textAlign: 'center', display: 'block', fontSize: '0.8rem', transition: 'background-color 0.3s', marginBottom: '10px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>View Data</a>
       </main>
     </div>
 

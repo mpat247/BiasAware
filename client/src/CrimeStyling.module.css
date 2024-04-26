@@ -135,6 +135,18 @@ div[id^="container"] {
   align-items: center;
 }
 
+.statistics-link-crimes {
+  text-decoration: none;
+  color: #a3a0a9;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  display: grid;
+  margin-top: 0px;
+  font-size: 0.8rem;
+  transition: background-color 0.3s;
+}
+
 .popup-crime button {
   position: absolute;
   top: 10px;
@@ -236,7 +248,7 @@ div[id^="container"] {
     /* Adjust height as needed */
     margin: 20px 20px 20px 17px;
     /* Add margin for spacing */
-    font-size: 5rem;
+    font-size: 0.70rem;
     /* Set the font size */
   }
 
@@ -396,3 +408,81 @@ div[id^="container"] {
   /* Add margin to separate from the grid */
 }
 
+
+@media screen and (max-width: 768px) {
+  .popup-crime {
+    width: 90vw;
+    height: 90vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+  }
+
+  .grid-popup {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .grid-square {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .square-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .crime-prompt-container {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* Add margin between prompt and description */
+  }
+
+  .crime-prompt {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .crime-description-container {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .crime-description {
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+
+  .statistics-link-crimes {
+    text-decoration: none;
+    color: Black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    display: grid;
+    margin-top: 0px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+  }
+}

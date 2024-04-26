@@ -87,13 +87,13 @@ const Home = () => {
             <a href="#qol" className="qol-prompt2">
             <h2 >Designer Attire</h2>
           </a>
-          <a href="#ProfessionsLanding" className="pro2">
+          <a href="#NewProfessions" className="pro2">
             <h2>Family Doctor</h2>
           </a>
-          <a href="#Neighborhood" className="hood2">
+          <a href="/Neighborhood" className="hood2">
             <h2>An Apartment in</h2>
           </a>
-          <a href="#Neighborhood" className="hoods2">
+          <a href="/Neighborhood" className="hoods2">
             <h2>Forest Hill</h2>
           </a>
              </div>
@@ -126,13 +126,13 @@ const Home = () => {
             <a href="#addictions" className="addiction-prompt">
               <h2>Plastic Surgery Dependant Individual</h2>
             </a>
-            <a href="#Engineering" className="eng">
+            <a href="/Engineering" className="eng">
               <h2>Computer Engineer</h2>
             </a>
             <a href="#Crime" className="eng4">
               <h2>Smuggler</h2>
             </a>
-            <a href="#ProfessionsLanding" className="pro3">
+            <a href="#NewProfessions" className="pro3">
               <h2>Accountant</h2>
             </a>
             <a href="#addictions" className="addiction-prompt2">
@@ -196,13 +196,13 @@ const Home = () => {
                 <li class="tooth"></li>
               </ul>
              <div class="ring4">
-             <a href="#Neighborhood" className="hood1">
+             <a href="/Neighborhood" className="hood1">
               <h2>House in</h2>
             </a>
-            <a href="#Neighborhood" className="hoods1">
+            <a href="/Neighborhood" className="hoods1">
               <h2>Jane & Finch</h2>
             </a>
-            <a href="#Engineering" className="eng2">
+            <a href="/Engineering" className="eng2">
               <h2>Biomedical Engineer</h2>
             </a>
             <a href="#Emotions" className="qol-prompt6">

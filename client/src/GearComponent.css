@@ -12,6 +12,10 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 17em;
+    position: relative;
+      /* or absolute */
+    top: -70px;
+      /* Adjust the value as needed */
   }
   .gear-container {
     position: relative;
@@ -788,6 +792,7 @@ body {
   
       .main-body {
         margin-left: 150px;
+        top: -30px;
       }
   
       .gear-container4 {

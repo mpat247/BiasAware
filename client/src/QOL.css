@@ -56,18 +56,20 @@
     border-radius: 20px;
   }
   
-  .qol-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
-  }
+ .qol-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #0B0533;
+   /* Set the background color */
+   z-index: 10000;
+   /* Ensure it's above other content */
+ }
   
   .qol-popup {
     position: fixed;
@@ -118,11 +120,12 @@
     overflow: hidden; /* Hides overflow */
     text-overflow: ellipsis; /* Ellipsis for overflowed text */
     max-height: 20%; /* Limit height to a percentage of the container */
+    font-size: 01rem;
   }
   
   .qol-statistics-link {
     text-decoration: none;
-    color: #a3a0a9;
+    color: #7c7b7f;
     padding: 10px 20px;
     border-radius: 5px;
     text-align: center;

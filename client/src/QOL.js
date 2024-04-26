@@ -124,15 +124,17 @@ const QOL = () => {
         )}
 
         {selectedBox && (
-          <div className="qol-popup">
-            <div className="qol-popup-container">
-              <h2 className="qol-popup-title">{selectedBox.prompt}</h2>
-              <img src={selectedBox.imageData} alt={selectedBox.prompt} className="qol-popup-image" />
-              <p className="qol-popup-description">{selectedBox.description}</p>
-              <a href="/Statistics" className="qol-statistics-link">More Information Here</a>
-              <button onClick={closePopup} className="qol-close-button">
-                <FontAwesomeIcon icon={faTimes} />
-              </button>
+          <div className="qol-overlay">
+            <div className="qol-popup">
+              <div className="qol-popup-container">
+                <h2 className="qol-popup-title">{selectedBox.prompt}</h2>
+                <img src={selectedBox.imageData} alt={selectedBox.prompt} className="qol-popup-image" />
+                <p className="qol-popup-description">{selectedBox.description}</p>
+                <a href="/Statistics" className="qol-statistics-link">More Information Here</a>
+                <button onClick={closePopup} className="qol-close-button">
+                  <FontAwesomeIcon icon={faTimes} />
+                </button>
+              </div>
             </div>
           </div>
         )}

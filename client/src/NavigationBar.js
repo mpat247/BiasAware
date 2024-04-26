@@ -48,10 +48,11 @@ const NavMenu = ({ current, handleClick, isMobile, iconStyle, linkStyle, mobileS
   style={{ backgroundColor: "transparent", fontFamily: "'Plus Jakarta Sans', sans-serif" }}
   // overflowedIndicator={null}
 >      <LinkItem to="/" icon={<HomeOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Home" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="Go to Home Page" />
-      <LinkItem to="/Statistics" icon={<BarChartOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Statistics" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Statistics" />
       <LinkItem to="/Engineering" icon={<SettingOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Engineering" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="Explore Engineering" />
-      <LinkItem to="/Neighborhood" icon={<EnvironmentOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Neighborhood" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Neighborhood" />
-      <LinkItem to="/GalleriesLanding" icon={<PictureOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Gallery" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Gallery" />
+      <LinkItem to="/Neighborhood" icon={<EnvironmentOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Neighbourhood" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Neighbourhood" />
+      <LinkItem to="/Statistics" icon={<BarChartOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Statistics" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Statistics" />
+
+      {/* <LinkItem to="/GalleriesLanding" icon={<PictureOutlined style={{ ...iconStyle, ...(isMobile && mobileStyle) }} />} label="Gallery" isMobile={isMobile} iconStyle={iconStyle} linkStyle={linkStyle} tooltip="View Gallery" /> */}
     </Menu>
   </motion.div>
 );
