@@ -49,15 +49,7 @@ const ComingSoon = () => {
         position: 'relative',
         top: '20px'
       }}>
-        <div className="header-container" style={{
-          marginBottom: '20px'
-        }}>
-          <h1 className="title" style={{
-            fontSize: '48px',
-            fontWeight: 'bold',
-            textAlign: 'center'
-          }}>STATISTICS</h1>
-        </div>
+       
         <div className="viewer-container" style={{
           width: '100%',
           display: 'flex',
