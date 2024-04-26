@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './NewProfessions.css';
 import './ProfCarousel.css';
-import basketball from './images/image 7.png';
-import cricket from './images/image 8.png';
-import volleyball from './images/image 9.png';
-import hockey from './images/image 10.png';
-import bingo from './images/image 11.png';
-import tennis from './images/image 12.png';
 import axios from 'axios';
 import REACT_APP_API_URL from './config';
 import GearLoader from './GearLoader';
@@ -21,32 +15,20 @@ const initialCategories = [
   { name: 'Labour', color: '#C34219', images: [] },
 ];
 
-
-// const colors = ["#DCAD18", "#DD9313", "#C5680A", "#C15416"];
-
 const ProfCarousel = ({ images, category, categoryImages }) => {
   console.log(`Prof carousel images: ${images}`)
   const [selected, setSelected] = useState(0);
-  // Use URLs for your desired images here; I'm keeping placeholders for demonstration:
-  // const images = [
-  //     basketball,
-  //     cricket,
-  //     volleyball,
-  //     hockey,
-  //     bingo, 
-  //     tennis
-  // ];
 
   // This effect sets up an interval to change the slide every 3 seconds (3000ms)
   useEffect(() => {
     const interval = setInterval(() => {
-      if (images.length > 0) { // Ensure there are images before attempting to change the selected index
+      if (images.length > 0) { 
         setSelected(prevSelected => (prevSelected + 1) % images.length);
       }
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [images.length]); // Only re-run the effect if images.length changes
+  }, [images.length]); 
 
   const moveToSelected = (element) => {
     if (element === "next") {
@@ -78,7 +60,6 @@ const ProfCarousel = ({ images, category, categoryImages }) => {
     return className;
   };
 
-
   const arrowStyle = {
     cursor: 'pointer',
     position: 'absolute',
@@ -87,15 +68,14 @@ const ProfCarousel = ({ images, category, categoryImages }) => {
     zIndex: 1000,
   };
 
-  // Inside your return function before the main tag
   const arrowLeftStyle = {
     ...arrowStyle,
-    left: '0%', // Use a percentage value or `vw` units here
+    left: '0%',
   };
 
   const arrowRightStyle = {
     ...arrowStyle,
-    right: '0%', // Use a percentage value or `vw` units here
+    right: '0%',
   };
 
   return (
@@ -105,7 +85,7 @@ const ProfCarousel = ({ images, category, categoryImages }) => {
           <a key={index} className={getClassNames(index)} onClick={() => setSelected(index)} href="#!">
             <div className="slideContainer">
               {index === selected && (
-                <div className="captionBanner">{image.prompt}</div> // Use image.prompt here
+                <div className="captionBanner">{image.prompt}</div>
               )}
               <img src={image.src} alt={image.prompt} />
             </div>
@@ -143,35 +123,15 @@ const Popup = ({ onClose, bgColor, category, images, categoryImages }) => {
         <div className="professions-popup-body">
           <div className="professions-popup-slides-container">
             <div className="professions-popup-slide" style={{ backgroundColor: bgColor }}>
-              {/* ProfCarousel component will go here */}
               <ProfCarousel images={category.images} category={category} categoryImages={categoryImages} />
             </div>
           </div>
-          <div className="professions-popup-slide-caption">
-            <p className="professions-popup-statistical-analysis">{category.images[0].description}</p>
-          </div>
-        </div>
-        <div className="professions-popup-footer">
+          <div className="professions-popup-footer">
           <a href="/Statistics" className="statistics-link-professions">More Information Here</a>
           <button className="professions-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>
             <FontAwesomeIcon icon={faTimes} />
           </button>
-                    {/* <button  onClick={onClose} style={{
-              position: 'absolute',
-              top: '1%',
-              right: '1%',
-              padding: '2px 6px',
-              backgroundColor: bgColor, 
-              color: 'white', 
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              zIndex: 1000,
-              pointerEvents: 'auto'
-            }}>
-            <FontAwesomeIcon icon={faTimes} />
-          </button> */}
-
+        </div>
         </div>
       </div>
     </div>
@@ -227,8 +187,6 @@ const NewProfessions = () => {
   const handleClosePopup = () => {
     setPopupVisible(false);
   };
-  // if (isFetching) return <p>Loading...</p>;
-  // if (error) return <p>{error}</p>;
 
   return (
     <div className="professions-landing-page-container">
@@ -256,7 +214,7 @@ const NewProfessions = () => {
           onClose={handleClosePopup}
           bgColor={selectedCategory.color}
           category={selectedCategory}
-          images={displayImages} // Pass the images to the Popup
+          images={displayImages}
           categoryImages={selectedCategory.Images}
         />
       )}

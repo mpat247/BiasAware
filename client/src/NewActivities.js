@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './NewActivities.css';
-import basketball from './images/image 7.png';
-import cricket from './images/image 8.png';
-import volleyball from './images/image 9.png';
-import hockey from './images/image 10.png';
-import bingo from './images/image 11.png';
-import tennis from './images/image 12.png';
 import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
 import GearLoader from './GearLoader';
@@ -90,6 +84,9 @@ const NewActivities = () => {
     const [selectedImageName, setSelectedImageName] = useState(''); // State variable for selected image name
     const [selectedImage, setSelectedImage] = useState(''); // State variable for selected image name
     const [selectedImagePrompt, setSelectedImagePrompt] = useState(''); // State variable for selected image name
+    const [sideLoader, setSideLoader] = useState(false);
+    const [mainLoader, setMainLoader] = useState(true);
+    const [key, setKey] = useState(0); // state to hold the key
 
 
     useEffect(() => {
@@ -376,11 +373,21 @@ console.log("selected sode o,ages: " + selectedSideImages)
                             ))}
                         </div> */}
 
-                        <div className="activities-slider">
+<div className="activities-slider">
                             {slideInfo.map((slide, index) => (
-                                <div key={index} className="activities-slide" style={{ backgroundColor: slide.color }}>
-                                    <div className="activities-slide-inner" onClick={(e) => handleSlideClick(e, slide.color, slide.name, slide.description, slide.image, slide.prompt)} onMouseEnter={() => setHoveredSlide(slide.name)} onMouseLeave={() => setHoveredSlide(null)}>
+                                <div className="activities-slide" style={{ backgroundColor: slide.color }}>
+                                    <div className="activities-slide-inner"
+                                        onClick={(e) => handleSlideClick(e, slide.color, slide.name, slide.description, slide.image, slide.prompt)}
+                                        onMouseEnter={() => setHoveredSlide(slide.name)}
+                                        onMouseLeave={() => setHoveredSlide(null)}>
+ {mainLoader ? (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, height:'100%'  }}>
+              <GearLoader />
+            </div>
+          ) : (
                                         <img src={slide.image} alt={slide.name} className="activities-image" />
+                                    )} 
+
                                         {hoveredSlide === slide.name && (
                                             <div className="activities-hover-caption">{slide.name}</div>
                                         )}
