@@ -12,6 +12,8 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 15em;
+    position: relative;
+    top: -73px;
   }
   .gear-container {
     position: relative;
@@ -777,6 +779,8 @@ body {
   
     .main-body{
       margin-left: 300px;
+      position: relative;
+      top: -25px;
     }
     
     
@@ -788,6 +792,7 @@ body {
   
       .main-body {
         margin-left: 150px;
+        width: 100%;
       }
   
       .gear-container4 {

@@ -38,12 +38,19 @@ const Home = () => {
     return () => clearTimeout(timeout);
   }, []);
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowLandingPage(false);
-    }, 40000);
+    // Check if the landing page has been shown before in the current session
+    const landingPageShownBefore = sessionStorage.getItem('landingPageShown');
 
-    return () => clearTimeout(timer);
+    if (landingPageShownBefore) {
+      // If the landing page has been shown before, don't show it again
+      setShowLandingPage(false);
+    } else {
+      // If the landing page has not been shown before, show it and mark it as shown in the session storage
+      setShowLandingPage(true);
+      sessionStorage.setItem('landingPageShown', 'true');
+    }
   }, []);
+
 
   
   const closeLandingPage = () => {
@@ -60,11 +67,11 @@ const Home = () => {
       ) : (
         <>
 
-            <header className="App-header" style={{ marginTop: '60px' }}>
+            <header className="App-header" style={{ marginTop: '60px', width: '100%' }}>
         <NavigationBar /> 
      
-<div class = "main-body" style={{width: '100%'}}>
-          <div class="gear-container">
+              <div class="main-body" style={{ width: '100%', maxWidth: '100%' }}>
+                <div class="gear-container" style={{ width: '100%', maxWidth: '100%' }}>
               <ul class="center-circle">
                 <li class="tooth"></li>
                 <li class="tooth"></li>
@@ -98,7 +105,7 @@ const Home = () => {
           </a>
              </div>
           </div>
-          <div class="gear-container2">
+                <div class="gear-container2" style={{ width: '100%', maxWidth: '100%' }}>
               <ul class="center-circle2">
                 <li class="tooth"></li>
                 <li class="tooth"></li>
@@ -147,7 +154,7 @@ const Home = () => {
 
              </div>
           </div>
-          <div class="gear-container3">
+                <div class="gear-container3" style={{ width: '100%', maxWidth: '100%' }}>
               <ul class="center-circle3">
                 <li class="tooth"></li>
                 <li class="tooth"></li>
@@ -182,7 +189,7 @@ const Home = () => {
             
              </div>
           </div>
-          <div class="gear-container4">
+                <div class="gear-container4" style={{ width: '100%', maxWidth: '100%' }}>
               <ul class="center-circle4">
                 <li class="tooth"></li>
                 <li class="tooth"></li>
@@ -219,7 +226,7 @@ const Home = () => {
       </header>
       
 
-      <main style={{overflowX: "hidden"}}>
+      <main >
       
       <Tooltip title="Scroll to Top">
               <button

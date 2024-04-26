@@ -264,11 +264,12 @@ body {
 
 @media (max-width: 768px) {
     .playIntro {
-        top: 15vh; /* Increase if navbar is taller on mobile */
-		right: 2vh;
+        top: 15vh; /* Adjust based on navbar height */
+        right: 2vw; /* Use viewport width unit */
     }
-	.scroll-to-top-button {
-		bottom: 20px;
-		right: 2vh;
-	}
+    .scroll-to-top-button {
+        bottom: 5%; /* Use percentage */
+        right: 2vw; /* Use viewport width unit */
+    }
 }
+

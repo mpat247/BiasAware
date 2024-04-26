@@ -114,3 +114,16 @@ display: flex;
   align-items: center;
   justify-content: center;
   position: relative;}
+
+    .navigation-bar {
+      position: fixed;
+      /* Fixes the navigation bar in place */
+      top: 0;
+      /* Positions the navigation bar at the top of the viewport */
+      left: 0;
+      /* Aligns the navigation bar to the left */
+      width: 100%;
+      /* Sets the width to 100% of the viewport */
+      z-index: 1000;
+      /* Ensures the navigation bar is above other elements */
+    }

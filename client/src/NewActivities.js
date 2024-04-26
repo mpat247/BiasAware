@@ -430,6 +430,7 @@ const NewActivities = () => {
               <GearLoader />
             </div>
           ) : (
+            
 
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">

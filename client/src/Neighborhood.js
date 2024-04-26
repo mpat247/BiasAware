@@ -231,64 +231,56 @@ const MapView = () => {
   console.log("Transitions Completed:", transitionsCompleted);
 
   return (
-    <div className="neighborhood-title-container">
-              <NavigationBar /> 
-
-      <h1 className="neighborhood-landing-title">NEIGHBOURHOOD</h1>
-      <div style={{ height: '80vh', width: '80%', margin: 'auto' }}>
-        <MapContainer
-          center={canadaCoords}
-          zoom={4}
-          scrollWheelZoom={transitionsCompleted}
-          doubleClickZoom={transitionsCompleted}
-          zoomControl={transitionsCompleted}
-          dragging={transitionsCompleted}
-          style={{ height: '85%', width: '100%', borderRadius: '15px' }}
-          attributionControl={false}  // This disables the attribution control
-
+    <div>
+      <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 10000 }}>
+<NavigationBar className="navigation-bar" /> </div>
+      <div className="neighborhood-title-container">
+        <h1 className="neighborhood-landing-title">NEIGHBOURHOOD</h1>
+        <div style={{ height: '80vh', width: '80%', margin: 'auto' }}>
+          <MapContainer
+            center={canadaCoords}
+            zoom={4}
+            scrollWheelZoom={transitionsCompleted}
+            doubleClickZoom={transitionsCompleted}
+            zoomControl={transitionsCompleted}
+            dragging={transitionsCompleted}
+            style={{ height: '85%', width: '100%', borderRadius: '15px' }}
+            attributionControl={false}
+          >
+            {/* MapContainer children */}
+            <TileLayer
+              url="https://api.mapbox.com/styles/v1/mpat247/clv7muagn005401qlfz1y4h6k/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXBhdDI0NyIsImEiOiJjbHVqeTRjd3gwa2JiMmtvbGt2bWd3MWJyIn0.WLkzKPYKE4qqFTxxnR6SNw"
+              id="mpat247/clv7muagn005401qlfz1y4h6k"
+              accessToken="pk.eyJ1IjoibXBhdDI0NyIsImEiOiJjbHVqeTRjd3gwa2JiMmtvbGt2bWd3MWJyIn0.WLkzKPYKE4qqFTxxnR6SNw"
+            />
+            <ZoomEffect setTransitionsCompleted={setTransitionsCompleted} />
+            <HighlightNeighborhoods show={transitionsCompleted} />
+          </MapContainer>
+          <InfoCard show={showInfoCard} onClose={() => setShowInfoCard(false)} />
+        </div>
+        <button
+          className="info-btn"
+          onClick={() => setShowInfoCard(true)}
+          style={{
+            position: 'absolute',
+            bottom: '50px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            padding: '10px 20px',
+            backgroundColor: '#DD9313',
+            color: '#fff',
+            border: 'none',
+            cursor: 'pointer',
+            zIndex: 10,
+            borderRadius: '10px'
+          }}
         >
-          <TileLayer
-            url="https://api.mapbox.com/styles/v1/mpat247/clv7muagn005401qlfz1y4h6k/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXBhdDI0NyIsImEiOiJjbHVqeTRjd3gwa2JiMmtvbGt2bWd3MWJyIn0.WLkzKPYKE4qqFTxxnR6SNw"
-            id="mpat247/clv7muagn005401qlfz1y4h6k"
-            accessToken="pk.eyJ1IjoibXBhdDI0NyIsImEiOiJjbHVqeTRjd3gwa2JiMmtvbGt2bWd3MWJyIn0.WLkzKPYKE4qqFTxxnR6SNw"
-          />
-
-          <ZoomEffect setTransitionsCompleted={setTransitionsCompleted} />
-          <HighlightNeighborhoods show={transitionsCompleted} />
-        </MapContainer>
-
-        {/* InfoCard component */}
-        <InfoCard
-          show={showInfoCard}
-          onClose={() => setShowInfoCard(false)}
-        />
-
+          COMPARE
+        </button>
       </div>
-
-      {/* Button to show the InfoCard */}
-      <button
-        className="info-btn"
-        onClick={() => setShowInfoCard(true)}
-        style={{
-          position: 'absolute',
-          bottom: '50px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          padding: '10px 20px',
-          backgroundColor: '#DD9313',
-          color: '#fff',
-          border: 'none',
-          cursor: 'pointer',
-          zIndex: 10,
-          borderRadius: '10px'
-
-          
-        }}
-      >
-        COMPARE
-      </button>
     </div>
   );
+
 };
 
 export default MapView;
