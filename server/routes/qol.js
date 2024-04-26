@@ -55,6 +55,7 @@ router.get('/main', async (req, res) => {
       const filename = image.name;
       const downloadStream = bucket.openDownloadStreamByName(filename);
       const chunks = [];
+      console.log(image.name)
 
       return new Promise((resolve, reject) => {
         downloadStream.on('data', chunk => chunks.push(chunk));
