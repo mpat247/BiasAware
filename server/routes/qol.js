@@ -65,7 +65,9 @@ router.get('/main', async (req, res) => {
           resolve({
             imageData: `data:${contentType};base64,${imageData}`,
             prompt: image.prompt,
-            description: image.description
+            description: image.description,
+            name: image.name
+
           });
         });
       });
@@ -126,7 +128,8 @@ router.get('/main2', async (req, res) => {
           resolve({
             imageData: `data:${contentType};base64,${imageData}`,
             prompt: image.prompt,
-            description: image.description
+            description: image.description,
+            name: image.name
           });
         });
       });
