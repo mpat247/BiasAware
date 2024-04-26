@@ -236,7 +236,7 @@
     /* font-style: normal; */
 }
 
-.p .activities-popup-statistical-analysis {
+.activities-popup-statistical-analysis {
     margin-bottom: 0rem;
     line-height: normal;
     font-size: 0.9rem;
@@ -270,7 +270,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.651);
     width: 65%;
     /* Adjust as needed */
-    height: 65%;
+    height: 75%;
     /* Adjust as needed */
     text-align: center;
     display: flex;
@@ -362,6 +362,7 @@
 }
 
 .activities-popup-slide-caption {
+    margin-bottom: 0rem;
     color: white;
     /* Text color */
     text-align: center;
@@ -434,6 +435,23 @@
     scrollbar-color: #0B0533 #231b52; /* thumb and track color */
 }
 
+
+.statistics-link-activities {
+    text-decoration: none;
+    color: #a3a0a9; /* Choose a color that fits your design */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    display:grid; /* Makes it a block element to fill the width */
+    margin-top: 0px; /* Space from the content above */
+    font-size: 0.8rem;
+    transition: background-color 0.3s; /* Smooth background color change on hover */
+}
+
+.statistics-link-activities:hover {
+    /*background-color: transparent;  Color when hovered */
+    color: #aaa6b1; /* Text color when hovered */
+  }
 
 @media (min-width: 1280px) {
     .activities-PostSlide .activities-innerContainer .activities-slider {

@@ -8,6 +8,9 @@ import bingo from './images/image 11.png';
 import tennis from './images/image 12.png';
 import axios from 'axios';
 import REACT_APP_API_URL from './config.js';
+import GearLoader from './GearLoader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 // const colors = ["#FFD600", "#F5A720", "#D9822A", "#BE5C43", "#A33862", "#6A2774", "#441A93", "#161E7B"]; 
 const colors = ["#DCAD18", "#DD9313", "#C5680A", "#C15416"]; // Define colors for slides
@@ -65,8 +68,11 @@ const Popup = ({ isVisible, onClose, bgColor, description, name, sideImages, sel
                     </div>
                 </div>
                 <div className="activities-popup-footer">
-                    <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>x</button>
-                </div>
+                    <a href="/Statistics" className="statistics-link-activities">More Information Here</a>
+                    <button className="activities-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>
+                        <FontAwesomeIcon icon={faTimes} />
+                    </button>
+                </div>                
             </div>
         </div>
     );

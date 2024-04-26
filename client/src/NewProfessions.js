@@ -153,21 +153,24 @@ const Popup = ({ onClose, bgColor, category, images, categoryImages }) => {
         </div>
         <div className="professions-popup-footer">
           <a href="/Statistics" className="statistics-link-professions">More Information Here</a>
-          <button  onClick={onClose} style={{
-     position: 'absolute',
-     top: '5px',
-     right: '5px',
-     padding: '2px 6px',
-     backgroundColor: bgColor, // Deep purple background
-     color: 'white', // Fully opaque white text color
-     border: 'none',
-     borderRadius: '5px',
-     cursor: 'pointer',
-     zIndex: 1000,
-     pointerEvents: 'auto'
-  }}>
-  <FontAwesomeIcon icon={faTimes} />
-</button>
+          <button className="professions-popup-button-text" onClick={onClose} style={{ backgroundColor: bgColor }}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+                    {/* <button  onClick={onClose} style={{
+              position: 'absolute',
+              top: '1%',
+              right: '1%',
+              padding: '2px 6px',
+              backgroundColor: bgColor, 
+              color: 'white', 
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              zIndex: 1000,
+              pointerEvents: 'auto'
+            }}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button> */}
 
         </div>
       </div>
