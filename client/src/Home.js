@@ -63,7 +63,7 @@ const Home = () => {
             <header className="App-header" style={{ marginTop: '60px' }}>
         <NavigationBar /> 
      
-<div class = "main-body" style={{width: '100%'}}>
+<div id='navGears' class = "main-body" style={{width: '100%'}}>
           <div class="gear-container">
               <ul class="center-circle">
                 <li class="tooth"></li>

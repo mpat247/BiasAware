@@ -118,10 +118,10 @@ const NewActivities = () => {
             console.log(API_URL);
             try {
                 const response = await axios.get(`${API_URL}/activities`);
-                const sideResponse = await axios.get(`${API_URL}/activities/side`);
+                // const sideResponse = await axios.get(`${API_URL}/activities/side`);
 
                 const fetchedImages = response.data.images;
-                const fetchedSideImages = sideResponse.data.images;
+                // const fetchedSideImages = sideResponse.data.images;
                 console.log(response)
                 console.log(fetchedImages)
                 console.log(fetchedSideImages)
@@ -133,7 +133,7 @@ const NewActivities = () => {
 
 
                 setSlideInfo(updatedSlideInfo); // Update the state to trigger a re-render
-                setFetchedSideImages(fetchedSideImages);
+                // setFetchedSideImages(fetchedSideImages);
             } catch (error) {
                 console.error('Failed to fetch main images:', error);
             } finally {
@@ -425,11 +425,11 @@ const NewActivities = () => {
           <div className="activities-title-container" style={{ width: '100%' }}>
             <h1 className="activities-landing-title" style={{ textAlign: 'center', marginBottom: '20px' }}>ACTIVITIES</h1>
           </div>
-          {mainLoader ? (
+          {/* {mainLoader ? (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
               <GearLoader />
             </div>
-          ) : (
+          ) : ( */}
 
                 <div className="activities-PostSlide" onClick={handleSlideClick}>
                     <div className="activities-innerContainer active">
@@ -444,6 +444,9 @@ const NewActivities = () => {
                             ))}
                         </div> */}
 
+
+     
+
                         <div className="activities-slider">
                             {slideInfo.map((slide, index) => (
                                 <div className="activities-slide" style={{ backgroundColor: slide.color }}>
@@ -451,7 +454,14 @@ const NewActivities = () => {
                                         onClick={(e) => handleSlideClick(e, slide.color, slide.name, slide.description, slide.image, slide.prompt)}
                                         onMouseEnter={() => setHoveredSlide(slide.name)}
                                         onMouseLeave={() => setHoveredSlide(null)}>
-                                        <img src={slide.image} className="activities-image" />
+ {mainLoader ? (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, height:'100%'  }}>
+              <GearLoader />
+            </div>
+          ) : (
+                                        <img src={slide.image} alt={slide.name} className="activities-image" />
+                                    )} 
+
                                         {hoveredSlide === slide.name && (
                                             <div className="activities-hover-caption">{slide.name}</div>
                                         )}
@@ -459,6 +469,7 @@ const NewActivities = () => {
                                 </div>
                             ))}
                         </div>
+
 
                         {!isPopupVisible && (
 
@@ -479,10 +490,15 @@ const NewActivities = () => {
 
 )}
 
+
+
+
+
+                        
                     </div>
                 </div>
 
- )}
+ {/* )}  */}
 
             </div>
             <Popup
@@ -501,3 +517,25 @@ const NewActivities = () => {
 };
 
 export default NewActivities;
+
+
+
+// {!isPopupVisible && (
+
+
+//     <div className="activities-handles" style={{ position: 'relative', height: '50px' /* adjust height as needed */ }}>
+//     <span className="activities-prev" style={{ position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 10 }}>
+//         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+//             <path d="M15.0001 19.92L8.48009 13.4C7.71009 12.63 7.71009 11.37 8.48009 10.6L15.0001 4.07999" stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"></path>
+//         </svg>
+//     </span>
+//     <span className="activities-next" style={{ position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 10 }}>
+//         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+//             <path d="M8.99991 19.92L15.5199 13.4C16.2899 12.63 16.2899 11.37 15.5199 10.6L8.99991 4.07999" stroke="rgb(55 65 81/1)" strokeWidth="3" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"></path>
+//         </svg>
+//     </span>
+//     </div>
+    
+    
+//     )}
+    
