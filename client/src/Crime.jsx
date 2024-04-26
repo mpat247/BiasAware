@@ -7,56 +7,69 @@ import axios from 'axios';
 import REACT_APP_API_URL from './config';
 import placeholderImage from './placeholder-image.png'; // Make sure this is the correct path
 
-
-
-
 const Crime = () => {
-    
-    const [popupVisible, setPopupVisible] = useState(false);
-    const [popupText, setPopupText] = useState("");
-    const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
-    //const [showSlider, setShowSlider] = useState(false);
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupText, setPopupText] = useState("");
+  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
   const [popupImages, setPopupImages] = useState([]);
   const [loading, setLoading] = useState(false);
+  // const [cachedData, setCachedData] = useState({});
+  const chartsCreated = useRef(false);
 
-    const handleClosePopup = () => {
-        setPopupVisible(false);
-    };
-    //const [showSlider, setShowSlider] = useState(false);
-    
+  const [cachedData, setCachedData] = useState({});
+  const [heatmapType, setHeatmapType] = useState(null); // 'race' or 'gender'
+  const [crimeId, setCrimeId] = useState(null); // 'shoplifter', 'gang leader', etc.
 
-    //const [chartsCreated, setChartsCreated] = useState(false); // Define chartsCreated state
-    const chartsCreated = useRef(false);
-
-
-  const handleHeatmapClick = async (e, squareId) => {
-    const rect = e.target.getBoundingClientRect();
-    setPopupPosition({ x: rect.left, y: rect.top });
-    setPopupText(`Fetching images for square ${squareId}...`);
-    setLoading(true);
-    setPopupVisible(true);
-
-    try {
-      const response = await axios.get(`${REACT_APP_API_URL}/crimes/fetchedCrime?crimeId=${squareId}`);
-      // Directly using the objects returned by the API, filling missing entries with placeholders
-      const fullImagesData = response.data.images.map(imageObj => ({
-        ...imageObj,
-        image: imageObj.image || placeholderImage // Using the placeholder if no image URL is provided
-      }));
-
-      // If the API returns fewer than 9 images, fill the rest with placeholder objects
-      const imagesWithPlaceholders = Array.from({ length: 9 }).map((_, index) => fullImagesData[index] || {
-        image: placeholderImage, prompt: 'Placeholder', description: 'No description'
-      });
-
-      setPopupImages(imagesWithPlaceholders);
-      setPopupText(`Images for crime ID ${squareId}`);
-    } catch (error) {
-      console.error('Error fetching images:', error);
-      setPopupText(`Failed to fetch images for crime ID ${squareId}`);
-    }
-    setLoading(false);
+  const handleClosePopup = () => {
+    setPopupVisible(false);
   };
+
+  const handleHeatmapClick = async (e, clickedCrimeId, clickedHeatmapType) => {
+    setHeatmapType(clickedHeatmapType);
+    setCrimeId(clickedCrimeId);
+    
+    const cacheKey = `${clickedCrimeId}-${clickedHeatmapType}`;
+    
+    if (cachedData[cacheKey]) {
+      // Use cached data
+      setPopupImages(cachedData[cacheKey]);
+      setPopupText(`Images for ${clickedCrimeId} - ${clickedHeatmapType}`);
+      setPopupVisible(true);
+    } else {
+      // Fetch data from the API and cache it
+      const rect = e.target.getBoundingClientRect();
+      setPopupPosition({ x: rect.left, y: rect.top });
+      setPopupText(`Fetching images for ${clickedCrimeId} - ${clickedHeatmapType}...`);
+      setLoading(true);
+      setPopupVisible(true);
+
+      try {
+        const response = await axios.get(`${REACT_APP_API_URL}/crimes/fetchedCrime?crimeId=${clickedCrimeId}&type=${clickedHeatmapType}`);
+        // Modify the response handling based on your API structure
+        const fullImagesData = response.data.images.map(imageObj => ({
+          ...imageObj,
+          image: imageObj.image || placeholderImage
+        }));
+
+        const imagesWithPlaceholders = Array.from({ length: 9 }, (_, index) => fullImagesData[index] || {
+          image: placeholderImage, prompt: 'Placeholder', description: 'No description'
+        });
+
+        setCachedData(prevData => ({
+          ...prevData,
+          [cacheKey]: imagesWithPlaceholders
+        }));
+
+        setPopupImages(imagesWithPlaceholders);
+        setPopupText(`Images for ${clickedCrimeId} - ${clickedHeatmapType}`);
+      } catch (error) {
+        console.error('Error fetching images:', error);
+        setPopupText(`Failed to fetch images for ${clickedCrimeId} - ${clickedHeatmapType}`);
+      }
+      setLoading(false);
+    }
+  };
+
 
       /*const handleHeatmapClick = (e, index) => {
         const rect = e.target.getBoundingClientRect();
@@ -230,7 +243,7 @@ const Crime = () => {
   <>
     <div className={CrimeStyling["popup-overlay"]} onClick={handleClosePopup}></div>
     <div className={CrimeStyling["popup-crime"]}>
-      <button onClick={handleClosePopup}>Close</button>
+      <button onClick={handleClosePopup}>x</button>
       {/* Conditionally render the title only if popupImages has elements */}
       {popupImages.length > 0 && (
         <div className={CrimeStyling["popup-title"]}>{popupImages[0].prompt}</div>

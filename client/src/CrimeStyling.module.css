@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 110vh;
   overflow: hidden;
 }
 
@@ -89,7 +89,7 @@ padding: 20px;
 border: 1px solid #ccc;
 z-index: 9999;
 width: 40vh; /* Set the desired width */
-height: 68vh; /* Set the desired height */
+height: 72vh; /* Set the desired height */
 text-align: center;
 box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
 border-radius: 10px; /* Round the corners */
@@ -104,6 +104,14 @@ position: absolute;
 top: 10px;
 right: 10px;
 /* ... other button styles ... */
+}
+
+.popup-title{
+  color: #0B0533;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: -20px;
 }
 
 .grid-popup {
