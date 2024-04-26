@@ -55,7 +55,6 @@ router.get('/main', async (req, res) => {
       const filename = image.name;
       const downloadStream = bucket.openDownloadStreamByName(filename);
       const chunks = [];
-      console.log(image.name)
 
       return new Promise((resolve, reject) => {
         downloadStream.on('data', chunk => chunks.push(chunk));
@@ -66,9 +65,7 @@ router.get('/main', async (req, res) => {
           resolve({
             imageData: `data:${contentType};base64,${imageData}`,
             prompt: image.prompt,
-            description: image.description,
-            name: image.name
-
+            description: image.description
           });
         });
       });
@@ -129,8 +126,7 @@ router.get('/main2', async (req, res) => {
           resolve({
             imageData: `data:${contentType};base64,${imageData}`,
             prompt: image.prompt,
-            description: image.description,
-            name: image.name
+            description: image.description
           });
         });
       });
