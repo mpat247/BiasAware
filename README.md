@@ -45,19 +45,6 @@ This project investigates and highlights social biases in AI image generation sy
 6. **Evaluation**
    - Visualized results on the web app, revealing prominent stereotypes and disparities.
 
-## Key Findings
-- AI models reinforce stereotypes:
-  - Professions: Labor roles often depicted as black males.
-  - Neighborhoods: "Poor" vs. "Wealthy" areas stereotypically represented.
-- Statistical analysis showed:
-  - **Activities Bias:** Cyclists were 100% depicted as male and 55.55% white.
-  - **Professions Bias:** Male dominance in high-status roles, while females and racialized individuals were underrepresented.
-
-## Challenges and Solutions
-- **Data Handling:** Used MongoDB with GridFS to manage a large dataset efficiently.
-- **Model Accuracy:** Incrementally increased dataset size to improve training results.
-- **Web Deployment:** Optimized server performance to ensure smooth user experience.
-
 ## Future Work
 - Expand the dataset to include more diverse scenarios and regions.
 - Collaborate with policymakers to integrate findings into ethical AI guidelines.
@@ -73,8 +60,6 @@ This project investigates and highlights social biases in AI image generation sy
   - Express.js API for data retrieval and processing
 - /database
   - MongoDB with GridFS for image and metadata storage
-- /models
-  - Custom-trained AI models for bias exploration
 ```
 
 ## Installation
