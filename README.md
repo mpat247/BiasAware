@@ -4,6 +4,9 @@
 ## Description
 This project investigates and highlights social biases in AI image generation systems. By analyzing over 1300 images generated from popular platforms like Stable Diffusion and NightCafe, this project identifies, categorizes, and quantifies biases such as race, gender, and age disparities. An interactive web tool was developed to showcase these findings and promote awareness.
 
+## Link
+🔗 www.biasaware.social
+
 ## Goals
 - **Raise Awareness:** Educate users about biases embedded in AI-generated images.
 - **Develop Tools:** Build an interactive web application to visualize and explore biases.
