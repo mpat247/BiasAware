@@ -1,71 +1,34 @@
-import React, { useState } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
-import NavigationBar from './NavigationBar';
-import './Statistics.css';
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-const PdfViewer = ({ fileUrl }) => {
-  const [numPages, setNumPages] = useState(null);
+import React from "react";
+import { Worker, Viewer } from "@react-pdf-viewer/core";
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+import NavigationBar from "./NavigationBar";
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-  };
+const PdfViewer = ({ fileUrl }) => {
+  // Default layout plugin adds toolbar, sidebar, and more controls
+  const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
   return (
-    <div className="pdf-viewer-container">
-      <Document
-        file={fileUrl}
-        onLoadSuccess={onDocumentLoadSuccess}
-        className="document-container"
-      >
-        {Array.from(new Array(numPages), (el, index) => (
-          <Page
-            key={`page_${index + 1}`}
-            pageNumber={index + 1}
-            renderMode="canvas" // Set renderMode to 'canvas' to render only canvas elements
-            className={`page-${index + 1}`}
-          />
-        ))}
-      </Document>
+    <div className="w-full h-full bg-white shadow-lg rounded-2xl overflow-hidden">
+      <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
+        <Viewer fileUrl={fileUrl} plugins={[defaultLayoutPluginInstance]} />
+      </Worker>
     </div>
   );
 };
 
 const ComingSoon = () => {
   return (
-    <div className="app-container" style={{
-      paddingTop: '80px',
-      boxSizing: 'border-box',
-      width: '100%',
-      minHeight: '100vh',
-      backgroundColor: '#f8f8f8'
-    }}>
+    <div className="flex flex-col w-full min-h-screen bg-gray-100 pt-20">
       <NavigationBar />
-      <div className="content-container" style={{
-        width: '80%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-        top: '20px'
-      }}>
-       
-        <div className="viewer-container" style={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
+      <div className="flex-1 flex flex-col items-center justify-start px-4 sm:px-8 lg:px-16 py-8">
+        <div className="w-full max-w-4xl h-[80vh]">
           <PdfViewer fileUrl="/Report.pdf" />
         </div>
       </div>
     </div>
   );
-
 };
-
-{/* <div className="flex items-center justify-center h-full" style={{ position: 'relative', top: '60px' }}> */}
-
 
 export default ComingSoon;
