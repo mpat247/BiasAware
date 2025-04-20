@@ -11,34 +11,15 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3001;
 const { GridFSBucket } = require('mongodb');
+const csv = require('csv-parser');
 
 
 app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.json({ msg: 'Welcome to the MERN Capstone Project' });
+  res.json({ msg: 'Welcome to the Capstone Project' });
 });
-
-app.post('/users', async (req, res) => {
-  const user = new User(req.body);
-  try {
-    await user.save();
-    res.status(201).send(user);
-  } catch (error) {
-    res.status(400).send(error);
-  }
-});
-
-app.get('/users', async (req, res) => {
-  try {
-    const users = await User.find({});
-    res.send(users);
-  } catch (error) {
-    res.status(500).send(error);
-  }
-});
-
 
 async function uploadImagesFromCSVAndFolder(csvFilePath, imagesFolderPath, db) {
   const bucket = new GridFSBucket(db, { bucketName: 'images' });
@@ -138,6 +119,57 @@ app.post('/bias', async (req, res) => {
   }
 });
 
+
+
+// Function to parse the QOL CSV file and return prompt-description pairs
+function parseQOLCSV(csvFilePath) {
+  return new Promise((resolve, reject) => {
+    const promptDescriptions = {};
+    fs.createReadStream(csvFilePath)
+      .pipe(csv())
+      .on('data', (row) => {
+        const prompt = row['prompt'];
+        const description = row['description'];
+        promptDescriptions[prompt] = description;
+      })
+      .on('end', () => {
+        resolve(promptDescriptions);
+      })
+      .on('error', (error) => {
+        reject(error);
+      });
+  });
+}
+
+// API endpoint to update or add image descriptions
+app.post('/update-image-descriptions', async (req, res) => {
+  try {
+    const qolCsvFilePath = path.resolve(__dirname, 'server/qol.csv');
+    const promptDescriptions = await parseQOLCSV(qolCsvFilePath);
+
+    const imagesToUpdate = await Image.find({ bias_name: 'Quality of Life' });
+
+    imagesToUpdate.forEach(async (image) => {
+      const prompt = image.prompt;
+
+      if (prompt in promptDescriptions) {
+        // If prompt exists in CSV, update or add description to image
+        const description = promptDescriptions[prompt];
+        await Image.findOneAndUpdate({ _id: image._id }, { description: description }, { new: true });
+        console.log(`Updated description for image with prompt: ${prompt}`);
+      } else {
+        console.log(`No description found for prompt: ${prompt}`);
+      }
+    });
+
+    res.status(200).json({ message: 'Image descriptions updated successfully.' });
+  } catch (error) {
+    console.error('Error updating image descriptions:', error);
+    res.status(500).json({ message: 'Failed to update image descriptions', error: error.message });
+  }
+});
+
+
 const addictionsRoute = require('./routes/addictions');
 app.use('/addictions', addictionsRoute);
 
@@ -148,11 +180,14 @@ app.use('/emotions', emotionsRoute);
 const qolRoute = require('./routes/qol');
 app.use('/qol', qolRoute);
 
-const crimeRoutes = require('./routes/crime');
-app.use('/crime', crimeRoutes);
+const crimeRoutes = require('./routes/crimes');
+app.use('/crimes', crimeRoutes);
 
 const professionsRoute = require('./routes/professions');
 app.use('/professions', professionsRoute);
+
+const activitiesRoute = require('./routes/activities');
+app.use('/activities', activitiesRoute);
 
 async function main() {
   try {

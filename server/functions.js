@@ -1,107 +1,72 @@
-const fs = require('fs');
-const path = require('path');
-const csv = require('csv-parser');
+// Dependencies
 const mongoose = require('mongoose');
-const { GridFSBucket } = require('mongodb');
+const csv = require('csv-parser');
+const fs = require('fs');
 
-// Import Image model
-const Image = require('./models/imageModel');
+// MongoDB Atlas connection string
+const mongoDBUri = 'mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority';
 
-// MongoDB connection string
-const mongoDB = 'mongodb+srv://manav:biasaware@biasaware.ipjjs0e.mongodb.net/capstone?retryWrites=true&w=majority';
+// Connect to MongoDB
+mongoose.connect(mongoDBUri);
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+    console.log('Successfully connected to MongoDB Atlas.');
+});
 
-// async function saveImagesToMongoDB() {
-//   console.log('MongoDB connection established.');
-//   const conn = mongoose.connection;
-//   const gfs = new GridFSBucket(conn.db, { bucketName: 'images' });
+// Image Schema Definition
+const imageSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    prompt: { type: String, required: false },
+    bias_id: { type: String, required: false },
+    bias_name: { type: String, required: false },
+    bias_type: { type: String, required: false },
+    gender: { type: String, required: false },
+    qol_type: { type: String, required: false },
+    profession_type: { type: String, required: false },
+    skin_shade: { type: String, required: false },
+    gender_bias: { type: String, required: false },
+    race_bias: { type: String, required: false },
+    age_bias: { type: String, required: false },
+    description: { type: String, required: false },
+    crimeId: { type: String, required: false },
+}, { timestamps: true });
+const Image = mongoose.model('Images', imageSchema);
 
-//   // CSV file path and images folder path
-//   const csvFilePath = 'D:/manav/Documents/Engineering/4th Year/Capstone/BiasAware/server/Emotions/import.csv';
-//   const imagesFolderPath = 'D:/manav/Documents/Engineering/4th Year/Capstone/BiasAware/server/Emotions';
+// Function to update Images with bias data from CSV
+async function updateImagesWithBiasData(filePath) {
+    fs.createReadStream(filePath)
+        .pipe(csv())
+        .on('data', async (row) => {
+            const { prompt, gender_bias, race_bias, age_bias } = row;
+            // Check if prompt is not empty and try to update the corresponding images
+            if (prompt) {
+                const result = await Image.updateMany({ prompt: prompt }, {
+                    $set: {
+                        gender_bias: gender_bias || null, // Set to null if empty
+                        race_bias: race_bias || null,
+                        age_bias: age_bias || null,
+                    }
+                });
 
-//   fs.createReadStream(csvFilePath)
-//     .pipe(csv())
-//     .on('data', async (row) => {
-//       const { name, prompt, bias_id, bias_name, generator } = row;
-//       const imageName = `${name}.jpg`;
-//       const imagePath = path.join(imagesFolderPath, imageName);
-
-//       // Check if image file exists
-//       if (fs.existsSync(imagePath)) {
-//         console.log(`Processing image: ${imageName}`);
-
-//         // Create read stream for image
-//         const readStream = fs.createReadStream(imagePath);
-//         // Open upload stream to GridFSBucket
-//         const writeStream = gfs.openUploadStream(imageName);
-
-//         // Pipe image read stream to GridFSBucket write stream
-//         readStream.pipe(writeStream)
-//           .on('finish', async () => {
-//             console.log(`Successfully uploaded ${imageName}`);
-
-//             // Save image metadata in the images collection
-//             await Image.create({
-//               name: imageName,
-//               prompt,
-//               bias_id,
-//               bias_name,
-//               bias_type: null,
-//               generator,
-//               createdAt: new Date(),
-//               updatedAt: new Date(),
-//               age_bias: null,
-//               gender_bias: null,
-//               race_bias: null
-//             });
-
-//             console.log(`Metadata for ${name} saved in the images collection.`);
-//           })
-//           .on('error', (err) => {
-//             console.error(`Error uploading ${imageName}:`, err);
-//           });
-//       } else {
-//         console.log(`Image file ${imageName} does not exist in the specified path: ${imagePath}`);
-//       }
-//     })
-//     .on('end', () => {
-//       console.log('CSV file processing completed. Initiating image fetch and save process.');
-//     });
-// }
-
-async function fetchAndSaveImages() {
-  console.log('Fetching images with name starting with EMO_P6.');
-  const conn = mongoose.connection;
-  const gfs = new GridFSBucket(conn.db, { bucketName: 'images' });
-  const fetchedDir = path.join(__dirname, 'FETCHED');
-
-  if (!fs.existsSync(fetchedDir)) {
-    fs.mkdirSync(fetchedDir);
-  }
-
-  const images = await Image.find({ name: /^EMO_P6/ });
-  images.forEach(image => {
-    const readStream = gfs.openDownloadStreamByName(image.name);
-    const writeStream = fs.createWriteStream(path.join(fetchedDir, `${image.name}`));
-    readStream.pipe(writeStream).on('finish', () => {
-      console.log(`Successfully fetched and saved ${image.name}`);
-    });
-  });
+                if (result.matchedCount === 0) {
+                    console.log(`No images found with prompt: ${prompt}. Skipping.`);
+                } else if (result.modifiedCount === 0) {
+                    console.log(`Images with prompt: ${prompt} were already up-to-date. Skipping.`);
+                } else {
+                    console.log(`Images with prompt: ${prompt} updated with bias data. Count: ${result.modifiedCount}`);
+                }
+            } else {
+                console.log("Encountered an empty prompt. Skipping this row.");
+            }
+        })
+        .on('end', () => {
+            console.log('Completed updating images with bias data.');
+        });
 }
 
-async function main() {
-  try {
-    await mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
-   // await saveImagesToMongoDB();
-    await fetchAndSaveImages();
-  } catch (err) {
-    console.error('MongoDB connection error:', err);
-  }
-}
+// Path to your CSV file - Update this to the actual path
+const filePath = 'server/race.csv';
 
-// Init function to call main
-function init() {
-  main().then(() => console.log('All operations completed.'));
-}
-
-init();
+// Execute the function
+updateImagesWithBiasData(filePath);

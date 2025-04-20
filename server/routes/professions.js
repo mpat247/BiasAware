@@ -42,6 +42,7 @@ router.get('', async (req, res) => {
                         image: `data:${contentType};base64,${imgBase64}`,
                         profession_type: image.profession_type,
                         prompt: image.prompt,
+                        description: image.description
 
                     });
                 });

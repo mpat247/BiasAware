@@ -1,0 +1,118 @@
+.grid-container-neighborhood {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+    grid-template-rows: repeat(2, 1fr); /* Creates two rows */
+    gap: 16px; /* Adjust the space between grid items */
+    align-items: start; /* Aligns items to the start of the grid area */
+  }
+  
+  .grid-item-houses{
+    background: #f4f4f4; /* Your existing styles... */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Add your styles for grid items */
+  }
+  .grid-item-stats {
+    position: relative; /* If you need to position anything absolutely within this container */
+    /* Your existing styles... */
+  }
+  .grid-item-houses img{
+    
+    border-radius: 10px;
+  }
+  .grid-item-apartment img{
+    
+    border-radius: 10px;
+  }
+  .grid-item-stats img {
+    max-width: 100%; /* Makes the image responsive, ensuring it scales down */
+    max-height: 100%; /* Limits the image height to the container height */
+    object-fit: cover; /* This will cover the area without stretching the image */
+    display: block; /* Removes bottom space under the image */
+    border-radius: 10px;
+  }
+  .grid-item-apartment{
+    background: #f4f4f4; /* Your existing styles... */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    /* Add your styles for grid items */
+  }
+  .popup-title {
+    padding: 10px; /* Adjust padding as needed */
+  font-weight: bolder; /* Makes the text bold */
+  display: block; /* Ensures the padding is applied properly */
+  margin: 0; /* Removes default margin from h2 if desired */
+  text-align: center; /* If you want the title to be centered */
+  font-family: "Crimson Text";
+  color: #140C46;
+  /* Any other styles that should apply to both titles */
+  }
+  .popup-content {
+    width: 300px; /* Set a fixed width; adjust as needed for your design */
+    /* ... other styles ... */
+  }
+  .grid-container-compare {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto; /* Adjust row size based on content */
+    gap: 10px; /* Adjust spacing between grid items */
+  }
+  
+  .grid-item-house-compare, .grid-item-apart-compare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents content from spilling out */
+  }
+  
+  .grid-item-house-compare img, .grid-item-apart-compare img {
+    max-width: 100%; /* Ensures image is no wider than its container */
+    max-height: 100%; /* Ensures image is no taller than its container */
+    object-fit: cover; /* Cover the area without stretching; may crop the image */
+    border-radius: 10px;
+  }
+  .popup-content-compare {
+    width: 400px; /* Set a fixed width; adjust as needed for your design */
+    /* ... other styles ... */
+  }
+  .titles-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Take the full width to spread the titles apart */
+    margin-bottom: 10px; /* Optional: Adds some space between the titles and the grid below */
+  }
+  
+  .popup-title-left, .popup-title-right {
+    flex-basis: 50%; /* Each title takes half of the container width */
+    text-align: center;
+    margin: 0; /* Removes default margin */
+    padding: 10px 0; /* Adds padding on top and bottom */
+    font-size: 25px; /* Adjust this value to make the font smaller */
+    font-family: "Crimson Text";
+  color: #140C46;
+  font-weight: bolder; /* Makes the text bold */
+  }
+
+  .neighborhood-landing-title {
+    margin-top: 65px;
+    font-family: "Crimson Text", serif;
+    color: #DD9313;
+    font-weight: bolder;
+    /* font-style: normal; */
+    font-size: 7vw;
+}
+
+
+
+.neighborhood-title-container {
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: lightgray
+}

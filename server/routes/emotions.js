@@ -45,7 +45,8 @@ router.get('/main', async (req, res) => {
           resolve({
             image: `data:${contentType};base64,${imgBase64}`,
             prompt: image.prompt, // Original prompt
-            emotion // New prompt field without 'A ', 'An ', and ' Individual'
+            emotion, // New prompt field without 'A ', 'An ', and ' Individual',
+            description: image.description
           });
           count ++;
           console.log('Image downloaded:', filename, 'Prompt:', image.prompt, 'Emotion:', emotion);
@@ -62,8 +63,17 @@ console.log(count)
 
 router.get('/side', async (req, res) => {
   try {
-    const images = await Image.find({ bias_name: "Emotions", prompt: { $not: /Individual/i }});
-
+    const emotion = req.query.emotion;  // Retrieve the emotion query parameter
+    if (!emotion) {
+      return res.status(400).send({ message: 'Missing emotion query parameter' });
+    }
+    const images = await Image.find({
+      bias_name: "Emotions",
+      prompt: { 
+        $regex: new RegExp('^' + emotion + '$', 'i'), // Matches the emotion exactly, case-insensitively
+        $not: /Individual/i
+      }
+    });
     if (!images.length) {
       return res.status(404).send({ message: 'No main images found' });
     }

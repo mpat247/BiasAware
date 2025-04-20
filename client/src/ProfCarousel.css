@@ -1,44 +1,61 @@
-@charset "utf8";
-@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Almarai&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap');
-
 :root {
-    --ImgSizeX: 50vw;
+    /* prev 50 */
+    /* --ImgSizeX: 50vw; */
+    --ImgSizeX: 45vw;
+    /* --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3); */
     --ImgSizeY: calc(var(--ImgSizeX) / 4 * 3);
-    --minFontSize: 10px;
-    --maxFontSize: 32px;
-    --scaler: 5vw;
-    font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize));
+    /* Add banner height to the image height */
+    /* --minFontSize: 10px; */
+    /* --maxFontSize: 32px; */
+    /* --scaler: 5vw; */
+    --bannerHeight: 3vw;
+    /* Height of the caption banner */
+    /* font-size: clamp(var(--minFontSize), var(--scaler), var(--maxFontSize)); */
 }
 
-*, *:before, *:after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body, main {
+.slideContainer {
+    position: relative;
+    width: 100%;
     height: 100%;
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.captionBanner {
+    position: absolute;
+    /* top: -var(--bannerHeight); Position it above the top edge of the carousel */
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* color: white; */
+    /* padding: 0px; */
+    text-align: center;
+    font-size: 2vw;
+    /* Adjust font size as needed */
+    height: var(--bannerHeight);
+    /* Use the banner height variable */
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+    color: #0B0533;
 }
 
 #carousel {
-    overflow: hidden; /* Add this line */
+    overflow: hidden;
     display: flex;
     justify-content: center;
     position: relative;
-    height: var(--ImgSizeY);
-    margin-top: 20px; /* Add margin-top to create space between the header bar and the carousel */
+    height: calc(var(--ImgSizeY) + var(--bannerHeight));
+    /* Updated to include the banner height */
+    /* background-color: pink; */
+    padding-top: var(--bannerHeight);
+    /* Pushes the images down by the banner's height */
+    /* margin-top: var(--bannerHeight); This may not be necessary if using padding-top */
 }
-
-/* #carousel {
-    overflow: hidden; 
-    display: flex;
-    justify-content: center;
-    position: relative;
-    height: var(--ImgSizeY);
-} */
 
 #carousel a {
     position: absolute;
@@ -110,167 +127,17 @@ html, body, main {
     transform: translateY(0) translateX(-50%);
 }
 
-.buttons {
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    width: 3em;
-    margin: auto;
-    margin-top: 21%;
-    position: absolute;
-    top: 50%; /* Position the buttons vertically centered */
-    transform: translateY(-50%); /* Adjust to vertically center the buttons */
-    left: 5%; /* Adjust the left position */
-    right: 5%; /* Adjust the right position */
+
+.arrows svg {
+    fill: none;
+    /* SVG path border color */
+    stroke: white;
+    /* SVG path color */
+    stroke-width: 2px;
+    /* SVG path border width */
 }
 
-
-.buttons button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 2.5em;
-    height: 3em;
-    font-size: 1.5em; /* Adjust the font size */
-    color: #0B0533; /* Adjust the color */
-}
-
-.arrow {
-    cursor: pointer;
-    width: 2.5em;
-    height: 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.arrow:hover {
-    color: black; /* Adjust the color on hover */
-}
-
-/* .yellowBox {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 50px; 
-    height: 100%;
-    background-color: yellow;
-} */
-
-.slideContainer {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.slideImage {
-    position: absolute;
-    left: 5%; /* Adjusted left positioning to make it 90% in width */
-    top: 5%; /* Adjusted top positioning to make it 90% in height */
-    width: 44%; /* Set width to 90% of the parent container */
-    height: 90%; /* Set height to 90% of the parent container */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
-
-.slideTextContent {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    width: 44%;
-    height: 90%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 2px solid white;
-    box-sizing: border-box;
-    border-radius: 5px;
-    display: flex; /* Center the content horizontally and vertically */
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
-}
-
-.slideTextContent h1 {
-    font-size: 1.5em; /* Adjust the font size */
-    color: #fff; /* Adjust the color */
-    margin-bottom: 0.5em; /* Add some bottom margin */
-    font-family: 'Abhaya Libre ExtraBold';
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); /* White text shadow with higher opacity */
-    text-align: center;
-}
-
-
-.slideTextContent p {
-    font-size: 1em; /* Adjust the font size */
-    color: #fff; /* Adjust the color */
-    text-align: center; /* Center the text horizontally */
-    font-family: 'Almarai'; /* Apply the Almarai font */
-}
-
-
-.titleBar {
-    background-color: #0B0533; /* Set the background color to blue */
-    width: 50%; /* Full width */
-    height: 50px; /* Set the height of the title bar */
-    display: flex; /* Center the title horizontally */
-    justify-content: center; /* Center the title horizontally */
-    align-items: center; /* Center the title vertically */
-    /* margin-top: 20px; */
-}   
-
-.titleBar h1 {
-    font-family: 'Abhaya Libre ExtraBold';
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); /* White text shadow with higher opacity */
-    color: white; /* Set the color of the title text */
-    font-size: 24px; /* Adjust the font size of the title */
-    text-align: left;
-}
-
-#carousel {
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    height: var(--ImgSizeY);
-    margin-top: 20px;
-    width: 100%;
-    /* Ensure the carousel takes full width */
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    /* Start off to the right */
-    width: 100%;
-    /* Slide width should match the container */
-    height: 100%;
-    /* Slide height should match the container */
-    transition: left 0.5s ease-in-out;
-    opacity: 0;
-    /* Make slides invisible by default */
-    visibility: hidden;
-}
-
-.selected {
-    left: 0;
-    /* Bring the selected slide into view */
-    opacity: 1;
-    /* Make the selected slide visible */
-    visibility: visible;
-    z-index: 2;
-    /* Ensure it's above the non-selected slides */
-}
-
-.text1 {
-    color: black
+.arrows svg:hover {
+    stroke: #0B0533;
+    /* Change arrow color on hover */
 }

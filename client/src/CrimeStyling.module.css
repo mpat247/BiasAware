@@ -1,0 +1,488 @@
+.crimes-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 110vh;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  margin-top: 7%;
+  font-family: 'Crimson Text';
+  font-weight: bolder;
+  font-size: 7vw;
+  color: #DD9313;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* Set the grid to have 6 columns */
+  grid-gap: 10px;
+  background-color: white;
+  /* Set the desired background color */
+}
+
+.heatmap-container {
+  width: 11vw;
+  height: 11vw;
+  /* Set the height of each heatmap container */
+  box-sizing: border-box;
+  border: none !important;
+  /* Remove the border */
+  background-color: transparent !important;
+  /* Set the background color to transparent */
+}
+
+/* Remove background and border from heatmap containers */
+div[id^="container"] {
+  background: transparent !important;
+  border: none !important;
+}
+
+.anychart-credits {
+  display: none !important;
+}
+
+.anychart-heatmap {
+  background: transparent !important;
+  border: none !important;
+}
+
+.crime-rectangle {
+  width: 20.7vw;
+  /* Adjust width as needed */
+  height: 2.6vw;
+  /* Adjust height as needed */
+  background-color: #0B0533;
+  /* Set a background color */
+  margin: 27px 27px 27px 12.5px;
+  /* Add margin for spacing */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 1.3rem;
+  /* Set the font size */
+  color: #ffffff;
+  /* Set the text color */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.popup-title {
+  color: #0B0533;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: -10px;
+  line-height: 1;
+}
+
+.different-description-style {
+  color: #0B0533;
+  font-size: .7rem;
+  font-weight: 300;
+  line-height: .3;
+  font-weight: bold;
+}
+
+
+.crime-rectangle-container {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  margin-top: 20px;
+  /* Add margin to separate from the title */
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0B0533;
+  /* Blue with 30% opacity */
+  z-index: 9998;
+  /* Below the popup */
+}
+
+.popup-crime {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  /* Change the background color to white */
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 9999;
+  width: 40vh;
+  /* Set the desired width */
+  height: 80vh;
+  /* Set the desired height */
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  /* Shadow effect */
+  border-radius: 10px;
+  /* Round the corners */
+  /* position: relative; Added to position the close button absolutely within the popup */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statistics-link-crimes {
+  text-decoration: none;
+  color: #a3a0a9;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  display: grid;
+  margin-top: 0px;
+  font-size: 0.8rem;
+  transition: background-color 0.3s;
+}
+
+.popup-crime button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  /* ... other button styles ... */
+}
+
+.grid-popup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Creates a 3-column grid */
+  grid-template-rows: repeat(3, 1fr);
+  /* Creates 3 rows */
+  gap: 10px;
+  /* Adjust the gap between squares */
+  margin: 20px 0;
+  /* Space above and below the grid */
+}
+
+.grid-square {
+  width: 50px;
+  /* Adjust the size of squares */
+  height: 50px;
+  background-color: #ddd;
+  /* Placeholder color */
+  border: 1px solid #ccc;
+  /* A subtle border */
+}
+
+
+.popup-crime button {
+  position: absolute;
+  top: 10px;
+  /* Adjust the top position as needed */
+  right: 10px;
+  /* Adjust the right position to move the button to the right */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: .7rem;
+  color: #333;
+  /* Change button color */
+
+  padding: 5px 10px;
+  background-color: #a8a8a8;
+  color: rgba(255, 255, 255, 0.55);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.crime-popup-image {
+  width: 17vw;
+  height: 28vw;
+  /* Set the height of the square */
+  background-color: #520b0b;
+  /* Set the background color of the square */
+  margin: 50px auto;
+  /* Center the square horizontally and add some margin */
+  border-radius: 10px;
+}
+
+.image-crime {
+  position: absolute;
+  bottom: 80px;
+  right: 1px;
+  width: 180px;
+  height: 280px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  /* For screens smaller than 768px */
+
+  .heatmap-container {
+    width: 16vw;
+    height: 16vw;
+    box-sizing: border-box;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /* Set the grid to have 6 columns */
+    grid-gap: 3px;
+    background-color: #ffffff;
+    /* Set the desired background color */
+  }
+
+  .crime-rectangle {
+    width: 24.8vw;
+    /* Adjust width as needed */
+    height: 4vw;
+    /* Adjust height as needed */
+    margin: 20px 20px 20px 17px;
+    /* Add margin for spacing */
+    font-size: 0.70rem;
+    /* Set the font size */
+  }
+
+  .crime-rectangle-container {
+
+    margin-top: 5px;
+    /* Add margin to separate from the title */
+  }
+
+  .popup-crime {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ccc;
+    /* Change the background color to white */
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 9999;
+    width: 10vh;
+    /* Set the desired width */
+    height: 28vh;
+    /* Set the desired height */
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    /* Shadow effect */
+    border-radius: 10px;
+    /* Round the corners */
+  }
+}
+
+
+/* Additional styles for loading text */
+.loading-text {
+  color: #fff;
+}
+
+.popup-crime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  /* You can adjust this based on your preference */
+  max-width: 500px;
+
+  /* Maximum width of the popup */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  /* High z-index to ensure it's above other content */
+}
+
+.grid-popup {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+
+.grid-square {
+  background-color: #ddd;
+  /* Placeholder color, can be removed if not needed */
+  overflow: hidden;
+  /* Ensures the content does not spill out */
+  position: relative;
+  padding-top: 100%;
+  /* This ensures that each grid item is square */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 142px;
+  /* Set the desired width */
+  height: 142px;
+  border-radius: 10px;
+  /* Set the desired height */
+}
+
+.grid-square p {
+  margin: 0;
+  padding: 2px;
+  text-align: center;
+  font-size: 0.8em;
+  /* Adjust based on your needs */
+  color: #fff;
+  /* Adjust based on your background */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background for readability */
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.square-image {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* This will cover the square area, cropping the image if necessary */
+  object-position: center;
+  /* Center the image within the element */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .popup-crime {
+    width: 95vw;
+    max-width: none;
+  }
+
+  .grid-popup {
+    grid-gap: 5px;
+  }
+
+  .grid-square {
+    padding-top: 90%;
+    /* Adjust if you want a different aspect ratio for smaller screens */
+  }
+}
+
+
+.crime-prompt {
+  font-size: 1.2rem;
+  /* Set the font size */
+  color: #a11818;
+  /* Set the text color */
+  font-weight: bold;
+  /* Set the font weight */
+  text-align: center;
+  /* Set the text alignment */
+  margin-top: 20px;
+  /* Add margin to separate from the grid */
+}
+
+.crime-description {
+  font-size: 1.2rem;
+  /* Set the font size */
+  color: #333;
+  /* Set the text color */
+  font-weight: bold;
+  /* Set the font weight */
+  text-align: center;
+  /* Set the text alignment */
+  margin-top: 20px;
+  /* Add margin to separate from the grid */
+}
+
+
+@media screen and (max-width: 768px) {
+  .popup-crime {
+    width: 90vw;
+    height: 90vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+  }
+
+  .grid-popup {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .grid-square {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .square-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .crime-prompt-container {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* Add margin between prompt and description */
+  }
+
+  .crime-prompt {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .crime-description-container {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .crime-description {
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+
+  .statistics-link-crimes {
+    text-decoration: none;
+    color: Black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    display: grid;
+    margin-top: 0px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+  }
+}

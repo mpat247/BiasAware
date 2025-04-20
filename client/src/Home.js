@@ -1,17 +1,19 @@
 // App.js
 import { FaArrowUp } from 'react-icons/fa'; // Assuming you are using react-icons for icons
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy  } from 'react';
 import './Home.css';
-import NavigationBar from './NavigationBar2'; // Import the NavigationBar component
+import NavigationBar from './NavigationBar'; // Import the NavigationBar component
 import Addictions from './Addictions';
-import Activities from './Activities';
 import QOL from './QOL'; // Import the QOL component
-import QOL2 from './QOL2'; // Import the QOL component
 import Crime from './Crime';
 import Emotions from './Emotions';
-import ProfessionsLanding from './ProfessionsLanding';
 import LandingPage from './LandingPage'; // Import the LandingPage component
 import NewActivities from './NewActivities'; // Import the LandingPage component
+import NewProfessions from './NewProfessions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp, faPlay } from '@fortawesome/free-solid-svg-icons'; // Assuming the icon for scroll-to-top is an arrow
+import { Tooltip } from 'antd'; // Ensure Tooltip is imported if not already
+import GearLoader from './GearLoader';
 
 import './GearComponent.css';
 
@@ -38,39 +40,30 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLandingPage(false);
-    }, 35000);
+    }, 40000);
 
     return () => clearTimeout(timer);
   }, []);
 
+  
+  const closeLandingPage = () => {
+    setShowLandingPage(false);  // This directly sets the landing page to not show
+  };
+  const playIntro = () => {
+    setShowLandingPage(true);  // This directly sets the landing page to show
+  };
 
   return (
     <div className="Home">
       {showLandingPage ? (
-        <LandingPage /> // Show LandingPage component for 10 seconds
+        <LandingPage closeLandingPage={closeLandingPage} />
       ) : (
         <>
 
-      <header className="App-header">
-        <NavigationBar /> {/* Include the NavigationBar component */}
-         {/* Add a link to scroll to the Addictions section */}
-        
-
-        {/* <h1 style={{ 
-  color: '#DD9313',
-  fontFamily: 'Abhaya Libre ExtraBold', 
-  fontSize: '4em',
-  textShadow: '2px 2px 4px rgba(168, 108, 6, 1)',
-  textAlign: 'center', // Centers the text horizontally
-  margin: '0', // Removes any default margin
-  padding: '50px 0' // Adjust this padding to control spacing above and below the text
-}}>
-  A C T I V I T I E S
-</h1> */}
-{/* Addiction Prompts*/}
-
-
-<div class = "main-body">
+            <header className="App-header" style={{ marginTop: '60px' }}>
+        <NavigationBar /> 
+     
+<div id='navGears' class = "main-body" style={{width: '100%'}}>
           <div class="gear-container">
               <ul class="center-circle">
                 <li class="tooth"></li>
@@ -86,21 +79,21 @@ const Home = () => {
               </ul>
              <div class="ring">
              <a href="#activities" className="acc-prompt2">
-            <h2>A Skater</h2>
+            <h2>Skater</h2>
             </a>
             <a href="#qol" className="qol-prompt1">
-              <h2>A Person in</h2>
+              <h2>Person in</h2>
             </a>
             <a href="#qol" className="qol-prompt2">
-            <h2>Designer Attire</h2>
+            <h2 >Designer Attire</h2>
           </a>
-          <a href="#emotions" className="pro2">
-            <h2>A Family Doctor</h2>
+          <a href="#NewProfessions" className="pro2">
+            <h2>Family Doctor</h2>
           </a>
-          <a href="#emotions" className="hood2">
+          <a href="/Neighborhood" className="hood2">
             <h2>An Apartment in</h2>
           </a>
-          <a href="#emotions" className="hoods2">
+          <a href="/Neighborhood" className="hoods2">
             <h2>Forest Hill</h2>
           </a>
              </div>
@@ -121,34 +114,37 @@ const Home = () => {
                 <li class="tooth"></li>
               </ul>
              <div class="ring2">
-             <a href="#emotions" className="eng3">
-              <h2>A Shoplifter</h2>
+             <a href="#Crime" className="eng3">
+              <h2>Shoplifter</h2>
             </a>
-            <a href="#emotions" className="emotions1">
-              <h2>A Proud Individual</h2>
+            <a href="#Emotions" className="emotions1">
+              <h2>Proud Individual</h2>
             </a>
-            <a href="#emotions" className="eng1">
+            <a href="/Engineering" className="eng1">
               <h2>Engineering</h2>
             </a>
             <a href="#addictions" className="addiction-prompt">
-              <h2>A Plastic Surgery Dependant Individual</h2>
+              <h2>Plastic Surgery Dependant Individual</h2>
             </a>
-            <a href="#emotions" className="eng">
-              <h2>A Computer Engineer</h2>
+            <a href="/Engineering" className="eng">
+              <h2>Computer Engineer</h2>
             </a>
-            <a href="#emotions" className="eng4">
-              <h2>A Smuggler</h2>
+            <a href="#Crime" className="eng4">
+              <h2>Smuggler</h2>
             </a>
-            <a href="#emotions" className="pro3">
-              <h2>An Accountant</h2>
+            <a href="#NewProfessions" className="pro3">
+              <h2>Accountant</h2>
             </a>
             <a href="#addictions" className="addiction-prompt2">
-              <h2>A Tattoo Dependant</h2>
+              <h2>Tattoo Dependant Individual</h2>
+            </a>
+            <a href="#activities" className="new1">
+              <h2>Weightlifter</h2>
+            </a>
+            <a href="#qol" className="new2">
+              <h2>Traveler</h2>
             </a>
 
-            <a href="#addictions" className="addiction-promptss3">
-              <h2>Individual</h2>
-            </a>
              </div>
           </div>
           <div class="gear-container3">
@@ -166,19 +162,22 @@ const Home = () => {
               </ul>
              <div class="ring3">
              <a href="#qol" className="qol-prompt3">
-              <h2>A Person Living</h2>
+              <h2>Person Living</h2>
             </a>
             <a href="#qol" className="qol-prompt4">
               <h2>in an Unhygienic Place</h2>
             </a>
             <a href="#activities" className="acc-prompt1">
-              <h2>A Basketball Player</h2>
+              <h2>Basketball Player</h2>
             </a>
-            <a href="#emotions" className="qol-prompt5">
-              <h2>A Sad Individual</h2>
+            <a href="#Emotions" className="qol-prompt5">
+              <h2>Sad Individual</h2>
             </a>
-            <a href="#emotions" className="cri1">
-              <h2>A Hijacker</h2>
+            <a href="#Crime" className="cri1">
+              <h2>Hijacker</h2>
+            </a>
+            <a href="#Crime" className="crinew1">
+              <h2>Gang Leader</h2>
             </a>
             
              </div>
@@ -197,20 +196,20 @@ const Home = () => {
                 <li class="tooth"></li>
               </ul>
              <div class="ring4">
-             <a href="#emotions" className="hood1">
-              <h2>A House in</h2>
+             <a href="/Neighborhood" className="hood1">
+              <h2>House in</h2>
             </a>
-            <a href="#emotions" className="hoods1">
+            <a href="/Neighborhood" className="hoods1">
               <h2>Jane & Finch</h2>
             </a>
-            <a href="#emotions" className="eng2">
-              <h2>A Biomedical Engineer</h2>
+            <a href="/Engineering" className="eng2">
+              <h2>Biomedical Engineer</h2>
             </a>
-            <a href="#emotions" className="qol-prompt6">
-              <h2>A Happy Individual</h2>
+            <a href="#Emotions" className="qol-prompt6">
+              <h2>Happy Individual</h2>
             </a>
-            <a href="#emotions" className="pro1">
-              <h2>A CEO</h2>
+            <a href="#NewProfessions" className="pro1">
+              <h2>CEO</h2>
             </a>
              </div>
           </div>
@@ -218,63 +217,73 @@ const Home = () => {
 
         
       </header>
-
-      <main>
       
-       
-        {/* Add a link to scroll to the Addictions section
-        <tr><a href="#addictions" className="explore-addictions-link">
-          <h2>Explore Addictions</h2>
-        </a></tr>
-        <tr><a href="#activities" className="explore-activities-link">
-          <h2>Explore Activities</h2>
-        </a></tr> */}
 
- {/* Add the scroll-to-top button/icon */}
- <button className="scroll-to-top-button" onClick={scrollToTop}>
-          <FaArrowUp />
-        </button>
+      <main style={{overflowX: "hidden"}}>
+      
+      <Tooltip title="Scroll to Top">
+              <button
+                onClick={scrollToTop}
+                className='scroll-to-top-button'
+              >
+                <FontAwesomeIcon icon={faArrowUp} />
+              </button>
+            </Tooltip>
+            <Tooltip title="Play Intro">
+              <button
+                onClick={playIntro}
+                className="playIntro"
+              >
+                <FontAwesomeIcon icon={faPlay} />
+              </button>
+            </Tooltip>
+
+
+       
+
         
       </main>
 
+            <div>
+              <Suspense fallback={<GearLoader />}>
+                <div id="addictions">
+                  <Addictions />
+                </div>
+              </Suspense>
+              <Suspense fallback={<GearLoader />}>
+                <div id="qol">
+                  <QOL />
+                </div>
+              </Suspense>
+              <Suspense fallback={<GearLoader />}>
+                <div id="Emotions">
+                  <Emotions />
+                </div>
+              </Suspense>
+              <Suspense fallback={<GearLoader />}>
+                <div id="Crime">
+                  <Crime />
+                </div>
+              </Suspense>
+              <Suspense fallback={<GearLoader />}>
+                <div id="activities">
+                  <NewActivities />
+                </div>
+              </Suspense>
+              <Suspense fallback={<GearLoader />}>
+                <div id="NewProfessions">
+                  <NewProfessions />
+                </div>
+              </Suspense>
+            </div>
 
-{/* Activities section */}
-<div id="activities">
-        <NewActivities />
-      </div>
       
 
 
-      {/* Activities section */}
-      <div id="activities">
-        <Activities />
-      </div>
-
-      {/* Addictions section */}
-      <div id="addictions">
-              <Addictions />
-      </div>
-            
-      {/* Quality of Life section */}
-      <div id="qol">
-        <QOL2 />
-      </div>
-      {/* Quality of Life section */}
-      <div id="Emotions">
-        <Emotions />
-      </div>
-
-      {/* Quality of Life section */}
-      <div id="ProfessionsLanding">
-        <ProfessionsLanding />
-      </div>
-
-      <div id="Crime">
-        <Crime />
-      </div>
       </>
       )}
     </div>
+  
 
   );
 };

@@ -1,9 +1,126 @@
-.popup {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 14px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
+@import "~leaflet/dist/leaflet.css";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.leaflet-container {
+  height: 80vh;
+  width: 100%;
+}
+
+.info-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.info-card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.info-card {
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-item {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+  /* Assuming these are interactive */
+}
+
+/* Popup content inside the Leaflet popups */
+.popup-content {
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+}
+
+.popup-content h2 {
+  color: #000;
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+
+
+.info-card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+    /* Higher to overlay on top of the page content */}
+.info-btn {
+  position: absolute;
+  bottom: 20px;
+  /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  /* Center the button horizontally */
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+    /* Lower than the overlay */  /* Lower than the info card overlay to keep it under the overlay */
+}

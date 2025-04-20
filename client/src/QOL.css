@@ -1,0 +1,165 @@
+/* QOL Component Specific Styles */
+.qol-main-container {
+    background-color: #0B0533;
+    position: relative;
+    height: 110vh;
+  }
+  
+  .qol-title {
+    color: #DD9313;
+    font-family: 'Crimson Text';
+    font-weight: bolder;
+    font-size: 7vw;
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .qol-image-container-wrapper {
+    background-color: #D9D9D9;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    margin-top: -10px;
+    width: 60vw;
+  }
+  
+  .qol-flex-container {
+    display: flex;
+  }
+  
+  .qol-flex-item {
+    width: 30vw;
+    height: 5vw;
+    background-color: #B3BBC8;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  
+  .qol-image-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 28vw;
+    height: 30vw;
+    background-color: #BFBFBF;
+    margin: auto;
+    border-radius: 20px;
+  }
+  
+  .qol-image {
+    width: calc(50% - 10px);
+    height: calc(50% - 10px);
+    margin: 5px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+ .qol-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #0B0533;
+   /* Set the background color */
+   z-index: 10000;
+   /* Ensure it's above other content */
+ }
+  
+  .qol-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998;
+    background-color: rgba(11, 5, 51, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .qol-popup-container {
+    position: relative;
+    background-color: #D9D9D9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    width: 90vw;
+    max-width: 600px;
+    min-height: 20vh; /* minimum height for smaller content */
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes space between items */
+  }
+  
+  .qol-popup-title {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 20px;
+    word-wrap: break-word; /* Allows text to wrap */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis; /* Ellipsis for overflowed text */
+    max-height: 10vh; /* Limit height */
+  }
+  
+  .qol-popup-description {
+    text-align: center; /* Justify text for better spacing */
+    margin: 10px 0;
+    height: auto;
+    word-wrap: break-word; /* Allows text to wrap */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis; /* Ellipsis for overflowed text */
+    max-height: 20%; /* Limit height to a percentage of the container */
+    font-size: 01rem;
+  }
+  
+  .qol-statistics-link {
+    text-decoration: none;
+    color: #7c7b7f;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis; /* Ellipsis for overflowed text */
+    max-width: 100%; /* Limit width */
+  }
+  
+  .qol-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 3px 8px;
+    background: #a8a8a8;
+    border: none;
+    color: white;
+    z-index: 1001;
+  }
+  
+  .qol-popup-image {
+    max-width: 100%; /* Ensures image is no wider than the container */
+    max-height: 50vh; /* Allocates half the viewport height to the image */
+    width: auto; /* Maintains aspect ratio */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: contain; /* Ensures image is scaled properly within the space */
+    margin: auto; /* Centers image */
+    display: block; /* Prevents inline default alignment issues */
+    border-radius: 10px;
+  }
+  

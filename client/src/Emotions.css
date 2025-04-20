@@ -1,164 +1,287 @@
 /* Emotions.css */
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #0B0533; /* Background color for the entire page */
+.emotions-body {
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	/* Background color for the entire page */
 }
-
 .emotions-page {
-  padding: 20px; /* Padding around the main content to avoid edge-to-edge elements */
-  box-sizing: border-box; /* Includes padding in the element's total width and height */
+	position: relative;
+	padding: 20px;
+	/* Padding around the main content to avoid edge-to-edge elements */
+	box-sizing: border-box;
+	/* Includes padding in the element's total width and height */
+	background-color: white;
+    height: 100%; 
 }
-
 /* Style for the emotion grid */
 .image-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Create 5 columns */
-  gap: 20px; /* Space between the items */
-  justify-items: center; /* Center items in the grid cells */
-  padding: 20px; /* Padding inside the grid */
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	/* Create 5 columns */
+	gap: 30px 80px;
+	/* Space between the items */
+	justify-items: center;
+	/* Center items in the grid cells */
+	padding: 20px;
+	/* Padding inside the grid */
 }
-
-.rectangle2 {
-  background-color: #2B1451;
-  margin: 20px auto; /* Center the container */
-  padding: 20px; /* Padding inside the container */
-  max-width: 1000px; /* Maximum width to constrain the grid */
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center the content */
-  align-items: center; /* Align items vertically */
-  flex-wrap: wrap; /* Allow items to wrap */
+.emotion-rectangle2 {
+	background-color: #2B1451;
+	margin: 20px auto;
+	padding: 20px;
+	max-width: 1000px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	border-radius: 10px;
+	z-index: 2;
+	position: relative;
+	/* Essential for absolute positioning of children */
 }
-
+.emotion-top-rectangle {
+	background-color: #2B1451;
+	margin: 20px auto;
+	padding: 20px;
+	max-width: 1000px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.193);
+	z-index: 1;
+	/* Make sure it's above the background rectangle */
+	position: relative;
+	/* Ensure relative positioning to maintain the page structure */
+}
+.emotion-title {
+	color: #E8C450;
+	/* Choose a color that fits the design */
+	text-align: center;
+	/* Center the text horizontally */
+	font-size: 3.5em;
+	/* Set the size of the font */
+	font-weight: bolder;
+	/* Optional: makes the font bold */
+	margin: 0;
+	/* Removes any default margin */
+	font-family: 'Crimson Text';
+	width: 100%;
+	/* Ensures the title stretches across the width of the rectangle */
+}
 /* Button style for each emotion */
 .emotion-button {
-  background-color: transparent;
-  border: none;
-  padding: 10px; /* Padding around each emotion button for spacing */
-  cursor: pointer; /* Changes the cursor to pointer on hover over the button */
+	background-color: transparent;
+	border: none;
+	padding: 10px;
+	/* Padding around each emotion button for spacing */
+	cursor: pointer;
+	/* Changes the cursor to pointer on hover over the button */
 }
-
 /* Style for each emotion image */
 .emotion-image {
-  width: 100px; /* Fixed width for emotion images */
-  height: 100px; /* Fixed height for emotion images */
-  object-fit: contain; /* Ensures images are scaled correctly without distortion */
+	width: 100px;
+	/* Fixed width for emotion images */
+	height: 100px;
+	/* Fixed height for emotion images */
+	object-fit: contain;
+	/* Ensures images are scaled correctly without distortion */
 }
-
 /* Overlay that appears when popup is active */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
-  z-index: 1000; /* Ensures the overlay is above other content but below the popup */
+.emotions-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #0B0533;
+	/* Semi-transparent overlay */
+	z-index: 1000;
+	/* Ensures the overlay is above other content but below the popup */
 }
-
 /* Style for the popup card */
 .popup-card-emotions {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centers the popup card */
-  background-color: #2B1451;
-  border-radius: 10px;
-  padding: 20px;
-  box-sizing: border-box; /* Includes padding in the element's total width and height */
-  z-index: 1001; /* Ensures the popup is above the overlay */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/* Centers the popup card */
+	background-color: #2B1451;
+	border-radius: 10px;
+	padding: 40px;
+	box-sizing: border-box;
+	/* Includes padding in the element's total width and height */
+	z-index: 1001;
+	/* Ensures the popup is above the overlay */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 40px;
 }
-
 /* Style for the close button in the popup */
 .close-button-emotions {
-  align-self: flex-end; /* Positions the close button to the right */
-  padding: 5px 10px;
-  background-color: #1e0940;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 20px; /* Space below the close button */
+	position: absolute;
+	top: 5px;
+	/* adjusted to slightly higher based on previous instructions */
+	right: 5px;
+	/* adjusted to slightly to the left based on previous instructions */
+	padding: 3px 8px;
+	/* smaller padding for a slightly smaller button */
+	background-color: #1e0940;
+	/* deep purple background as specified */
+	color: white;
+	/* making text color fully opaque for better readability */
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	z-index: 1000;
+	/* ensuring it is on top of other elements */
+	pointer-events: auto;
+	/* ensuring all parts of the button are clickable */
 }
-
 /* Layout for the images within the popup */
 .image-layout-emotions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-top: 1px;
 }
-
 /* Style for the side images in the popup */
 .side-images-emotions {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 0 20px; /* Spacing around side images */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin: 0 10px;
+	/* Spacing around side images */
+	width: 200px;
+	/* Fixed width for side images */
+	height: 350px;
+	/* Fixed height for side images, adjust as needed */
+	margin-top: -80px;
 }
-
 /* Style for each side image */
 .side-image-emotions {
-  width: 80px; /* Adjusts side image width */
-  margin-bottom: 10px; /* Spacing between stacked side images */
-  object-fit: contain; /* Ensures images fit without distortion */
+	width: 100%;
+	/* Make side images fill their container */
+	height: auto;
+	/* Maintain aspect ratio */
+	margin-bottom: 50px;
+	/* Adjust margin as needed */
+	border-radius: 10px;
+	object-fit: cover;
+	/* Cover ensures the image covers the area without distortion */
 }
-
 /* Style for the main image container in the popup */
 .main-image-container-emotions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 00px;
 }
-
 /* Style for the main image in the popup */
 .retrieved-image-centered-emotions {
-  max-width: 300px; /* Restricts the main image size for balance */
-  margin-bottom: 20px; /* Space below the main image */
+	max-width: 250px;
+	/* Restricts the main image size for balance */
+	margin-bottom: 70px;
+	/* Space below the main image */
+	border-radius: 10px;
+	margin-top: 10px;
+	width: 600px;
+	/* Fixed width for side images */
 }
-
 /* Style for the prompt text in the popup */
 .prompt-text-emotions {
-  color: #fff;
-  text-align: center;
-  font-size: 1.5rem; /* Larger font size for readability */
-  margin-bottom: 20px; /* Space above the main image */
+	position: absolute;
+	/*bottom: 100%;
+	This will move it to the top edge of the .main-image-container-emotions */
+	width: 100%;
+	/* This will make sure it spans the full width */
+	text-align: center;
+	font-size: 1.7rem;
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-weight: bolder;
+	color: white;
+	text-wrap: nowrap;
+	transform: translateY(-100%);
+	/* This will shift it upwards by its own height */
+	/*background-color: rgba(0, 0, 0, 0.5);
+	/* Optional: Adds a semi-transparent background */
+	padding: 0.2px;
+	/* Optional: Adds some padding */
+	bottom: 9%;
+	box-sizing: border-box;
+	/* Ensures padding is included in width and height */
 }
-
+.description-text-emotions {
+	color: #fff;
+	text-align: center;
+	font-size: 0.7rem;
+	/* Larger font size for readability */
+	margin-bottom: 0px;
+	/* Decrease or remove the bottom margin to move the text up */
+	padding-bottom: 20px;
+}
 /* Media queries for responsive adjustments */
 @media screen and (max-width: 1024px) {
-  .image-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns for mid-sized screens */
-  }
+	.image-grid {
+		grid-template-columns: repeat(4, 1fr);
+		/* 4 columns for mid-sized screens */
+	}
 }
-
 @media screen and (max-width: 768px) {
-  .image-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for small-sized screens */
-  }
-
-  .side-images-emotions.left, .side-images-emotions.right {
-    display: none; /* Hide side images on smaller screens */
-  }
-
-  .retrieved-image-centered-emotions {
-    max-width: 80%; /* Allows the main image to take more space on smaller screens */
-  }
-
-  .popup-card-emotions {
-    width: 90%;
-    max-width: 90%; /* Make the popup card fill the screen more on small devices */
-  }
+	.image-grid {
+		grid-template-columns: repeat(3, 1fr);
+		/* 3 columns for small-sized screens */
+	}
+	.side-images-emotions.left,.side-images-emotions.right {
+		display: none;
+		/* Hide side images on smaller screens */
+	}
+	.retrieved-image-centered-emotions {
+		max-width: 80%;
+		/* Allows the main image to take more space on smaller screens */
+	}
+	.popup-card-emotions {
+		width: 90%;
+		max-width: 90%;
+		/* Make the popup card fill the screen more on small devices */
+	}
 }
-
 @media screen and (max-width: 480px) {
-  .image-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for extra small-sized screens */
-  }
+	.image-grid {
+		grid-template-columns: repeat(2, 1fr);
+		/* 2 columns for extra small-sized screens */
+		gap: 20px 10px;
+		/* Space between the items */
+	}
+	.emotion-top-rectangle,.emotion-rectangle2 {
+		max-width: 80%;
+		/* Suitable for very small devices */
+	}
+}
+.statistics-link-emotions {
+	text-decoration: none;
+	color: #a3a0a9;
+	/* Choose a color that fits your design */
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-align: center;
+	display: grid;
+	/* Makes it a block element to fill the width */
+	margin-top: 0px;
+	/* Space from the content above */
+	font-size: 0.8rem;
+	transition: background-color 0.3s;
+	/* Smooth background color change on hover */
+}
+.statistics-link-emotions:hover {
+	/*background-color: transparent;
+	Color when hovered */
+	color: #aaa6b1;
+	/* Text color when hovered */
 }

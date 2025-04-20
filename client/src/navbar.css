@@ -1,0 +1,84 @@
+/* Navbar.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    transition: padding 0.3s, top 0.3s;
+}
+
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar.hamburger .navbar-toggler {
+    display: inline-block;
+    /* Show toggler in hamburger mode */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-item {
+    cursor: pointer;
+}
+
+.navbar-toggler {
+    display: none;
+    /* Hidden by default, shown in hamburger mode */
+    cursor: pointer;
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse.collapse {
+        display: none;
+    }
+
+    .navbar-toggler {
+        display: inline-block;
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #333;
+        align-items: start;
+        padding-top: 3.5rem;
+    }
+
+    .navbar-nav {
+        display: block;
+        text-align: center;
+    }
+
+    .nav-item {
+        margin-bottom: 1rem;
+    }
+}
