@@ -1,33 +1,114 @@
-import React from "react";
-import { Worker, Viewer } from "@react-pdf-viewer/core";
-import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
-import "@react-pdf-viewer/core/lib/styles/index.css";
-import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+import React, { useState } from "react";
 import NavigationBar from "./NavigationBar";
+import { Document, Page, pdfjs } from "react-pdf";
+import {
+  Box,
+  Container,
+  Paper,
+  IconButton,
+  Slider,
+  Typography,
+} from "@mui/material";
+import { ArrowBack, ArrowForward, ZoomIn, ZoomOut } from "@mui/icons-material";
 
-const PdfViewer = ({ fileUrl }) => {
-  // Default layout plugin adds toolbar, sidebar, and more controls
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
-
-  return (
-    <div className="w-full h-full bg-white shadow-lg rounded-2xl overflow-hidden">
-      <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
-        <Viewer fileUrl={fileUrl} plugins={[defaultLayoutPluginInstance]} />
-      </Worker>
-    </div>
-  );
-};
+// Set up PDF.js worker
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const ComingSoon = () => {
+  // State variables using underscore naming
+  const [num_pages, set_num_pages] = useState(null);
+  const [page_number, set_page_number] = useState(1);
+  const [zoom_scale, set_zoom_scale] = useState(1.0);
+  const file_url = "/Report.pdf";
+
+  // Handlers in camelCase
+  function onDocumentLoadSuccess({ numPages }) {
+    set_num_pages(numPages);
+  }
+
+  function handlePrev() {
+    if (page_number > 1) {
+      set_page_number(page_number - 1);
+    }
+  }
+
+  function handleNext() {
+    if (page_number < num_pages) {
+      set_page_number(page_number + 1);
+    }
+  }
+
+  function handleZoomIn() {
+    set_zoom_scale((prev) => prev + 0.2);
+  }
+
+  function handleZoomOut() {
+    set_zoom_scale((prev) => (prev > 0.5 ? prev - 0.2 : prev));
+  }
+
+  function handleSliderChange(event, value) {
+    set_zoom_scale(value);
+  }
+
   return (
-    <div className="flex flex-col w-full min-h-screen bg-gray-100 pt-20">
+    <Box sx={{ backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
+      {/* Top navigation bar */}
       <NavigationBar />
-      <div className="flex-1 flex flex-col items-center justify-start px-4 sm:px-8 lg:px-16 py-8">
-        <div className="w-full max-w-4xl h-[80vh]">
-          <PdfViewer fileUrl="/Report.pdf" />
-        </div>
-      </div>
-    </div>
+
+      {/* Main content area */}
+      <Container maxWidth="lg" sx={{ pt: "100px", pb: 4 }}>
+        <Paper elevation={4} sx={{ p: 2, borderRadius: 2 }}>
+          {/* Controls toolbar */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 1,
+            }}
+          >
+            <Box>
+              <IconButton onClick={handlePrev} disabled={page_number <= 1}>
+                <ArrowBack />
+              </IconButton>
+              <IconButton
+                onClick={handleNext}
+                disabled={page_number >= (num_pages || 1)}
+              >
+                <ArrowForward />
+              </IconButton>
+              <Typography component="span" sx={{ ml: 1, fontSize: "1rem" }}>
+                {page_number} / {num_pages || "--"}
+              </Typography>
+            </Box>
+
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <IconButton onClick={handleZoomOut}>
+                <ZoomOut />
+              </IconButton>
+              <Slider
+                value={zoom_scale}
+                min={0.5}
+                max={3}
+                step={0.1}
+                onChange={handleSliderChange}
+                sx={{ width: 120, mx: 2 }}
+              />
+              <IconButton onClick={handleZoomIn}>
+                <ZoomIn />
+              </IconButton>
+            </Box>
+          </Box>
+
+          {/* PDF Display */}
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Document file={file_url} onLoadSuccess={onDocumentLoadSuccess}>
+              <Page pageNumber={page_number} scale={zoom_scale} />
+            </Document>
+          </Box>
+        </Paper>
+      </Container>
+    </Box>
   );
 };
 
