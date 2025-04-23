@@ -2,7 +2,7 @@
 # Dark Side of the Net: Exploring Social Biases in AI Image Generators
 
 ## Description
-This project investigates and highlights social biases in AI image generation systems. By analyzing over 1300 images generated from popular platforms like Stable Diffusion and NightCafe, this project identifies, categorizes, and quantifies biases such as race, gender, and age disparities. An interactive web tool was developed to showcase these findings and promote awareness.
+This project investigates and highlights social biases in AI image generation systems. By analyzing over 1300 images generated from popular platforms like Stable Diffusion and NightCafe, this project identifies, categorizes, and quantifies biases such as race, gender, and age disparities. An interactive web tool was developed to showcase these findings and promote awareness. This is a final year engineering capstone project.
 
 ## Link
 🔗 www.biasaware.social
