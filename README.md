@@ -48,50 +48,47 @@ This project investigates and highlights social biases in AI image generation sy
 6. **Evaluation**
    - Visualized results on the web app, revealing prominent stereotypes and disparities.
 
-## Future Work
-- Expand the dataset to include more diverse scenarios and regions.
-- Collaborate with policymakers to integrate findings into ethical AI guidelines.
-- Enhance the scalability and interactivity of the web application.
-
 ---
 
 ## Project Structure
 ```
 - /frontend
-  - React.js code for the web app UI
+  - React.js
 - /backend
-  - Express.js API for data retrieval and processing
+  - Express.js
 - /database
-  - MongoDB with GridFS for image and metadata storage
+  - MongoDB
+- /deployment
+  - Render
 ```
 
 ## Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/mpat247/biasaware.git
    ```
 2. Navigate to the project directory:
    ```
-   cd your-repo-name
+   cd biasaware
    ```
 3. Install dependencies for the backend:
    ```
-   cd backend
+   cd server
    npm install
    ```
 4. Install dependencies for the frontend:
    ```
-   cd ../frontend
+   cd ../client
    npm install
    ```
 5. Start the development server:
    - Backend:
      ```
-     cd ../backend
+     cd ../server
      npm start
      ```
    - Frontend:
      ```
-     cd ../frontend
+     cd ../client
      npm start
      ```
